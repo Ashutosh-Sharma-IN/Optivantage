@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FaCheckCircle, FaArrowRight, FaChevronLeft, FaShieldAlt, FaBrain, FaServer, FaUsers, FaChartLine, FaStar, FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
+import { FaCheckCircle, FaArrowRight, FaShieldAlt, FaBrain, FaServer, FaUsers, FaChartLine, FaStar, FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
 
 export default function Home() {
   const [activeService, setActiveService] = useState<string | null>(null);
@@ -242,4 +242,366 @@ export default function Home() {
               <a href="#contact" className="text-gray-700 hover:text-[#FF6B35] transition-colors">Contact</a>
             </nav>
             <button className="bg-[#FF6B35] text-white px-4 py-2 rounded-lg hover:bg-[#e55a2b] transition-colors">
-              G
+              Get Started
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="pt-24 pb-16 bg-gradient-to-br from-[#1e3a5f] to-[#1a365d] text-white">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                Transform Your Business with 
+                <span className="text-[#FF6B35]"> Expert IT Services & AI Solutions</span>
+              </h1>
+              <p className="text-xl mb-8 text-gray-300">
+                25+ years of experience in IT service management, infrastructure, and AI innovation. 
+                Partner with industry experts who deliver results.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <button className="bg-[#FF6B35] text-white px-8 py-3 rounded-lg hover:bg-[#e55a2b] transition-colors">
+                  Explore Services
+                </button>
+                <button className="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-[#1e3a5f] transition-colors">
+                  Contact Us
+                </button>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                <div className="text-3xl font-bold text-[#FF6B35] mb-2">25+</div>
+                <div className="text-sm">Years Experience</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                <div className="text-3xl font-bold text-[#FF6B35] mb-2">500+</div>
+                <div className="text-sm">Clients Served</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                <div className="text-3xl font-bold text-[#FF6B35] mb-2">50+</div>
+                <div className="text-sm">Industry Experts</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                <div className="text-3xl font-bold text-[#FF6B35] mb-2">98%</div>
+                <div className="text-sm">Client Satisfaction</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Bar */}
+      <section className="py-12 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-[#1e3a5f]">Trusted by Leading Organizations</h2>
+          </div>
+          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+            <div className="text-2xl font-bold text-[#1e3a5f]">Hexaware</div>
+            <div className="text-2xl font-bold text-[#1e3a5f]">Infogain</div>
+            <div className="text-2xl font-bold text-[#1e3a5f]">Kotak Mahindra</div>
+            <div className="text-2xl font-bold text-[#1e3a5f]">MSME India</div>
+            <div className="text-2xl font-bold text-[#1e3a5f]">upGrad</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-4">Our Services</h2>
+            <p className="text-xl text-gray-600">Comprehensive IT solutions tailored to your business needs</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service) => (
+              <div 
+                key={service.id}
+                className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer"
+                onClick={() => setActiveService(service.id)}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="text-[#FF6B35]">{service.icon}</div>
+                  <h3 className="text-xl font-bold text-[#1e3a5f]">{service.title}</h3>
+                </div>
+                <p className="text-gray-600 mb-4">{service.description}</p>
+                <div className="flex items-center text-[#FF6B35] hover:text-[#e55a2b]">
+                  <span className="font-medium">Learn more</span>
+                  <FaArrowRight className="ml-2" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-[#1e3a5f] mb-6">Why Choose Optivantage?</h2>
+              <p className="text-gray-600 mb-6">
+                With 20+ years experience in working with leading global telecom companies, we bring unparalleled expertise 
+                in IT service management, infrastructure optimization, and AI-driven transformation.
+              </p>
+              
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <FaCheckCircle className="text-[#FF6B35] mt-1" />
+                  <div>
+                    <h4 className="font-semibold text-[#1e3a5f]">Deep Industry Expertise</h4>
+                    <p className="text-gray-600">25+ years in IT service management and infrastructure</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <FaCheckCircle className="text-[#FF6B35] mt-1" />
+                  <div>
+                    <h4 className="font-semibold text-[#1e3a5f]">AI Innovation Leaders</h4>
+                    <p className="text-gray-600">Cutting-edge AI training and implementation solutions</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <FaCheckCircle className="text-[#FF6B35] mt-1" />
+                  <div>
+                    <h4 className="font-semibold text-[#1e3a5f]">Proven Results</h4>
+                    <p className="text-gray-600">98% client satisfaction with measurable business impact</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <div className="bg-white p-8 rounded-lg shadow-lg">
+                <h3 className="text-xl font-bold text-[#1e3a5f] mb-6">Our Customer Partners</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center p-4 border rounded-lg">
+                    <div className="text-lg font-semibold text-[#1e3a5f]">Hexaware</div>
+                  </div>
+                  <div className="text-center p-4 border rounded-lg">
+                    <div className="text-lg font-semibold text-[#1e3a5f]">Infogain</div>
+                  </div>
+                  <div className="text-center p-4 border rounded-lg">
+                    <div className="text-lg font-semibold text-[#1e3a5f]">Kotak Mahindra</div>
+                  </div>
+                  <div className="text-center p-4 border rounded-lg">
+                    <div className="text-lg font-semibold text-[#1e3a5f]">MSME India</div>
+                  </div>
+                  <div className="text-center p-4 border rounded-lg col-span-2">
+                    <div className="text-lg font-semibold text-[#1e3a5f]">upGrad</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Case Studies Section */}
+      <section id="case-studies" className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-4">Success Stories</h2>
+            <p className="text-xl text-gray-600">Real results for real businesses</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {caseStudies.map((study, index) => (
+              <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                <div className="flex items-center gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <FaStar key={i} className="text-yellow-400" />
+                  ))}
+                </div>
+                <h3 className="text-xl font-bold text-[#1e3a5f] mb-3">{study.title}</h3>
+                <p className="text-gray-600 mb-4">{study.description}</p>
+                <p className="text-[#FF6B35] font-medium mb-4">{study.result}</p>
+                <div className="flex flex-wrap gap-2">
+                  {study.metrics.map((metric, i) => (
+                    <span key={i} className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
+                      {metric}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industries Section */}
+      <section id="industries" className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-4">Industries We Serve</h2>
+            <p className="text-xl text-gray-600">Specialized expertise across key sectors</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {industries.map((industry, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
+                <h3 className="text-lg font-bold text-[#1e3a5f] mb-2">{industry}</h3>
+                <p className="text-gray-600">Specialized solutions and deep industry knowledge</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-4">What Our Clients Say</h2>
+            <p className="text-xl text-gray-600">Trusted by industry leaders</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg border border-gray-200">
+                <FaQuoteLeft className="text-[#FF6B35] mb-4" />
+                <p className="text-gray-600 mb-4 italic">"{testimonial.content}"</p>
+                <div className="flex items-center">
+                  <div className="w-10 h-10 bg-[#1e3a5f] rounded-full flex items-center justify-center text-white font-bold mr-3">
+                    {testimonial.name.charAt(0)}
+                  </div>
+                  <div>
+                    <div className="font-semibold text-[#1e3a5f]">{testimonial.name}</div>
+                    <div className="text-sm text-gray-600">{testimonial.role}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-[#1e3a5f] text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Business?</h2>
+          <p className="text-xl mb-8 text-gray-300">
+            Let's discuss how our expertise can drive your success
+          </p>
+          <button className="bg-[#FF6B35] text-white px-8 py-3 rounded-lg hover:bg-[#e55a2b] transition-colors">
+            Get Started Today
+          </button>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-4">Contact Us</h2>
+            <p className="text-xl text-gray-600">Get in touch with our experts</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold text-[#1e3a5f] mb-2">Address</h3>
+                <p className="text-gray-600">Sector 9, Dwarka, New Delhi 110077</p>
+              </div>
+              
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold text-[#1e3a5f] mb-2">Email</h3>
+                <p className="text-gray-600">info@optivantage.in</p>
+              </div>
+              
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold text-[#1e3a5f] mb-2">Phone</h3>
+                <p className="text-gray-600">+91 98765 43210</p>
+              </div>
+            </div>
+            
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <form>
+                <div className="mb-4">
+                  <label className="block text-gray-700 mb-2">Name</label>
+                  <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#FF6B35]" />
+                </div>
+                <div className="mb-4">
+                  <label className="block text-gray-700 mb-2">Email</label>
+                  <input type="email" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#FF6B35]" />
+                </div>
+                <div className="mb-4">
+                  <label className="block text-gray-700 mb-2">Message</label>
+                  <textarea rows={4} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#FF6B35]"></textarea>
+                </div>
+                <button type="submit" className="bg-[#FF6B35] text-white px-6 py-2 rounded-lg hover:bg-[#e55a2b] transition-colors">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#1a365d] text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-8 h-8 bg-[#FF6B35] rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold">O</span>
+                </div>
+                <span className="text-xl font-bold">Optivantage</span>
+              </div>
+              <p className="text-gray-300">
+                Expert IT services and AI solutions for business transformation.
+              </p>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4">Services</h4>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-gray-300 hover:text-white">Cybersecurity</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white">AI Advisory</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white">IT Infrastructure</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white">Managed Services</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4">Company</h4>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-gray-300 hover:text-white">About Us</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white">Case Studies</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white">Careers</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white">Contact</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4">Contact Info</h4>
+              <ul className="space-y-2 text-gray-300">
+                <li>Sector 9, Dwarka, New Delhi 110077</li>
+                <li>info@optivantage.in</li>
+                <li>+91 98765 43210</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+            <p>&copy; 2024 Optivantage. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+
+      {/* Service Detail Modal */}
+      {activeServiceObject && (
+        <ServiceDetailModal 
+          service={activeServiceObject} 
+          onClose={() => setActiveService(null)} 
+        />
+      )}
+    </div>
+  );
+}
