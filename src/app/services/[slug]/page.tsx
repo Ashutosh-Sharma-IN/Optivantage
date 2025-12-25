@@ -1,7 +1,6 @@
 "use client";
-import link from 'next/navigation';
-import { useParams } from 'next/navigation';
-import Navbar from '@/components/Navbar';
+import { useParams, Link } from "next/navigation";
+import Navbar from "@/components/Navbar";
 import { 
   ArrowLeft, 
   CheckCircle2, 
@@ -18,9 +17,10 @@ import {
   GraduationCap,
   Award,
   TrendingUp
-} from 'lucide-react';
+} from "lucide-react";
 
-// --- VERIFIED DATA OBJECT ---
+// --- COMPREHENSIVE SERVICE DATA ---
+
 const servicesData: any = {
   ai: {
     title: "AI Advisory & Training",
@@ -262,6 +262,70 @@ const servicesData: any = {
 
 // --- HELPER COMPONENTS ---
 
+const BentoGrid = ({ items }: any) => (
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {items.map((item: any, i: number) => (
+      <div key={i} className="bg-navy-900 p-8 rounded-xl border border-white/5 hover:border-brand/50 transition-all">
+        <div className="mb-4 p-4 bg-navy-800 rounded-lg inline-block w-fit">
+          {item.icon}
+        </div>
+        <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
+        {item.desc && <p className="text-text-muted mb-6">{item.desc}</p>}
+        {item.details && (
+          <ul className="space-y-2 text-text-muted mb-6">
+            {item.details.map((d: string, di: number) => (
+              <li key={di} className="flex gap-2 text-sm"><span className="text-brand font-bold">•</span> {d}</li>
+            ))}
+          </ul>
+        )}
+        {item.highlight && (
+          <div className="mt-6 p-4 bg-brand/10 rounded-lg border border-brand/20">
+            <h4 className="text-white font-bold mb-1">Case Study Result</h4>
+            <p className="text-sm text-text-muted">{item.highlight}</p>
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+);
+
+const ValueCard = ({ title, subtitle, content, type }: any) => (
+  <div className={`bg-navy-900 p-8 rounded-xl border-l-4 ${type === 'alert' ? 'border-red-500' : type === 'success' ? 'border-green-500' : 'border-brand'}`}>
+    <h2 className="text-2xl font-bold text-white flex items-center gap-2 mb-4">
+       {type === 'alert' && <AlertTriangle className="text-red-500" />}
+       {type === 'success' && <CheckCircle2 className="text-green-500" />}
+       {title}
+    </h2>
+    {subtitle && <p className="text-text-muted mb-6">{subtitle}</p>}
+    {content}
+  </div>
+);
+
+const PillarsGrid = ({ items }: any) => (
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+    {items.map((item: string, i: number) => (
+      <div key={i} className="bg-navy-900 p-6 rounded-xl border border-white/5">
+        <h4 className="text-white font-semibold mb-2">{item}</h4>
+        <p className="text-sm text-text-muted">Cost-effective shared support model with guaranteed SLAs.</p>
+      </div>
+    ))}
+  </div>
+);
+
+const ProcessSteps = ({ items }: any) => (
+  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    {items.map((item: any, i: number) => (
+       <div key={i} className="bg-navy-900 p-6 rounded-xl border border-white/5">
+         <div className="text-brand font-bold text-4xl mb-4">{item.num}</div>
+         <h4 className="text-white font-semibold mb-3">{item.title}</h4>
+         <ul className="space-y-2 text-text-muted text-sm">
+            {item.desc.split(', ').map((d:string) => <li key={d}>{d}</li>)}
+         </ul>
+       </div>
+    ))}
+  </div>
+);
+
 const EngagementsGrid = ({ items }: any) => (
   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
     {items.map((item: any, i: number) => (
@@ -319,7 +383,6 @@ const ProgramGrid = ({ programs }: any) => (
   </div>
 );
 
-// ... (Keep existing helper components: BentoGrid, ValueCard, etc. If you are missing them, let me know) ...
 
 // --- MAIN COMPONENT ---
 
