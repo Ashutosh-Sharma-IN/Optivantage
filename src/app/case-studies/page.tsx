@@ -1,7 +1,8 @@
 "use client";
 import Navbar from '@/components/Navbar';
 import { TrendingUp, Users, Cpu, Shield, CheckCircle2, AlertTriangle } from 'lucide-react';
-const studies = [
+export default function CaseStudies (){
+  const studies = [
   {
     tag: "Logistics & Warehousing",
     title: "WiFi Optimization for 15 Logistics Warehouses",
