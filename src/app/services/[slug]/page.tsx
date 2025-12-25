@@ -19,8 +19,7 @@ import {
   TrendingUp
 } from 'lucide-react';
 
-// --- COMPREHENSIVE SERVICE DATA ---
-
+// --- VERIFIED DATA OBJECT ---
 const servicesData: any = {
   ai: {
     title: "AI Advisory & Training",
@@ -106,7 +105,6 @@ const servicesData: any = {
       }
     ]
   },
-  // ... Keeping the existing data for other services (Infrastructure, Managed, etc.)
   infrastructure: {
     title: "IT Infrastructure",
     icon: <Server className="text-brand h-10 w-10" />,
@@ -309,7 +307,7 @@ const ProgramGrid = ({ programs }: any) => (
         <p className="text-text-muted mb-6">{prog.desc}</p>
         <ul className="space-y-2 text-text-muted flex-grow">
             {prog.list && prog.list.map((d: string, di: number) => (
-              <li key={di} className="flex gap-2 text-sm"><span className="text-brand">•</span> {d}</li>
+              <li key={di} className="flex gap-2 text-sm"><span className="text-brand font-bold">•</span> {d}</li>
             ))}
         </ul>
         <div className="mt-auto pt-4 border-t border-white/10">
@@ -320,9 +318,7 @@ const ProgramGrid = ({ programs }: any) => (
   </div>
 );
 
-// ... (Existing helpers: BentoGrid, ValueCard, etc. from previous step can be kept or you can paste them if missing)
-// For brevity in this response, I assume you kept them. 
-// If not, let me know and I will provide them again.
+// ... (Keep existing helper components: BentoGrid, ValueCard, etc. If you are missing them, let me know) ...
 
 // --- MAIN COMPONENT ---
 
@@ -378,29 +374,7 @@ export default function ServiceDetail() {
                 </div>
 
                 {/* RENDERERS */}
-                {section.type === 'bento-grid' && <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">{section.items.map((item:any) => (
-                   <div key={item.title} className="bg-navy-900 p-8 rounded-xl border border-white/5 hover:border-brand/50 transition-all">
-                      <div className="mb-4 p-4 bg-navy-800 rounded-lg inline-block w-fit">
-                         {item.icon && <item.icon className="text-brand"/>}
-                      </div>
-                      <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
-                      <p className="text-text-muted mb-6">{item.desc}</p>
-                      {item.details && (
-                        <ul className="space-y-2 text-text-muted mb-6">
-                             {item.details.map((d: string, di: number) => (
-                                <li key={di} className="flex gap-2 text-sm"><span className="text-brand">•</span> {d}</li>
-                             ))}
-                        </ul>
-                      )}
-                      {item.highlight && (
-                         <div className="mt-6 p-4 bg-brand/10 rounded-lg border border-brand/20">
-                            <h4 className="text-white font-bold mb-1">Case Study Result</h4>
-                            <p className="text-sm text-text-muted">{item.highlight}</p>
-                         </div>
-                      )}
-                   </div>
-                ))}</div>}
-                
+                {section.type === 'bento-grid' && <BentoGrid items={section.items} />}
                 {section.type === 'engagements-grid' && <EngagementsGrid items={section.items} />}
                 {section.type === 'platform-split' && <PlatformSplit platforms={section.platforms} />}
                 {section.type === 'program-grid' && <ProgramGrid programs={section.programs} />}
@@ -474,7 +448,7 @@ export default function ServiceDetail() {
         </div>
       </section>
       
-           {/* LOGOS SECTION */}
+      {/* LOGOS SECTION */}
       <section className="py-16 px-4 bg-navy-900 border-t border-white/5">
         <div className="max-w-7xl mx-auto text-center">
           <h3 className="text-lg font-bold text-text-muted uppercase tracking-widest mb-8">
