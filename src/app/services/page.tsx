@@ -1,125 +1,110 @@
 import Navbar from '@/components/Navbar';
-import { Shield, Network, Wrench, CheckCircle2, AlertTriangle, TrendingUp } from 'lucide-react';
+import Link from 'next/link';
+import { 
+  BrainCircuit, 
+  Server, 
+  ShieldCheck, 
+  BarChart3, 
+  Wrench, 
+  ArrowRight,
+  CheckCircle2
+} from 'lucide-react';
 
 export default function Services() {
+  const services = [
+    {
+      title: "AI Advisory & Training",
+      desc: "Leading enterprise AI transformation with hands-on training programs for Fortune 500 companies.",
+      icon: <BrainCircuit className="text-brand h-8 w-8" />,
+      link: "/services/ai", // Create this detailed page later if needed
+      details: ["AI+ Certification Programs", "Microsoft Copilot & Azure", "Google Gemini Ecosystem"]
+    },
+    {
+      title: "IT Infrastructure",
+      desc: "25 years of proven expertise in network optimization, equipment management, and SITC deployment.",
+      icon: <Server className="text-brand h-8 w-8" />,
+      link: "/services/infrastructure",
+      details: ["WiFi RF Engineering", "SD-WAN Architecture", "Core Room Setup"]
+    },
+    {
+      title: "Managed IT Services",
+      desc: "24/7 L1-L3 support following ITIL framework with specialized aviation IT expertise.",
+      icon: <Wrench className="text-brand h-8 w-8" />,
+      link: "/services/managed",
+      details: ["24/7 L1-L3 Support", "ServiceNow & JIRA", "Offshore BOT Model"]
+    },
+    {
+      title: "Cybersecurity & Compliance",
+      desc: "Protecting your enterprise with NIST-aligned security frameworks and SOC operations.",
+      icon: <ShieldCheck className="text-brand h-8 w-8" />,
+      link: "/services/cybersecurity",
+      details: ["NIST Framework", "SOC Operations", "Compliance Audits"]
+    },
+    {
+      title: "Process Improvement",
+      desc: "I Fix Broken Processes. Clarity, Accountability, and Results for your operations.",
+      icon: <BarChart3 className="text-brand h-8 w-8" />,
+      link: "/services/process",
+      details: ["Diagnose Gaps", "Redesign & Simplify", "Enforce & Train"]
+    }
+  ];
+
   return (
     <main>
       <Navbar />
       
-      <section className="pt-32 pb-16 px-4 bg-navy-900 text-center">
-        <h1 className="text-4xl font-bold text-white mb-4">Our Services</h1>
-        <p className="text-xl text-text-muted max-w-3xl mx-auto">
-          Practical solutions for complex enterprise challenges.
-        </p>
-      </section>
-
-      {/* GEN AI SECTION */}
-      <section className="py-16 px-4 max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-          <div>
-            <h2 className="text-3xl font-bold text-white mb-6">Gen AI Training & Transformation</h2>
-            <p className="text-text-muted mb-6 text-lg">
-              Enterprise teams are struggling to adopt AI securely. We bridge the gap between technical implementation and business strategy.
-            </p>
-            
-            <div className="space-y-6">
-              <div className="bg-navy-800 p-6 rounded-lg border-l-4 border-red-500">
-                <h3 className="font-semibold text-white flex items-center gap-2 mb-2"><AlertTriangle className="text-red-500" size={18}/> The Problem</h3>
-                <p className="text-sm text-text-muted">Technical teams lack practical prompt engineering skills. Leaders lack strategic AI governance. This results in shadow AI usage and failed pilot projects.</p>
-              </div>
-              
-              <div className="bg-navy-800 p-6 rounded-lg border-l-4 border-green-500">
-                <h3 className="font-semibold text-white flex items-center gap-2 mb-2"><CheckCircle2 className="text-green-500" size={18}/> The Outcome</h3>
-                <p className="text-sm text-text-muted">Organizations achieve measurable ROI in 90 days. Technical teams reduce dev time by 40-60%. 70% reduction in shadow AI incidents.</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-2 gap-4">
-             <div className="bg-navy-800 p-6 rounded-xl hover:bg-navy-700 transition">
-               <h3 className="text-white font-semibold mb-2">AI+ Prompt Engineer</h3>
-               <p className="text-sm text-text-muted">Hands-on mastery of chain-of-thought reasoning and model optimization.</p>
-             </div>
-             <div className="bg-navy-800 p-6 rounded-xl hover:bg-navy-700 transition">
-               <h3 className="text-white font-semibold mb-2">AI+ Executive</h3>
-               <p className="text-sm text-text-muted">Strategy, ROI measurement, and governance frameworks based on NIST.</p>
-             </div>
-             <div className="bg-navy-800 p-6 rounded-xl hover:bg-navy-700 transition">
-               <h3 className="text-white font-semibold mb-2">AI+ Everyone</h3>
-               <p className="text-sm text-text-muted">Foundational literacy for all employees to drive adoption.</p>
-             </div>
-             <div className="bg-navy-800 p-6 rounded-xl hover:bg-navy-700 transition">
-               <h3 className="text-white font-semibold mb-2">AI+ Ethics</h3>
-               <p className="text-sm text-text-muted">Responsible deployment frameworks ensuring compliance.</p>
-             </div>
-          </div>
-        </div>
-
-        {/* MANAGED SERVICES - THE NEW IMAGE CONTENT */}
-        <div className="mt-24">
-          <div className="bg-gradient-to-br from-navy-800 to-navy-900 border border-white/10 rounded-2xl p-8 md:p-12 relative overflow-hidden">
-            <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-8">
-                <Wrench className="text-brand h-10 w-10" />
-                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-                  I Fix Broken Processes
-                </h2>
-              </div>
-              
-              <p className="text-xl text-text-muted mb-12 max-w-3xl">
-                Consulting for Operational Excellence. <br />
-                <span className="text-white">Clarity • Accountability • Results</span>
-              </p>
-
-              <div className="grid md:grid-cols-4 gap-6">
-                {/* Step 1 */}
-                <div className="bg-navy-900/50 p-6 rounded-xl border border-white/5">
-                  <div className="text-brand font-bold text-4xl mb-4">01</div>
-                  <h3 className="text-white font-semibold mb-3">Diagnose Gaps</h3>
-                  <p className="text-sm text-text-muted">Audit processes, identify bottlenecks, and discover ownership gaps in your current workflow.</p>
-                </div>
-
-                {/* Step 2 */}
-                <div className="bg-navy-900/50 p-6 rounded-xl border border-white/5">
-                  <div className="text-brand font-bold text-4xl mb-4">02</div>
-                  <h3 className="text-white font-semibold mb-3">Redesign & Simplify</h3>
-                  <p className="text-sm text-text-muted">Simplify SOPs, define hand-offs clearly, and set up metrics and SLAs.</p>
-                </div>
-
-                {/* Step 3 */}
-                <div className="bg-navy-900/50 p-6 rounded-xl border border-white/5">
-                  <div className="text-brand font-bold text-4xl mb-4">03</div>
-                  <h3 className="text-white font-semibold mb-3">Enforce & Train</h3>
-                  <p className="text-sm text-text-muted">Establish rules, train teams on new processes, and monitor for compliance.</p>
-                </div>
-
-                {/* Step 4 */}
-                <div className="bg-navy-900/50 p-6 rounded-xl border border-white/5">
-                  <div className="text-brand font-bold text-4xl mb-4">04</div>
-                  <h3 className="text-white font-semibold mb-3">Sustain & Improve</h3>
-                  <p className="text-sm text-text-muted">Track performance metrics, review regularly, and gather feedback for continuous improvement.</p>
-                </div>
-              </div>
-              
-              <div className="mt-10 p-6 bg-brand/10 rounded-lg border border-brand/20">
-                <p className="text-white font-medium text-center text-lg">
-                  Turn your messy operations into best practices.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* INFRASTRUCTURE BRIEF */}
-        <div className="mt-20">
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <Network /> Infrastructure & Operations
-          </h2>
-          <p className="text-text-muted max-w-3xl">
-            We provide end-to-end infrastructure management, from SITC deployment and AMC services to Core Room setup and WiFi RF engineering using Ekahau tools.
+      {/* Header */}
+      <section className="pt-32 pb-16 px-4 bg-navy-900">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Core Services</h1>
+          <p className="text-xl text-text-muted">
+            Comprehensive solutions designed to solve complex enterprise challenges.
           </p>
         </div>
+      </section>
 
+      {/* Services Grid */}
+      <section className="py-20 px-4 bg-navy-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <div key={index} className="bg-navy-900 border border-white/5 hover:border-brand/50 rounded-xl p-8 transition-all group">
+                <div className="mb-6 p-4 bg-navy-800 rounded-lg inline-block group-hover:bg-brand/10 transition-colors">
+                  {service.icon}
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
+                <p className="text-text-muted mb-6 h-20">{service.desc}</p>
+                
+                <ul className="space-y-2 mb-8">
+                  {service.details.map((item, i) => (
+                    <li key={i} className="flex items-center gap-2 text-sm text-text-muted">
+                      <CheckCircle2 size={14} className="text-brand" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                <Link href={service.link} className="inline-flex items-center text-brand font-semibold hover:underline">
+                  Learn More <ArrowRight size={16} className="ml-1" />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-20 px-4 bg-navy-900 text-center">
+        <h2 className="text-3xl font-bold text-white mb-4">Not sure what you need?</h2>
+        <p className="text-text-muted mb-8 max-w-2xl mx-auto">
+          Let's discuss your specific challenges. We provide bespoke solutions for Sales, Operations, and CRM teams.
+        </p>
+        <Link 
+          href="/contact" 
+          className="px-8 py-4 bg-brand hover:bg-brand-hover text-white font-semibold rounded-lg transition-all"
+        >
+          Schedule Consultation
+        </Link>
       </section>
     </main>
   );
