@@ -1,7 +1,6 @@
 "use client";
 import Navbar from '@/components/Navbar';
-import { TrendingUp, Users, Cpu, Shield, CheckCircle2 } from 'lucide-react';
-
+import { TrendingUp, Users, Cpu, Shield, CheckCircle2, AlertTriangle } from 'lucide-react';
 const studies = [
   {
     tag: "Logistics & Warehousing",
