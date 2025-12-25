@@ -51,7 +51,7 @@ export default function About() {
       <div className="relative order-first md:order-last">
         <div className="sticky top-24">
           <Image 
-            src="/founder.jpg" 
+            src="/founder.png" 
             alt="Ashutosh Sharma - Founder Optivantage"
             width={600}
             height={700}
