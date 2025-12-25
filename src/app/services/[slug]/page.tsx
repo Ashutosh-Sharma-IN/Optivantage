@@ -474,18 +474,50 @@ export default function ServiceDetail() {
         </div>
       </section>
       
-      {/* LOGOS SECTION */}
+           {/* LOGOS SECTION */}
       <section className="py-16 px-4 bg-navy-900 border-t border-white/5">
         <div className="max-w-7xl mx-auto text-center">
           <h3 className="text-lg font-bold text-text-muted uppercase tracking-widest mb-8">
             Trusted by Leading Organizations
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-75">
-            {/* Text placeholders as requested previously */}
-            <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center"><span className="text-text-muted font-bold">Infogain</span></div>
-            <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center"><span className="text-text-muted font-bold">Hexaware</span></div>
-            <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center"><span className="text-text-muted font-bold">Kotak Bank</span></div>
-            <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center"><span className="text-text-muted font-bold">MSME India</span></div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-75 hover:opacity-100 transition-all">
+            
+            {/* Infogain */}
+            <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center">
+               <img 
+                 src="/infogain.png" 
+                 alt="Infogain" 
+                 className="h-12 w-auto opacity-90 hover:opacity-100 transition-all"
+               />
+            </div>
+
+            {/* Hexaware */}
+            <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center">
+               <img 
+                 src="/hexaware.png" 
+                 alt="Hexaware" 
+                 className="h-12 w-auto opacity-90 hover:opacity-100 transition-all"
+               />
+            </div>
+
+            {/* Kotak Bank */}
+            <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center">
+               <img 
+                 src="/kotak.png" 
+                 alt="Kotak Bank" 
+                 className="h-12 w-auto opacity-90 hover:opacity-100 transition-all"
+               />
+            </div>
+
+            {/* MSME India */}
+            <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center">
+               <img 
+                 src="/msme.png" 
+                 alt="MSME India" 
+                 className="h-12 w-auto opacity-90 hover:opacity-100 transition-all"
+               />
+            </div>
+
           </div>
         </div>
       </section>
