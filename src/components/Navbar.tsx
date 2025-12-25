@@ -25,7 +25,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center gap-3 group">
               {/* Ensure your logo file in public/ is named 'logo.png' or 'optivantage-logo.png' */}
               <Image 
-                src="/optivantage-logo.png" 
+                src="/logo.png" 
                 alt="Optivantage Logo" 
                 width={50} 
                 height={50}
