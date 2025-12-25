@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar';
 import { Award, Briefcase, GraduationCap, Target } from 'lucide-react';
+import Image from 'next/image';
 
 export default function About() {
   return (
@@ -16,25 +17,59 @@ export default function About() {
         </div>
       </section>
 
-      {/* Story Content */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto prose prose-invert prose-lg">
-          <p className="text-white">
-            After spending 25 years managing mission-critical IT infrastructure for global enterprises, I witnessed a fundamental gap in the market. Organizations were either stuck with legacy systems that couldn't scale, or they were rushing into AI adoption without the operational foundation to support it. 
-          </p>
-          <p className="text-white">
-            The real breakthrough came while leading service operations at BT Global, where I managed £100M in revenue across 100 large customers and built five Global Capability Centers from the ground up. I saw firsthand how even Fortune 500 companies struggled to bridge the chasm between their existing infrastructure and the AI-enabled future they knew they needed.
-          </p>
-          <div className="bg-navy-800 p-8 rounded-xl border-l-4 border-brand my-10">
-            <p className="text-xl text-white italic mb-0">
-              "Optivantage was born from this unique vantage point—combining deep, battle-tested infrastructure expertise with cutting-edge AI innovation."
-            </p>
-          </div>
-          <p className="text-white">
-            My journey from a customer support engineer at Delhi's busiest airport to Director of Service Operations leading 2,000 global professionals taught me that true digital transformation requires both technical excellence and human-centered change management.
+  {/* Story Content with Photo */}
+<section className="py-20 px-4 bg-navy-900">
+  <div className="max-w-6xl mx-auto">
+    <div className="grid md:grid-cols-2 gap-16 items-start">
+      
+      {/* Left Column: The Story */}
+      <div className="space-y-6">
+        <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+          The Optivantage Story
+        </h1>
+        
+        <p className="text-lg text-text-muted leading-relaxed">
+          After spending 25 years managing mission-critical IT infrastructure for global enterprises, I witnessed a fundamental gap in the market. Organizations were either stuck with legacy systems that couldn't scale, or they were rushing into AI adoption without the operational foundation to support it. 
+        </p>
+        
+        <p className="text-lg text-text-muted leading-relaxed">
+          The real breakthrough came while leading service operations at BT Global, where I managed £100M in revenue across 100 large customers and built five Global Capability Centers from the ground up.
+        </p>
+
+        <div className="bg-navy-800 p-6 rounded-xl border-l-4 border-brand my-8">
+          <p className="text-xl text-white italic mb-0">
+            "Optivantage was born from this unique vantage point—combining deep, battle-tested infrastructure expertise with cutting-edge AI innovation."
           </p>
         </div>
-      </section>
+
+        <p className="text-lg text-text-muted leading-relaxed">
+          My journey from a customer support engineer at Delhi's busiest airport to Director of Service Operations leading 2,000 global professionals taught me that true digital transformation requires both technical excellence and human-centered change management.
+        </p>
+      </div>
+
+      {/* Right Column: Founder Photo */}
+      <div className="relative order-first md:order-last">
+        <div className="sticky top-24">
+          <Image 
+            src="/founder.jpg" 
+            alt="Ashutosh Sharma - Founder Optivantage"
+            width={600}
+            height={700}
+            className="rounded-2xl shadow-2xl w-full h-auto object-cover border border-white/10"
+            priority // Ensures image loads fast
+          />
+          
+          {/* Optional: Small text label below photo */}
+          <div className="mt-4 flex items-center gap-2">
+             <div className="h-1 w-8 bg-brand rounded-full"></div>
+             <p className="text-sm text-text-muted font-medium">Ashutosh Sharma</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* Credentials Grid */}
       <section className="py-16 px-4 bg-navy-800">
