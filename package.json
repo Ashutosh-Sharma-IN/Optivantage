@@ -14,7 +14,6 @@
     "next": "15.5.9",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-   "@next/third-parties/google": "^15.0.0",
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
@@ -29,5 +28,6 @@
     "postcss": "^8.4.0"
   }
 }
+
 
 
