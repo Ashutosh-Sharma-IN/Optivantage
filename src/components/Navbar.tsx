@@ -15,39 +15,41 @@ export default function Navbar() {
     { name: 'Contact', href: '/contact' },
   ];
 
+  const logoSrc = "/logo.png"; 
+
   return (
     <div className="w-full z-50">
       
-      {/* TOP BANNER (CONTACT INFO) */}
-      <section className="bg-brand py-4 px-4 border-b border-white/10">
+      {/* TOP BANNER (CONTACT INFO) - UPDATED TO WHITE BG, NAVY BLUE TEXT */}
+      <section className="bg-white py-4 px-4 border-b border-gray-200">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           
           <div className="flex items-center gap-4">
              <Image 
-                src="/logo.png" 
+                src={logoSrc} 
                 alt="Optivantage Logo" 
                 width={50} 
                 height={50}
                 className="h-10 w-auto object-contain"
               />
               <div className="flex flex-col">
-                <span className="text-xl font-bold text-white tracking-tight">OPTIVANTAGE</span>
-                <span className="text-[10px] uppercase tracking-widest text-white/80 font-medium">Technologies Private Ltd</span>
+                <span className="text-xl font-bold text-navy-900 tracking-tight">OPTIVANTAGE</span>
+                <span className="text-[10px] uppercase tracking-widest text-navy-900/70 font-medium">Technologies Private Ltd</span>
               </div>
           </div>
 
-          <div className="flex flex-wrap justify-end gap-4 md:gap-8 text-white text-sm md:text-right">
+          <div className="flex flex-wrap justify-end gap-4 md:gap-8 text-navy-900 text-sm md:text-right">
             <div className="flex items-center gap-2">
-               <Phone size={18} className="text-white/90" />
-               <a href="tel:+919971701239" className="hover:text-white/70 transition-colors">+91 9971701239</a>
+               <Phone size={18} className="text-navy-900/80" />
+               <a href="tel:+919971701239" className="hover:text-navy-900/60 transition-colors">+91 9971701239</a>
             </div>
             <div className="flex items-center gap-2">
-               <Mail size={18} className="text-white/90" />
-               <a href="mailto:contact@optivantage.in" className="hover:text-white/70 transition-colors">contact@optivantage.in</a>
+               <Mail size={18} className="text-navy-900/80" />
+               <a href="mailto:contact@optivantage.in" className="hover:text-navy-900/60 transition-colors">contact@optivantage.in</a>
             </div>
             <div className="flex items-center gap-2">
-               <MapPin size={18} className="text-white/90" />
-               <span className="hover:text-white/70 transition-colors">Dwarka, New Delhi</span>
+               <MapPin size={18} className="text-navy-900/80" />
+               <span className="hover:text-navy-900/60 transition-colors">Dwarka, New Delhi</span>
             </div>
           </div>
         </div>
@@ -66,7 +68,7 @@ export default function Navbar() {
                 <Link 
                   key={link.name} 
                   href={link.href}
-                  className="text-sm font-medium text-text-muted hover:text-brand transition-colors"
+                  className="text-sm font-medium text-white/90 hover:text-brand transition-colors"
                 >
                   {link.name}
                 </Link>
@@ -77,7 +79,7 @@ export default function Navbar() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-text-muted hover:text-white"
+                className="text-white/90 hover:text-white"
               >
                 {isOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -93,7 +95,7 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="block px-3 py-3 rounded-md text-base font-medium text-text-muted hover:text-white hover:bg-white/5"
+                  className="block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-white/10"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
