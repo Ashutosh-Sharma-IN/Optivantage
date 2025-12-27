@@ -1,46 +1,11 @@
 "use client";
 import Navbar from '@/components/Navbar';
-import { Phone, Mail, MapPin, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
 
 export default function Contact() {
   return (
     <main>
       <Navbar />
-      
-      {/* TOP HERO BAR (Contact Info First) */}
-      <section className="bg-brand py-8 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
-            
-            <div className="flex md:items-center gap-4 justify-center">
-              <Phone className="text-white h-8 w-8 flex-shrink-0" />
-              <div>
-                <p className="text-xs text-white/80 uppercase font-bold tracking-wide">Phone</p>
-                <p className="text-white font-bold text-xl">+91 9971701239</p>
-              </div>
-            </div>
-
-            <div className="flex md:items-center gap-4 justify-center">
-              <Mail className="text-white h-8 w-8 flex-shrink-0" />
-              <div>
-                <p className="text-xs text-white/80 uppercase font-bold tracking-wide">Email</p>
-                <a href="mailto:contact@optivantage.in" className="text-white font-bold text-xl hover:underline">
-                  contact@optivantage.in
-                </a>
-              </div>
-            </div>
-
-            <div className="flex md:items-center gap-4 justify-center">
-              <MapPin className="text-white h-8 w-8 flex-shrink-0" />
-              <div>
-                <p className="text-xs text-white/80 uppercase font-bold tracking-wide">Office</p>
-                <p className="text-white font-bold text-xl">Dwarka, New Delhi</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
 
       {/* FORM SECTION */}
       <section className="py-20 px-4 bg-navy-900">
