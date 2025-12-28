@@ -1,25 +1,54 @@
 "use client";
 import { useState, useEffect } from 'react';
-import { X, Download, FileText } from 'lucide-react';
+import { X, Download, FileText, Wifi, Brain, Shield, Zap } from 'lucide-react';
 
 export default function ExitIntentPopup() {
   const [showPopup, setShowPopup] = useState(false);
   const [email, setEmail] = useState('');
-  const [hasShown, setHasShown] = useState(false); // Only show once per session
+  const [selectedDownload, setSelectedDownload] = useState('');
+  const [hasShown, setHasShown] = useState(false);
+
+  const downloadOptions = [
+    {
+      id: 'wifi-case-study',
+      title: 'WiFi Optimization Case Study',
+      description: '15-warehouse deployment with 98% uptime',
+      icon: Wifi,
+      color: 'text-blue-600'
+    },
+    {
+      id: 'ai-training-overview',
+      title: 'AI Training Programs Overview',
+      description: 'Microsoft/Google AI training catalog',
+      icon: Brain,
+      color: 'text-purple-600'
+    },
+    {
+      id: 'network-services-guide',
+      title: 'Network Services Guide',
+      description: 'SD-WAN, WiFi, Managed IT services',
+      icon: Zap,
+      color: 'text-orange-600'
+    },
+    {
+      id: 'cybersecurity-checklist',
+      title: 'Cybersecurity Checklist',
+      description: 'ISO 27001/SOX compliance guide',
+      icon: Shield,
+      color: 'text-green-600'
+    }
+  ];
 
   useEffect(() => {
-    // Don't show if already shown in this session
     if (hasShown) return;
 
     const handleMouseLeave = (e: MouseEvent) => {
-      // Trigger when mouse leaves from top of page (user about to close tab)
       if (e.clientY <= 0 && !showPopup && !hasShown) {
         setShowPopup(true);
         setHasShown(true);
       }
     };
 
-    // Add event listener after 5 seconds (give user time to read)
     const timer = setTimeout(() => {
       document.addEventListener('mouseleave', handleMouseLeave);
     }, 5000);
@@ -33,83 +62,92 @@ export default function ExitIntentPopup() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // TODO: Integrate with your Formspree or email service
-    // For now, just log and close
-    console.log('Email submitted:', email);
+    if (!selectedDownload) {
+      alert('Please select a resource to download');
+      return;
+    }
+
+    // TODO: Integrate with Formspree
+    console.log('Email:', email, 'Selected:', selectedDownload);
     
-    // You can send this to Formspree or Mailchimp here
-    // Example: 
-    // await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-    //   method: 'POST',
-    //   body: JSON.stringify({ email, interest: 'case-study' }),
-    //   headers: { 'Content-Type': 'application/json' }
-    // });
-    
-    alert('Thank you! Check your email for the case study.');
+    alert(`Thank you! We'll send "${downloadOptions.find(d => d.id === selectedDownload)?.title}" to your email shortly.`);
     setShowPopup(false);
     setEmail('');
+    setSelectedDownload('');
   };
 
   if (!showPopup) return null;
 
   return (
     <>
-      {/* Overlay */}
       <div 
         className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9999] flex items-center justify-center p-4 animate-fadeIn"
         onClick={() => setShowPopup(false)}
       >
-        {/* Popup Card */}
         <div 
-          className="bg-white rounded-2xl max-w-lg w-full p-8 relative shadow-2xl animate-slideUp"
-          onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+          className="bg-white rounded-2xl max-w-2xl w-full p-8 relative shadow-2xl animate-slideUp max-h-[90vh] overflow-y-auto"
+          onClick={(e) => e.stopPropagation()}
         >
-          {/* Close Button */}
           <button 
             onClick={() => setShowPopup(false)}
-            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors z-10"
             aria-label="Close popup"
           >
             <X size={24} />
           </button>
 
-          {/* Icon */}
           <div className="text-center mb-6">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-brand/10 rounded-full mb-4">
               <FileText className="text-brand" size={32} />
             </div>
             
             <h3 className="text-2xl font-bold text-navy-900 mb-2">
-              Wait! Before You Go...
+              Wait! Get Free Resources
             </h3>
             
             <p className="text-gray-600 text-lg">
-              Download our <strong className="text-brand">Network Optimization Case Study</strong>
-            </p>
-            
-            <p className="text-sm text-gray-500 mt-2">
-              Real metrics from 15-warehouse WiFi deployment
+              Choose what you'd like to download — real case studies, guides, and implementation details
             </p>
           </div>
 
-          {/* Value Props */}
-          <div className="bg-gray-50 rounded-lg p-4 mb-6 space-y-2">
-            <div className="flex items-center gap-2 text-sm text-gray-700">
-              <Download size={16} className="text-brand flex-shrink-0" />
-              <span>Detailed technical implementation</span>
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            {/* Download Options */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-3">
+                Select Resource to Download:
+              </label>
+              <div className="grid md:grid-cols-2 gap-3">
+                {downloadOptions.map((option) => {
+                  const Icon = option.icon;
+                  return (
+                    <button
+                      key={option.id}
+                      type="button"
+                      onClick={() => setSelectedDownload(option.id)}
+                      className={`p-4 border-2 rounded-lg text-left transition-all ${
+                        selectedDownload === option.id
+                          ? 'border-brand bg-brand/5'
+                          : 'border-gray-200 hover:border-gray-300'
+                      }`}
+                    >
+                      <div className="flex items-start gap-3">
+                        <Icon className={`${option.color} flex-shrink-0 mt-1`} size={24} />
+                        <div>
+                          <div className="font-semibold text-navy-900 text-sm mb-1">
+                            {option.title}
+                          </div>
+                          <div className="text-xs text-gray-500">
+                            {option.description}
+                          </div>
+                        </div>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-sm text-gray-700">
-              <Download size={16} className="text-brand flex-shrink-0" />
-              <span>ROI analysis with actual costs</span>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-gray-700">
-              <Download size={16} className="text-brand flex-shrink-0" />
-              <span>Before/after performance metrics</span>
-            </div>
-          </div>
 
-          {/* Form */}
-          <form className="space-y-4" onSubmit={handleSubmit}>
+            {/* Email Input */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Work Email
@@ -124,12 +162,13 @@ export default function ExitIntentPopup() {
               />
             </div>
             
+            {/* Submit Button */}
             <button
               type="submit"
               className="w-full bg-brand hover:bg-brand/90 text-white font-bold py-3 rounded-lg transition-all flex items-center justify-center gap-2"
             >
               <Download size={20} />
-              Download Free Case Study
+              Send to My Email
             </button>
           </form>
 
@@ -151,15 +190,10 @@ export default function ExitIntentPopup() {
         </div>
       </div>
 
-      {/* Inline Styles for Animations */}
       <style jsx>{`
         @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
+          from { opacity: 0; }
+          to { opacity: 1; }
         }
         
         @keyframes slideUp {
@@ -184,41 +218,3 @@ export default function ExitIntentPopup() {
     </>
   );
 }
-
-/*
-===============================================
-TO INTEGRATE WITH FORMSPREE:
-===============================================
-
-Replace the handleSubmit function with:
-
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  
-  try {
-    const response = await fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
-      method: 'POST',
-      body: JSON.stringify({ 
-        email: email,
-        interest: 'WiFi Optimization Case Study',
-        source: 'Exit Intent Popup'
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-    
-    if (response.ok) {
-      alert('Thank you! Check your email for the case study.');
-      setShowPopup(false);
-      setEmail('');
-    } else {
-      alert('Oops! Something went wrong. Please try again.');
-    }
-  } catch (error) {
-    alert('Error submitting form. Please email us directly at contact@optivantage.in');
-  }
-};
-
-===============================================
-*/
