@@ -1,11 +1,13 @@
 "use client";
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
+import { Briefcase, GraduationCap } from 'lucide-react';
 
 export default function LogosSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const experienceScrollRef = useRef<HTMLDivElement>(null);
 
-  // AUTO-SCROLL EFFECT for client logos
+  // AUTO-SCROLL for client logos
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
@@ -23,8 +25,30 @@ export default function LogosSection() {
     };
 
     startScroll();
+    scrollContainer.addEventListener('mouseenter', () => clearInterval(scrollInterval));
+    scrollContainer.addEventListener('mouseleave', startScroll);
 
-    // Pause on hover
+    return () => clearInterval(scrollInterval);
+  }, []);
+
+  // AUTO-SCROLL for experience company logos
+  useEffect(() => {
+    const scrollContainer = experienceScrollRef.current;
+    if (!scrollContainer) return;
+
+    let scrollInterval: NodeJS.Timeout;
+    
+    const startScroll = () => {
+      scrollInterval = setInterval(() => {
+        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+          scrollContainer.scrollLeft = 0;
+        } else {
+          scrollContainer.scrollLeft += 1;
+        }
+      }, 25); // Slightly slower scroll
+    };
+
+    startScroll();
     scrollContainer.addEventListener('mouseenter', () => clearInterval(scrollInterval));
     scrollContainer.addEventListener('mouseleave', startScroll);
 
@@ -37,38 +61,82 @@ export default function LogosSection() {
     { name: 'Infogain', logo: '/infogain.png' },
     { name: 'Kotak Mahindra Bank', logo: '/kotak.png' },
     { name: 'MSME India', logo: '/msme.png' },
-    { name: 'upGrad', logo: '/Upgrad.png' }, // Capital U
-   // { name: 'MSME PPDC', logo: '/MSME PPDC.png' },
+    { name: 'upGrad', logo: '/Upgrad.png' },
+    { name: 'MSME PPDC', logo: '/MSME PPDC.png' },
   ];
 
-  // Duplicate for infinite scroll effect
   const duplicatedClients = [...clients, ...clients];
 
-  // EXPERIENCE LOGOS - NOW COLORED & VISIBLE
-  const experience = [
-    { name: 'British Telecom', logo: '/experience/BT.png', years: '14 years' },
-    { name: 'Orange', logo: '/experience/Orange.png', years: 'Network Ops' },
-    { name: 'SITA', logo: '/experience/sita.png', years: 'Aviation IT' },
-    { name: 'Telstra', logo: '/experience/telstra.png', years: 'Global Delivery' },
-    { name: 'Nortel', logo: '/experience/nortel.png', years: 'B2B Managed IT and Network Services' }, // UPDATED TEXT
+  // EXPERIENCE - COMPANY LOGOS ONLY
+  const experienceCompanies = [
+    { name: 'British Telecom', logo: '/experience/BT.png' },
+    { name: 'Orange', logo: '/experience/Orange.png' },
+    { name: 'SITA', logo: '/experience/sita.png' },
+    { name: 'Telstra', logo: '/experience/telstra.png' },
+    { name: 'Nortel', logo: '/experience/nortel.png' },
   ];
 
-  // CERTIFICATIONS
+  const duplicatedExperience = [...experienceCompanies, ...experienceCompanies];
+
+  // WORK EXPERTISE - SEPARATE FROM LOGOS
+  const workExpertise = [
+    'B2B Managed IT and Network Services',
+    'Aviation IT',
+    'Global Service Delivery',
+    'Process Improvement and Infrastructure Optimization',
+    'AI consulting, advisory and training'
+  ];
+
+  // CERTIFICATIONS WITH DETAILED TEXT
   const certifications = [
-    { name: 'AI for Non-Techies', logo: '/certifications/aifornontechies.png', title: 'Accredited Trainer' },
-    { name: 'AI Certs', logo: '/certifications/aicerts.png', title: 'AI+ Certified' },
-    { name: 'Google Cloud', logo: '/certifications/google.png', title: 'Digital Leader' },
-    { name: 'AWS', logo: '/certifications/aws.png', title: 'Partner Accreditation' },
-    { name: 'Texas AI', logo: '/certifications/Texas AI.png', title: 'AI for Leaders - UT Austin' },
-    { name: 'ITIL', logo: '/certifications/itil.png', title: 'IT Service Management' },
-    { name: 'ISO 42001', logo: '/certifications/iso42001.png', title: 'AI Management System' },
+    { 
+      name: 'AI Certs', 
+      logo: '/certifications/aicerts.png', 
+      details: [
+        'AI+ Prompt Engineer',
+        'AI+ Ethics',
+        'AI+ Governance',
+        'AI+ Chief AI Officer',
+        'AI+ Executive'
+      ]
+    },
+    { 
+      name: 'AI for Non-Techies', 
+      logo: '/certifications/aifornontechies.png', 
+      details: ['Accredited Trainer']
+    },
+    { 
+      name: 'Google Cloud', 
+      logo: '/certifications/google.png', 
+      details: ['Google Cloud Digital Leader']
+    },
+    { 
+      name: 'ISO 42001', 
+      logo: '/certifications/iso42001.png', 
+      details: ['ISO/IEC 42001', 'Certified Lead Implementer']
+    },
+    { 
+      name: 'ITIL', 
+      logo: '/certifications/itil.png', 
+      details: ['ITIL V4 Professional']
+    },
+    { 
+      name: 'AWS', 
+      logo: '/certifications/aws.png', 
+      details: ['Cloud Economics', 'Business Partner']
+    },
+    { 
+      name: 'Texas AI', 
+      logo: '/certifications/Texas AI.png', 
+      details: ['AI for Leaders', 'UT Austin']
+    },
   ];
 
   return (
     <div className="bg-gray-50 py-20 px-4">
       <div className="max-w-7xl mx-auto space-y-20">
         
-        {/* ========== CLIENT LOGOS - AUTO-SCROLLING, COLORED, BIGGER ========== */}
+        {/* ========== CLIENT LOGOS - AUTO-SCROLLING ========== */}
         <div>
           <div className="text-center mb-12">
             <p className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">
@@ -79,7 +147,6 @@ export default function LogosSection() {
             </h2>
           </div>
           
-          {/* Auto-scrolling container */}
           <div className="overflow-hidden">
             <div 
               ref={scrollRef}
@@ -96,7 +163,7 @@ export default function LogosSection() {
                     alt={`${client.name} - AI Training Client`}
                     width={180}
                     height={90}
-                    className="object-contain h-20 w-auto" // BIGGER - h-20 instead of h-14
+                    className="object-contain h-20 w-auto"
                   />
                 </div>
               ))}
@@ -104,7 +171,7 @@ export default function LogosSection() {
           </div>
         </div>
 
-        {/* ========== EXPERIENCE SECTION - COLORED & VISIBLE ========== */}
+        {/* ========== FOUNDER'S EXPERIENCE - REDESIGNED ========== */}
         <div className="bg-gradient-to-br from-navy-900 to-navy-800 rounded-3xl p-12 border-2 border-brand/30 shadow-2xl">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-brand/20 border border-brand/40 rounded-full px-4 py-2 mb-4">
@@ -118,26 +185,64 @@ export default function LogosSection() {
             </p>
           </div>
           
-          {/* Experience Logos - NO FILTERS, FULL COLOR */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-10 items-center justify-items-center">
-            {experience.map((company) => (
-              <div key={company.name} className="text-center group">
-                <div className="bg-white/90 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white hover:border-brand/50 transition-all hover:scale-105">
-                  <Image
-                    src={company.logo}
-                    alt={`${company.name} - ${company.years}`}
-                    width={120}
-                    height={60}
-                    className="object-contain h-16 w-auto mx-auto mb-3" // NO FILTERS - Full Color
-                  />
-                  <p className="text-xs text-brand font-semibold">{company.years}</p>
-                </div>
+          {/* COMPANIES WORKED FOR - Auto-scrolling logos */}
+          <div className="mb-10">
+            <div className="flex items-center gap-2 justify-center mb-6">
+              <Briefcase className="text-brand h-5 w-5" />
+              <h3 className="text-xl font-semibold text-white text-center">
+                Worked For
+              </h3>
+            </div>
+            
+            <div className="overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl py-6">
+              <div 
+                ref={experienceScrollRef}
+                className="flex gap-12 overflow-x-hidden px-6"
+                style={{ scrollBehavior: 'smooth' }}
+              >
+                {duplicatedExperience.map((company, index) => (
+                  <div 
+                    key={`${company.name}-${index}`} 
+                    className="flex-shrink-0 transition-all duration-300 hover:scale-110"
+                  >
+                    <div className="bg-white rounded-lg p-4 shadow-md">
+                      <Image
+                        src={company.logo}
+                        alt={company.name}
+                        width={140}
+                        height={70}
+                        className="object-contain h-16 w-auto"
+                      />
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
 
-          {/* Key Achievements */}
-          <div className="mt-12 grid md:grid-cols-3 gap-6 text-center">
+          {/* WORK EXPERTISE - Listed separately */}
+          <div className="mb-10">
+            <h3 className="text-xl font-semibold text-white text-center mb-6">
+              Areas of Expertise
+            </h3>
+            
+            <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+              {workExpertise.map((expertise, index) => (
+                <div 
+                  key={index}
+                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4 hover:bg-white/10 hover:border-brand/50 transition-all"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="h-2 w-2 bg-brand rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-white/90 font-medium">{expertise}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* KEY ACHIEVEMENTS */}
+          <div className="grid md:grid-cols-3 gap-6 text-center">
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
               <div className="text-3xl font-bold text-brand mb-2">£100M+</div>
               <p className="text-sm text-white/80">Revenue Managed at BT Global</p>
@@ -153,28 +258,48 @@ export default function LogosSection() {
           </div>
         </div>
 
-        {/* ========== CERTIFICATIONS ========== */}
+        {/* ========== CERTIFICATIONS WITH DETAILED TEXT ========== */}
         <div>
           <div className="text-center mb-12">
-            <p className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">
-              Certifications & Accreditations
-            </p>
+            <div className="flex items-center gap-2 justify-center mb-3">
+              <GraduationCap className="text-brand h-6 w-6" />
+              <p className="text-sm font-bold text-gray-500 uppercase tracking-wider">
+                Certifications & Accreditations
+              </p>
+            </div>
             <h2 className="text-3xl font-bold text-navy-900">
               Certified AI Trainer & Cloud Expert
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {certifications.map((cert) => (
-              <div key={cert.name} className="text-center group">
-                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-brand/50 hover:shadow-lg transition-all h-full flex flex-col items-center justify-center hover:scale-105">
-                  <Image
-                    src={cert.logo}
-                    alt={`${cert.name} - ${cert.title}`}
-                    width={100}
-                    height={50}
-                    className="object-contain h-12 w-auto mx-auto mb-2"
-                  />
-                  <p className="text-xs text-gray-600 font-medium mt-2">{cert.title}</p>
+              <div key={cert.name} className="group">
+                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-brand/50 hover:shadow-lg transition-all h-full flex flex-col items-center hover:scale-105">
+                  {/* Logo */}
+                  <div className="mb-4 h-16 flex items-center justify-center">
+                    <Image
+                      src={cert.logo}
+                      alt={cert.name}
+                      width={100}
+                      height={50}
+                      className="object-contain h-12 w-auto"
+                    />
+                  </div>
+                  
+                  {/* Certification Details */}
+                  <div className="text-center">
+                    {cert.details.map((detail, index) => (
+                      <p 
+                        key={index} 
+                        className={`text-xs font-medium ${
+                          index === 0 ? 'text-navy-900 font-semibold' : 'text-gray-600'
+                        } ${index > 0 ? 'mt-1' : ''}`}
+                      >
+                        {detail}
+                      </p>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
