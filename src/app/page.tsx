@@ -1,7 +1,9 @@
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, Users, Zap, Globe } from 'lucide-react';
-
+import LogosSection from '@/components/LogosSection';
+import WhyOptivantage from '@/components/WhyOptivantage';
+import ExitIntentPopup from '@/components/ExitIntentPopup';
 export default function Home() {
   return (
     <main>
@@ -11,13 +13,14 @@ export default function Home() {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6">
-            25 Years of <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-orange-400">Excellence.</span><br />
-            Future-Ready AI.
-          </h1>
+  Enterprise Network Infrastructure & 
+  <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-orange-400"> AI Training</span>
+</h1>
           <p className="text-xl text-text-muted mb-10 leading-relaxed">
-            Bridging the gap between legacy IT infrastructure and the AI-enabled future. 
-            We provide the operational maturity and AI innovation your enterprise needs.
-          </p>
+  WiFi/SD-WAN Architecture • Microsoft/Google AI Training • 24/7 Managed IT Support
+  <br />
+  <span className="text-white font-semibold">For Telecom, Aviation & Enterprise</span>
+</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link href="/contact" className="px-8 py-4 bg-brand hover:bg-brand-hover text-white font-semibold rounded-lg transition-all flex items-center justify-center gap-2">
               Start Transformation <ArrowRight size={20} />
@@ -96,6 +99,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* NEW SECTIONS */}
+      <LogosSection />
+      <WhyOptivantage />
+      <ExitIntentPopup />
     </main>
   );
 }
+
