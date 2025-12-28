@@ -6,7 +6,7 @@ import { Menu, X, Phone, Mail, MapPin, ChevronDown } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [servicesOpen, setServicesOpen] = useState(false);
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
