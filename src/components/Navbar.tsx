@@ -7,13 +7,23 @@ import { Menu, X, Phone, Mail, MapPin, ChevronDown } from 'lucide-react';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Case Studies', href: '/case-studies' },
-    { name: 'Contact', href: '/contact' },
-  ];
+ const navLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { 
+    name: 'Services', 
+    href: '/services',
+    dropdown: [
+      { name: 'AI Advisory & Training', href: '/services/ai' },
+      { name: 'IT Infrastructure', href: '/services/infrastructure' },
+      { name: 'Managed IT Services', href: '/services/managed' },
+      { name: 'Cybersecurity & Compliance', href: '/services/cybersecurity' },
+      { name: 'Process Improvement', href: '/services/process' },
+    ]
+  },
+  { name: 'Case Studies', href: '/case-studies' },
+  { name: 'Contact', href: '/contact' },
+];
 
   return (
     <div className="w-full z-50">
@@ -70,17 +80,49 @@ export default function Navbar() {
             {/* Spacer to align with top bar */}
             <div className="hidden md:block w-12"></div>
             
-            <div className="hidden md:flex space-x-8">
-              {navLinks.map((link) => (
-                <Link 
-                  key={link.name} 
-                  href={link.href}
-                  className="text-sm font-medium text-white hover:text-brand transition-colors"
+          <div className="hidden md:flex space-x-8">
+  {navLinks.map((link) => (
+    <div key={link.name} className="relative">
+      {link.dropdown ? (
+        <>
+          <button 
+            className="flex items-center gap-1 text-sm font-medium text-white hover:text-brand transition-colors py-2"
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setTimeout(() => setServicesOpen(false), 200)}
+          >
+            {link.name}
+            <ChevronDown size={16} />
+          </button>
+          
+          {servicesOpen && (
+            <div 
+              className="absolute top-full left-0 mt-2 w-64 bg-navy-800 border border-white/10 rounded-lg shadow-xl py-2 z-50"
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
+              {link.dropdown.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="block px-4 py-3 text-sm text-white hover:bg-brand/20 hover:text-brand transition-colors"
                 >
-                  {link.name}
+                  {item.name}
                 </Link>
               ))}
             </div>
+          )}
+        </>
+      ) : (
+        <Link 
+          href={link.href}
+          className="text-sm font-medium text-white hover:text-brand transition-colors"
+        >
+          {link.name}
+        </Link>
+      )}
+    </div>
+  ))}
+</div>
 
             {/* Mobile menu button */}
             <div className="md:hidden">
