@@ -1,61 +1,10 @@
 "use client";
 import Image from 'next/image';
-import { useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { Briefcase, GraduationCap } from 'lucide-react';
 
 export default function LogosSection() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const experienceScrollRef = useRef<HTMLDivElement>(null);
-
-  // AUTO-SCROLL for client logos
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    let scrollInterval: NodeJS.Timeout;
-    
-    const startScroll = () => {
-      scrollInterval = setInterval(() => {
-        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
-          scrollContainer.scrollLeft = 0;
-        } else {
-          scrollContainer.scrollLeft += 1;
-        }
-      }, 30);
-    };
-
-    startScroll();
-    scrollContainer.addEventListener('mouseenter', () => clearInterval(scrollInterval));
-    scrollContainer.addEventListener('mouseleave', startScroll);
-
-    return () => clearInterval(scrollInterval);
-  }, []);
-
-  // AUTO-SCROLL for experience company logos
-  useEffect(() => {
-    const scrollContainer = experienceScrollRef.current;
-    if (!scrollContainer) return;
-
-    let scrollInterval: NodeJS.Timeout;
-    
-    const startScroll = () => {
-      scrollInterval = setInterval(() => {
-        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
-          scrollContainer.scrollLeft = 0;
-        } else {
-          scrollContainer.scrollLeft += 1;
-        }
-      }, 25); // Slightly slower scroll
-    };
-
-    startScroll();
-    scrollContainer.addEventListener('mouseenter', () => clearInterval(scrollInterval));
-    scrollContainer.addEventListener('mouseleave', startScroll);
-
-    return () => clearInterval(scrollInterval);
-  }, []);
-
-  // CLIENT LOGOS - ALWAYS COLORED, BIGGER
+  // CLIENT LOGOS - NO SCROLLING (FIX 5 & 6)
   const clients = [
     { name: 'Hexaware', logo: '/hexaware.png' },
     { name: 'Infogain', logo: '/infogain.png' },
@@ -65,9 +14,7 @@ export default function LogosSection() {
     { name: 'MSME PPDC', logo: '/MSME PPDC.png' },
   ];
 
-  const duplicatedClients = [...clients, ...clients];
-
-  // EXPERIENCE - COMPANY LOGOS ONLY
+  // EXPERIENCE COMPANIES - NO SCROLLING (FIX 6)
   const experienceCompanies = [
     { name: 'British Telecom', logo: '/experience/BT.png' },
     { name: 'Orange', logo: '/experience/Orange.png' },
@@ -76,18 +23,31 @@ export default function LogosSection() {
     { name: 'Nortel', logo: '/experience/nortel.png' },
   ];
 
-  const duplicatedExperience = [...experienceCompanies, ...experienceCompanies];
-
-  // WORK EXPERTISE - SEPARATE FROM LOGOS
+  // ✅ FIX 7: WORK EXPERTISE WITH CLICKABLE LINKS
   const workExpertise = [
-    'B2B Managed IT and Network Services',
-    'Aviation IT',
-    'Global Service Delivery',
-    'Process Improvement and Infrastructure Optimization',
-    'AI consulting, advisory and training'
+    { 
+      text: 'B2B Managed IT and Network Services', 
+      link: '/services/managed'
+    },
+    { 
+      text: 'Aviation IT', 
+      link: '/services/managed'
+    },
+    { 
+      text: 'Global Service Delivery', 
+      link: '/services/managed'
+    },
+    { 
+      text: 'Process Improvement and Infrastructure Optimization', 
+      link: '/services/process'
+    },
+    { 
+      text: 'AI consulting, advisory and training', 
+      link: '/services/ai'
+    }
   ];
 
-  // CERTIFICATIONS WITH DETAILED TEXT
+  // CERTIFICATIONS
   const certifications = [
     { 
       name: 'AI Certs', 
@@ -136,9 +96,10 @@ export default function LogosSection() {
     <div className="bg-gray-50 py-20 px-4">
       <div className="max-w-7xl mx-auto space-y-20">
         
-        {/* ========== CLIENT LOGOS - AUTO-SCROLLING ========== */}
+        {/* ✅ CLIENT LOGOS - STATIC GRID (NO SCROLLING) */}
         <div>
           <div className="text-center mb-12">
+            {/* ✅ FIX 3: REMOVED (2024) */}
             <p className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">
               Recent AI Training Clients
             </p>
@@ -147,31 +108,26 @@ export default function LogosSection() {
             </h2>
           </div>
           
-          <div className="overflow-hidden">
-            <div 
-              ref={scrollRef}
-              className="flex gap-12 overflow-x-hidden"
-              style={{ scrollBehavior: 'smooth' }}
-            >
-              {duplicatedClients.map((client, index) => (
-                <div 
-                  key={`${client.name}-${index}`} 
-                  className="flex-shrink-0 transition-all duration-300 hover:scale-110"
-                >
-                  <Image
-                    src={client.logo}
-                    alt={`${client.name} - AI Training Client`}
-                    width={180}
-                    height={90}
-                    className="object-contain h-20 w-auto"
-                  />
-                </div>
-              ))}
-            </div>
+          {/* STATIC GRID - NO AUTO-SCROLL */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
+            {clients.map((client) => (
+              <div 
+                key={client.name} 
+                className="transition-all duration-300 hover:scale-110"
+              >
+                <Image
+                  src={client.logo}
+                  alt={`${client.name} - AI Training Client`}
+                  width={180}
+                  height={90}
+                  className="object-contain h-20 w-auto"
+                />
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* ========== FOUNDER'S EXPERIENCE - REDESIGNED ========== */}
+        {/* FOUNDER'S EXPERIENCE SECTION */}
         <div className="bg-gradient-to-br from-navy-900 to-navy-800 rounded-3xl p-12 border-2 border-brand/30 shadow-2xl">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-brand/20 border border-brand/40 rounded-full px-4 py-2 mb-4">
@@ -185,7 +141,7 @@ export default function LogosSection() {
             </p>
           </div>
           
-          {/* COMPANIES WORKED FOR - Auto-scrolling logos */}
+          {/* ✅ COMPANIES - STATIC GRID (NO SCROLLING) */}
           <div className="mb-10">
             <div className="flex items-center gap-2 justify-center mb-6">
               <Briefcase className="text-brand h-5 w-5" />
@@ -194,33 +150,27 @@ export default function LogosSection() {
               </h3>
             </div>
             
-            <div className="overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl py-6">
-              <div 
-                ref={experienceScrollRef}
-                className="flex gap-12 overflow-x-hidden px-6"
-                style={{ scrollBehavior: 'smooth' }}
-              >
-                {duplicatedExperience.map((company, index) => (
-                  <div 
-                    key={`${company.name}-${index}`} 
-                    className="flex-shrink-0 transition-all duration-300 hover:scale-110"
-                  >
-                    <div className="bg-white rounded-lg p-4 shadow-md">
-                      <Image
-                        src={company.logo}
-                        alt={company.name}
-                        width={140}
-                        height={70}
-                        className="object-contain h-16 w-auto"
-                      />
-                    </div>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-items-center">
+              {experienceCompanies.map((company) => (
+                <div 
+                  key={company.name} 
+                  className="transition-all duration-300 hover:scale-110"
+                >
+                  <div className="bg-white rounded-lg p-4 shadow-md">
+                    <Image
+                      src={company.logo}
+                      alt={company.name}
+                      width={140}
+                      height={70}
+                      className="object-contain h-16 w-auto"
+                    />
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* WORK EXPERTISE - Listed separately */}
+          {/* ✅ FIX 7: AREAS OF EXPERTISE - LIGHT BLUE + CLICKABLE */}
           <div className="mb-10">
             <h3 className="text-xl font-semibold text-white text-center mb-6">
               Areas of Expertise
@@ -228,15 +178,16 @@ export default function LogosSection() {
             
             <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
               {workExpertise.map((expertise, index) => (
-                <div 
+                <Link
                   key={index}
-                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4 hover:bg-white/10 hover:border-brand/50 transition-all"
+                  href={expertise.link}
+                  className="bg-cyan-500/20 backdrop-blur-sm border border-cyan-400/30 rounded-lg p-4 hover:bg-cyan-500/30 hover:border-cyan-400/50 transition-all cursor-pointer group"
                 >
                   <div className="flex items-start gap-3">
-                    <div className="h-2 w-2 bg-brand rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-white/90 font-medium">{expertise}</p>
+                    <div className="h-2 w-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0 group-hover:scale-150 transition-transform"></div>
+                    <p className="text-white/90 font-medium group-hover:text-white transition-colors">{expertise.text}</p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -258,7 +209,7 @@ export default function LogosSection() {
           </div>
         </div>
 
-        {/* ========== CERTIFICATIONS WITH DETAILED TEXT ========== */}
+        {/* CERTIFICATIONS */}
         <div>
           <div className="text-center mb-12">
             <div className="flex items-center gap-2 justify-center mb-3">
@@ -276,7 +227,6 @@ export default function LogosSection() {
             {certifications.map((cert) => (
               <div key={cert.name} className="group">
                 <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-brand/50 hover:shadow-lg transition-all h-full flex flex-col items-center hover:scale-105">
-                  {/* Logo */}
                   <div className="mb-4 h-16 flex items-center justify-center">
                     <Image
                       src={cert.logo}
@@ -287,7 +237,6 @@ export default function LogosSection() {
                     />
                   </div>
                   
-                  {/* Certification Details */}
                   <div className="text-center">
                     {cert.details.map((detail, index) => (
                       <p 
