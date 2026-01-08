@@ -140,7 +140,7 @@ export default function LogosSection() {
         <div>
           <div className="text-center mb-12">
             <p className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">
-              Recent AI Training Clients (2024)
+              Recent AI Training Clients
             </p>
             <h2 className="text-3xl font-bold text-navy-900">
               Trusted by Fortune 500 & Government
