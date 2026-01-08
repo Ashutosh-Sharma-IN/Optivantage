@@ -35,17 +35,17 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
              {/* Logo and Company Name */}
              <Link href="/" className="flex items-center gap-4">
-                  <Image 
-                    src="/logo.png" 
-                    alt="Optivantage Logo" 
-                    width={50} 
-                    height={50}
-                    className="h-10 w-auto object-contain"
-                  />
-                  <div className="flex flex-col">
-                    <span className="text-xl font-bold text-navy-900 tracking-tight">OPTIVANTAGE</span>
-                    <span className="text-[10px] uppercase tracking-widest text-navy-900/70 font-medium">Technologies Private Ltd</span>
-                  </div>
+                 <Image 
+  src="/logo.png" 
+  alt="Optivantage Logo" 
+  width={63}
+  height={63}
+  className="h-12 w-auto object-contain"
+/>
+<div className="flex flex-col">
+  <span className="text-2xl font-bold text-navy-900 tracking-tight">OPTIVANTAGE</span>
+  <span className="text-[11px] uppercase tracking-widest text-navy-900/70 font-medium">Technologies Private Ltd</span>
+</div>
              </Link>
           </div>
 
