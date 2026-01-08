@@ -6,10 +6,10 @@ export default function WhyOptivantage() {
     <section className="py-20 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
         
-        {/* Header */}
+        {/* ✅ FIX 4: CHANGED TO "THE OPTIVANTAGE EDGE" */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-navy-900 mb-4">
-            Why Optivantage?
+            The Optivantage Edge
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We don't compete with Wipro, TCS, or Infosys. We operate in a specialized niche 
@@ -17,10 +17,9 @@ export default function WhyOptivantage() {
           </p>
         </div>
 
-        {/* What We're NOT vs What We ARE */}
+        {/* REST OF THE COMPONENT STAYS THE SAME */}
         <div className="grid md:grid-cols-2 gap-12 mb-16">
           
-          {/* LEFT: What We're NOT */}
           <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
             <div className="flex items-center gap-3 mb-6">
               <div className="h-10 w-10 bg-red-100 rounded-full flex items-center justify-center">
@@ -53,7 +52,6 @@ export default function WhyOptivantage() {
             </ul>
           </div>
 
-          {/* RIGHT: What We ARE */}
           <div className="bg-gradient-to-br from-brand/10 via-navy-900/5 to-brand/5 rounded-2xl p-8 border-2 border-brand/30 shadow-lg">
             <div className="flex items-center gap-3 mb-6">
               <div className="h-10 w-10 bg-brand/20 rounded-full flex items-center justify-center">
@@ -102,9 +100,7 @@ export default function WhyOptivantage() {
           </div>
         </div>
 
-        {/* Our Niche Statement */}
         <div className="bg-navy-900 rounded-3xl p-12 text-center relative overflow-hidden">
-          {/* Background Pattern */}
           <div className="absolute inset-0 opacity-5">
             <div className="absolute inset-0" style={{
               backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
