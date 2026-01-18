@@ -4,7 +4,12 @@ const nextConfig = {
     optimizePackageImports: ['react-icons'],
   },
   images: {
-    domains: ['localhost'],
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
+    ],
   },
   env: {
     CUSTOM_KEY: process.env.CUSTOM_KEY,

@@ -1,11 +1,10 @@
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
-import { 
-  BrainCircuit, 
-  Server, 
-  ShieldCheck, 
-  BarChart3, 
-  Wrench, 
+import {
+  BrainCircuit,
+  Server,
+  ShieldCheck,
+  Wrench,
   ArrowRight,
   CheckCircle2
 } from 'lucide-react';
@@ -14,38 +13,31 @@ export default function Services() {
   const services = [
     {
       title: "AI Advisory & Training",
-      desc: "Leading enterprise AI transformation with hands-on training programs for Fortune 500 companies.",
+      desc: "Leading enterprise AI transformation with hands-on training programs and go-to-market strategies for AI/SaaS products.",
       icon: <BrainCircuit className="text-brand h-8 w-8" />,
-      link: "/services/ai", // Create this detailed page later if needed
-      details: ["AI+ Certification Programs", "Microsoft Copilot & Azure", "Google Gemini Ecosystem"]
+      link: "/services/ai",
+      details: ["AI Strategy Development & Consulting", "Generative AI Training (Microsoft, Google)", "Agentic AI deployment", "Go-to-market for AI/SaaS"]
     },
     {
-      title: "IT Infrastructure",
-      desc: "25 years of proven expertise in network optimization, equipment management, and SITC deployment.",
+      title: "IT & Network Infrastructure",
+      desc: "50+ years combined expertise in enterprise network deployment, management, and end-user device support.",
       icon: <Server className="text-brand h-8 w-8" />,
       link: "/services/infrastructure",
-      details: ["WiFi RF Engineering", "SD-WAN Architecture", "Core Room Setup"]
-    },
-    {
-      title: "Managed IT Services",
-      desc: "24/7 L1-L3 support following ITIL framework with specialized aviation IT expertise.",
-      icon: <Wrench className="text-brand h-8 w-8" />,
-      link: "/services/managed",
-      details: ["24/7 L1-L3 Support", "ServiceNow & JIRA", "Offshore BOT Model"]
+      details: ["Infrastructure deployment & maintenance", "End user devices & rentals", "LAN/WAN, Firewall, VPN configuration", "Data center setup & network performance"]
     },
     {
       title: "Cybersecurity & Compliance",
-      desc: "Protecting your enterprise with NIST-aligned security frameworks and SOC operations.",
+      desc: "Protecting your enterprise with ISO-aligned security frameworks and continuous monitoring.",
       icon: <ShieldCheck className="text-brand h-8 w-8" />,
       link: "/services/cybersecurity",
-      details: ["NIST Framework", "SOC Operations", "Compliance Audits"]
+      details: ["ISO 27001/27002 Certification", "Security Risk Assessment", "SOX, GDPR, NIST Compliance", "Continuous Security Monitoring"]
     },
     {
-      title: "Process Improvement",
-      desc: "I Fix Broken Processes. Clarity, Accountability, and Results for your operations.",
-      icon: <BarChart3 className="text-brand h-8 w-8" />,
-      link: "/services/process",
-      details: ["Diagnose Gaps", "Redesign & Simplify", "Enforce & Train"]
+      title: "Managed Services & Process Improvement",
+      desc: "24/7 L1-L3 support with field engineering expertise, plus process diagnosis and optimization.",
+      icon: <Wrench className="text-brand h-8 w-8" />,
+      link: "/services/managed",
+      details: ["L1-L3 Support & Helpdesk", "Field Engineering & onsite support", "Process diagnosis & redesign", "Patch management & monitoring"]
     }
   ];
 
@@ -66,7 +58,7 @@ export default function Services() {
       {/* Services Grid */}
       <section className="py-20 px-4 bg-navy-800">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <div key={index} className="bg-navy-900 border border-white/5 hover:border-brand/50 rounded-xl p-8 transition-all group">
                 <div className="mb-6 p-4 bg-navy-800 rounded-lg inline-block group-hover:bg-brand/10 transition-colors">

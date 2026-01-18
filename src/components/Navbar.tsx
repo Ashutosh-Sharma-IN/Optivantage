@@ -17,10 +17,9 @@ export default function Navbar() {
       href: '/services',
       dropdown: [
         { name: 'AI Advisory & Training', href: '/services/ai' },
-        { name: 'IT Infrastructure', href: '/services/infrastructure' },
-        { name: 'Managed IT Services', href: '/services/managed' },
+        { name: 'IT & Network Infrastructure', href: '/services/infrastructure' },
         { name: 'Cybersecurity & Compliance', href: '/services/cybersecurity' },
-        { name: 'Process Improvement', href: '/services/process' },
+        { name: 'Managed Services & Process Improvement', href: '/services/managed' },
       ]
     },
     { name: 'Case Studies', href: '/case-studies' },
