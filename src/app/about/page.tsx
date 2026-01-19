@@ -17,6 +17,39 @@ export default function About() {
         </div>
       </section>
 
+      {/* Mission & Vision */}
+      <section className="py-16 px-4 bg-navy-800">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-white text-center mb-12">Mission & Vision</h2>
+
+          <div className="grid md:grid-cols-2 gap-12">
+
+            {/* Mission */}
+            <div className="bg-navy-900 p-8 rounded-xl border-l-4 border-brand">
+              <div className="flex items-center gap-3 mb-6">
+                <Target className="text-brand w-8 h-8" />
+                <h3 className="text-2xl font-bold text-white">Mission</h3>
+              </div>
+              <p className="text-lg text-text-muted leading-relaxed">
+                To empower enterprises with specialized AI transformation, network infrastructure, and managed IT services—delivering founder-led expertise where deep specialization outperforms scale.
+              </p>
+            </div>
+
+            {/* Vision */}
+            <div className="bg-navy-900 p-8 rounded-xl border-l-4 border-brand">
+              <div className="flex items-center gap-3 mb-6">
+                <Award className="text-brand w-8 h-8" />
+                <h3 className="text-2xl font-bold text-white">Vision</h3>
+              </div>
+              <p className="text-lg text-text-muted leading-relaxed">
+                To be the trusted partner for enterprises modernizing and transforming operations with AI and Gen AI—where 50+ years of battle-tested infrastructure expertise meets cutting-edge innovation.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
   {/* Story Content with Photo */}
 <section className="py-20 px-4 bg-navy-900">
   <div className="max-w-6xl mx-auto">
