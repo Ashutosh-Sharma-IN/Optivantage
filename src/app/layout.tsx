@@ -132,17 +132,26 @@ export default function RootLayout({
             </div>
 
             {/* Bottom Bar */}
-            <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-sm text-gray-400">
-                &copy; {new Date().getFullYear()} Optivantage Technologies Pvt Ltd. All rights reserved.
-              </p>
-              <div className="flex gap-6 text-sm">
-                <Link href="/privacy" className="text-gray-400 hover:text-brand transition-colors">
-                  Privacy Policy
-                </Link>
-                <Link href="/terms" className="text-gray-400 hover:text-brand transition-colors">
-                  Terms of Service
-                </Link>
+            <div className="border-t border-white/10 pt-8">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+                <p className="text-sm text-gray-400">
+                  &copy; {new Date().getFullYear()} Optivantage Technologies Pvt Ltd. All rights reserved.
+                </p>
+                <div className="flex gap-6 text-sm">
+                  <Link href="/privacy" className="text-gray-400 hover:text-brand transition-colors">
+                    Privacy Policy
+                  </Link>
+                  <Link href="/terms" className="text-gray-400 hover:text-brand transition-colors">
+                    Terms of Service
+                  </Link>
+                </div>
+              </div>
+
+              {/* Company Registration Details */}
+              <div className="text-center pt-4 border-t border-white/5">
+                <p className="text-xs text-gray-500">
+                  CIN: U62099DL2025PTC457949 | GST No: 07AAECO9369B1ZA | Udyam No: UDYAM-DL-10-0106857
+                </p>
               </div>
             </div>
           </div>
