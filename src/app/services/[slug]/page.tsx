@@ -22,11 +22,60 @@ import {
 
 // --- COMPREHENSIVE SERVICE DATA ---
 
+// Hero images per service (Unsplash free photos)
+const serviceImages: any = {
+  ai: [
+    { src: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80", alt: "AI and machine learning visualization" },
+    { src: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80", alt: "Corporate training session" },
+    { src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80", alt: "Team collaboration workshop" },
+  ],
+  infrastructure: [
+    { src: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80", alt: "Server room and data center" },
+    { src: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80", alt: "Network infrastructure cables" },
+    { src: "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&q=80", alt: "IT engineer working on equipment" },
+  ],
+  managed: [
+    { src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80", alt: "IT support team at work" },
+    { src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80", alt: "Professional team meeting" },
+    { src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80", alt: "Modern office workspace" },
+  ],
+  cybersecurity: [
+    { src: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80", alt: "Cybersecurity digital protection" },
+    { src: "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=800&q=80", alt: "Security operations center" },
+    { src: "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=800&q=80", alt: "Secure data and compliance" },
+  ],
+  process: [
+    { src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80", alt: "Business process optimization" },
+    { src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80", alt: "Strategy meeting and planning" },
+  ],
+};
+
+// AI Platform logos
+const aiPlatformLogos = [
+  { name: "Claude", logo: "/platforms/claude.png" },
+  { name: "OpenAI / ChatGPT", logo: "/platforms/openai.png" },
+  { name: "Google Gemini", logo: "/platforms/gemini.png" },
+  { name: "Make.com", logo: "/platforms/make.png" },
+  { name: "N8N", logo: "/platforms/n8n.png" },
+  { name: "Microsoft Copilot", color: "bg-blue-600" },
+  { name: "Azure AI", color: "bg-sky-600" },
+  { name: "Zapier", color: "bg-orange-500" },
+  { name: "LangChain", color: "bg-teal-600" },
+  { name: "CrewAI", color: "bg-red-600" },
+  { name: "Perplexity", color: "bg-indigo-600" },
+  { name: "Hugging Face", color: "bg-yellow-600" },
+  { name: "NotebookLM", color: "bg-gray-600" },
+  { name: "Cursor", color: "bg-slate-700" },
+  { name: "Replit", color: "bg-orange-600" },
+];
+
 const servicesData: any = {
   ai: {
     title: "AI Advisory & Training",
     icon: <BrainCircuit className="text-brand h-10 w-10" />,
     showClientLogos: true,
+    showPlatformLogos: true,
+    showCertificate: true,
     heroStats: [
       { val: "1000+", label: "Trained in 2024" },
       { val: "4", label: "Continents Served" },
@@ -136,20 +185,6 @@ const servicesData: any = {
           { title: "Technical Spares for Aviation", desc: "Print Heads for Thermal Printers, stationery for CUSS/CUPPS for airport operators and airlines.", icon: <Wrench className="text-brand"/> },
           { title: "CCTV & Biometric Solutions", desc: "SITC and support for CCTV and office biometrics solutions (FRS, attendance/access).", icon: <ShieldCheck className="text-brand"/> },
           { title: "Refurbished IT Equipment", desc: "Laptops, Desktops, Servers, Network Devices - quality refurbished hardware.", icon: <Globe className="text-brand"/> },
-        ]
-      },
-      {
-        title: "Network Optimization Expertise",
-        type: "bento-grid-2",
-        items: [
-          { title: "WiFi RF Engineering & Site Surveys", desc: "Expert RF optimization using industry-leading Ekahau tools.",
-            details: ["Comprehensive Site Surveys: Predictive and active surveys", "RF Heat Mapping: Detailed coverage analysis", "AP Density Optimization: Right-sizing deployment", "Channel Planning: Minimizing interference", "Power Optimization: Fine-tuning levels", "Roaming Analysis: Seamless optimization"],
-            highlight: "15 warehouse WiFi optimization achieved 98% scanner uptime and 25% reduction in operational disruptions."
-          },
-          { title: "SD-WAN Architecture & Deployment", desc: "Modern WAN solutions for distributed enterprise networks.",
-            details: ["SD-WAN Design: Application-aware routing", "Multi-Link Strategy: Dual internet links", "QoS Implementation: Priority handling", "Zero-Touch Provisioning: Automated deployment", "Centralized Management: Single pane of glass", "Security Integration: Built-in firewall"],
-            highlight: "200+ retail site SD-WAN migration delivered 50% latency reduction and 40% OpEx savings."
-          },
         ]
       },
       {
@@ -402,6 +437,75 @@ export default function ServiceDetail() {
                  </div>
               ))}
            </div>
+        </section>
+      )}
+
+      {/* HERO IMAGES */}
+      {serviceImages[slug as string] && (
+        <section className="py-12 px-4 bg-navy-900">
+          <div className="max-w-7xl mx-auto">
+            <div className={`grid gap-6 ${serviceImages[slug as string].length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'}`}>
+              {serviceImages[slug as string].map((img: any, i: number) => (
+                <div key={i} className="relative overflow-hidden rounded-xl aspect-video">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* AI PLATFORM LOGOS */}
+      {service.showPlatformLogos && (
+        <section className="py-12 px-4 bg-navy-800 border-b border-white/5">
+          <div className="max-w-5xl mx-auto text-center">
+            <h3 className="text-lg font-bold text-text-muted uppercase tracking-widest mb-8">
+              Platforms & Technologies We Train On
+            </h3>
+            <div className="flex flex-wrap justify-center gap-4 items-center">
+              {aiPlatformLogos.map((platform: any, i: number) => (
+                platform.logo ? (
+                  <div key={i} className="bg-white/10 backdrop-blur-sm rounded-xl p-3 flex items-center gap-2.5 hover:bg-white/20 transition-all hover:scale-105">
+                    <img src={platform.logo} alt={platform.name} className="h-8 w-8 rounded-lg object-contain" />
+                    <span className="text-white font-medium text-sm">{platform.name}</span>
+                  </div>
+                ) : (
+                  <div
+                    key={i}
+                    className={`${platform.color} px-4 py-2.5 rounded-xl text-white font-medium text-sm hover:scale-105 transition-transform`}
+                  >
+                    {platform.name}
+                  </div>
+                )
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* AI TRAINER CERTIFICATE */}
+      {service.showCertificate && (
+        <section className="py-12 px-4 bg-navy-900 border-b border-white/5">
+          <div className="max-w-4xl mx-auto text-center">
+            <h3 className="text-lg font-bold text-text-muted uppercase tracking-widest mb-6">
+              Certified AI Trainer
+            </h3>
+            <div className="bg-navy-800 p-6 rounded-xl border border-white/10 inline-block">
+              <img
+                src="/certifications/ai-trainer-certificate.png"
+                alt="Become AI Trainer Certificate - Ashutosh Sharma"
+                className="max-h-80 w-auto rounded-lg shadow-lg"
+                loading="lazy"
+              />
+            </div>
+            <p className="text-text-muted mt-4 text-sm">Certified AI Trainer - Accredited to deliver enterprise AI training programs</p>
+          </div>
         </section>
       )}
 
