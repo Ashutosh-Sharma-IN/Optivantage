@@ -170,28 +170,6 @@ export default function LogosSection() {
             </div>
           </div>
 
-          {/* ✅ FIX 7: AREAS OF EXPERTISE - LIGHT BLUE + CLICKABLE */}
-          <div className="mb-10">
-            <h3 className="text-xl font-semibold text-white text-center mb-6">
-              Areas of Expertise
-            </h3>
-            
-            <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-              {workExpertise.map((expertise, index) => (
-                <Link
-                  key={index}
-                  href={expertise.link}
-                  className="bg-cyan-500/20 backdrop-blur-sm border border-cyan-400/30 rounded-lg p-4 hover:bg-cyan-500/30 hover:border-cyan-400/50 transition-all cursor-pointer group"
-                >
-                  <div className="flex items-start gap-3">
-                    <div className="h-2 w-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0 group-hover:scale-150 transition-transform"></div>
-                    <p className="text-white/90 font-medium group-hover:text-white transition-colors">{expertise.text}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-
           {/* KEY ACHIEVEMENTS */}
           <div className="grid md:grid-cols-3 gap-6 text-center">
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">

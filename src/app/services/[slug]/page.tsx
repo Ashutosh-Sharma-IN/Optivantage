@@ -40,15 +40,24 @@ const serviceImages: any = {
     { src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80", alt: "Modern office workspace" },
   ],
   cybersecurity: [
-    { src: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80", alt: "Cybersecurity digital protection" },
-    { src: "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=800&q=80", alt: "Security operations center" },
-    { src: "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=800&q=80", alt: "Secure data and compliance" },
+    { src: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80", alt: "Cybersecurity digital protection" },
+    { src: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80", alt: "Security operations and data encryption" },
+    { src: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&q=80", alt: "Secure compliance and data protection" },
   ],
   process: [
     { src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80", alt: "Business process optimization" },
     { src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80", alt: "Strategy meeting and planning" },
   ],
 };
+
+// AI Training Module categories (screenshots from PPT)
+const trainingModules = [
+  { title: "AI Models & Platforms", desc: "Hands-on training across leading AI models and interfaces", image: "/training-modules/ai-models.png" },
+  { title: "No-Code Automation", desc: "Build powerful workflows without writing code", image: "/training-modules/no-code-automation.png" },
+  { title: "Vibe Coding & App Building", desc: "Rapid prototyping and AI-assisted application development", image: "/training-modules/vibe-coding-apps.png" },
+  { title: "Image Generation Models", desc: "Create and edit visuals with AI-powered tools", image: "/training-modules/image-models.png" },
+  { title: "Multi-Modal AI", desc: "Video, voice, and image generation with cutting-edge AI", image: "/training-modules/multi-modal-ai.png" },
+];
 
 // AI Platform logos
 const aiPlatformLogos = [
@@ -75,6 +84,7 @@ const servicesData: any = {
     icon: <BrainCircuit className="text-brand h-10 w-10" />,
     showClientLogos: true,
     showPlatformLogos: true,
+    showTrainingModules: true,
     showCertificate: true,
     heroStats: [
       { val: "1000+", label: "Trained in 2024" },
@@ -483,6 +493,43 @@ export default function ServiceDetail() {
                     {platform.name}
                   </div>
                 )
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* AI TRAINING MODULES */}
+      {service.showTrainingModules && (
+        <section className="py-16 px-4 bg-navy-900 border-b border-white/5">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h3 className="text-lg font-bold text-text-muted uppercase tracking-widest mb-3">
+                What You&apos;ll Learn
+              </h3>
+              <h2 className="text-3xl font-bold text-white">
+                AI Training Modules
+              </h2>
+              <p className="text-text-muted mt-3 max-w-2xl mx-auto">
+                Comprehensive hands-on training across the full spectrum of AI tools and platforms
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {trainingModules.map((mod, i) => (
+                <div key={i} className={`bg-navy-800 rounded-xl border border-white/5 overflow-hidden hover:border-brand/50 transition-all hover:-translate-y-1 ${i === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}>
+                  <div className="relative aspect-[16/9] overflow-hidden">
+                    <img
+                      src={mod.image}
+                      alt={mod.title}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <h4 className="text-lg font-bold text-white mb-1">{mod.title}</h4>
+                    <p className="text-sm text-text-muted">{mod.desc}</p>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
