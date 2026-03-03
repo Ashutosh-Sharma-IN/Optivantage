@@ -17,9 +17,10 @@ export default function Navbar() {
       href: '/services',
       dropdown: [
         { name: 'AI Advisory & Training', href: '/services/ai' },
-        { name: 'IT & Network Infrastructure', href: '/services/infrastructure' },
+        { name: 'IT Infrastructure Management', href: '/services/infrastructure' },
+        { name: 'Managed IT Services', href: '/services/managed' },
         { name: 'Cybersecurity & Compliance', href: '/services/cybersecurity' },
-        { name: 'Managed Services & Process Improvement', href: '/services/managed' },
+        { name: 'Process Improvement', href: '/services/process' },
       ]
     },
     { name: 'Case Studies', href: '/case-studies' },
@@ -54,11 +55,11 @@ export default function Navbar() {
           <div className="flex flex-wrap justify-end gap-4 md:gap-8 text-navy-900 text-sm md:text-right">
             <div className="flex items-center gap-2">
                <Phone size={18} className="text-navy-900/90" />
-               <a href="tel:+919971701239" className="hover:text-brand transition-colors">+91 9971701239</a>
+               <span className="text-navy-900">+91 9971701239</span>
             </div>
             <div className="flex items-center gap-2">
                <Phone size={18} className="text-navy-900/90" />
-               <a href="tel:+91987122319" className="hover:text-brand transition-colors">+91 9871222319</a>
+               <span className="text-navy-900">+91 9871253355</span>
             </div>
             <div className="flex items-center gap-2">
                <Mail size={18} className="text-navy-900/90" />

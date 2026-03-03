@@ -5,6 +5,7 @@ import {
   Server,
   ShieldCheck,
   Wrench,
+  BarChart3,
   ArrowRight,
   CheckCircle2
 } from 'lucide-react';
@@ -13,31 +14,38 @@ export default function Services() {
   const services = [
     {
       title: "AI Advisory & Training",
-      desc: "Leading enterprise AI transformation with hands-on training programs and go-to-market strategies for AI/SaaS products.",
+      desc: "Leading enterprise AI transformation with hands-on training, certification programs and Agentic AI consulting.",
       icon: <BrainCircuit className="text-brand h-8 w-8" />,
       link: "/services/ai",
-      details: ["AI Strategy Development & Consulting", "Generative AI Training (Microsoft, Google)", "Agentic AI deployment", "Go-to-market for AI/SaaS"]
+      details: ["AI for All - Basic AI Training & Awareness", "Microsoft Co-pilot Enterprise & Azure AI Deployment", "AI+ Certification Programs", "Agentic AI & Workflow Automation"]
     },
     {
-      title: "IT & Network Infrastructure",
-      desc: "50+ years combined expertise in enterprise network deployment, management, and end-user device support.",
+      title: "IT Infrastructure Management",
+      desc: "Reliable, scalable and secure IT foundations - from structured LAN to data centers and SD-WAN.",
       icon: <Server className="text-brand h-8 w-8" />,
       link: "/services/infrastructure",
-      details: ["Infrastructure deployment & maintenance", "End user devices & rentals", "LAN/WAN, Firewall, VPN configuration", "Data center setup & network performance"]
+      details: ["Structured LAN Setup (SITC - Active & Passive)", "SD-WAN Architecture, Deployment & Support", "Core/Server Room & Data Center Setup", "CCTV & Biometric Solutions"]
+    },
+    {
+      title: "Managed IT Services",
+      desc: "Always-on IT operations with expert support - from aviation IT specialists to managed service desk.",
+      icon: <Wrench className="text-brand h-8 w-8" />,
+      link: "/services/managed",
+      details: ["Aviation IT Trained Engineers & Specialists", "24x7 L1 & L2 Remote and Onsite Support", "Service Integration & Management (SIAM)", "IT Equipment Rentals"]
     },
     {
       title: "Cybersecurity & Compliance",
-      desc: "Protecting your enterprise with ISO-aligned security frameworks and continuous monitoring.",
+      desc: "Protecting your enterprise with ISO-aligned security frameworks, penetration testing and compliance audits.",
       icon: <ShieldCheck className="text-brand h-8 w-8" />,
       link: "/services/cybersecurity",
-      details: ["ISO 27001/27002 Certification", "Security Risk Assessment", "SOX, GDPR, NIST Compliance", "Continuous Security Monitoring"]
+      details: ["ISO 27001/27002 Compliance Audits", "SOX, GDPR, NIST Regulatory Compliance", "Security Monitoring & Incident Response", "Vulnerability Assessments & Penetration Testing"]
     },
     {
-      title: "Managed Services & Process Improvement",
-      desc: "24/7 L1-L3 support with field engineering expertise, plus process diagnosis and optimization.",
-      icon: <Wrench className="text-brand h-8 w-8" />,
-      link: "/services/managed",
-      details: ["L1-L3 Support & Helpdesk", "Field Engineering & onsite support", "Process diagnosis & redesign", "Patch management & monitoring"]
+      title: "Process Improvement",
+      desc: "Hands-on process improvement for Sales, Ops & CRM teams - diagnose gaps, redesign SOPs, enforce and sustain.",
+      icon: <BarChart3 className="text-brand h-8 w-8" />,
+      link: "/services/process",
+      details: ["Diagnose the Gaps - Audit Workflows & Bottlenecks", "Redesign & Simplify - Streamline SOPs & Define Handoffs", "Enforce & Train - Set Ownership & Monitor Compliance", "Sustain & Improve - Track Metrics & Feedback Loops"]
     }
   ];
 

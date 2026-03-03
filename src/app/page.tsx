@@ -1,6 +1,6 @@
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle, Users, Zap, Globe, Shield, Server, Network, Brain, Wrench, Headphones, Rocket, Briefcase, Plane } from 'lucide-react';
+import { ArrowRight, CheckCircle, Users, Zap, Globe, Shield, Server, Network, Brain, Wrench, Headphones, Rocket, Briefcase, Plane, BarChart3 } from 'lucide-react';
 import LogosSection from '@/components/LogosSection';
 import WhyOptivantage from '@/components/WhyOptivantage';
 import ExitIntentPopup from '@/components/ExitIntentPopup';
@@ -11,21 +11,32 @@ const services = [
     title: "AI Advisory & Training",
     href: "/services/ai",
     features: [
-      "AI Strategy Development & Consulting",
-      "Generative AI Training Programs (Microsoft, Google)",
-      "Agentic AI deployment and support",
-      "Go-to-market strategy for AI/SaaS products"
+      "AI for All - Basic AI Training & Awareness",
+      "Microsoft Co-pilot Enterprise & Azure AI Deployment",
+      "AI+ Certification Programs",
+      "Agentic AI & Workflow Automation"
     ]
   },
   {
     icon: Server,
-    title: "IT & Network Infrastructure",
+    title: "IT Infrastructure Management",
     href: "/services/infrastructure",
     features: [
-      "IT Infrastructure deployment, support & maintenance",
-      "End user devices support and rentals (Laptops, Servers)",
-      "LAN/WAN architecture, Firewall, VPN & router configuration",
-      "Structured cabling, data center setup & network performance"
+      "Structured LAN Setup (SITC - Active & Passive)",
+      "SD-WAN Architecture, Deployment & Support",
+      "Core/Server Room & Data Center Setup",
+      "CCTV & Biometric Solutions"
+    ]
+  },
+  {
+    icon: Wrench,
+    title: "Managed IT Services",
+    href: "/services/managed",
+    features: [
+      "Aviation IT Trained Engineers & Specialists",
+      "24x7 L1 & L2 Remote and Onsite Support",
+      "Service Integration & Management (SIAM)",
+      "IT Equipment Rentals"
     ]
   },
   {
@@ -33,21 +44,21 @@ const services = [
     title: "Cybersecurity & Compliance",
     href: "/services/cybersecurity",
     features: [
-      "ISO 27001/27002 Implementation & Certification",
-      "Security Risk Assessment & Audit",
-      "Compliance Management (SOX, GDPR, NIST)",
-      "Continuous Security Monitoring"
+      "ISO 27001/27002 Compliance Audits",
+      "SOX, GDPR, NIST Regulatory Compliance",
+      "Security Monitoring & Incident Response",
+      "Vulnerability Assessments & Penetration Testing"
     ]
   },
   {
-    icon: Headphones,
-    title: "Managed Services & Process Improvement",
-    href: "/services/managed",
+    icon: BarChart3,
+    title: "Process Improvement",
+    href: "/services/process",
     features: [
-      "L1-L3 Support: Helpdesk, troubleshooting & infrastructure management",
-      "Technical Field Engineering & onsite support",
-      "Process diagnosis, redesign & optimization",
-      "Patch management, monitoring & preventive maintenance"
+      "Diagnose the Gaps - Audit Workflows & Bottlenecks",
+      "Redesign & Simplify - Streamline SOPs & Define Handoffs",
+      "Enforce & Train - Set Ownership & Monitor Compliance",
+      "Sustain & Improve - Track Metrics & Feedback Loops"
     ]
   }
 ];

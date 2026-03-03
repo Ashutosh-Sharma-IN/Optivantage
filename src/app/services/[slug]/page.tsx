@@ -26,6 +26,7 @@ const servicesData: any = {
   ai: {
     title: "AI Advisory & Training",
     icon: <BrainCircuit className="text-brand h-10 w-10" />,
+    showClientLogos: true,
     heroStats: [
       { val: "1000+", label: "Trained in 2024" },
       { val: "4", label: "Continents Served" },
@@ -33,34 +34,47 @@ const servicesData: any = {
     ],
     sections: [
       {
+        title: "Our AI Service Offerings",
+        subtitle: "Turning AI Potential into Secure, Compliant and Resilient Business",
+        type: "bento-grid",
+        items: [
+          { title: "AI for All", desc: "Basic AI training and awareness for everyone - build a strong foundation across your entire organization.", icon: <Users className="text-brand"/> },
+          { title: "Function Specific AI Training", desc: "Targeted AI training tailored to specific business functions and departments.", icon: <GraduationCap className="text-brand"/> },
+          { title: "Generative AI for Business Professionals", desc: "Hands-on training to leverage Generative AI tools for real business outcomes.", icon: <BrainCircuit className="text-brand"/> },
+          { title: "Microsoft Co-pilot Enterprise & Azure AI Deployment", desc: "End-to-end deployment and training on Microsoft's complete AI stack.", icon: <Zap className="text-brand"/> },
+          { title: "AI+ Certification Programs", desc: "Industry-recognized certification programs for enterprise teams at all levels.", icon: <Award className="text-brand"/> },
+          { title: "Agentic AI & Workflow Automation", desc: "Consultation and implementation using Make.com, N8N, Crew-AI and other automation platforms.", icon: <TrendingUp className="text-brand"/> },
+        ]
+      },
+      {
         title: "Recent Elite Engagements",
         subtitle: "Trusted by Fortune 500 companies and government institutions",
         type: "engagements-grid",
         items: [
-          { 
-            title: "Hexaware (with upGrad)", 
-            desc: "Agentic AI Sessions - Comprehensive training on self-evolving agents.", 
-            list: ["Multi-agent system architecture", "Self-healing AI implementations", "Hands-on workshop with real use cases"] 
+          {
+            title: "Hexaware (with upGrad)",
+            desc: "Agentic AI Sessions - Comprehensive training on self-evolving agents.",
+            list: ["Multi-agent system architecture", "Self-healing AI implementations", "Hands-on workshop with real use cases"]
           },
-          { 
-            title: "Infogain", 
-            desc: "AI Catalyst Series - Hands-on leadership training program.", 
-            list: ["Executive AI strategy sessions", "Practical implementation workshops", "Change management for AI transformation"] 
+          {
+            title: "Infogain",
+            desc: "AI Catalyst Series - Hands-on leadership training program.",
+            list: ["Executive AI strategy sessions", "Practical implementation workshops", "Change management for AI transformation"]
           },
-          { 
-            title: "Kotak Mahindra Bank", 
-            desc: "Voice AI Implementation - Balancing human expertise with AI capabilities.", 
-            list: ["Voice AI technology deployment", "Human+AI collaboration models", "Customer experience optimization"] 
+          {
+            title: "Kotak Mahindra Bank",
+            desc: "Voice AI Implementation - Balancing human expertise with AI capabilities.",
+            list: ["Voice AI technology deployment", "Human+AI collaboration models", "Customer experience optimization"]
           },
-          { 
-            title: "MSME Department, Government of India", 
-            desc: "National GenAI Program - Upskilling MSMEs nationwide.", 
-            list: ["GenAI fundamentals for business leaders", "Practical use case development", "Digital transformation roadmaps"] 
+          {
+            title: "MSME Department, Government of India",
+            desc: "National GenAI Program - Upskilling MSMEs nationwide.",
+            list: ["GenAI fundamentals for business leaders", "Practical use case development", "Digital transformation roadmaps"]
           },
-          { 
-            title: "East African Executives", 
-            desc: "AI Strategy & Governance - Executive training on AI strategy.", 
-            list: ["AI strategy development", "Governance and ethics frameworks", "Risk management and compliance"] 
+          {
+            title: "BIAL (Bengaluru International Airport Ltd.)",
+            desc: "AI Training Program - Founder-led training for airport operations.",
+            list: ["AI fundamentals for airport operations", "Practical AI applications", "Digital transformation roadmap"]
           }
         ]
       },
@@ -69,15 +83,15 @@ const servicesData: any = {
         subtitle: "Deep expertise across leading AI ecosystems",
         type: "platform-split",
         platforms: [
-          { 
-            title: "Microsoft Ecosystem", 
-            desc: "Certified trainer for Microsoft's complete AI stack.", 
-            list: ["Microsoft Copilot: Microsoft 365, Teams, Windows", "Azure AI Studio: Custom AI model development", "Azure OpenAI Service: Enterprise GPT implementations", "Power Platform AI Builder: No-code/low-code AI solutions"] 
+          {
+            title: "Microsoft Ecosystem",
+            desc: "Certified trainer for Microsoft's complete AI stack.",
+            list: ["Microsoft Copilot: Microsoft 365, Teams, Windows", "Azure AI Studio: Custom AI model development", "Azure OpenAI Service: Enterprise GPT implementations", "Power Platform AI Builder: No-code/low-code AI solutions"]
           },
-          { 
-            title: "Google Ecosystem", 
-            desc: "Expert in Google's AI platform and productivity suite.", 
-            list: ["Google Gemini: Multimodal AI model implementations", "Vertex AI: Machine learning platform", "Workspace AI: Gmail, Docs, Sheets AI features", "Cloud AI Services: Vision, Speech, Translation APIs"] 
+          {
+            title: "Google Ecosystem",
+            desc: "Expert in Google's AI platform and productivity suite.",
+            list: ["Google Gemini: Multimodal AI model implementations", "Vertex AI: Machine learning platform", "Workspace AI: Gmail, Docs, Sheets AI features", "Cloud AI Services: Vision, Speech, Translation APIs"]
           }
         ]
       },
@@ -99,34 +113,36 @@ const servicesData: any = {
         programs: [
           "Agentic AI for Business Leaders", "Self-Evolving & Self-Healing AI Agents", "Microsoft Copilot & Azure AI Implementation", "Google Workspace & Gemini AI Training", "Make.com Automation Masterclass", "Gen AI Use Cases Workshop", "AI Governance for Senior Leadership"
         ]
-      },
-      {
-        title: "Training Partners",
-        type: "partners-grid",
-        partners: ["upGrad Enterprise", "Simplilearn", "MSME India"]
       }
     ]
   },
   infrastructure: {
-    title: "IT Infrastructure",
+    title: "IT Infrastructure Management",
     icon: <Server className="text-brand h-10 w-10" />,
     sections: [
       {
         title: "Our Infrastructure Services",
+        subtitle: "Reliable, Scalable & Secure IT Foundations",
         type: "bento-grid",
         items: [
-          { title: "SITC Deployment & Support", desc: "End-to-end project management, Hardware and software integration, Comprehensive testing protocols, Documentation and knowledge transfer, Post-deployment support.", icon: <Zap className="text-brand"/> },
-          { title: "IT Equipment Rentals", desc: "Laptops, desktops, servers, networking equipment. Flexible rental terms (short-term to long-term), Maintenance included.", icon: <Globe className="text-brand"/> },
-          { title: "AMC & Repair Services", desc: "Preventive maintenance programs, Break-fix repair services, Hardware diagnostics and troubleshooting, Component replacement and upgrades.", icon: <Wrench className="text-brand"/> },
-          { title: "Core Room Setup & Data Center", desc: "Physical infrastructure design, Power and cooling systems, Structured cabling, Rack and cabinet setup.", icon: <Server className="text-brand"/> },
-          { title: "LAN/WAN/WiFi Architecture", desc: "Network topology design, LAN switching and routing, WAN connectivity (MPLS, SD-WAN), Wireless network design (WiFi 6/6E).", icon: <Globe className="text-brand"/> },
+          { title: "Structured LAN Setup (SITC)", desc: "Active & Passive SITC deployment and support management for wired and wireless (Wi-Fi) infrastructure.", icon: <Zap className="text-brand"/> },
+          { title: "Network Design & WAN", desc: "Consultancy on resilient network design (WAN), implementation and support.", icon: <Globe className="text-brand"/> },
+          { title: "SD-WAN Architecture", desc: "SD-WAN architecture design, deployment, migration and ongoing support.", icon: <Server className="text-brand"/> },
+          { title: "Turnkey Network Infra Projects", desc: "End-to-end SITC to support for the complete contract lifecycle.", icon: <Wrench className="text-brand"/> },
+          { title: "GCC Setup", desc: "Global Capability Centre setup - turnkey project delivery.", icon: <Globe className="text-brand"/> },
+          { title: "IT Equipment SITC & Support", desc: "SITC, onsite support, repair, AMC and rentals for IT equipment.", icon: <Zap className="text-brand"/> },
+          { title: "Core / Server Room Setup", desc: "For airports and airlines offices - complete server room infrastructure.", icon: <Server className="text-brand"/> },
+          { title: "Data Center Build & Support", desc: "Structured cabling and support (remote and onsite - L1 & L2).", icon: <Lock className="text-brand"/> },
+          { title: "Technical Spares for Aviation", desc: "Print Heads for Thermal Printers, stationery for CUSS/CUPPS for airport operators and airlines.", icon: <Wrench className="text-brand"/> },
+          { title: "CCTV & Biometric Solutions", desc: "SITC and support for CCTV and office biometrics solutions (FRS, attendance/access).", icon: <ShieldCheck className="text-brand"/> },
+          { title: "Refurbished IT Equipment", desc: "Laptops, Desktops, Servers, Network Devices - quality refurbished hardware.", icon: <Globe className="text-brand"/> },
         ]
       },
       {
         title: "Network Optimization Expertise",
         type: "bento-grid-2",
         items: [
-          { title: "WiFi RF Engineering & Site Surveys", desc: "Expert RF optimization using industry-leading Ekahau tools.", 
+          { title: "WiFi RF Engineering & Site Surveys", desc: "Expert RF optimization using industry-leading Ekahau tools.",
             details: ["Comprehensive Site Surveys: Predictive and active surveys", "RF Heat Mapping: Detailed coverage analysis", "AP Density Optimization: Right-sizing deployment", "Channel Planning: Minimizing interference", "Power Optimization: Fine-tuning levels", "Roaming Analysis: Seamless optimization"],
             highlight: "15 warehouse WiFi optimization achieved 98% scanner uptime and 25% reduction in operational disruptions."
           },
@@ -135,26 +151,6 @@ const servicesData: any = {
             highlight: "200+ retail site SD-WAN migration delivered 50% latency reduction and 40% OpEx savings."
           },
         ]
-      },
-      {
-        title: "Network Capacity Planning & Forecasting",
-        type: "value-card",
-        content: (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-             <div>
-                <h4 className="text-brand font-bold mb-2">Planning</h4>
-                <ul className="space-y-2 text-text-muted"><li>Baseline capacity assessment</li><li>Growth trend analysis</li><li>Demand forecasting</li></ul>
-             </div>
-             <div>
-                <h4 className="text-brand font-bold mb-2">Optimization</h4>
-                <ul className="space-y-2 text-text-muted"><li>Resource utilization analysis</li><li>Bottleneck identification</li><li>Performance tuning</li></ul>
-             </div>
-             <div>
-                <h4 className="text-brand font-bold mb-2">Monitoring</h4>
-                <ul className="space-y-2 text-text-muted"><li>Real-time capacity dashboards</li><li>Threshold alerting</li><li>Capacity reporting</li></ul>
-             </div>
-          </div>
-        )
       },
       {
         title: "Technology Expertise",
@@ -175,42 +171,29 @@ const servicesData: any = {
     sections: [
       {
         title: "Our Managed Services",
+        subtitle: "Always-On IT Operations & Expert Support",
         type: "bento-grid",
         items: [
-          { title: "24/7 L1 to L3 Support", desc: "Service desk, incident logging, password resets. Technical troubleshooting, problem diagnosis. Advanced technical resolution, root cause analysis. 24/7/365 coverage.", icon: <Wrench className="text-brand"/> },
-          { title: "Service Management & ITSM", desc: "Incident management and tracking, Problem management and resolution, Change management and CAB, Service request fulfillment.", icon: <CheckCircle2 className="text-brand"/> },
-          { title: "Offshore BOT Model Delivery", desc: "Establish dedicated offshore teams, Process documentation and training, Quality assurance and governance, Cost optimization (40-60% savings).", icon: <Globe className="text-brand"/> },
+          { title: "Aviation IT Engineers & Specialists", desc: "Onsite/field manpower trained to work for airports and service providers like SITA, Amadeus, Collins Aerospace.", icon: <Server className="text-brand"/> },
+          { title: "Aviation IT - Airlines Support", desc: "Trained engineers to support airline IT infra in town-offices and back-offices at airports.", icon: <Globe className="text-brand"/> },
+          { title: "Outsource / Managed Service Contracts", desc: "SLA-driven support model with reports and contractual deliverables.", icon: <Wrench className="text-brand"/> },
+          { title: "24x7 / NBH - L1 & L2 Support", desc: "Remote and onsite technical support following ITIL Framework.", icon: <CheckCircle2 className="text-brand"/> },
+          { title: "Service Integration & Management (SIAM)", desc: "Service providers management - coordinating multiple vendors for seamless delivery.", icon: <Users className="text-brand"/> },
+          { title: "Managed Service Desk", desc: "ITSM implementation and support for the complete contract life-cycle.", icon: <Zap className="text-brand"/> },
         ]
       },
       {
-        title: "Aviation IT Engineers & Specialists",
-        type: "value-card",
-        content: (
-           <div className="space-y-6">
-             <div>
-                <h4 className="text-brand font-bold mb-2">SITA</h4>
-                <ul className="space-y-2 text-text-muted"><li>Airport operations systems support</li><li>Passenger processing systems (DCS)</li><li>Baggage handling IT infrastructure</li><li>24/7 mission-critical support</li></ul>
-             </div>
-             <div>
-                <h4 className="text-brand font-bold mb-2">Amadeus</h4>
-                <ul className="space-y-2 text-text-muted"><li>Reservation and ticketing systems</li><li>Check-in system support</li><li>Departure control systems</li><li>Airport IT operations</li></ul>
-             </div>
-             <div>
-                <h4 className="text-brand font-bold mb-2">Collins Aerospace</h4>
-                <ul className="space-y-2 text-text-muted"><li>Flight operations technology</li><li>Communication systems</li><li>Navigation and surveillance IT</li><li>Aircraft connectivity solutions</li></ul>
-             </div>
-           </div>
-        )
-      },
-      {
-        title: "Process Improvement & Operational Excellence",
-        subtitle: "I Fix Broken Processes - Clarity • Accountability • Results",
-        type: "value-card-4",
+        title: "IT Equipment Rentals",
+        subtitle: "Smart, Flexible & Cost-Effective IT Scaling",
+        type: "bento-grid",
         items: [
-          { num: "1", title: "Diagnose Gaps", desc: "Identify bottlenecks and inefficiencies, Root cause analysis, Process mapping and documentation, Stakeholder interviews." },
-          { num: "2", title: "Redesign & Simplify", desc: "Streamline workflows, Eliminate redundant steps, Automate repetitive tasks, Define clear ownership." },
-          { num: "3", title: "Enforce & Train", desc: "Implement new processes, Team training and enablement, Change management support, Tool and system configuration." },
-          { num: "4", title: "Sustain & Improve", desc: "Monitor performance metrics, Continuous improvement cycles, Regular process audits, Feedback loops and refinement." }
+          { title: "Laptops", desc: "Latest generation models from DELL, HP and Lenovo.", icon: <Zap className="text-brand"/> },
+          { title: "Desktops", desc: "Tower, SFF (Small Form Factor), commercial desktop options.", icon: <Server className="text-brand"/> },
+          { title: "Workstations", desc: "Multicore with Intel i7, i9 and Xeon Processors for high-performance needs.", icon: <TrendingUp className="text-brand"/> },
+          { title: "Apple Devices", desc: "Laptops and Tablets for creative and professional teams.", icon: <Globe className="text-brand"/> },
+          { title: "Networking Devices", desc: "Routers, Switches, Firewalls and Wi-Fi equipment.", icon: <Lock className="text-brand"/> },
+          { title: "Printers", desc: "Network and standalone Laser Printers (Color & B/W).", icon: <Wrench className="text-brand"/> },
+          { title: "UPS Systems", desc: "Online/Offline UPS up to 100KVA for uninterrupted power.", icon: <Zap className="text-brand"/> },
         ]
       },
       {
@@ -225,20 +208,14 @@ const servicesData: any = {
     icon: <ShieldCheck className="text-brand h-10 w-10" />,
     sections: [
       {
-        title: "Compliance Frameworks",
-        type: "bento-grid-2",
-        items: [
-          { title: "ISO 27001/27002", desc: "Information Security Management System implementation and certification.", details: ["Gap analysis and risk assessment", "ISMS framework design", "Policy and procedure development", "Certification preparation"] },
-          { title: "SOX, GDPR & NIST", desc: "Multi-framework compliance expertise.", details: ["SOX: IT controls for financial reporting", "GDPR: Data protection and privacy", "NIST: Cybersecurity framework", "Compliance gap assessments"] }
-        ]
-      },
-      {
-        title: "Security Services",
+        title: "Our Cybersecurity Services",
+        subtitle: "Turning Cybersecurity into Secure, Compliant and Resilient Business",
         type: "bento-grid",
         items: [
-          { title: "Security Monitoring", desc: "24/7 SOC operations, SIEM implementation, Threat detection and analysis, Real-time alerting.", icon: <Lock className="text-brand"/> },
-          { title: "Vulnerability Assessment", desc: "Automated vulnerability scanning, Penetration testing, Security posture assessment, Remediation planning.", icon: <AlertTriangle className="text-brand"/> },
-          { title: "Incident Response", desc: "Incident response planning, Security incident handling, Forensic analysis, Breach containment.", icon: <ShieldCheck className="text-brand"/> }
+          { title: "ISO 27001/27002 Compliance Audits", desc: "Comprehensive ISMS implementation and certification - gap analysis, risk assessment, framework design, policy development and certification preparation.", icon: <ShieldCheck className="text-brand"/> },
+          { title: "SOX, GDPR, NIST Regulatory Compliance", desc: "Multi-framework compliance expertise - SOX IT controls, GDPR data protection, NIST cybersecurity framework and compliance gap assessments.", icon: <Lock className="text-brand"/> },
+          { title: "Security Monitoring & Incident Response", desc: "24/7 SOC operations, SIEM implementation, threat detection and analysis, incident response planning, forensic analysis and breach containment.", icon: <AlertTriangle className="text-brand"/> },
+          { title: "Vulnerability Assessments & Penetration Testing", desc: "Automated vulnerability scanning, penetration testing, security posture assessment and remediation planning.", icon: <ShieldCheck className="text-brand"/> },
         ]
       }
     ]
@@ -248,14 +225,15 @@ const servicesData: any = {
     icon: <BarChart3 className="text-brand h-10 w-10" />,
     sections: [
       {
-        title: "Transform Your Operations",
-        type: "value-card",
-        content: <p className="text-text-muted">Target Teams: Sales, Operations & CRM Teams. Turn your messy operations into best practices.</p>
-      },
-      {
-        title: "Service Delivery Models",
-        type: "pillars-grid",
-        items: ["Dedicated Teams", "Shared Services", "Hybrid Model", "Project-Based"]
+        title: "Fix the Process Gaps",
+        subtitle: "Hands-on Process Improvement for Sales, Ops & CRM Teams",
+        type: "value-card-4",
+        items: [
+          { num: "1", title: "Diagnose the Gaps", desc: "Audit Workflows, Identify bottlenecks, Spot accountability gaps" },
+          { num: "2", title: "Redesign & Simplify", desc: "Streamline SOPs, Define Clear Handoffs, Set Metrics & SLAs" },
+          { num: "3", title: "Enforce & Train", desc: "Set ownership rules, Conduct training, Monitor Compliance" },
+          { num: "4", title: "Sustain & Improve", desc: "Track key Metrics, Review & Adjust, Get Feedback Loops" }
+        ]
       }
     ]
   }
@@ -505,53 +483,64 @@ export default function ServiceDetail() {
         </div>
       </section>
       
-      {/* LOGOS SECTION */}
-      <section className="py-16 px-4 bg-navy-900 border-t border-white/5">
-        <div className="max-w-7xl mx-auto text-center">
-          <h3 className="text-lg font-bold text-text-muted uppercase tracking-widest mb-8">
-            Trusted by Leading Organizations
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-75 hover:opacity-100 transition-all">
-            
-            {/* Infogain */}
-            <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center">
-               <img 
-                 src="/infogain.png" 
-                 alt="Infogain" 
-                 className="h-12 w-auto opacity-90 hover:opacity-100 transition-all"
-               />
-            </div>
+      {/* LOGOS SECTION - AI page only */}
+      {service.showClientLogos && (
+        <section className="py-16 px-4 bg-navy-900 border-t border-white/5">
+          <div className="max-w-7xl mx-auto text-center">
+            <h3 className="text-lg font-bold text-text-muted uppercase tracking-widest mb-8">
+              Trusted by Leading Organizations
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center opacity-75 hover:opacity-100 transition-all">
 
-            {/* Hexaware */}
-            <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center">
-               <img 
-                 src="/hexaware.png" 
-                 alt="Hexaware" 
-                 className="h-12 w-auto opacity-90 hover:opacity-100 transition-all"
-               />
-            </div>
+              {/* Hexaware */}
+              <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center">
+                 <img
+                   src="/hexaware.png"
+                   alt="Hexaware"
+                   className="h-12 w-auto opacity-90 hover:opacity-100 transition-all"
+                 />
+              </div>
 
-            {/* Kotak Bank */}
-            <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center">
-               <img 
-                 src="/kotak.png" 
-                 alt="Kotak Bank" 
-                 className="h-12 w-auto opacity-90 hover:opacity-100 transition-all"
-               />
-            </div>
+              {/* Infogain */}
+              <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center">
+                 <img
+                   src="/infogain.png"
+                   alt="Infogain"
+                   className="h-12 w-auto opacity-90 hover:opacity-100 transition-all"
+                 />
+              </div>
 
-            {/* MSME India */}
-            <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center">
-               <img 
-                 src="/msme.png" 
-                 alt="MSME India" 
-                 className="h-12 w-auto opacity-90 hover:opacity-100 transition-all"
-               />
-            </div>
+              {/* Kotak Bank */}
+              <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center">
+                 <img
+                   src="/kotak.png"
+                   alt="Kotak Mahindra Bank"
+                   className="h-12 w-auto opacity-90 hover:opacity-100 transition-all"
+                 />
+              </div>
 
+              {/* MSME India */}
+              <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center">
+                 <img
+                   src="/msme.png"
+                   alt="MSME India"
+                   className="h-12 w-auto opacity-90 hover:opacity-100 transition-all"
+                 />
+              </div>
+
+              {/* upGrad */}
+              <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center">
+                 <img
+                   src="/Upgrad.png"
+                   alt="upGrad"
+                   className="h-12 w-auto opacity-90 hover:opacity-100 transition-all"
+                 />
+              </div>
+
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
       
       <section className="py-16 px-4 bg-navy-800 text-center">
          <h2 className="text-2xl font-bold text-white mb-4">Ready to discuss?</h2>

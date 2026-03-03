@@ -80,7 +80,7 @@ export default function RootLayout({
                   </li>
                   <li>
                     <Link href="/services/infrastructure" className="text-sm text-gray-400 hover:text-brand transition-colors">
-                      IT Infrastructure
+                      IT Infrastructure Management
                     </Link>
                   </li>
                   <li>
@@ -119,12 +119,12 @@ export default function RootLayout({
                   </div>
                   <div>
                     <p className="font-semibold text-white mb-1">Phone:</p>
-                    <a href="tel:+919971701239" className="hover:text-brand transition-colors block">
+                    <span className="block">
                       +91 9971701239
-                    </a>
-                    <a href="tel:+919871222319" className="hover:text-brand transition-colors block">
-                      +91 9871222319
-                    </a>
+                    </span>
+                    <span className="block">
+                      +91 9871253355
+                    </span>
                   </div>
                 </div>
               </div>
