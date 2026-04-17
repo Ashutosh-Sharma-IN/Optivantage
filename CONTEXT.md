@@ -69,7 +69,21 @@ DO NOT use:
 
 ## Company Profile
 
-### Core Services (5 Main Offerings)
+### ⚠️ IMPORTANT: April 2026 Strategic Revamp
+Services consolidated from 5 → 3 focused areas. Removed: Cybersecurity & Compliance, Market Activation, Managed IT Services (as standalone), Process Improvement.
+
+**New 3 Pillars:**
+1. AI Training & Advisory (slug: `ai-training-advisory`)
+2. IT Infrastructure (slug: `it-infrastructure`)
+3. IT Equipment & Rentals (slug: `it-equipment-rentals`)
+
+**Partners added:** Cisco (Registered Partner via Ingram Micro India), Vertiv (Authorised Reseller), Fortinet, Palo Alto Networks
+**Blog added:** `/blog` index + `/blog/[slug]` posts. Data file: `src/lib/blog-data.ts`
+**New tagline:** "AI. Infrastructure. Equipment. Three things we do exceptionally well."
+
+---
+
+## Core Services (3 Focused Areas — post April 2026 revamp)
 
 1. **Cybersecurity & Compliance**
    - ISO 27001/27002, SOX, GDPR, NIST frameworks

@@ -23,27 +23,26 @@ export default function LogosSection() {
     { name: 'Nortel', logo: '/experience/nortel.png' },
   ];
 
-  // ✅ FIX 7: WORK EXPERTISE WITH CLICKABLE LINKS
   const workExpertise = [
-    { 
-      text: 'B2B Managed IT and Network Services', 
-      link: '/services/managed'
+    {
+      text: 'B2B Managed IT and Network Services',
+      link: '/services/it-infrastructure'
     },
-    { 
-      text: 'Aviation IT', 
-      link: '/services/managed'
+    {
+      text: 'Global Service Delivery & Field Engineering',
+      link: '/services/it-infrastructure'
     },
-    { 
-      text: 'Global Service Delivery', 
-      link: '/services/managed'
+    {
+      text: 'IT Infrastructure Design & Build',
+      link: '/services/it-infrastructure'
     },
-    { 
-      text: 'Process Improvement and Infrastructure Optimization', 
-      link: '/services/process'
+    {
+      text: 'IT Equipment Supply & Rentals',
+      link: '/services/it-equipment-rentals'
     },
-    { 
-      text: 'AI consulting, advisory and training', 
-      link: '/services/ai'
+    {
+      text: 'AI Training, Advisory & Governance',
+      link: '/services/ai-training-advisory'
     }
   ];
 

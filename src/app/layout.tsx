@@ -7,8 +7,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Optivantage | Infrastructure Excellence & AI Innovation",
-  description: "25 years of proven IT infrastructure expertise combined with cutting-edge AI transformation services.",
+  title: "Optivantage | AI Training, IT Infrastructure & Equipment Rentals",
+  description: "We help enterprises adopt AI safely, build resilient networks, and equip teams to deliver — with 25 years of battle-tested expertise. Cisco & Vertiv authorised partner.",
 };
 
 export default function RootLayout({
@@ -30,10 +30,10 @@ export default function RootLayout({
               <div>
                 <h4 className="text-lg font-bold mb-4 text-white">Optivantage</h4>
                 <p className="text-sm text-gray-400 leading-relaxed">
-                  25 years of infrastructure excellence combined with cutting-edge AI innovation.
+                  AI Training & Advisory. IT Infrastructure. IT Equipment & Rentals.
                 </p>
                 <p className="text-sm text-gray-400 mt-4">
-                  Transforming enterprises through proven IT operations and modern AI training.
+                  Three focused services. 25 years of battle-tested expertise. Cisco & Vertiv authorised partner.
                 </p>
               </div>
 
@@ -52,8 +52,8 @@ export default function RootLayout({
                     </Link>
                   </li>
                   <li>
-                    <Link href="/services" className="text-sm text-gray-400 hover:text-brand transition-colors">
-                      Services
+                    <Link href="/blog" className="text-sm text-gray-400 hover:text-brand transition-colors">
+                      Blog
                     </Link>
                   </li>
                   <li>
@@ -74,28 +74,18 @@ export default function RootLayout({
                 <h4 className="text-lg font-bold mb-4 text-white">Our Services</h4>
                 <ul className="space-y-3">
                   <li>
-                    <Link href="/services/ai" className="text-sm text-gray-400 hover:text-brand transition-colors">
-                      AI Advisory & Training
+                    <Link href="/services/ai-training-advisory" className="text-sm text-gray-400 hover:text-brand transition-colors">
+                      AI Training & Advisory
                     </Link>
                   </li>
                   <li>
-                    <Link href="/services/infrastructure" className="text-sm text-gray-400 hover:text-brand transition-colors">
-                      IT Infrastructure Management
+                    <Link href="/services/it-infrastructure" className="text-sm text-gray-400 hover:text-brand transition-colors">
+                      IT Infrastructure
                     </Link>
                   </li>
                   <li>
-                    <Link href="/services/managed" className="text-sm text-gray-400 hover:text-brand transition-colors">
-                      Managed IT Services
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/services/cybersecurity" className="text-sm text-gray-400 hover:text-brand transition-colors">
-                      Cybersecurity & Compliance
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/services/process" className="text-sm text-gray-400 hover:text-brand transition-colors">
-                      Process Improvement
+                    <Link href="/services/it-equipment-rentals" className="text-sm text-gray-400 hover:text-brand transition-colors">
+                      IT Equipment & Rentals
                     </Link>
                   </li>
                 </ul>

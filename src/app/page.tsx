@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle, Users, Zap, Globe, Shield, Server, Network, Brain, Wrench, Headphones, Rocket, Briefcase, Plane, BarChart3 } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight, CheckCircle, Users, Brain, Server, Package } from 'lucide-react';
 import LogosSection from '@/components/LogosSection';
 import WhyOptivantage from '@/components/WhyOptivantage';
 import ExitIntentPopup from '@/components/ExitIntentPopup';
@@ -8,80 +9,71 @@ import ExitIntentPopup from '@/components/ExitIntentPopup';
 const services = [
   {
     icon: Brain,
-    title: "AI Advisory & Training",
-    href: "/services/ai",
+    title: "AI Training & Advisory",
+    href: "/services/ai-training-advisory",
+    description: "From building AI literacy across your teams to designing your full AI implementation roadmap — including AI security & governance (ISO 42001).",
     features: [
-      "AI for All - Basic AI Training & Awareness",
-      "Microsoft Co-pilot Enterprise & Azure AI Deployment",
-      "AI+ Certification Programs",
-      "Agentic AI & Workflow Automation"
+      "Gen AI literacy: Copilot, ChatGPT, Gemini, OpenAI",
+      "AI Strategy, Policy & Governance (ISO/IEC 42001)",
+      "AI Implementation Roadmap & Agentic AI",
+      "AI+ Certified Training Programs"
     ]
   },
   {
     icon: Server,
-    title: "IT Infrastructure Management",
-    href: "/services/infrastructure",
+    title: "IT Infrastructure",
+    href: "/services/it-infrastructure",
+    description: "End-to-end network design, build, and field support — passive cabling to active networking, with power infrastructure and network security built in.",
     features: [
-      "Structured LAN Setup (SITC - Active & Passive)",
-      "SD-WAN Architecture, Deployment & Support",
-      "Core/Server Room & Data Center Setup",
-      "CCTV & Biometric Solutions"
+      "Network Design, LAN/WAN, SD-WAN, WiFi",
+      "Passive Infrastructure: cabling, fibre, data centre",
+      "Network Security: Fortinet & Palo Alto Networks",
+      "Power & Electrical: Vertiv (authorised reseller)"
     ]
   },
   {
-    icon: Wrench,
-    title: "Managed IT Services",
-    href: "/services/managed",
+    icon: Package,
+    title: "IT Equipment & Rentals",
+    href: "/services/it-equipment-rentals",
+    description: "Supply, rent, and maintain enterprise IT compute — desktops, laptops, workstations, printers, and networking gear for projects, events, or long-term needs.",
     features: [
-      "Aviation IT Trained Engineers & Specialists",
-      "24x7 L1 & L2 Remote and Onsite Support",
-      "Service Integration & Management (SIAM)",
-      "IT Equipment Rentals"
-    ]
-  },
-  {
-    icon: Shield,
-    title: "Cybersecurity & Compliance",
-    href: "/services/cybersecurity",
-    features: [
-      "ISO 27001/27002 Compliance Audits",
-      "SOX, GDPR, NIST Regulatory Compliance",
-      "Security Monitoring & Incident Response",
-      "Vulnerability Assessments & Penetration Testing"
-    ]
-  },
-  {
-    icon: BarChart3,
-    title: "Process Improvement",
-    href: "/services/process",
-    features: [
-      "Diagnose the Gaps - Audit Workflows & Bottlenecks",
-      "Redesign & Simplify - Streamline SOPs & Define Handoffs",
-      "Enforce & Train - Set Ownership & Monitor Compliance",
-      "Sustain & Improve - Track Metrics & Feedback Loops"
+      "Laptops, Desktops, Workstations (Dell, HP, Lenovo)",
+      "Printers, Peripherals & Networking Devices",
+      "Short-term & Long-term Equipment Rentals",
+      "Annual Maintenance Contracts (AMC)"
     ]
   }
 ];
+
+const partners = [
+  { name: 'Cisco', logo: '/logos/Cisco logo.webp', badge: 'Registered Partner' },
+  { name: 'Fortinet', logo: '/logos/Fortinet logo.png', badge: 'Partner' },
+  { name: 'Palo Alto Networks', logo: '/logos/Palo Alto networks logo.png', badge: 'Partner' },
+  { name: 'Vertiv', logo: '/logos/Liebert Vertiv Logo.png', badge: 'Authorised Reseller' },
+];
+
 export default function Home() {
   return (
     <main>
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6">
-  Enterprise IT Operations Meets{' '}
-  <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-orange-400">AI Innovation</span>
-</h1>
-          <p className="text-xl text-text-muted mb-10 leading-relaxed">
-  50+ years combined experience running enterprise networks for BT, Telstra, SITA & global airlines.
-  <br />
-  <span className="text-white font-semibold">Now helping businesses transform with AI implementation, training & managed IT services.</span>
-</p>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-4">
+            AI. Infrastructure.{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-orange-400">Equipment.</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-brand font-semibold mb-4">
+            Three things we do exceptionally well.
+          </p>
+          <p className="text-lg text-text-muted mb-10 leading-relaxed max-w-3xl mx-auto">
+            We help enterprises adopt AI safely, build resilient networks, and equip teams to deliver —
+            with 25 years of battle-tested expertise.
+          </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link href="/contact" className="px-8 py-4 bg-brand hover:bg-brand-hover text-white font-semibold rounded-lg transition-all flex items-center justify-center gap-2">
-              Start Transformation <ArrowRight size={20} />
+              Start a Conversation <ArrowRight size={20} />
             </Link>
             <Link href="/services" className="px-8 py-4 border border-white/20 hover:bg-white/5 text-white font-semibold rounded-lg transition-all">
               Our Services
@@ -92,94 +84,48 @@ export default function Home() {
         {/* Trust Metrics */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-10 border-t border-white/10">
           <div className="text-center">
-            <Briefcase className="h-8 w-8 text-brand mx-auto mb-3" />
-            <div className="text-4xl font-bold text-white">50+</div>
-            <div className="text-sm text-text-muted">Years Combined Experience</div>
+            <div className="text-4xl font-bold text-white">25+</div>
+            <div className="text-sm text-text-muted mt-1">Years IT Expertise</div>
           </div>
           <div className="text-center">
-            <Globe className="h-8 w-8 text-brand mx-auto mb-3" />
-            <div className="text-4xl font-bold text-white">Global</div>
-            <div className="text-sm text-text-muted">Airlines, Airports & Fortune 500 Networks Managed</div>
+            <div className="text-4xl font-bold text-white">1000+</div>
+            <div className="text-sm text-text-muted mt-1">Professionals Trained in AI</div>
           </div>
           <div className="text-center">
-            <Plane className="h-8 w-8 text-brand mx-auto mb-3" />
-            <div className="text-4xl font-bold text-white">20+</div>
-            <div className="text-sm text-text-muted">Years Aviation IT</div>
+            <div className="text-4xl font-bold text-white">15+</div>
+            <div className="text-sm text-text-muted mt-1">Enterprise Clients</div>
           </div>
           <div className="text-center">
-            <Brain className="h-8 w-8 text-brand mx-auto mb-3" />
-            <div className="text-4xl font-bold text-white">AI Ready</div>
-            <div className="text-sm text-text-muted">Training & Implementation</div>
+            <div className="text-4xl font-bold text-white">3</div>
+            <div className="text-sm text-text-muted mt-1">Focused Areas. Zero Generalism.</div>
           </div>
         </div>
       </section>
 
-      {/* Value Proposition Section */}
-      <section className="py-20 bg-navy-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Services Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-navy-800">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white mb-4">Why Optivantage?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Three Service Areas</h2>
             <p className="text-text-muted max-w-2xl mx-auto">
-              We're not consultants who've only read the playbook. We've lived it - running service operations for the world's largest telecom and aviation enterprises.
+              We made a deliberate choice to go deep, not wide. Every engagement is founder-led, not delegated to junior consultants.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-navy-900 p-8 rounded-xl border border-white/5 hover:border-brand/50 transition-colors">
-              <div className="h-12 w-12 bg-brand/10 rounded-lg flex items-center justify-center mb-6">
-                <Network className="text-brand" />
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Enterprise Network DNA</h3>
-              <p className="text-text-muted">
-                25+ years managing B2B service operations at BT, Telstra, and SITA. Service design, delivery, desk operations, and technical management at scale.
-              </p>
-            </div>
-
-            <div className="bg-navy-900 p-8 rounded-xl border border-white/5 hover:border-brand/50 transition-colors">
-              <div className="h-12 w-12 bg-brand/10 rounded-lg flex items-center justify-center mb-6">
-                <Plane className="text-brand" />
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Aviation IT Expertise</h3>
-              <p className="text-text-muted">
-                20+ years in airlines IT - customer support, field engineering, projects and program management. We understand mission-critical systems.
-              </p>
-            </div>
-
-            <div className="bg-navy-900 p-8 rounded-xl border border-white/5 hover:border-brand/50 transition-colors">
-              <div className="h-12 w-12 bg-brand/10 rounded-lg flex items-center justify-center mb-6">
-                <Brain className="text-brand" />
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">AI-Powered Future</h3>
-              <p className="text-text-muted">
-                Already delivering AI training for corporates. Now expanding into AI implementation, consulting, and helping businesses leverage Generative AI for real results.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Services Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Services</h2>
-            <p className="text-text-muted max-w-2xl mx-auto">
-              Comprehensive IT solutions tailored for enterprise needs - from cybersecurity to AI transformation
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
                 <div
                   key={index}
-                  className="bg-navy-800 p-6 rounded-xl border border-white/5 hover:border-brand/50 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-brand/5"
+                  className="bg-navy-900 p-8 rounded-xl border border-white/5 hover:border-brand/50 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-brand/5 flex flex-col"
                 >
-                  <div className="h-12 w-12 bg-brand/10 rounded-lg flex items-center justify-center mb-4">
+                  <div className="h-12 w-12 bg-brand/10 rounded-lg flex items-center justify-center mb-5">
                     <IconComponent className="h-6 w-6 text-brand" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-4">{service.title}</h3>
-                  <ul className="space-y-2 mb-6">
+                  <h3 className="text-xl font-semibold text-white mb-3">{service.title}</h3>
+                  <p className="text-text-muted text-sm mb-5 leading-relaxed">{service.description}</p>
+                  <ul className="space-y-2 mb-8 flex-grow">
                     {service.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start gap-2 text-sm text-text-muted">
                         <CheckCircle className="h-4 w-4 text-brand mt-0.5 flex-shrink-0" />
@@ -187,21 +133,81 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <Link href={service.href} className="inline-flex items-center text-brand font-semibold hover:underline">
+                  <Link href={service.href} className="inline-flex items-center text-brand font-semibold hover:underline mt-auto">
                     Learn More <ArrowRight size={16} className="ml-1" />
                   </Link>
                 </div>
               );
             })}
           </div>
+        </div>
+      </section>
 
-          <div className="text-center mt-12">
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-brand hover:bg-brand-hover text-white font-semibold rounded-lg transition-all"
-            >
-              View All Services <ArrowRight size={20} />
-            </Link>
+      {/* Partners Strip */}
+      <section className="py-14 px-4 bg-navy-900 border-y border-white/5">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-center text-xs font-bold text-gray-500 uppercase tracking-widest mb-8">
+            Technology Partners & Authorised Resellers
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
+            {partners.map((partner) => (
+              <div key={partner.name} className="flex flex-col items-center gap-3">
+                <div className="bg-white rounded-xl p-4 w-full flex items-center justify-center h-20 shadow-sm">
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={140}
+                    height={60}
+                    className="object-contain h-10 w-auto"
+                  />
+                </div>
+                <span className="text-xs text-brand font-semibold text-center">{partner.badge}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Optivantage inline cards */}
+      <section className="py-20 bg-navy-800 px-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-white mb-4">Why Optivantage?</h2>
+            <p className="text-text-muted max-w-2xl mx-auto">
+              We're not consultants who've only read the playbook. We've lived it — running operations for global enterprises across telecom, aviation, and banking.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-navy-900 p-8 rounded-xl border border-white/5 hover:border-brand/50 transition-colors">
+              <div className="h-12 w-12 bg-brand/10 rounded-lg flex items-center justify-center mb-6">
+                <Brain className="text-brand" />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">AI From Training to Governance</h3>
+              <p className="text-text-muted">
+                We cover the full AI journey — from building literacy across your teams to ISO/IEC 42001 AI governance. Certified Microsoft & Google AI trainer. 1000+ professionals trained.
+              </p>
+            </div>
+
+            <div className="bg-navy-900 p-8 rounded-xl border border-white/5 hover:border-brand/50 transition-colors">
+              <div className="h-12 w-12 bg-brand/10 rounded-lg flex items-center justify-center mb-6">
+                <Server className="text-brand" />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Infrastructure Built to Enterprise Standard</h3>
+              <p className="text-text-muted">
+                Cisco Registered Partner. Vertiv Authorised Reseller. Fortinet & Palo Alto Networks. We design and build infrastructure that runs — from passive cabling to network security.
+              </p>
+            </div>
+
+            <div className="bg-navy-900 p-8 rounded-xl border border-white/5 hover:border-brand/50 transition-colors">
+              <div className="h-12 w-12 bg-brand/10 rounded-lg flex items-center justify-center mb-6">
+                <Users className="text-brand" />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Specialists. Not Generalists.</h3>
+              <p className="text-text-muted">
+                Three focused services — not twenty. Every engagement is led by the founder, backed by 25 years of running enterprise IT for BT, Telstra, and SITA. You get the expert, not a junior.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -213,4 +219,3 @@ export default function Home() {
     </main>
   );
 }
-

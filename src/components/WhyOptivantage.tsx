@@ -64,36 +64,29 @@ export default function WhyOptivantage() {
               <li className="flex items-start gap-3">
                 <Check className="text-brand h-5 w-5 flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-navy-900">Telecom & Aviation IT Specialists</strong>
-                  <p className="text-gray-600 text-sm mt-1">25 years managing BT, Orange, SITA, Telstra operations</p>
+                  <strong className="text-navy-900">AI Trainers & Advisors</strong>
+                  <p className="text-gray-600 text-sm mt-1">1000+ professionals trained. Microsoft & Google certified. ISO 42001 Lead Implementer.</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="text-brand h-5 w-5 flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-navy-900">Network Infrastructure Experts</strong>
-                  <p className="text-gray-600 text-sm mt-1">WiFi/SD-WAN optimization for warehouse, retail, aviation</p>
+                  <strong className="text-navy-900">Network Infrastructure Builders</strong>
+                  <p className="text-gray-600 text-sm mt-1">Cisco Registered Partner. Vertiv Authorised Reseller. Fortinet & Palo Alto Networks.</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="text-brand h-5 w-5 flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-navy-900">Hands-On AI Implementers</strong>
-                  <p className="text-gray-600 text-sm mt-1">We build, deploy, and train on Microsoft/Google AI platforms</p>
+                  <strong className="text-navy-900">IT Equipment Suppliers & Rental Partners</strong>
+                  <p className="text-gray-600 text-sm mt-1">Dell, HP, Lenovo, Apple — flexible terms, AMC included.</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="text-brand h-5 w-5 flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-navy-900">Founder-Led Consulting</strong>
-                  <p className="text-gray-600 text-sm mt-1">You get 25 years of experience, not junior consultants</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check className="text-brand h-5 w-5 flex-shrink-0 mt-0.5" />
-                <div>
-                  <strong className="text-navy-900">Process Improvement Specialists</strong>
-                  <p className="text-gray-600 text-sm mt-1">Fixing broken Sales, Ops & CRM workflows</p>
+                  <strong className="text-navy-900">Founder-Led. Always.</strong>
+                  <p className="text-gray-600 text-sm mt-1">25 years of enterprise IT experience — you get the expert, not a junior consultant.</p>
                 </div>
               </li>
             </ul>
@@ -115,16 +108,16 @@ export default function WhyOptivantage() {
             </div>
             
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Telecom, Aviation IT & Enterprise AI Training
+              AI Training. IT Infrastructure. IT Equipment.
             </h3>
-            
+
             <p className="text-xl text-text-muted max-w-4xl mx-auto leading-relaxed mb-8">
-              If you need ERP implementation or mobile app development, we'll refer you elsewhere. 
+              If you need ERP implementation, mobile apps, or a 500-person IT helpdesk — we&apos;ll refer you elsewhere.
               <br /><br />
-              If you need someone who's actually <strong className="text-brand">managed £100M+ telecom P&L</strong>, 
-              <strong className="text-brand"> optimized network infrastructure for 200+ retail sites</strong>, 
-              <strong className="text-brand"> supported SITA aviation systems 24/7</strong>, and 
-              <strong className="text-brand"> trained 1000+ professionals in Microsoft/Google AI</strong> — we're your team.
+              If you need someone who has actually <strong className="text-brand">trained 1000+ professionals in AI</strong>,{' '}
+              <strong className="text-brand">built network infrastructure for enterprises across India</strong>,{' '}
+              <strong className="text-brand">managed £100M+ telecom P&L at BT</strong>, and{' '}
+              <strong className="text-brand">is ISO 42001 AI Governance certified</strong> — we&apos;re your team.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

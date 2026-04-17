@@ -1,56 +1,51 @@
 "use client";
 import Link from 'next/link';
+import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import Navbar from '@/components/Navbar';
-import { 
-  ArrowLeft, 
-  CheckCircle2, 
-  AlertTriangle, 
-  ShieldCheck, 
-  Wrench, 
-  BrainCircuit, 
-  Server, 
-  BarChart3, 
-  Zap, 
-  Globe, 
+import {
+  ArrowLeft,
+  CheckCircle2,
+  BrainCircuit,
+  Server,
+  Package,
+  Zap,
+  Globe,
   Lock,
   Users,
   GraduationCap,
   Award,
-  TrendingUp
+  TrendingUp,
+  ShieldCheck,
+  FileText,
+  Laptop,
+  Printer,
+  Wifi,
+  Building2,
+  Cable,
+  Cpu,
 } from 'lucide-react';
 
-// --- COMPREHENSIVE SERVICE DATA ---
-
-// Hero images per service (Unsplash free photos)
-const serviceImages: any = {
-  ai: [
-    { src: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80", alt: "AI and machine learning visualization" },
+// --- HERO IMAGES ---
+const serviceImages: Record<string, { src: string; alt: string }[]> = {
+  'ai-training-advisory': [
+    { src: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80", alt: "AI and machine learning" },
     { src: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80", alt: "Corporate training session" },
     { src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80", alt: "Team collaboration workshop" },
   ],
-  infrastructure: [
-    { src: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80", alt: "Server room and data center" },
-    { src: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80", alt: "Network infrastructure cables" },
-    { src: "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&q=80", alt: "IT engineer working on equipment" },
+  'it-infrastructure': [
+    { src: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80", alt: "Server room and data centre" },
+    { src: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80", alt: "Network infrastructure cabling" },
+    { src: "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&q=80", alt: "IT engineer on site" },
   ],
-  managed: [
-    { src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80", alt: "IT support team at work" },
-    { src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80", alt: "Professional team meeting" },
-    { src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80", alt: "Modern office workspace" },
-  ],
-  cybersecurity: [
-    { src: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80", alt: "Cybersecurity digital protection" },
-    { src: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80", alt: "Security operations and data encryption" },
-    { src: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&q=80", alt: "Secure compliance and data protection" },
-  ],
-  process: [
-    { src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80", alt: "Business process optimization" },
-    { src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80", alt: "Strategy meeting and planning" },
+  'it-equipment-rentals': [
+    { src: "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=800&q=80", alt: "Enterprise laptops and equipment" },
+    { src: "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=800&q=80", alt: "IT equipment setup" },
+    { src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80", alt: "Office technology workspace" },
   ],
 };
 
-// AI Training Module categories (screenshots from PPT)
+// --- AI TRAINING MODULE IMAGES ---
 const trainingModules = [
   { title: "AI Models & Platforms", desc: "Hands-on training across leading AI models and interfaces", image: "/training-modules/ai-models.png" },
   { title: "No-Code Automation", desc: "Build powerful workflows without writing code", image: "/training-modules/no-code-automation.png" },
@@ -59,7 +54,7 @@ const trainingModules = [
   { title: "Multi-Modal AI", desc: "Video, voice, and image generation with cutting-edge AI", image: "/training-modules/multi-modal-ai.png" },
 ];
 
-// AI Platform logos
+// --- AI PLATFORM LOGOS ---
 const aiPlatformLogos = [
   { name: "Claude", logo: "/platforms/claude.png" },
   { name: "OpenAI / ChatGPT", logo: "/platforms/openai.png" },
@@ -78,31 +73,81 @@ const aiPlatformLogos = [
   { name: "Replit", color: "bg-orange-600" },
 ];
 
-const servicesData: any = {
-  ai: {
-    title: "AI Advisory & Training",
+// --- INFRASTRUCTURE PARTNER LOGOS ---
+const infraPartners = [
+  { name: 'Cisco', logo: '/logos/Cisco logo.webp', badge: 'Registered Partner via Ingram Micro India' },
+  { name: 'Fortinet', logo: '/logos/Fortinet logo.png', badge: 'Partner' },
+  { name: 'Palo Alto Networks', logo: '/logos/Palo Alto networks logo.png', badge: 'Partner' },
+  { name: 'Vertiv', logo: '/logos/Liebert Vertiv Logo.png', badge: 'Authorised Reseller' },
+];
+
+// --- SERVICE DATA ---
+const servicesData: Record<string, any> = {
+
+  // ─── PILLAR 1: AI TRAINING & ADVISORY ───────────────────────────────────────
+  'ai-training-advisory': {
+    title: "AI Training & Advisory",
     icon: <BrainCircuit className="text-brand h-10 w-10" />,
     showClientLogos: true,
     showPlatformLogos: true,
     showTrainingModules: true,
     showCertificate: true,
     heroStats: [
-      { val: "1000+", label: "Trained in 2024" },
+      { val: "1000+", label: "Trained in AI (2024)" },
       { val: "4", label: "Continents Served" },
-      { val: "15+", label: "Elite Clients" }
+      { val: "15+", label: "Elite Enterprise Clients" }
     ],
     sections: [
       {
         title: "Our AI Service Offerings",
-        subtitle: "Turning AI Potential into Secure, Compliant and Resilient Business",
+        subtitle: "From your first AI training session to full organisational AI transformation",
         type: "bento-grid",
         items: [
-          { title: "AI for All", desc: "Basic AI training and awareness for everyone - build a strong foundation across your entire organization.", icon: <Users className="text-brand"/> },
-          { title: "Function Specific AI Training", desc: "Targeted AI training tailored to specific business functions and departments.", icon: <GraduationCap className="text-brand"/> },
-          { title: "Generative AI for Business Professionals", desc: "Hands-on training to leverage Generative AI tools for real business outcomes.", icon: <BrainCircuit className="text-brand"/> },
-          { title: "Microsoft Co-pilot Enterprise & Azure AI Deployment", desc: "End-to-end deployment and training on Microsoft's complete AI stack.", icon: <Zap className="text-brand"/> },
-          { title: "AI+ Certification Programs", desc: "Industry-recognized certification programs for enterprise teams at all levels.", icon: <Award className="text-brand"/> },
-          { title: "Agentic AI & Workflow Automation", desc: "Consultation and implementation using Make.com, N8N, Crew-AI and other automation platforms.", icon: <TrendingUp className="text-brand"/> },
+          {
+            title: "AI for All — Literacy & Awareness",
+            desc: "Build a strong AI foundation across your entire organisation. Everyone — from frontline staff to senior leaders — learns to use AI tools confidently and responsibly.",
+            icon: <Users className="text-brand" />
+          },
+          {
+            title: "Function-Specific AI Training",
+            desc: "Targeted training tailored to Finance, HR, Sales, Operations, Legal and more. Role-relevant use cases, not generic demos.",
+            icon: <GraduationCap className="text-brand" />
+          },
+          {
+            title: "Generative AI for Business Professionals",
+            desc: "Hands-on sessions on Copilot, ChatGPT, Gemini and OpenAI for real business productivity — emails, reports, analysis, and more.",
+            icon: <BrainCircuit className="text-brand" />
+          },
+          {
+            title: "Microsoft Copilot & Azure AI Deployment",
+            desc: "End-to-end deployment and training on Microsoft's complete AI stack. Certified trainer for Copilot across M365, Teams, Word, Excel, PowerPoint and Azure AI Studio.",
+            icon: <Zap className="text-brand" />
+          },
+          {
+            title: "AI Strategy & Use Case Advisory",
+            desc: "Working with leadership to identify your highest-ROI AI priorities, evaluate build vs buy, select the right tools, and create a phased implementation roadmap.",
+            icon: <TrendingUp className="text-brand" />
+          },
+          {
+            title: "AI Policy & Governance Development",
+            desc: "Drafting your organisation's AI acceptable use policy, data privacy framework, ethical AI guidelines, and board-level governance structure.",
+            icon: <FileText className="text-brand" />
+          },
+          {
+            title: "AI Security & Governance — ISO/IEC 42001",
+            desc: "Implementation of the ISO/IEC 42001 AI Management System standard. Risk assessment, bias mitigation, audit readiness, and responsible AI controls. Ashutosh Sharma is a certified ISO 42001 Lead Implementer — one of the very few in India.",
+            icon: <ShieldCheck className="text-brand" />
+          },
+          {
+            title: "AI+ Certification Programs",
+            desc: "Industry-recognised certification programs: AI+ Everyone™, AI+ Executive™, AI+ Prompt Engineer™, and AI+ Ethics™. Internationally accredited.",
+            icon: <Award className="text-brand" />
+          },
+          {
+            title: "Agentic AI & Workflow Automation",
+            desc: "Consultation and implementation using Make.com, N8N, CrewAI and other automation platforms. Build multi-agent systems and self-healing workflows.",
+            icon: <Globe className="text-brand" />
+          },
         ]
       },
       {
@@ -112,28 +157,28 @@ const servicesData: any = {
         items: [
           {
             title: "Hexaware (with upGrad)",
-            desc: "Agentic AI Sessions - Comprehensive training on self-evolving agents.",
+            desc: "Agentic AI Sessions — Comprehensive training on self-evolving agents.",
             list: ["Multi-agent system architecture", "Self-healing AI implementations", "Hands-on workshop with real use cases"]
           },
           {
             title: "Infogain",
-            desc: "AI Catalyst Series - Hands-on leadership training program.",
+            desc: "AI Catalyst Series — Hands-on leadership training program.",
             list: ["Executive AI strategy sessions", "Practical implementation workshops", "Change management for AI transformation"]
           },
           {
             title: "Kotak Mahindra Bank",
-            desc: "Voice AI Implementation - Balancing human expertise with AI capabilities.",
-            list: ["Voice AI technology deployment", "Human+AI collaboration models", "Customer experience optimization"]
+            desc: "BIEC Framework Training — Context Engineering for 500+ banking professionals.",
+            list: ["AI literacy for banking functions", "Copilot deployment across M365", "AI acceptable use policy rollout"]
           },
           {
             title: "MSME Department, Government of India",
-            desc: "National GenAI Program - Upskilling MSMEs nationwide.",
+            desc: "National GenAI Programme — Upskilling MSMEs nationwide.",
             list: ["GenAI fundamentals for business leaders", "Practical use case development", "Digital transformation roadmaps"]
           },
           {
             title: "BIAL (Bengaluru International Airport Ltd.)",
-            desc: "AI Training Program - Founder-led training for airport operations.",
-            list: ["AI fundamentals for airport operations", "Practical AI applications", "Digital transformation roadmap"]
+            desc: "AI Training Programme — Founder-led training for airport operations.",
+            list: ["AI fundamentals for airport operations", "Practical AI applications in aviation", "Digital transformation roadmap"]
           }
         ]
       },
@@ -145,139 +190,225 @@ const servicesData: any = {
           {
             title: "Microsoft Ecosystem",
             desc: "Certified trainer for Microsoft's complete AI stack.",
-            list: ["Microsoft Copilot: Microsoft 365, Teams, Windows", "Azure AI Studio: Custom AI model development", "Azure OpenAI Service: Enterprise GPT implementations", "Power Platform AI Builder: No-code/low-code AI solutions"]
+            list: [
+              "Microsoft Copilot: M365, Teams, Windows",
+              "Azure AI Studio: Custom AI model development",
+              "Azure OpenAI Service: Enterprise GPT implementations",
+              "Power Platform AI Builder: No-code/low-code AI solutions"
+            ]
           },
           {
             title: "Google Ecosystem",
             desc: "Expert in Google's AI platform and productivity suite.",
-            list: ["Google Gemini: Multimodal AI model implementations", "Vertex AI: Machine learning platform", "Workspace AI: Gmail, Docs, Sheets AI features", "Cloud AI Services: Vision, Speech, Translation APIs"]
+            list: [
+              "Google Gemini: Multimodal AI model implementations",
+              "Vertex AI: Machine learning platform",
+              "Workspace AI: Gmail, Docs, Sheets AI features",
+              "Cloud AI Services: Vision, Speech, Translation APIs"
+            ]
           }
         ]
       },
       {
         title: "AI+ Certified Training Programs",
-        subtitle: "Industry-recognized certification programs for enterprise teams",
+        subtitle: "Industry-recognised certification programs for enterprise teams",
         type: "program-grid",
         programs: [
-          { title: "AI+ Everyone™", desc: "Foundational AI literacy program for all employees.", list: ["AI fundamentals and terminology", "Practical AI tools for daily work", "Ethical AI use and best practices"], duration: "1-2 days", level: "Beginner", icon: "Users" },
-          { title: "AI+ Executive™", desc: "AI strategy and governance for C-suite.", list: ["AI strategy development and ROI", "Governance frameworks and compliance", "Change management and adoption", "Risk assessment and mitigation"], duration: "2 days", level: "Executive", icon: "Award" },
-          { title: "AI+ Prompt Engineer™", desc: "Advanced prompt engineering and AI optimization.", list: ["Advanced prompting techniques", "Chain-of-thought and few-shot learning", "Model selection and fine-tuning", "Performance optimization strategies"], duration: "3 days", level: "Advanced", icon: "GraduationCap" },
-          { title: "AI+ Ethics™", desc: "Responsible AI and NIST framework implementation.", list: ["Ethical AI principles and frameworks", "NIST AI Risk Management Framework", "Bias detection and mitigation", "Transparency and accountability"], duration: "2 days", level: "Intermediate", icon: "ShieldCheck" }
+          {
+            title: "AI+ Everyone™",
+            desc: "Foundational AI literacy for all employees.",
+            list: ["AI fundamentals and terminology", "Practical AI tools for daily work", "Ethical AI use and best practices"],
+            duration: "1–2 days",
+            level: "Beginner",
+          },
+          {
+            title: "AI+ Executive™",
+            desc: "AI strategy and governance for C-suite.",
+            list: ["AI strategy development and ROI", "Governance frameworks and compliance", "Change management and adoption", "Risk assessment and mitigation"],
+            duration: "2 days",
+            level: "Executive",
+          },
+          {
+            title: "AI+ Prompt Engineer™",
+            desc: "Advanced prompt engineering and AI optimisation.",
+            list: ["Advanced prompting techniques", "Chain-of-thought and few-shot learning", "Model selection and fine-tuning", "Performance optimisation strategies"],
+            duration: "3 days",
+            level: "Advanced",
+          },
+          {
+            title: "AI+ Ethics™",
+            desc: "Responsible AI and NIST framework implementation.",
+            list: ["Ethical AI principles and frameworks", "NIST AI Risk Management Framework", "Bias detection and mitigation", "Transparency and accountability"],
+            duration: "2 days",
+            level: "Intermediate",
+          }
         ]
       },
       {
         title: "Custom Training Programs",
-        subtitle: "Tailored programs designed for your organization's specific needs",
+        subtitle: "Tailored programmes designed for your organisation's specific needs",
         type: "custom-grid",
         programs: [
-          "Agentic AI for Business Leaders", "Self-Evolving & Self-Healing AI Agents", "Microsoft Copilot & Azure AI Implementation", "Google Workspace & Gemini AI Training", "Make.com Automation Masterclass", "Gen AI Use Cases Workshop", "AI Governance for Senior Leadership"
+          "Agentic AI for Business Leaders",
+          "Self-Evolving & Self-Healing AI Agents",
+          "Microsoft Copilot & Azure AI Implementation",
+          "Google Workspace & Gemini AI Training",
+          "Make.com Automation Masterclass",
+          "Gen AI Use Cases Workshop",
+          "AI Governance for Senior Leadership",
+          "ISO/IEC 42001 AI Management System Implementation"
         ]
       }
     ]
   },
-  infrastructure: {
-    title: "IT Infrastructure Management",
+
+  // ─── PILLAR 2: IT INFRASTRUCTURE ────────────────────────────────────────────
+  'it-infrastructure': {
+    title: "IT Infrastructure",
     icon: <Server className="text-brand h-10 w-10" />,
+    showInfraPartners: true,
     sections: [
       {
         title: "Our Infrastructure Services",
-        subtitle: "Reliable, Scalable & Secure IT Foundations",
+        subtitle: "Design. Build. Secure. Support. End-to-end, on-site.",
         type: "bento-grid",
         items: [
-          { title: "Structured LAN Setup (SITC)", desc: "Active & Passive SITC deployment and support management for wired and wireless (Wi-Fi) infrastructure.", icon: <Zap className="text-brand"/> },
-          { title: "Network Design & WAN", desc: "Consultancy on resilient network design (WAN), implementation and support.", icon: <Globe className="text-brand"/> },
-          { title: "SD-WAN Architecture", desc: "SD-WAN architecture design, deployment, migration and ongoing support.", icon: <Server className="text-brand"/> },
-          { title: "Turnkey Network Infra Projects", desc: "End-to-end SITC to support for the complete contract lifecycle.", icon: <Wrench className="text-brand"/> },
-          { title: "GCC Setup", desc: "Global Capability Centre setup - turnkey project delivery.", icon: <Globe className="text-brand"/> },
-          { title: "IT Equipment SITC & Support", desc: "SITC, onsite support, repair, AMC and rentals for IT equipment.", icon: <Zap className="text-brand"/> },
-          { title: "Core / Server Room Setup", desc: "For airports and airlines offices - complete server room infrastructure.", icon: <Server className="text-brand"/> },
-          { title: "Data Center Build & Support", desc: "Structured cabling and support (remote and onsite - L1 & L2).", icon: <Lock className="text-brand"/> },
-          { title: "Technical Spares for Aviation", desc: "Print Heads for Thermal Printers, stationery for CUSS/CUPPS for airport operators and airlines.", icon: <Wrench className="text-brand"/> },
-          { title: "CCTV & Biometric Solutions", desc: "SITC and support for CCTV and office biometrics solutions (FRS, attendance/access).", icon: <ShieldCheck className="text-brand"/> },
-          { title: "Refurbished IT Equipment", desc: "Laptops, Desktops, Servers, Network Devices - quality refurbished hardware.", icon: <Globe className="text-brand"/> },
+          {
+            title: "Network Design & Architecture",
+            desc: "LAN/WAN consultancy and design for resilient, scalable networks. SD-WAN architecture, deployment, migration, and ongoing support.",
+            icon: <Globe className="text-brand" />
+          },
+          {
+            title: "Passive Infrastructure",
+            desc: "End-to-end structured cabling: copper, fibre optic, patch panels, cable management, containment systems. Data centre and server room build-outs.",
+            icon: <Cable className="text-brand" />
+          },
+          {
+            title: "Active Networking — Cisco",
+            desc: "Supply, installation and commissioning of Cisco routers, switches, wireless access points and Meraki cloud-managed networking. Registered Cisco Partner via Ingram Micro India.",
+            icon: <Wifi className="text-brand" />
+          },
+          {
+            title: "Network Security — Fortinet & Palo Alto",
+            desc: "Next-generation firewalls, Zero Trust Network Access, VPN, IDS/IPS, and network segmentation. Fortinet and Palo Alto Networks solutions for enterprise-grade perimeter and internal security.",
+            icon: <Lock className="text-brand" />
+          },
+          {
+            title: "Power & Electrical — Vertiv",
+            desc: "UPS systems, PDUs, power distribution, and power conditioning for server rooms, data centres, and critical IT environments. Vertiv authorised reseller.",
+            icon: <Zap className="text-brand" />
+          },
+          {
+            title: "GCC & Office Setup",
+            desc: "Turnkey IT infrastructure for Global Capability Centre setups — network, compute, power, cabling, and security delivered as a single project.",
+            icon: <Building2 className="text-brand" />
+          },
+          {
+            title: "CCTV & Physical Security",
+            desc: "Supply, installation and commissioning of CCTV systems and biometric access control (facial recognition, fingerprint, attendance systems).",
+            icon: <ShieldCheck className="text-brand" />
+          },
+          {
+            title: "Field Engineering Support",
+            desc: "Skilled field engineers deployed across industries — warehouses, offices, retail, campuses. Onsite installation, commissioning, break-fix, and ongoing support.",
+            icon: <Users className="text-brand" />
+          },
         ]
+      },
+      {
+        title: "Technology Partners",
+        subtitle: "Authorised to supply, install and support",
+        type: "infra-partners-section",
       },
       {
         title: "Technology Expertise",
         type: "pillars-grid",
         items: [
-          "Cisco Networks (Switches, routers, Meraki)",
-          "Aruba Networks (Enterprise WiFi, SD-WAN)",
-          "Ekahau (Professional WiFi site survey)",
-          "VMware SD-WAN (VeloCloud platform)",
-          "Dell EMC (Servers, storage, data center)"
+          "Cisco: Switches, Routers, Meraki Cloud",
+          "Fortinet: FortiGate NGFW, SD-WAN, FortiAP",
+          "Palo Alto Networks: NGFW, Prisma Access, Zero Trust",
+          "Vertiv: UPS, PDU, Thermal Management",
+          "VMware SD-WAN (VeloCloud)",
+          "Dell EMC: Servers, Storage, Data Centre"
         ]
       }
     ]
   },
-  managed: {
-    title: "Managed IT Services",
-    icon: <Wrench className="text-brand h-10 w-10" />,
+
+  // ─── PILLAR 3: IT EQUIPMENT & RENTALS ───────────────────────────────────────
+  'it-equipment-rentals': {
+    title: "IT Equipment & Rentals",
+    icon: <Package className="text-brand h-10 w-10" />,
     sections: [
       {
-        title: "Our Managed Services",
-        subtitle: "Always-On IT Operations & Expert Support",
+        title: "Equipment We Supply & Rent",
+        subtitle: "Flexible compute and peripherals for enterprises, GCCs, events, and projects",
         type: "bento-grid",
         items: [
-          { title: "Aviation IT Engineers & Specialists", desc: "Onsite/field manpower trained to work for airports and service providers like SITA, Amadeus, Collins Aerospace.", icon: <Server className="text-brand"/> },
-          { title: "Aviation IT - Airlines Support", desc: "Trained engineers to support airline IT infra in town-offices and back-offices at airports.", icon: <Globe className="text-brand"/> },
-          { title: "Outsource / Managed Service Contracts", desc: "SLA-driven support model with reports and contractual deliverables.", icon: <Wrench className="text-brand"/> },
-          { title: "24x7 / NBH - L1 & L2 Support", desc: "Remote and onsite technical support following ITIL Framework.", icon: <CheckCircle2 className="text-brand"/> },
-          { title: "Service Integration & Management (SIAM)", desc: "Service providers management - coordinating multiple vendors for seamless delivery.", icon: <Users className="text-brand"/> },
-          { title: "Managed Service Desk", desc: "ITSM implementation and support for the complete contract life-cycle.", icon: <Zap className="text-brand"/> },
+          {
+            title: "Laptops",
+            desc: "Latest-generation business laptops from Dell, HP, and Lenovo. Available for sale or rental with optional AMC.",
+            icon: <Laptop className="text-brand" />
+          },
+          {
+            title: "Desktops",
+            desc: "Tower, Small Form Factor (SFF), and commercial desktop options from leading OEMs. Configured to your spec.",
+            icon: <Cpu className="text-brand" />
+          },
+          {
+            title: "Workstations",
+            desc: "High-performance workstations with Intel Core i7, i9, and Xeon processors for compute-intensive tasks.",
+            icon: <Server className="text-brand" />
+          },
+          {
+            title: "Apple Devices",
+            desc: "MacBooks and iPads for creative, design, and executive teams. Short and long-term rental options.",
+            icon: <Laptop className="text-brand" />
+          },
+          {
+            title: "Networking Devices",
+            desc: "Routers, switches, access points, and firewalls — available for project-based or event rental. Includes Cisco, Fortinet hardware.",
+            icon: <Wifi className="text-brand" />
+          },
+          {
+            title: "Printers & Peripherals",
+            desc: "Network and standalone laser printers (colour and B/W). Monitors, keyboards, mice, docking stations, and other peripherals.",
+            icon: <Printer className="text-brand" />
+          },
+          {
+            title: "UPS Systems — Vertiv",
+            desc: "Online and offline UPS systems up to 100KVA for uninterrupted power. Vertiv authorised reseller.",
+            icon: <Zap className="text-brand" />
+          },
+          {
+            title: "Refurbished Equipment",
+            desc: "Quality-checked refurbished laptops, desktops, servers, and network devices — ideal for cost-conscious deployments.",
+            icon: <Package className="text-brand" />
+          },
         ]
       },
       {
-        title: "IT Equipment Rentals",
-        subtitle: "Smart, Flexible & Cost-Effective IT Scaling",
-        type: "bento-grid",
-        items: [
-          { title: "Laptops", desc: "Latest generation models from DELL, HP and Lenovo.", icon: <Zap className="text-brand"/> },
-          { title: "Desktops", desc: "Tower, SFF (Small Form Factor), commercial desktop options.", icon: <Server className="text-brand"/> },
-          { title: "Workstations", desc: "Multicore with Intel i7, i9 and Xeon Processors for high-performance needs.", icon: <TrendingUp className="text-brand"/> },
-          { title: "Apple Devices", desc: "Laptops and Tablets for creative and professional teams.", icon: <Globe className="text-brand"/> },
-          { title: "Networking Devices", desc: "Routers, Switches, Firewalls and Wi-Fi equipment.", icon: <Lock className="text-brand"/> },
-          { title: "Printers", desc: "Network and standalone Laser Printers (Color & B/W).", icon: <Wrench className="text-brand"/> },
-          { title: "UPS Systems", desc: "Online/Offline UPS up to 100KVA for uninterrupted power.", icon: <Zap className="text-brand"/> },
-        ]
-      },
-      {
-        title: "Service Delivery Models",
-        type: "pillars-grid",
-        items: ["Dedicated Teams", "Shared Services", "Hybrid Model", "Project-Based"]
-      }
-    ]
-  },
-  cybersecurity: {
-    title: "Cybersecurity & Compliance",
-    icon: <ShieldCheck className="text-brand h-10 w-10" />,
-    sections: [
-      {
-        title: "Our Cybersecurity Services",
-        subtitle: "Turning Cybersecurity into Secure, Compliant and Resilient Business",
-        type: "bento-grid",
-        items: [
-          { title: "ISO 27001/27002 Compliance Audits", desc: "Comprehensive ISMS implementation and certification - gap analysis, risk assessment, framework design, policy development and certification preparation.", icon: <ShieldCheck className="text-brand"/> },
-          { title: "SOX, GDPR, NIST Regulatory Compliance", desc: "Multi-framework compliance expertise - SOX IT controls, GDPR data protection, NIST cybersecurity framework and compliance gap assessments.", icon: <Lock className="text-brand"/> },
-          { title: "Security Monitoring & Incident Response", desc: "24/7 SOC operations, SIEM implementation, threat detection and analysis, incident response planning, forensic analysis and breach containment.", icon: <AlertTriangle className="text-brand"/> },
-          { title: "Vulnerability Assessments & Penetration Testing", desc: "Automated vulnerability scanning, penetration testing, security posture assessment and remediation planning.", icon: <ShieldCheck className="text-brand"/> },
-        ]
-      }
-    ]
-  },
-  process: {
-    title: "Process Improvement",
-    icon: <BarChart3 className="text-brand h-10 w-10" />,
-    sections: [
-      {
-        title: "Fix the Process Gaps",
-        subtitle: "Hands-on Process Improvement for Sales, Ops & CRM Teams",
+        title: "Rental Models",
+        subtitle: "We match the model to your need — not the other way around",
         type: "value-card-4",
         items: [
-          { num: "1", title: "Diagnose the Gaps", desc: "Audit Workflows, Identify bottlenecks, Spot accountability gaps" },
-          { num: "2", title: "Redesign & Simplify", desc: "Streamline SOPs, Define Clear Handoffs, Set Metrics & SLAs" },
-          { num: "3", title: "Enforce & Train", desc: "Set ownership rules, Conduct training, Monitor Compliance" },
-          { num: "4", title: "Sustain & Improve", desc: "Track key Metrics, Review & Adjust, Get Feedback Loops" }
+          { num: "01", title: "Short-Term Rental", desc: "Events, training programmes, audits, conferences. 1 day to 3 months." },
+          { num: "02", title: "Long-Term Rental", desc: "GCC setups, project teams, seasonal scaling. 3 months to 3 years." },
+          { num: "03", title: "Lease-to-Own", desc: "Spread the cost of ownership. Ideal for startups and growing teams." },
+          { num: "04", title: "AMC & Lifecycle", desc: "Annual Maintenance Contracts with SLA-backed response times. Asset refresh planning." }
+        ]
+      },
+      {
+        title: "Why Rent Instead of Buy?",
+        subtitle: "The business case is often stronger than you think",
+        type: "pillars-grid",
+        items: [
+          "No capital expenditure — preserve cash flow",
+          "Always on latest hardware — avoid obsolescence",
+          "Scale up or down instantly for projects",
+          "AMC included — no surprise repair costs",
+          "GCC setup in days, not weeks",
+          "Tax benefits: rentals are fully operational expenses"
         ]
       }
     ]
@@ -286,122 +417,121 @@ const servicesData: any = {
 
 // --- HELPER COMPONENTS ---
 
-const EngagementsGrid = ({ items }: any) => (
-  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {items.map((item: any, i: number) => (
-      <div key={i} className="bg-navy-900 p-8 rounded-xl border border-white/5 hover:border-brand/50 transition-all">
-        <div className="mb-4 p-4 bg-gradient-to-br from-purple-900 to-cyan-900 rounded-lg inline-block w-fit text-white">
-           <span className="text-2xl">{["🎓","💡","🏦","🏛️","🏛️"][i]}</span>
-        </div>
-        <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
-        <p className="text-text-muted mb-6 text-lg font-medium">{item.desc}</p>
-        <ul className="space-y-2 text-text-muted">
-            {item.list.map((d: string, di: number) => (
-              <li key={di} className="flex gap-2 text-sm"><span className="text-brand font-bold">•</span> {d}</li>
-            ))}
-        </ul>
-      </div>
-    ))}
-  </div>
-);
-
-const PlatformSplit = ({ platforms }: any) => (
-  <div className="grid md:grid-cols-2 gap-12">
-    {platforms.map((platform: any, i: number) => (
-      <div key={i} className="bg-navy-900 p-8 rounded-xl border border-white/5">
-        <h3 className="text-2xl font-bold text-brand mb-4">{platform.title}</h3>
-        <p className="text-text-muted mb-6">{platform.desc}</p>
-        <ul className="space-y-3 text-text-muted">
-            {platform.list.map((d: string, di: number) => (
-              <li key={di} className="flex gap-2"><span className="text-brand font-bold">•</span> {d}</li>
-            ))}
-        </ul>
-      </div>
-    ))}
-  </div>
-);
-
-const ProgramGrid = ({ programs }: any) => (
-  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-    {programs.map((prog: any, i: number) => (
-      <div key={i} className="bg-navy-900 p-8 rounded-xl border border-white/5 hover:border-brand/50 transition-all flex flex-col">
-        <div className="mb-4 p-4 bg-navy-800 rounded-lg inline-block w-fit text-brand h-12 w-12 flex items-center justify-center">
-            {prog.icon ? <prog.icon size={24}/> : <TrendingUp className="text-brand h-6 w-6"/>}
-        </div>
-        <h3 className="text-2xl font-bold text-white mb-4">{prog.title}</h3>
-        <p className="text-text-muted mb-6">{prog.desc}</p>
-        <ul className="space-y-2 text-text-muted flex-grow">
-            {prog.list && prog.list.map((d: string, di: number) => (
-              <li key={di} className="flex gap-2 text-sm"><span className="text-brand font-bold">•</span> {d}</li>
-            ))}
-        </ul>
-        <div className="mt-auto pt-4 border-t border-white/10">
-           <p className="text-brand font-semibold text-sm">{prog.duration || "Custom"} | {prog.level || "Tailored"}</p>
-        </div>
-      </div>
-    ))}
-  </div>
-);
-
-const BentoGrid = ({ items }: any) => (
+const BentoGrid = ({ items }: { items: any[] }) => (
   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
     {items.map((item: any, i: number) => (
       <div key={i} className="bg-navy-900 p-8 rounded-xl border border-white/5 hover:border-brand/50 transition-all">
         <div className="mb-4 p-4 bg-navy-800 rounded-lg inline-block w-fit">
           {item.icon}
         </div>
-        <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
-        {item.desc && <p className="text-text-muted mb-6">{item.desc}</p>}
-        {item.details && (
-          <ul className="space-y-2 text-text-muted mb-6">
-            {item.details.map((d: string, di: number) => (
-              <li key={di} className="flex gap-2 text-sm"><span className="text-brand font-bold">•</span> {d}</li>
-            ))}
-          </ul>
-        )}
-        {item.highlight && (
-          <div className="mt-6 p-4 bg-brand/10 rounded-lg border border-brand/20">
-            <h4 className="text-white font-bold mb-1">Case Study Result</h4>
-            <p className="text-sm text-text-muted">{item.highlight}</p>
-          </div>
-        )}
+        <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
+        {item.desc && <p className="text-text-muted">{item.desc}</p>}
       </div>
     ))}
   </div>
 );
 
-const ValueCard = ({ title, subtitle, content, type }: any) => (
-  <div className={`bg-navy-900 p-8 rounded-xl border-l-4 ${type === 'alert' ? 'border-red-500' : type === 'success' ? 'border-green-500' : 'border-brand'}`}>
-    <h2 className="text-2xl font-bold text-white flex items-center gap-2 mb-4">
-       {type === 'alert' && <AlertTriangle className="text-red-500" />}
-       {type === 'success' && <CheckCircle2 className="text-green-500" />}
-       {title}
-    </h2>
-    {subtitle && <p className="text-text-muted mb-6">{subtitle}</p>}
-    {content}
-  </div>
-);
-
-const ProcessSteps = ({ items }: any) => (
-  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+const EngagementsGrid = ({ items }: { items: any[] }) => (
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
     {items.map((item: any, i: number) => (
-       <div key={i} className="bg-navy-900 p-6 rounded-xl border border-white/5">
-         <div className="text-brand font-bold text-4xl mb-4">{item.num}</div>
-         <h4 className="text-white font-semibold mb-3">{item.title}</h4>
-         <ul className="space-y-2 text-text-muted text-sm">
-            {item.desc.split(', ').map((d:string) => <li key={d}>{d}</li>)}
-         </ul>
-       </div>
+      <div key={i} className="bg-navy-900 p-8 rounded-xl border border-white/5 hover:border-brand/50 transition-all">
+        <div className="mb-4 p-4 bg-gradient-to-br from-purple-900 to-cyan-900 rounded-lg inline-block w-fit text-white">
+          <span className="text-2xl">{["🎓","💡","🏦","🏛️","✈️"][i]}</span>
+        </div>
+        <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
+        <p className="text-text-muted mb-4 font-medium">{item.desc}</p>
+        <ul className="space-y-2 text-text-muted">
+          {item.list.map((d: string, di: number) => (
+            <li key={di} className="flex gap-2 text-sm"><span className="text-brand font-bold">•</span> {d}</li>
+          ))}
+        </ul>
+      </div>
     ))}
   </div>
 );
 
-const PillarsGrid = ({ items }: any) => (
-  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+const PlatformSplit = ({ platforms }: { platforms: any[] }) => (
+  <div className="grid md:grid-cols-2 gap-12">
+    {platforms.map((platform: any, i: number) => (
+      <div key={i} className="bg-navy-900 p-8 rounded-xl border border-white/5">
+        <h3 className="text-2xl font-bold text-brand mb-4">{platform.title}</h3>
+        <p className="text-text-muted mb-6">{platform.desc}</p>
+        <ul className="space-y-3 text-text-muted">
+          {platform.list.map((d: string, di: number) => (
+            <li key={di} className="flex gap-2"><span className="text-brand font-bold">•</span> {d}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+);
+
+const ProgramGrid = ({ programs }: { programs: any[] }) => (
+  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+    {programs.map((prog: any, i: number) => (
+      <div key={i} className="bg-navy-900 p-8 rounded-xl border border-white/5 hover:border-brand/50 transition-all flex flex-col">
+        <h3 className="text-xl font-bold text-white mb-4">{prog.title}</h3>
+        <p className="text-text-muted mb-6">{prog.desc}</p>
+        <ul className="space-y-2 text-text-muted flex-grow">
+          {prog.list && prog.list.map((d: string, di: number) => (
+            <li key={di} className="flex gap-2 text-sm"><span className="text-brand font-bold">•</span> {d}</li>
+          ))}
+        </ul>
+        <div className="mt-auto pt-4 border-t border-white/10">
+          <p className="text-brand font-semibold text-sm">{prog.duration} | {prog.level}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+);
+
+const CustomGrid = ({ programs }: { programs: string[] }) => (
+  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    {programs.map((prog: string, i: number) => (
+      <div key={i} className="bg-navy-900 p-6 rounded-xl border border-white/5 hover:border-brand/50 transition-all">
+        <h3 className="text-base font-semibold text-white">{prog}</h3>
+      </div>
+    ))}
+  </div>
+);
+
+const PillarsGrid = ({ items }: { items: string[] }) => (
+  <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
     {items.map((item: string, i: number) => (
+      <div key={i} className="bg-navy-900 p-5 rounded-xl border border-white/5 flex items-start gap-3">
+        <CheckCircle2 size={16} className="text-brand flex-shrink-0 mt-0.5" />
+        <h4 className="text-white text-sm font-medium">{item}</h4>
+      </div>
+    ))}
+  </div>
+);
+
+const ProcessSteps = ({ items }: { items: any[] }) => (
+  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    {items.map((item: any, i: number) => (
       <div key={i} className="bg-navy-900 p-6 rounded-xl border border-white/5">
-        <h4 className="text-white font-semibold mb-2">{item}</h4>
-        <p className="text-sm text-text-muted">Cost-effective shared support model with guaranteed SLAs.</p>
+        <div className="text-brand font-bold text-4xl mb-4">{item.num}</div>
+        <h4 className="text-white font-semibold mb-3">{item.title}</h4>
+        <p className="text-text-muted text-sm">{item.desc}</p>
+      </div>
+    ))}
+  </div>
+);
+
+const InfraPartnersSection = () => (
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+    {infraPartners.map((partner) => (
+      <div key={partner.name} className="flex flex-col items-center gap-3">
+        <div className="bg-white rounded-xl p-5 w-full flex items-center justify-center h-24 shadow-sm">
+          <Image
+            src={partner.logo}
+            alt={partner.name}
+            width={140}
+            height={60}
+            className="object-contain h-12 w-auto"
+          />
+        </div>
+        <p className="text-xs text-brand font-semibold text-center">{partner.badge}</p>
       </div>
     ))}
   </div>
@@ -413,12 +543,22 @@ export default function ServiceDetail() {
   const { slug } = useParams();
   const service = servicesData[slug as string];
 
-  if (!service) return <div className="min-h-screen flex items-center justify-center text-white">Service Not Found</div>;
+  if (!service) return (
+    <main>
+      <Navbar />
+      <div className="min-h-screen flex flex-col items-center justify-center text-white gap-4">
+        <p className="text-2xl font-bold">Page not found</p>
+        <Link href="/services" className="text-brand hover:underline flex items-center gap-2">
+          <ArrowLeft size={16} /> Back to Services
+        </Link>
+      </div>
+    </main>
+  );
 
   return (
     <main>
       <Navbar />
-      
+
       {/* TOP HEADER */}
       <section className="pt-32 pb-12 px-4 bg-navy-900">
         <div className="max-w-7xl mx-auto">
@@ -436,17 +576,17 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      {/* HERO STATS (AI Only) */}
+      {/* HERO STATS (AI only) */}
       {service.heroStats && (
         <section className="py-12 px-4 bg-navy-800 border-b border-white/5">
-           <div className="max-w-4xl mx-auto grid grid-cols-3 gap-8 text-center">
-              {service.heroStats.map((stat: any, i: number) => (
-                 <div key={i} className="bg-navy-900 p-6 rounded-xl border border-white/5">
-                     <div className="text-4xl font-bold text-brand mb-2">{stat.val}</div>
-                     <div className="text-sm text-text-muted uppercase tracking-widest">{stat.label}</div>
-                 </div>
-              ))}
-           </div>
+          <div className="max-w-4xl mx-auto grid grid-cols-3 gap-8 text-center">
+            {service.heroStats.map((stat: any, i: number) => (
+              <div key={i} className="bg-navy-900 p-6 rounded-xl border border-white/5">
+                <div className="text-4xl font-bold text-brand mb-2">{stat.val}</div>
+                <div className="text-sm text-text-muted uppercase tracking-widest">{stat.label}</div>
+              </div>
+            ))}
+          </div>
         </section>
       )}
 
@@ -454,8 +594,8 @@ export default function ServiceDetail() {
       {serviceImages[slug as string] && (
         <section className="py-12 px-4 bg-navy-900">
           <div className="max-w-7xl mx-auto">
-            <div className={`grid gap-6 ${serviceImages[slug as string].length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'}`}>
-              {serviceImages[slug as string].map((img: any, i: number) => (
+            <div className="grid md:grid-cols-3 gap-6">
+              {serviceImages[slug as string].map((img, i) => (
                 <div key={i} className="relative overflow-hidden rounded-xl aspect-video">
                   <img
                     src={img.src}
@@ -504,12 +644,8 @@ export default function ServiceDetail() {
         <section className="py-16 px-4 bg-navy-900 border-b border-white/5">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h3 className="text-lg font-bold text-text-muted uppercase tracking-widest mb-3">
-                What You&apos;ll Learn
-              </h3>
-              <h2 className="text-3xl font-bold text-white">
-                AI Training Modules
-              </h2>
+              <h3 className="text-lg font-bold text-text-muted uppercase tracking-widest mb-3">What You&apos;ll Learn</h3>
+              <h2 className="text-3xl font-bold text-white">AI Training Modules</h2>
               <p className="text-text-muted mt-3 max-w-2xl mx-auto">
                 Comprehensive hands-on training across the full spectrum of AI tools and platforms
               </p>
@@ -518,12 +654,7 @@ export default function ServiceDetail() {
               {trainingModules.map((mod, i) => (
                 <div key={i} className={`bg-navy-800 rounded-xl border border-white/5 overflow-hidden hover:border-brand/50 transition-all hover:-translate-y-1 ${i === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}>
                   <div className="relative aspect-[16/9] overflow-hidden">
-                    <img
-                      src={mod.image}
-                      alt={mod.title}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
+                    <img src={mod.image} alt={mod.title} className="w-full h-full object-cover" loading="lazy" />
                   </div>
                   <div className="p-5">
                     <h4 className="text-lg font-bold text-white mb-1">{mod.title}</h4>
@@ -540,18 +671,18 @@ export default function ServiceDetail() {
       {service.showCertificate && (
         <section className="py-12 px-4 bg-navy-900 border-b border-white/5">
           <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-lg font-bold text-text-muted uppercase tracking-widest mb-6">
-              Certified AI Trainer
-            </h3>
+            <h3 className="text-lg font-bold text-text-muted uppercase tracking-widest mb-6">Certified AI Trainer</h3>
             <div className="bg-navy-800 p-6 rounded-xl border border-white/10 inline-block">
               <img
                 src="/certifications/ai-trainer-certificate.png"
-                alt="Become AI Trainer Certificate - Ashutosh Sharma"
+                alt="Become AI Trainer Certificate — Ashutosh Sharma"
                 className="max-h-80 w-auto rounded-lg shadow-lg"
                 loading="lazy"
               />
             </div>
-            <p className="text-text-muted mt-4 text-sm">Certified AI Trainer - Accredited to deliver enterprise AI training programs</p>
+            <p className="text-text-muted mt-4 text-sm">
+              Certified AI Trainer — accredited to deliver enterprise AI training programmes
+            </p>
           </div>
         </section>
       )}
@@ -560,144 +691,58 @@ export default function ServiceDetail() {
       <section className="py-16 px-4 bg-navy-800">
         <div className="max-w-7xl mx-auto space-y-24">
           {service.sections && service.sections.map((section: any, i: number) => (
-             <div key={i}>
-                <div className="section-header mb-12 text-center md:text-left">
-                     <h2 className="text-3xl font-bold text-white mb-2">{section.title}</h2>
-                     {section.subtitle && <p className="text-lg text-brand font-medium">{section.subtitle}</p>}
-                </div>
+            <div key={i}>
+              <div className="mb-12 text-center md:text-left">
+                <h2 className="text-3xl font-bold text-white mb-2">{section.title}</h2>
+                {section.subtitle && <p className="text-lg text-brand font-medium">{section.subtitle}</p>}
+              </div>
 
-                {/* RENDERERS */}
-                {section.type === 'bento-grid' && <BentoGrid items={section.items} />}
-                {section.type === 'engagements-grid' && <EngagementsGrid items={section.items} />}
-                {section.type === 'platform-split' && <PlatformSplit platforms={section.platforms} />}
-                {section.type === 'program-grid' && <ProgramGrid programs={section.programs} />}
-                {section.type === 'custom-grid' && <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">{section.programs.map((prog: string, i: number) => (
-                   <div key={i} className="bg-navy-900 p-8 rounded-xl border border-white/5">
-                      <h3 className="text-2xl font-bold text-white mb-4">{prog}</h3>
-                      <p className="text-text-muted">Tailored programs designed for your organization's specific needs.</p>
-                   </div>
-                ))}</div>}
-                
-                {section.type === 'partners-grid' && (
-                    <div className="max-w-4xl mx-auto text-center py-12">
-                        <h2 className="text-2xl font-bold text-white mb-8">Training Partners</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center opacity-75 hover:opacity-100 transition-all">
-                           {section.partners.map((p: string, i: number) => (
-                              <div key={i} className="bg-white/5 p-8 rounded-lg flex items-center justify-center">
-                                 <span className="text-xl font-bold text-text-muted">{p}</span>
-                              </div>
-                           ))}
-                        </div>
-                    </div>
-                )}
-
-                {/* Keep existing types from previous step */}
-                {section.type === 'bento-grid-2' && <div className="grid md:grid-cols-2 gap-8">{section.items.map((item:any) => (
-                  <div key={item.title} className="bg-navy-900 p-8 rounded-xl border border-white/5">
-                    <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
-                    <p className="text-text-muted mb-6">{item.desc}</p>
-                    <ul className="space-y-2 text-text-muted">
-                       {item.details.map((d: string, di: number) => <li key={di}>• {d}</li>)}
-                    </ul>
-                    {item.highlight && (
-                       <div className="mt-6 p-4 bg-brand/10 rounded-lg border border-brand/20">
-                          <h4 className="text-white font-bold mb-1">Case Study Result</h4>
-                          <p className="text-sm text-text-muted">{item.highlight}</p>
-                       </div>
-                    )}
-                  </div>
-                ))}</div>}
-
-                {section.type === 'value-card' && <div className="bg-navy-900 p-8 rounded-xl border-l-4 border-brand">
-                   <h2 className="text-2xl font-bold text-white mb-4">{section.title}</h2>
-                   {section.subtitle && <p className="text-brand mb-6">{section.subtitle}</p>}
-                   {section.content}
-                </div>}
-
-                {section.type === 'value-card-4' && (
-                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {section.items.map((item: any, i: number) => (
-                             <div key={i} className="bg-navy-900 p-6 rounded-xl border border-white/5">
-                                <div className="text-brand font-bold text-4xl mb-4">{item.num}</div>
-                                <h4 className="text-white font-semibold mb-3">{item.title}</h4>
-                                <ul className="space-y-2 text-text-muted text-sm">
-                                   {item.desc.split(', ').map((d:string) => <li key={d}>{d}</li>)}
-                                </ul>
-                             </div>
-                        ))}
-                     </div>
-                )}
-                
-                {section.type === 'pillars-grid' && <PillarsGrid items={section.items} />}
-             </div>
+              {section.type === 'bento-grid' && <BentoGrid items={section.items} />}
+              {section.type === 'engagements-grid' && <EngagementsGrid items={section.items} />}
+              {section.type === 'platform-split' && <PlatformSplit platforms={section.platforms} />}
+              {section.type === 'program-grid' && <ProgramGrid programs={section.programs} />}
+              {section.type === 'custom-grid' && <CustomGrid programs={section.programs} />}
+              {section.type === 'pillars-grid' && <PillarsGrid items={section.items} />}
+              {section.type === 'value-card-4' && <ProcessSteps items={section.items} />}
+              {section.type === 'infra-partners-section' && <InfraPartnersSection />}
+            </div>
           ))}
         </div>
       </section>
-      
-      {/* LOGOS SECTION - AI page only */}
+
+      {/* CLIENT LOGOS — AI page only */}
       {service.showClientLogos && (
         <section className="py-16 px-4 bg-navy-900 border-t border-white/5">
           <div className="max-w-7xl mx-auto text-center">
             <h3 className="text-lg font-bold text-text-muted uppercase tracking-widest mb-8">
-              Trusted by Leading Organizations
+              Trusted by Leading Organisations
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center opacity-75 hover:opacity-100 transition-all">
-
-              {/* Hexaware */}
-              <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center">
-                 <img
-                   src="/hexaware.png"
-                   alt="Hexaware"
-                   className="h-12 w-auto opacity-90 hover:opacity-100 transition-all"
-                 />
-              </div>
-
-              {/* Infogain */}
-              <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center">
-                 <img
-                   src="/infogain.png"
-                   alt="Infogain"
-                   className="h-12 w-auto opacity-90 hover:opacity-100 transition-all"
-                 />
-              </div>
-
-              {/* Kotak Bank */}
-              <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center">
-                 <img
-                   src="/kotak.png"
-                   alt="Kotak Mahindra Bank"
-                   className="h-12 w-auto opacity-90 hover:opacity-100 transition-all"
-                 />
-              </div>
-
-              {/* MSME India */}
-              <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center">
-                 <img
-                   src="/msme.png"
-                   alt="MSME India"
-                   className="h-12 w-auto opacity-90 hover:opacity-100 transition-all"
-                 />
-              </div>
-
-              {/* upGrad */}
-              <div className="bg-white/5 p-4 rounded-lg flex items-center justify-center">
-                 <img
-                   src="/Upgrad.png"
-                   alt="upGrad"
-                   className="h-12 w-auto opacity-90 hover:opacity-100 transition-all"
-                 />
-              </div>
-
+              {[
+                { src: "/hexaware.png", alt: "Hexaware" },
+                { src: "/infogain.png", alt: "Infogain" },
+                { src: "/kotak.png", alt: "Kotak Mahindra Bank" },
+                { src: "/msme.png", alt: "MSME India" },
+                { src: "/Upgrad.png", alt: "upGrad" },
+              ].map((logo) => (
+                <div key={logo.alt} className="bg-white/5 p-4 rounded-lg flex items-center justify-center">
+                  <img src={logo.src} alt={logo.alt} className="h-12 w-auto opacity-90 hover:opacity-100 transition-all" />
+                </div>
+              ))}
             </div>
           </div>
         </section>
       )}
-      
+
+      {/* CTA */}
       <section className="py-16 px-4 bg-navy-800 text-center">
-         <h2 className="text-2xl font-bold text-white mb-4">Ready to discuss?</h2>
-         <Link href="/contact" className="inline-block px-8 py-3 bg-brand hover:bg-brand-hover text-white font-semibold rounded-lg">
-            Contact Us
-         </Link>
+        <h2 className="text-2xl font-bold text-white mb-4">Ready to discuss?</h2>
+        <p className="text-text-muted mb-8 max-w-xl mx-auto">
+          Every engagement starts with a conversation. No hard sell — just an honest discussion of your needs.
+        </p>
+        <Link href="/contact" className="inline-block px-8 py-3 bg-brand hover:bg-brand-hover text-white font-semibold rounded-lg transition-all">
+          Get in Touch
+        </Link>
       </section>
     </main>
   );

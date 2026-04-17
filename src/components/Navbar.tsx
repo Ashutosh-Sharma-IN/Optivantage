@@ -12,17 +12,16 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { 
-      name: 'Services', 
+    {
+      name: 'Services',
       href: '/services',
       dropdown: [
-        { name: 'AI Advisory & Training', href: '/services/ai' },
-        { name: 'IT Infrastructure Management', href: '/services/infrastructure' },
-        { name: 'Managed IT Services', href: '/services/managed' },
-        { name: 'Cybersecurity & Compliance', href: '/services/cybersecurity' },
-        { name: 'Process Improvement', href: '/services/process' },
+        { name: 'AI Training & Advisory', href: '/services/ai-training-advisory' },
+        { name: 'IT Infrastructure', href: '/services/it-infrastructure' },
+        { name: 'IT Equipment & Rentals', href: '/services/it-equipment-rentals' },
       ]
     },
+    { name: 'Blog', href: '/blog' },
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Contact', href: '/contact' },
   ];

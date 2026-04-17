@@ -3,9 +3,7 @@ import Link from 'next/link';
 import {
   BrainCircuit,
   Server,
-  ShieldCheck,
-  Wrench,
-  BarChart3,
+  Package,
   ArrowRight,
   CheckCircle2
 } from 'lucide-react';
@@ -13,52 +11,56 @@ import {
 export default function Services() {
   const services = [
     {
-      title: "AI Advisory & Training",
-      desc: "Leading enterprise AI transformation with hands-on training, certification programs and Agentic AI consulting.",
+      title: "AI Training & Advisory",
+      desc: "From building AI literacy across your workforce to designing your full AI implementation roadmap — including AI security & governance under ISO/IEC 42001.",
       icon: <BrainCircuit className="text-brand h-8 w-8" />,
-      link: "/services/ai",
-      details: ["AI for All - Basic AI Training & Awareness", "Microsoft Co-pilot Enterprise & Azure AI Deployment", "AI+ Certification Programs", "Agentic AI & Workflow Automation"]
+      link: "/services/ai-training-advisory",
+      details: [
+        "Gen AI Literacy: Copilot, ChatGPT, Gemini, OpenAI",
+        "AI Strategy, Use Case Prioritisation & Policy",
+        "AI Security & Governance — ISO/IEC 42001 (Lead Implementer certified)",
+        "AI Implementation Roadmap & Agentic AI Deployment",
+        "AI+ Certified Training Programs (Everyone, Executive, Prompt Engineer, Ethics)"
+      ]
     },
     {
-      title: "IT Infrastructure Management",
-      desc: "Reliable, scalable and secure IT foundations - from structured LAN to data centers and SD-WAN.",
+      title: "IT Infrastructure",
+      desc: "End-to-end network design, build, and field support. Passive cabling through to active networking, power infrastructure, and network security — delivered by certified partners.",
       icon: <Server className="text-brand h-8 w-8" />,
-      link: "/services/infrastructure",
-      details: ["Structured LAN Setup (SITC - Active & Passive)", "SD-WAN Architecture, Deployment & Support", "Core/Server Room & Data Center Setup", "CCTV & Biometric Solutions"]
+      link: "/services/it-infrastructure",
+      details: [
+        "Network Design & Architecture: LAN/WAN, SD-WAN, WiFi",
+        "Passive Infrastructure: structured cabling, fibre, data centre build",
+        "Active Networking: Cisco routers, switches, access points",
+        "Network Security: Fortinet & Palo Alto Networks (NGFW, Zero Trust, VPN)",
+        "Power & Electrical: Vertiv UPS, PDU & power distribution"
+      ]
     },
     {
-      title: "Managed IT Services",
-      desc: "Always-on IT operations with expert support - from aviation IT specialists to managed service desk.",
-      icon: <Wrench className="text-brand h-8 w-8" />,
-      link: "/services/managed",
-      details: ["Aviation IT Trained Engineers & Specialists", "24x7 L1 & L2 Remote and Onsite Support", "Service Integration & Management (SIAM)", "IT Equipment Rentals"]
-    },
-    {
-      title: "Cybersecurity & Compliance",
-      desc: "Protecting your enterprise with ISO-aligned security frameworks, penetration testing and compliance audits.",
-      icon: <ShieldCheck className="text-brand h-8 w-8" />,
-      link: "/services/cybersecurity",
-      details: ["ISO 27001/27002 Compliance Audits", "SOX, GDPR, NIST Regulatory Compliance", "Security Monitoring & Incident Response", "Vulnerability Assessments & Penetration Testing"]
-    },
-    {
-      title: "Process Improvement",
-      desc: "Hands-on process improvement for Sales, Ops & CRM teams - diagnose gaps, redesign SOPs, enforce and sustain.",
-      icon: <BarChart3 className="text-brand h-8 w-8" />,
-      link: "/services/process",
-      details: ["Diagnose the Gaps - Audit Workflows & Bottlenecks", "Redesign & Simplify - Streamline SOPs & Define Handoffs", "Enforce & Train - Set Ownership & Monitor Compliance", "Sustain & Improve - Track Metrics & Feedback Loops"]
+      title: "IT Equipment & Rentals",
+      desc: "Supply, rent, and maintain enterprise IT compute for GCC setups, events, projects, or long-term needs — with flexible terms and AMC support.",
+      icon: <Package className="text-brand h-8 w-8" />,
+      link: "/services/it-equipment-rentals",
+      details: [
+        "Laptops, Desktops & Workstations (Dell, HP, Lenovo, Apple)",
+        "Printers, Peripherals & Networking Devices",
+        "UPS & Power Equipment (Vertiv)",
+        "Short-term & Long-term Equipment Rentals",
+        "Annual Maintenance Contracts (AMC) & Lifecycle Management"
+      ]
     }
   ];
 
   return (
     <main>
       <Navbar />
-      
+
       {/* Header */}
       <section className="pt-32 pb-16 px-4 bg-navy-900">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Core Services</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Services</h1>
           <p className="text-xl text-text-muted">
-            Comprehensive solutions designed to solve complex enterprise challenges.
+            Three focused areas. Deep expertise in each. No generalism.
           </p>
         </div>
       </section>
@@ -66,25 +68,25 @@ export default function Services() {
       {/* Services Grid */}
       <section className="py-20 px-4 bg-navy-800">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div key={index} className="bg-navy-900 border border-white/5 hover:border-brand/50 rounded-xl p-8 transition-all group">
+              <div key={index} className="bg-navy-900 border border-white/5 hover:border-brand/50 rounded-xl p-8 transition-all group flex flex-col">
                 <div className="mb-6 p-4 bg-navy-800 rounded-lg inline-block group-hover:bg-brand/10 transition-colors">
                   {service.icon}
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
-                <p className="text-text-muted mb-6 h-20">{service.desc}</p>
-                
-                <ul className="space-y-2 mb-8">
+                <p className="text-text-muted mb-6">{service.desc}</p>
+
+                <ul className="space-y-2 mb-8 flex-grow">
                   {service.details.map((item, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-text-muted">
-                      <CheckCircle2 size={14} className="text-brand" />
+                    <li key={i} className="flex items-start gap-2 text-sm text-text-muted">
+                      <CheckCircle2 size={14} className="text-brand flex-shrink-0 mt-0.5" />
                       {item}
                     </li>
                   ))}
                 </ul>
 
-                <Link href={service.link} className="inline-flex items-center text-brand font-semibold hover:underline">
+                <Link href={service.link} className="inline-flex items-center text-brand font-semibold hover:underline mt-auto">
                   Learn More <ArrowRight size={16} className="ml-1" />
                 </Link>
               </div>
@@ -95,15 +97,15 @@ export default function Services() {
 
       {/* Call to Action */}
       <section className="py-20 px-4 bg-navy-900 text-center">
-        <h2 className="text-3xl font-bold text-white mb-4">Not sure what you need?</h2>
+        <h2 className="text-3xl font-bold text-white mb-4">Not sure where to start?</h2>
         <p className="text-text-muted mb-8 max-w-2xl mx-auto">
-          Let's discuss your specific challenges. We provide bespoke solutions for Sales, Operations, and CRM teams.
+          Every engagement starts with a conversation. Tell us your challenge and we'll tell you honestly whether and how we can help.
         </p>
-        <Link 
-          href="/contact" 
+        <Link
+          href="/contact"
           className="px-8 py-4 bg-brand hover:bg-brand-hover text-white font-semibold rounded-lg transition-all"
         >
-          Schedule Consultation
+          Schedule a Free Consultation
         </Link>
       </section>
     </main>
