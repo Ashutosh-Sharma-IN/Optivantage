@@ -89,7 +89,7 @@ export default function Home() {
           </div>
           <div className="text-center">
             <div className="text-4xl font-bold text-white">1000+</div>
-            <div className="text-sm text-text-muted mt-1">Professionals Trained in AI</div>
+            <div className="text-sm text-text-muted mt-1">Trained in AI across Enterprises</div>
           </div>
           <div className="text-center">
             <div className="text-4xl font-bold text-white">15+</div>

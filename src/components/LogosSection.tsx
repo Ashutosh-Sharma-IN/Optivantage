@@ -4,14 +4,14 @@ import Link from 'next/link';
 import { Briefcase, GraduationCap } from 'lucide-react';
 
 export default function LogosSection() {
-  // CLIENT LOGOS - NO SCROLLING (FIX 5 & 6)
   const clients = [
+    { name: 'BIAL', logo: '/logos/BIAL logo.webp' },
     { name: 'Hexaware', logo: '/hexaware.png' },
     { name: 'Infogain', logo: '/infogain.png' },
     { name: 'Kotak Mahindra Bank', logo: '/kotak.png' },
     { name: 'MSME India', logo: '/msme.png' },
     { name: 'upGrad', logo: '/Upgrad.png' },
-    { name: 'MSME PPDC', logo: '/MSME PPDC.png' },
+    { name: 'Arvind Fashions', logo: '/logos/Arvind Fashions Logo.jpg' },
   ];
 
   // EXPERIENCE COMPANIES - NO SCROLLING (FIX 6)
