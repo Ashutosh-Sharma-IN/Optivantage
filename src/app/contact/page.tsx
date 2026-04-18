@@ -3,6 +3,9 @@ import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import { Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 
+// Note: metadata cannot be exported from a 'use client' component.
+// Contact page metadata is inherited from layout.tsx global defaults.
+
 export default function Contact() {
   const [formState, setFormState] = useState({
     submitting: false,

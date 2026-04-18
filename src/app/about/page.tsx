@@ -1,6 +1,27 @@
+import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import { Award, Briefcase, GraduationCap, Target } from 'lucide-react';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: 'About Optivantage | Founder Ashutosh Sharma | 25 Years Enterprise IT',
+  description:
+    'Optivantage Technologies was founded by Ashutosh Sharma — 25 years in enterprise IT (BT Global, Telstra, SITA, Orange). Microsoft & Google certified AI trainer. ISO/IEC 42001 Lead Implementer. 1,000+ professionals trained. Specialist in AI training, network infrastructure & IT equipment rentals.',
+  keywords: [
+    'Ashutosh Sharma AI trainer', 'Optivantage founder', 'enterprise IT consultant India',
+    'BT Global India', 'Telstra India', 'ISO 42001 lead implementer India',
+    'Microsoft certified AI trainer India', 'Google Cloud Digital Leader India',
+    'AI trainer Delhi', 'IT consultant India 25 years experience',
+  ],
+  alternates: { canonical: 'https://www.optivantage.in/about' },
+  openGraph: {
+    title: 'About Optivantage | Founder Ashutosh Sharma | 25 Years Enterprise IT',
+    description:
+      'Founded by Ashutosh Sharma — ex-BT Global, Telstra, SITA. Microsoft & Google certified AI trainer. ISO/IEC 42001 Lead Implementer. 1,000+ trained.',
+    url: 'https://www.optivantage.in/about',
+    type: 'profile',
+  },
+};
 
 export default function About() {
   return (

@@ -1,7 +1,27 @@
+import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
 import { ArrowRight, Clock, Tag } from 'lucide-react';
 import { blogPosts, BlogCategory } from '@/lib/blog-data';
+
+export const metadata: Metadata = {
+  title: 'Blog | AI Training, IT Infrastructure & Enterprise Tech Insights',
+  description:
+    'Practical insights on enterprise AI adoption, Microsoft Copilot 365, ISO/IEC 42001 AI governance, network infrastructure, SD-WAN, structured cabling, and IT equipment. Written by Ashutosh Sharma — certified Microsoft AI trainer and ISO 42001 Lead Implementer.',
+  keywords: [
+    'AI blog India', 'enterprise AI insights', 'Microsoft Copilot tips',
+    'ISO 42001 blog', 'AI governance articles', 'IT infrastructure blog',
+    'structured cabling guide', 'SD-WAN explainer', 'AI for business blog India',
+    'Gen AI insights', 'AI upskilling articles',
+  ],
+  alternates: { canonical: 'https://www.optivantage.in/blog' },
+  openGraph: {
+    title: 'Blog | AI Training, IT Infrastructure & Enterprise Tech | Optivantage',
+    description: 'Practical AI and IT insights from 25 years of enterprise experience. Copilot 365, ISO 42001, SD-WAN, network infrastructure and more.',
+    url: 'https://www.optivantage.in/blog',
+    type: 'website',
+  },
+};
 
 const categoryColors: Record<BlogCategory, string> = {
   'AI Training & Advisory': 'bg-purple-500/20 text-purple-300 border-purple-500/30',

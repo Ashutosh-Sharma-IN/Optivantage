@@ -1,5 +1,24 @@
+import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Our Services | AI Training, IT Infrastructure & Equipment Rentals',
+  description:
+    'Three specialist services — AI Training & Advisory (Copilot 365, ChatGPT, ISO 42001), IT Infrastructure (Cisco, Fortinet, Palo Alto, Vertiv, structured cabling, SD-WAN), and IT Equipment & Rentals (laptops, desktops, AMC). Founder-led. Delhi, India.',
+  keywords: [
+    'AI training IT infrastructure Delhi', 'IT services India specialist',
+    'Cisco Fortinet Vertiv partner India', 'enterprise IT services Delhi',
+    'AI training infrastructure equipment India',
+  ],
+  alternates: { canonical: 'https://www.optivantage.in/services' },
+  openGraph: {
+    title: 'Our Services | AI Training, IT Infrastructure & Equipment Rentals | Optivantage',
+    description: 'Three focused specialist services — AI Training, IT Infrastructure, and IT Equipment Rentals. Founder-led. Delhi, India.',
+    url: 'https://www.optivantage.in/services',
+    type: 'website',
+  },
+};
 import {
   BrainCircuit,
   Server,
