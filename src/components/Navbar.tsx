@@ -19,6 +19,7 @@ export default function Navbar() {
         { name: 'AI Training & Advisory', href: '/services/ai-training-advisory' },
         { name: 'IT Infrastructure', href: '/services/it-infrastructure' },
         { name: 'IT Equipment & Rentals', href: '/services/it-equipment-rentals' },
+        { name: 'Copilot 365 Course', href: '/training/copilot-365' },
       ]
     },
     { name: 'Blog', href: '/blog' },
