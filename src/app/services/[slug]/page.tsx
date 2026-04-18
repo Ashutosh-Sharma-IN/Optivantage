@@ -740,13 +740,13 @@ export default function ServiceDetail() {
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 items-center opacity-75 hover:opacity-100 transition-all">
               {[
-                { src: "/logos/BIAL logo.webp", alt: "BIAL — Bengaluru International Airport" },
+                { src: "/BIAL logo.webp", alt: "BIAL — Bengaluru International Airport" },
                 { src: "/hexaware.png", alt: "Hexaware" },
                 { src: "/infogain.png", alt: "Infogain" },
                 { src: "/kotak.png", alt: "Kotak Mahindra Bank" },
                 { src: "/msme.png", alt: "MSME India" },
                 { src: "/Upgrad.png", alt: "upGrad" },
-                { src: "/logos/Arvind Fashions Logo.jpg", alt: "Arvind Fashions" },
+                { src: "/Arvind Fashions Logo.jpg", alt: "Arvind Fashions" },
               ].map((logo) => (
                 <div key={logo.alt} className="bg-white/5 p-4 rounded-lg flex items-center justify-center">
                   <img src={logo.src} alt={logo.alt} className="h-10 w-auto opacity-90 hover:opacity-100 transition-all" />

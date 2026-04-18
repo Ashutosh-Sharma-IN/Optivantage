@@ -260,12 +260,13 @@ const certLogos = [
 
 // ─── CLIENT LOGOS ────────────────────────────────────────────────────────────
 const clients = [
-  { name: 'BIAL', logo: '/logos/BIAL logo.webp' },
+  { name: 'BIAL', logo: '/BIAL logo.webp' },
   { name: 'Kotak Mahindra Bank', logo: '/kotak.png' },
   { name: 'Hexaware', logo: '/hexaware.png' },
   { name: 'Infogain', logo: '/infogain.png' },
   { name: 'MSME India', logo: '/msme.png' },
   { name: 'upGrad', logo: '/Upgrad.png' },
+  { name: 'Arvind Fashions', logo: '/Arvind Fashions Logo.jpg' },
 ];
 
 export default function Copilot365Page() {
@@ -334,12 +335,12 @@ export default function Copilot365Page() {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto text-center">
         {/* Brand logos row */}
         <div className="flex justify-center items-center gap-4 mb-8 flex-wrap">
-          <div className="bg-white rounded-xl px-5 py-3 flex items-center gap-2 shadow-sm">
-            {/* Drop copilot.png into public/platforms/ to show the logo here */}
-            <span className="text-[#0078D4] font-black text-lg tracking-tight">Microsoft</span>
-            <span className="text-gray-400 text-sm font-medium">Copilot 365</span>
+          <div className="bg-white rounded-xl px-5 py-3 flex items-center gap-3 shadow-sm">
+            <Image src="/platforms/Microsoft Logo.jpg" alt="Microsoft" width={100} height={36} className="object-contain h-8 w-auto" />
+            <div className="w-px h-6 bg-gray-200" />
+            <Image src="/platforms/copilot_preview.jpg" alt="Microsoft Copilot" width={100} height={36} className="object-contain h-8 w-auto" />
           </div>
-          <span className="text-gray-600">×</span>
+          <span className="text-gray-600 text-xl">×</span>
           <div className="bg-white rounded-xl px-5 py-3 shadow-sm">
             <Image src="/logo.png" alt="Optivantage" width={120} height={36} className="object-contain h-8 w-auto" />
           </div>

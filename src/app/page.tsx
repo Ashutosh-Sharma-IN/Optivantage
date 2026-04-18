@@ -143,6 +143,41 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Copilot 365 Course Banner */}
+      <section className="py-12 px-4 bg-navy-900">
+        <div className="max-w-5xl mx-auto">
+          <div className="relative bg-gradient-to-r from-[#0078D4]/10 to-brand/10 border border-[#0078D4]/30 rounded-2xl p-8 md:p-10 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0078D4]/5 to-transparent pointer-events-none" />
+            <div className="relative flex flex-col md:flex-row items-center gap-8">
+              <div className="flex items-center gap-4 flex-shrink-0">
+                <div className="bg-white rounded-xl p-3 shadow-md">
+                  <Image src="/platforms/Microsoft Logo.jpg" alt="Microsoft" width={80} height={32} className="object-contain h-8 w-auto" />
+                </div>
+                <span className="text-white/40 text-2xl font-light">×</span>
+                <div className="bg-white rounded-xl p-3 shadow-md">
+                  <Image src="/logo.png" alt="Optivantage" width={80} height={32} className="object-contain h-8 w-auto" />
+                </div>
+              </div>
+              <div className="flex-1 text-center md:text-left">
+                <div className="inline-flex items-center gap-2 bg-brand/10 border border-brand/30 rounded-full px-3 py-1 mb-3">
+                  <span className="text-brand text-xs font-semibold">New · Live Course</span>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Master Microsoft Copilot 365 — In 4 Weekends</h3>
+                <p className="text-text-muted text-sm">
+                  20 hours · 22 modules · Small cohorts · Role playbooks · Certificate. Taught by an accredited Microsoft & Google AI trainer.
+                </p>
+              </div>
+              <Link
+                href="/training/copilot-365"
+                className="flex-shrink-0 px-6 py-3 bg-[#0078D4] hover:bg-[#006CBE] text-white font-semibold rounded-lg transition-all flex items-center gap-2 text-sm whitespace-nowrap"
+              >
+                See Course Details <ArrowRight size={16} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Partners Strip */}
       <section className="py-14 px-4 bg-navy-900 border-y border-white/5">
         <div className="max-w-5xl mx-auto">
