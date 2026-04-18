@@ -392,9 +392,9 @@ const servicesData: Record<string, any> = {
           "Vertiv: UPS, PDU, Thermal Management",
           "VMware SD-WAN (VeloCloud)",
           "Dell EMC: Servers, Storage, Data Centre",
-          "Hikvision / Dahua: IP CCTV & NVR Systems",
-          "ZKTeco / Suprema: Biometrics & Access Control",
-          "Anviz / ESSL: Facial Recognition & Attendance"
+          "Axis / Bosch / Hanwha: IP CCTV & NVR Systems",
+          "Suprema / HID Global: Biometrics & Access Control",
+          "Matrix Comsec / IDEMIA: Facial Recognition & Attendance"
         ]
       }
     ]
