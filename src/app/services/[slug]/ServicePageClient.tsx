@@ -284,18 +284,18 @@ const servicesData: Record<string, any> = {
             icon: <Cable className="text-brand" />
           },
           {
-            title: "Active Networking — Cisco",
-            desc: "Supply, installation and commissioning of Cisco routers, switches, wireless access points and Meraki cloud-managed networking. Registered Cisco Partner via Ingram Micro India.",
+            title: "Active Networking",
+            desc: "Supply, installation and commissioning of enterprise routers, switches, wireless access points, and cloud-managed networking solutions.",
             icon: <Wifi className="text-brand" />
           },
           {
-            title: "Network Security — Fortinet & Palo Alto",
-            desc: "Next-generation firewalls, Zero Trust Network Access, VPN, IDS/IPS, and network segmentation. Fortinet and Palo Alto Networks solutions for enterprise-grade perimeter and internal security.",
+            title: "Network Security",
+            desc: "Next-generation firewalls, Zero Trust Network Access, VPN, IDS/IPS, and network segmentation for enterprise-grade perimeter and internal security.",
             icon: <Lock className="text-brand" />
           },
           {
-            title: "Power & Electrical — Vertiv",
-            desc: "UPS systems, PDUs, power distribution, and power conditioning for server rooms, data centres, and critical IT environments. Vertiv authorised reseller.",
+            title: "Power & Electrical",
+            desc: "UPS systems, PDUs, power distribution, and power conditioning for server rooms, data centres, and critical IT environments.",
             icon: <Zap className="text-brand" />
           },
           {
@@ -330,7 +330,7 @@ const servicesData: Record<string, any> = {
               "Eliminates buddy-punching and time-theft in attendance",
               "STQC-certified devices aligned with Indian government standards",
               "Centrally managed across multiple office locations",
-              "Integrates with SAP, Darwinbox, GreytHR, and other HRMS platforms",
+              "Integrates with leading HRMS and payroll platforms",
               "Offline fallback mode — continues working during network outages",
               "Role-based access zones — restrict floors, server rooms, and sensitive areas"
             ],
@@ -386,15 +386,15 @@ const servicesData: Record<string, any> = {
         title: "Technology Expertise",
         type: "pillars-grid",
         items: [
-          "Cisco: Switches, Routers, Meraki Cloud",
-          "Fortinet: FortiGate NGFW, SD-WAN, FortiAP",
-          "Palo Alto Networks: NGFW, Prisma Access, Zero Trust",
-          "Vertiv: UPS, PDU, Thermal Management",
-          "VMware SD-WAN (VeloCloud)",
-          "Dell EMC: Servers, Storage, Data Centre",
-          "Axis / Bosch / Hanwha: IP CCTV & NVR Systems",
-          "Suprema / HID Global: Biometrics & Access Control",
-          "Matrix Comsec / IDEMIA: Facial Recognition & Attendance"
+          "Enterprise Switching & Routing",
+          "Next-Generation Firewalls & Zero Trust",
+          "SD-WAN Design & Deployment",
+          "Wireless LAN & WiFi 6/6E",
+          "UPS, PDU & Power Management",
+          "Servers, Storage & Data Centre",
+          "IP CCTV & NVR Surveillance Systems",
+          "Biometric & Multi-Modal Access Control",
+          "Facial Recognition & Attendance Management"
         ]
       }
     ]
@@ -432,7 +432,7 @@ const servicesData: Record<string, any> = {
           },
           {
             title: "Networking Devices",
-            desc: "Routers, switches, access points, and firewalls — available for project-based or event rental. Includes Cisco, Fortinet hardware.",
+            desc: "Routers, switches, access points, and firewalls — available for project-based or event rental from leading enterprise brands.",
             icon: <Wifi className="text-brand" />
           },
           {
@@ -441,8 +441,8 @@ const servicesData: Record<string, any> = {
             icon: <Printer className="text-brand" />
           },
           {
-            title: "UPS Systems — Vertiv",
-            desc: "Online and offline UPS systems up to 100KVA for uninterrupted power. Vertiv authorised reseller.",
+            title: "UPS Systems",
+            desc: "Online and offline UPS systems up to 100KVA for uninterrupted power. Sourced from authorised channels.",
             icon: <Zap className="text-brand" />
           },
           {
