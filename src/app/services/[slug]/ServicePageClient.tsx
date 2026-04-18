@@ -23,6 +23,9 @@ import {
   Building2,
   Cable,
   Cpu,
+  Fingerprint,
+  Camera,
+  ScanFace,
 } from 'lucide-react';
 
 // --- HERO IMAGES ---
@@ -301,9 +304,9 @@ const servicesData: Record<string, any> = {
             icon: <Building2 className="text-brand" />
           },
           {
-            title: "CCTV & Physical Security",
-            desc: "Supply, installation and commissioning of CCTV systems and biometric access control (facial recognition, fingerprint, attendance systems).",
-            icon: <ShieldCheck className="text-brand" />
+            title: "Physical Security Solutions",
+            desc: "SITC of enterprise biometric access control, AI-powered facial recognition, and IP CCTV surveillance. Single-vendor delivery from site survey to commissioning and AMC.",
+            icon: <Camera className="text-brand" />
           },
           {
             title: "Field Engineering Support",
@@ -311,6 +314,68 @@ const servicesData: Record<string, any> = {
             icon: <Users className="text-brand" />
           },
         ]
+      },
+      {
+        title: "Physical Security Solutions",
+        subtitle: "Supply, Installation, Testing & Commissioning (SITC) — end-to-end, on-site",
+        type: "physical-security",
+        intro: "Optivantage delivers converged physical security and IT — the same team that builds your network also secures your premises. One vendor, one accountability, zero integration gaps.",
+        items: [
+          {
+            title: "Biometric Access Control",
+            icon: "fingerprint",
+            tagline: "Control who enters. Know exactly when.",
+            desc: "Enterprise-grade biometric systems — fingerprint, palm vein, and multi-modal readers — integrated with your access control, HRMS, and payroll platforms. From a single door to a multi-site campus.",
+            benefits: [
+              "Eliminates buddy-punching and time-theft in attendance",
+              "STQC-certified devices aligned with Indian government standards",
+              "Centrally managed across multiple office locations",
+              "Integrates with SAP, Darwinbox, GreytHR, and other HRMS platforms",
+              "Offline fallback mode — continues working during network outages",
+              "Role-based access zones — restrict floors, server rooms, and sensitive areas"
+            ],
+            usecases: "Corporate offices · Manufacturing plants · Warehouse gates · Data centres · Co-working spaces"
+          },
+          {
+            title: "Facial Recognition Systems",
+            icon: "scanface",
+            tagline: "Contactless. Instant. Accurate.",
+            desc: "AI-powered facial recognition for access control, visitor management, and workforce attendance — without physical contact. Works in real-world conditions: variable lighting, high foot-traffic, partial occlusion.",
+            benefits: [
+              "Sub-second identification — even in high-traffic lobbies",
+              "Liveness detection prevents spoofing via photos or screens",
+              "Functions with masks and in low-light environments",
+              "Visitor pre-registration and VIP alert workflows out of the box",
+              "On-premise data storage available for privacy-sensitive deployments",
+              "Integrates with CCTV and access control for unified security events"
+            ],
+            usecases: "Corporate lobbies · Bank branches · Hospitals · Gated communities · Event venues"
+          },
+          {
+            title: "CCTV & IP Surveillance",
+            icon: "camera",
+            tagline: "See everything. Miss nothing.",
+            desc: "Full-lifecycle CCTV implementation — site survey, camera selection, structured cabling, NVR/DVR configuration, remote monitoring, and ongoing AMC. Scalable from a 4-camera office to a 500-camera campus.",
+            benefits: [
+              "HD and 4K IP cameras: dome, bullet, PTZ, and fisheye form factors",
+              "Centralised NVR/DVR with 30–90 day retention planning",
+              "Remote monitoring via mobile app and web dashboard",
+              "AI-based video analytics: motion alerts, intrusion detection, crowd density",
+              "Integration with access control for correlated security event timelines",
+              "Runs on your existing structured cabling — no parallel infrastructure needed"
+            ],
+            usecases: "Corporate campuses · Warehouses · Retail chains · Hospitals · Parking facilities · Data centres"
+          }
+        ],
+        valueAdd: {
+          heading: "Why Optivantage for Physical Security?",
+          points: [
+            { title: "Converged IT + physical security delivery", desc: "We handle both your data network and your physical security in a single project. No coordination gaps between your cabling contractor and your security vendor — it is all us." },
+            { title: "True SITC — not just supply", desc: "We do not drop equipment and leave. Our engineers handle installation, configuration, testing, commissioning, user training, and handover documentation on-site." },
+            { title: "Infrastructure-native integration", desc: "Physical security runs on your existing IP network and structured cabling. Our network expertise means cameras, readers, and servers are deployed optimally — not as an afterthought bolted on later." },
+            { title: "Post-commissioning AMC", desc: "Annual Maintenance Contracts covering preventive servicing, firmware updates, remote diagnostics, and priority on-site break-fix response to keep your systems running reliably year-round." }
+          ]
+        }
       },
       {
         title: "Technology Partners",
@@ -326,7 +391,10 @@ const servicesData: Record<string, any> = {
           "Palo Alto Networks: NGFW, Prisma Access, Zero Trust",
           "Vertiv: UPS, PDU, Thermal Management",
           "VMware SD-WAN (VeloCloud)",
-          "Dell EMC: Servers, Storage, Data Centre"
+          "Dell EMC: Servers, Storage, Data Centre",
+          "Hikvision / Dahua: IP CCTV & NVR Systems",
+          "ZKTeco / Suprema: Biometrics & Access Control",
+          "Anviz / ESSL: Facial Recognition & Attendance"
         ]
       }
     ]
@@ -500,6 +568,64 @@ const PillarsGrid = ({ items }: { items: string[] }) => (
         <h4 className="text-white text-sm font-medium">{item}</h4>
       </div>
     ))}
+  </div>
+);
+
+const PhysicalSecurity = ({ intro, items, valueAdd }: { intro?: string; items: any[]; valueAdd?: any }) => (
+  <div className="space-y-16">
+    {intro && (
+      <p className="text-text-muted text-lg leading-relaxed max-w-3xl border-l-4 border-brand pl-6">{intro}</p>
+    )}
+    <div className="grid md:grid-cols-3 gap-8">
+      {items.map((item: any, i: number) => (
+        <div key={i} className="bg-navy-900 rounded-xl border border-white/5 hover:border-brand/40 transition-all overflow-hidden flex flex-col">
+          <div className="p-8 border-b border-white/5">
+            <div className="mb-5 p-3 bg-navy-800 rounded-lg inline-block">
+              {item.icon === 'fingerprint' && <Fingerprint className="text-brand h-6 w-6" />}
+              {item.icon === 'scanface' && <ScanFace className="text-brand h-6 w-6" />}
+              {item.icon === 'camera' && <Camera className="text-brand h-6 w-6" />}
+            </div>
+            <h3 className="text-xl font-bold text-white mb-1">{item.title}</h3>
+            <p className="text-brand font-medium text-sm mb-4">{item.tagline}</p>
+            <p className="text-text-muted text-sm leading-relaxed">{item.desc}</p>
+          </div>
+          <div className="p-8 flex-grow">
+            <h4 className="text-white font-semibold mb-4 text-xs uppercase tracking-wider">Key Benefits</h4>
+            <ul className="space-y-3">
+              {item.benefits.map((b: string, bi: number) => (
+                <li key={bi} className="flex gap-3 text-sm text-text-muted">
+                  <CheckCircle2 className="text-brand h-4 w-4 flex-shrink-0 mt-0.5" />
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="px-8 pb-8">
+            <div className="p-3 bg-brand/10 rounded-lg border border-brand/20">
+              <p className="text-xs text-brand font-medium leading-relaxed">{item.usecases}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    {valueAdd && (
+      <div className="bg-navy-900 rounded-xl border border-white/5 p-8">
+        <h3 className="text-2xl font-bold text-white mb-8">{valueAdd.heading}</h3>
+        <div className="grid md:grid-cols-2 gap-6">
+          {valueAdd.points.map((pt: any, i: number) => (
+            <div key={i} className="flex gap-4">
+              <div className="flex-shrink-0 w-8 h-8 bg-brand/15 rounded-lg flex items-center justify-center">
+                <span className="text-brand font-bold text-sm">{i + 1}</span>
+              </div>
+              <div>
+                <h4 className="text-white font-semibold mb-1 text-sm">{pt.title}</h4>
+                <p className="text-text-muted text-sm leading-relaxed">{pt.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
   </div>
 );
 
@@ -724,6 +850,7 @@ export default function ServiceDetail({ slug }: { slug: string }) {
               {section.type === 'pillars-grid' && <PillarsGrid items={section.items} />}
               {section.type === 'value-card-4' && <ProcessSteps items={section.items} />}
               {section.type === 'infra-partners-section' && <InfraPartnersSection />}
+              {section.type === 'physical-security' && <PhysicalSecurity intro={section.intro} items={section.items} valueAdd={section.valueAdd} />}
             </div>
           ))}
         </div>
