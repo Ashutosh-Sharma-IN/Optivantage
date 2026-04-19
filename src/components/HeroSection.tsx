@@ -4,6 +4,8 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight, ShieldCheck, Award, Users2, Zap } from "lucide-react";
 
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 const stagger = {
   container: {
     hidden: {},
@@ -14,7 +16,7 @@ const stagger = {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.65, ease: EASE },
     },
   },
 };
@@ -169,7 +171,7 @@ export default function HeroSection() {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-white/10 pt-10"
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.85, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ delay: 0.85, duration: 0.65, ease: EASE }}
         >
           {stats.map(({ value, suffix, label }) => (
             <div key={label} className="text-center group cursor-default">
