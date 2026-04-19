@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 248, 250, 252; /* Matches text-main */
+  --background-start-rgb: 11, 17, 32; /* Matches navy-900 */
+  --background-end-rgb: 11, 17, 32;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* Smooth Scrolling for Navigation Links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Utility for removing link underlines */
+a {
+  text-decoration: none;
+}
+
+/* Utility for standardizing focus rings */
+*:focus-visible {
+  outline: 2px solid #FF4D00; /* Brand color focus ring */
+  outline-offset: 2px;
+}
