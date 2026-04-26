@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -8,19 +8,123 @@ import WhyOptivantage from '@/components/WhyOptivantage';
 import ExitIntentPopup from '@/components/ExitIntentPopup';
 import AdsBanner from '@/components/AdsBanner';
 import AdAnalytics from '@/components/AdAnalytics';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'Optivantage | AI Training, IT Infrastructure & Equipment Rentals | Delhi, India',
-  description:
-    'Optivantage Technologies — specialist AI training (Microsoft Copilot 365, ChatGPT, ISO/IEC 42001 governance), IT infrastructure (Cisco, Fortinet, Palo Alto, Vertiv), and IT equipment rentals. Founder-led. 25 years expertise. 1,000+ professionals trained across BIAL, Kotak Mahindra, Hexaware. Delhi, India.',
-  alternates: { canonical: 'https://www.optivantage.in' },
-  openGraph: {
-    title: 'Optivantage | AI Training, IT Infrastructure & Equipment Rentals',
-    description:
-      'Specialist AI training, network infrastructure, and IT equipment rentals. Cisco & Vertiv authorised partner. 25 years expertise. Founder-led. Delhi, India.',
-    url: 'https://www.optivantage.in',
-    type: 'website',
+  title: 'AI Training & Consulting India | Microsoft Copilot, ChatGPT, ISO 42001 | Optivantage Delhi',
+  description: 'Leading AI training & consulting in India. Expert AI implementation, ISO 42001 governance, Microsoft Copilot 365, ChatGPT training. 25+ years telecom & aviation IT experience. Delhi-based, founder-led AI consulting firm.',
+  keywords: [
+    'AI training India',
+    'AI consulting Delhi',
+    'Microsoft Copilot training',
+    'ChatGPT implementation',
+    'ISO 42001 AI governance',
+    'AI strategy consulting India',
+    'Generative AI training Delhi',
+    'AI implementation services',
+    'Enterprise AI coaching',
+    'AI transformation India',
+    'Telecom AI consulting',
+    'Aviation IT AI training',
+    'AI ethics training India',
+    'Machine learning consulting Delhi',
+    'AI governance framework'
+  ],
+  authors: [{ name: 'Ashutosh Sharma', url: 'https://www.optivantage.in' }],
+  creator: 'Ashutosh Sharma',
+  publisher: 'Optivantage Technologies',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
+  metadataBase: new URL('https://www.optivantage.in'),
+  alternates: {
+    canonical: 'https://www.optivantage.in',
+  },
+  openGraph: {
+    title: 'AI Training & Consulting India | Microsoft Copilot, ISO 42001 | Optivantage',
+    description: 'Expert AI training & consulting in India. Microsoft Copilot 365, ChatGPT, ISO 42001 governance. 25+ years enterprise IT experience. Delhi-based AI implementation specialists.',
+    url: 'https://www.optivantage.in',
+    siteName: 'Optivantage',
+    locale: 'en_IN',
+    type: 'website',
+    images: [
+      {
+        url: '/founder.png',
+        width: 1200,
+        height: 630,
+        alt: 'Ashutosh Sharma - AI Training & Consulting Expert, Optivantage',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI Training & Consulting India | Microsoft Copilot, ISO 42001',
+    description: 'Expert AI training & consulting in India. Microsoft Copilot 365, ChatGPT, ISO 42001 governance. 25+ years enterprise IT experience.',
+    images: ['/founder.png'],
+    creator: '@optivantage_in',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
+
+const homepageFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What AI training services does Optivantage offer in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Optivantage offers enterprise AI training across Microsoft Copilot 365, ChatGPT, Google Gemini, Agentic AI, and ISO/IEC 42001 AI governance. Programs cover AI literacy, prompt engineering, AI strategy, and hands-on implementation — delivered in-person across India and online."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Optivantage provide AI training for telecom and aviation teams?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Optivantage founder Ashutosh Sharma has 25+ years of enterprise IT operations experience at BT (telecom), Telstra (telecom), and SITA (aviation IT). The firm delivers AI training tailored to the workflows, compliance requirements, and terminology of telecom, aviation, and airport operations teams."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What IT infrastructure services does Optivantage provide?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Optivantage designs and delivers end-to-end IT infrastructure: LAN/WAN network design, SD-WAN, enterprise WiFi, structured cabling, fibre optic cabling, data centre build, CCTV and access control, and power infrastructure using Vertiv UPS. Cisco registered partner, Fortinet and Palo Alto Networks partner."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I rent laptops or workstations for a corporate project or GCC setup in Delhi NCR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Optivantage supplies and rents Dell, HP, and Lenovo laptops, desktops, workstations, printers, and networking gear for corporate projects, GCC setup, training events, and long-term deployments across Delhi NCR and pan-India. Annual Maintenance Contracts (AMC) are also available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Optivantage an ISO 42001 AI governance consultant in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Optivantage is an ISO/IEC 42001 AI Management System implementation consultant in India. The firm helps organisations assess readiness, design AI governance policies, prepare for certification, and train leadership and teams on AI ethics and responsible AI practices."
+      }
+    }
+  ]
 };
 
 const services = [
@@ -72,6 +176,13 @@ const partners = [
 export default function Home() {
   return (
     <main>
+      <Script
+        id="homepage-faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(homepageFaqSchema),
+        }}
+      />
       <Navbar />
 
       {/* Hero Section */}
@@ -159,6 +270,74 @@ export default function Home() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* AI Training Spotlight */}
+      <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Featured AI Training Programs
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Comprehensive AI training designed to answer your most pressing questions about AI implementation in India
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Link href="/ai-training-guide" className="group">
+              <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all hover:-translate-y-1">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-200 transition-colors">
+                  <Brain className="h-6 w-6 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Complete AI Training Guide</h3>
+                <p className="text-gray-600 mb-4">
+                  Everything you need to know about AI training in India - from costs to certifications, programs to career opportunities.
+                </p>
+                <div className="text-blue-600 font-medium group-hover:text-blue-700">
+                  Read the Complete Guide →
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/microsoft-copilot-training" className="group">
+              <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all hover:-translate-y-1">
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-200 transition-colors">
+                  <Zap className="h-6 w-6 text-purple-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Microsoft Copilot 365 Training</h3>
+                <p className="text-gray-600 mb-4">
+                  Master AI-powered productivity tools. Learn Copilot integration across Microsoft 365 for enhanced workflow automation.
+                </p>
+                <div className="text-purple-600 font-medium group-hover:text-purple-700">
+                  Start Learning Copilot →
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/iso-42001-training" className="group">
+              <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all hover:-translate-y-1">
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors">
+                  <Shield className="h-6 w-6 text-green-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">ISO 42001 AI Governance</h3>
+                <p className="text-gray-600 mb-4">
+                  Learn AI ethics, risk management, and compliance frameworks for responsible AI implementation.
+                </p>
+                <div className="text-green-600 font-medium group-hover:text-green-700">
+                  Master AI Governance →
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          <div className="text-center mt-8">
+            <Link href="/delhi-ncr-ai-training" className="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+              <Globe className="h-5 w-5 mr-2" />
+              AI Training in Delhi NCR
+            </Link>
           </div>
         </div>
       </section>

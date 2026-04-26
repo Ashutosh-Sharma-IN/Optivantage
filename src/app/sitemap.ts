@@ -68,10 +68,95 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.75,
     },
     {
+      url: `${BASE_URL}/iso-42001-training`,
+      lastModified: new Date('2026-04-26'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/microsoft-copilot-training`,
+      lastModified: new Date('2026-04-26'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/delhi-ncr-ai-training`,
+      lastModified: new Date('2026-04-26'),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/advisory`,
+      lastModified: new Date('2026-04-26'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${BASE_URL}/contact`,
       lastModified: new Date('2026-04-01'),
       changeFrequency: 'yearly',
       priority: 0.7,
+    },
+    // GEO/AEO content pages — added April 2026
+    {
+      url: `${BASE_URL}/it-infrastructure-india`,
+      lastModified: new Date('2026-04-26'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/ai-training-banking-india`,
+      lastModified: new Date('2026-04-26'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/ai-training-aviation-india`,
+      lastModified: new Date('2026-04-26'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/ai-training-telecom-india`,
+      lastModified: new Date('2026-04-26'),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/laptop-rental-india`,
+      lastModified: new Date('2026-04-26'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/gcc-it-setup-india`,
+      lastModified: new Date('2026-04-26'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/structured-cabling-india`,
+      lastModified: new Date('2026-04-26'),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/microsoft-copilot-training-india`,
+      lastModified: new Date('2026-04-26'),
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/privacy`,
+      lastModified: new Date('2026-04-26'),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/terms`,
+      lastModified: new Date('2026-04-26'),
+      changeFrequency: 'yearly',
+      priority: 0.3,
     },
   ];
 }
