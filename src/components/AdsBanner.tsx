@@ -73,24 +73,24 @@ export default function AdsBanner() {
   };
 
   return (
-    <section className="py-8 px-4 bg-gray-50">
+    <section className="py-8 px-4 bg-red-100 border-4 border-red-500">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-6">
-          <h3 className="text-lg font-semibold text-gray-800 mb-2">
-            Featured Services
+          <h3 className="text-2xl font-bold text-red-800 mb-2">
+            🚨 ADS SECTION - TESTING VISIBILITY 🚨
           </h3>
-          <p className="text-sm text-gray-600">
-            AI Training & Consulting for Enterprise Transformation
+          <p className="text-lg text-red-600 font-semibold">
+            If you can see this bright red section, the ads are working!
           </p>
         </div>
 
-        <div className="relative rounded-xl overflow-hidden shadow-lg bg-white p-4">
+        <div className="relative rounded-xl overflow-hidden shadow-lg bg-white p-4 border-4 border-blue-500">
           <Image
             src={ads[currentAdIndex].src}
             alt={ads[currentAdIndex].alt}
             width={800}
             height={400}
-            className="w-full h-auto rounded-lg cursor-pointer"
+            className="w-full h-auto rounded-lg cursor-pointer border-2 border-green-500"
             onClick={trackAdClick}
             priority
           />
@@ -104,8 +104,8 @@ export default function AdsBanner() {
                   setCurrentAdIndex(index);
                   trackAdImpression(index, sessionId);
                 }}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentAdIndex ? 'bg-brand' : 'bg-gray-300'
+                className={`w-4 h-4 rounded-full transition-colors border-2 border-black ${
+                  index === currentAdIndex ? 'bg-red-500' : 'bg-gray-300'
                 }`}
                 aria-label={`View ad ${index + 1}`}
               />
@@ -117,15 +117,15 @@ export default function AdsBanner() {
             <a
               href="/contact"
               onClick={trackAdClick}
-              className="inline-block bg-brand text-white px-6 py-2 rounded-lg font-medium hover:bg-brand/90 transition-colors"
+              className="inline-block bg-red-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-red-600 transition-colors border-2 border-black"
             >
-              Get Started Today
+              Get Started Today - TEST BUTTON
             </a>
           </div>
         </div>
 
         {/* Analytics note for A/B testing */}
-        <p className="text-xs text-gray-500 text-center mt-4">
+        <p className="text-lg text-red-800 text-center mt-4 font-bold border-2 border-red-500 p-2 bg-yellow-200">
           Currently showing: Ad Version {currentAdIndex + 1} | Session: {sessionId.slice(-8)}
         </p>
       </div>
