@@ -39,22 +39,31 @@ export default function AdsBanner() {
     return () => clearInterval(interval);
   }, []);
 
+  const fireGa4Event = (eventName: string, adIndex: number) => {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', eventName, {
+        event_category: 'ad_ab_test',
+        event_label: `ad_version_${adIndex + 1}`,
+        ad_version: adIndex + 1,
+        value: adIndex + 1,
+      });
+    }
+  };
+
   const trackAdImpression = (adIndex: number, session: string) => {
-    // Simple client-side tracking (in production, you'd send to analytics service)
+    // localStorage for the /admin/ads dashboard (your browser only)
     const trackingData = {
       sessionId: session,
       adVersion: adIndex + 1,
       timestamp: new Date().toISOString(),
       page: window.location.pathname,
-      userAgent: navigator.userAgent
     };
-
-    // Store in localStorage for basic analytics
     const existingData = JSON.parse(localStorage.getItem('adTracking') || '[]');
     existingData.push(trackingData);
     localStorage.setItem('adTracking', JSON.stringify(existingData));
 
-    console.log('Ad impression tracked:', trackingData);
+    // GA4 event — visible across all visitors in GA4 → Explore → Events
+    fireGa4Event('ad_impression', adIndex);
   };
 
   const trackAdClick = () => {
@@ -62,14 +71,14 @@ export default function AdsBanner() {
       sessionId,
       adVersion: currentAdIndex + 1,
       timestamp: new Date().toISOString(),
-      action: 'click'
+      action: 'click',
     };
-
     const existingData = JSON.parse(localStorage.getItem('adTracking') || '[]');
     existingData.push(clickData);
     localStorage.setItem('adTracking', JSON.stringify(existingData));
 
-    console.log('Ad click tracked:', clickData);
+    // GA4 event — visible across all visitors
+    fireGa4Event('ad_click', currentAdIndex);
   };
 
   return (

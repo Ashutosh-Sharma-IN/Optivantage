@@ -7,7 +7,6 @@ import LogosSection from '@/components/LogosSection';
 import WhyOptivantage from '@/components/WhyOptivantage';
 import ExitIntentPopup from '@/components/ExitIntentPopup';
 import AdsBanner from '@/components/AdsBanner';
-import AdAnalytics from '@/components/AdAnalytics';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
@@ -449,20 +448,6 @@ export default function Home() {
       {/* NEW SECTIONS */}
       <LogosSection />
       <WhyOptivantage />
-
-      {/* Analytics Section (for development/testing) */}
-      <section className="py-8 px-4 bg-gray-100">
-        <div className="max-w-4xl mx-auto">
-          <details className="bg-white rounded-lg shadow">
-            <summary className="cursor-pointer p-4 font-semibold text-gray-800 hover:bg-gray-50">
-              📊 Ad Performance Analytics (Click to expand)
-            </summary>
-            <div className="p-4 border-t">
-              <AdAnalytics />
-            </div>
-          </details>
-        </div>
-      </section>
 
       <ExitIntentPopup />
     </main>
