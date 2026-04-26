@@ -1,45 +1,21 @@
 "use client";
 import { useState, useEffect } from 'react';
-import { X, Download, FileText, Wifi, Brain, Shield, Zap, Loader2 } from 'lucide-react';
+import { X, Brain, Sparkles, Send, Bot, BookOpen } from 'lucide-react';
 
 export default function ExitIntentPopup() {
   const [showPopup, setShowPopup] = useState(false);
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [selectedDownload, setSelectedDownload] = useState('');
-  const [hasShown, setHasShown] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
+  const [company, setCompany] = useState('');
+  const [interest, setInterest] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [hasShown, setHasShown] = useState(false);
 
-  const downloadOptions = [
-    {
-      id: 'wifi-case-study',
-      title: 'WiFi Optimization Case Study',
-      description: '15-warehouse deployment with 98% uptime',
-      icon: Wifi,
-      color: 'text-blue-600'
-    },
-    {
-      id: 'ai-training-overview',
-      title: 'AI Training Programs Overview',
-      description: 'Microsoft/Google AI training catalog',
-      icon: Brain,
-      color: 'text-purple-600'
-    },
-    {
-      id: 'network-services-guide',
-      title: 'Network Services Guide',
-      description: 'SD-WAN, WiFi, Managed IT services',
-      icon: Zap,
-      color: 'text-orange-600'
-    },
-    {
-      id: 'cybersecurity-checklist',
-      title: 'Cybersecurity Checklist',
-      description: 'ISO 27001/SOX compliance guide',
-      icon: Shield,
-      color: 'text-green-600'
-    }
+  const aiResources = [
+    { id: 'prompt-guide', label: 'AI Prompt Engineering Guide', icon: Sparkles },
+    { id: 'agent-guide', label: 'AI Agent Implementation Guide', icon: Bot },
+    { id: 'copilot-guide', label: 'Microsoft Copilot Playbook', icon: BookOpen },
+    { id: 'ai-strategy', label: 'Enterprise AI Strategy Framework', icon: Brain },
   ];
 
   useEffect(() => {
@@ -65,31 +41,22 @@ export default function ExitIntentPopup() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!selectedDownload) {
-      alert('Please select a resource to download');
-      return;
-    }
-
-    setSubmitting(true);
-    const selected = downloadOptions.find((d) => d.id === selectedDownload);
-
     try {
-      await fetch('/api/contact-webhook', {
+      await fetch('https://formspree.io/f/maqwnqnp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: firstName || 'Friend',
+          name,
           email,
-          source: 'exit-popup',
-          resourceId: selectedDownload,
-          resourceTitle: selected?.title,
+          company,
+          interest,
+          source: 'AI Resources Popup',
         }),
       });
     } catch {
-      // fail silently — resource email will still send on next attempt
+      // silent fail
     }
 
-    setSubmitting(false);
     setSubmitted(true);
   };
 
@@ -97,15 +64,15 @@ export default function ExitIntentPopup() {
 
   return (
     <>
-      <div 
+      <div
         className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9999] flex items-center justify-center p-4 animate-fadeIn"
         onClick={() => setShowPopup(false)}
       >
-        <div 
-          className="bg-white rounded-2xl max-w-2xl w-full p-8 relative shadow-2xl animate-slideUp max-h-[90vh] overflow-y-auto"
+        <div
+          className="bg-white rounded-2xl max-w-lg w-full p-8 relative shadow-2xl animate-slideUp max-h-[90vh] overflow-y-auto"
           onClick={(e) => e.stopPropagation()}
         >
-          <button 
+          <button
             onClick={() => setShowPopup(false)}
             className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors z-10"
             aria-label="Close popup"
@@ -113,133 +80,114 @@ export default function ExitIntentPopup() {
             <X size={24} />
           </button>
 
-          <div className="text-center mb-6">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-brand/10 rounded-full mb-4">
-              <FileText className="text-brand" size={32} />
-            </div>
-            
-            <h3 className="text-2xl font-bold text-navy-900 mb-2">
-              Wait! Get Free Resources
-            </h3>
-            
-            <p className="text-gray-600 text-lg">
-              Choose what you'd like to download — real case studies, guides, and implementation details
-            </p>
-          </div>
+          {!submitted ? (
+            <>
+              <div className="text-center mb-6">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500/20 to-brand/20 rounded-full mb-4">
+                  <Brain className="text-brand" size={32} />
+                </div>
 
-          {submitted ? (
-            <div className="text-center py-6">
-              <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Download className="text-green-600" size={28} />
+                <h3 className="text-2xl font-bold text-navy-900 mb-2">
+                  Get Free AI Resources
+                </h3>
+
+                <p className="text-gray-600">
+                  Practical guides on prompts, AI agents, and enterprise AI - used by our Fortune 500 clients.
+                </p>
               </div>
-              <h4 className="text-navy-900 font-bold text-lg mb-2">On its way!</h4>
-              <p className="text-gray-500 text-sm">
-                Check your inbox — the download link will arrive within a few minutes.
-              </p>
-              <button
-                onClick={() => setShowPopup(false)}
-                className="mt-5 text-brand text-sm font-semibold hover:underline"
-              >
-                Close
-              </button>
-            </div>
-          ) : (
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            {/* Download Options */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
-                Select Resource to Download:
-              </label>
-              <div className="grid md:grid-cols-2 gap-3">
-                {downloadOptions.map((option) => {
-                  const Icon = option.icon;
+
+              {/* Resource Previews */}
+              <div className="grid grid-cols-2 gap-2 mb-6">
+                {aiResources.map((resource) => {
+                  const Icon = resource.icon;
                   return (
-                    <button
-                      key={option.id}
-                      type="button"
-                      onClick={() => setSelectedDownload(option.id)}
-                      className={`p-4 border-2 rounded-lg text-left transition-all ${
-                        selectedDownload === option.id
-                          ? 'border-brand bg-brand/5'
-                          : 'border-gray-200 hover:border-gray-300'
-                      }`}
-                    >
-                      <div className="flex items-start gap-3">
-                        <Icon className={`${option.color} flex-shrink-0 mt-1`} size={24} />
-                        <div>
-                          <div className="font-semibold text-navy-900 text-sm mb-1">
-                            {option.title}
-                          </div>
-                          <div className="text-xs text-gray-500">
-                            {option.description}
-                          </div>
-                        </div>
-                      </div>
-                    </button>
+                    <div key={resource.id} className="flex items-center gap-2 bg-gray-50 rounded-lg p-3">
+                      <Icon size={16} className="text-brand flex-shrink-0" />
+                      <span className="text-xs font-medium text-navy-900">{resource.label}</span>
+                    </div>
                   );
                 })}
               </div>
-            </div>
 
-            {/* Name + Email */}
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  First Name
-                </label>
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <input
                   type="text"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  placeholder="Raj"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Your Name"
+                  required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent text-sm"
                 />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Work Email <span className="text-red-500">*</span>
-                </label>
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@company.com"
+                  placeholder="Work Email"
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent text-sm"
                 />
+                <input
+                  type="text"
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
+                  placeholder="Company (optional)"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent text-sm"
+                />
+                <select
+                  value={interest}
+                  onChange={(e) => setInterest(e.target.value)}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent text-sm text-gray-600"
+                >
+                  <option value="">What interests you most?</option>
+                  <option value="prompt-engineering">Prompt Engineering & AI Tools</option>
+                  <option value="agentic-ai">Agentic AI & Automation</option>
+                  <option value="copilot-deployment">Microsoft Copilot Deployment</option>
+                  <option value="ai-strategy">Enterprise AI Strategy</option>
+                  <option value="ai-training">AI Training for Teams</option>
+                </select>
+
+                <button
+                  type="submit"
+                  className="w-full bg-brand hover:bg-brand/90 text-white font-bold py-3 rounded-lg transition-all flex items-center justify-center gap-2"
+                >
+                  <Send size={18} />
+                  Get Free AI Resources
+                </button>
+              </form>
+
+              <div className="mt-4 flex items-center justify-center gap-6 text-xs text-gray-500">
+                <div className="flex items-center gap-1">
+                  <div className="h-2 w-2 bg-green-500 rounded-full"></div>
+                  <span>No spam</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <div className="h-2 w-2 bg-green-500 rounded-full"></div>
+                  <span>Instant delivery</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <div className="h-2 w-2 bg-green-500 rounded-full"></div>
+                  <span>Unsubscribe anytime</span>
+                </div>
               </div>
+            </>
+          ) : (
+            <div className="text-center py-8">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+                <Sparkles className="text-green-600" size={32} />
+              </div>
+              <h3 className="text-2xl font-bold text-navy-900 mb-2">You&apos;re All Set!</h3>
+              <p className="text-gray-600 mb-4">
+                Check your inbox for your AI resources. We&apos;ll also share exclusive AI insights and updates.
+              </p>
+              <button
+                onClick={() => setShowPopup(false)}
+                className="px-6 py-2 bg-brand text-white rounded-lg hover:bg-brand/90 transition-all"
+              >
+                Continue Browsing
+              </button>
             </div>
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              disabled={submitting}
-              className="w-full bg-brand hover:bg-brand/90 disabled:opacity-50 text-white font-bold py-3 rounded-lg transition-all flex items-center justify-center gap-2"
-            >
-              {submitting ? (
-                <><Loader2 size={18} className="animate-spin" /> Sending…</>
-              ) : (
-                <><Download size={20} /> Send to My Email</>
-              )}
-            </button>
-          </form>
           )}
-
-          {/* Trust Signals */}
-          <div className="mt-4 flex items-center justify-center gap-6 text-xs text-gray-500">
-            <div className="flex items-center gap-1">
-              <div className="h-2 w-2 bg-green-500 rounded-full"></div>
-              <span>No spam</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <div className="h-2 w-2 bg-green-500 rounded-full"></div>
-              <span>Instant delivery</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <div className="h-2 w-2 bg-green-500 rounded-full"></div>
-              <span>Unsubscribe anytime</span>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -248,7 +196,7 @@ export default function ExitIntentPopup() {
           from { opacity: 0; }
           to { opacity: 1; }
         }
-        
+
         @keyframes slideUp {
           from {
             opacity: 0;
@@ -259,11 +207,11 @@ export default function ExitIntentPopup() {
             transform: translateY(0);
           }
         }
-        
+
         .animate-fadeIn {
           animation: fadeIn 0.3s ease-out;
         }
-        
+
         .animate-slideUp {
           animation: slideUp 0.4s ease-out;
         }

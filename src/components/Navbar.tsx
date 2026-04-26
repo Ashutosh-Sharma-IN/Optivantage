@@ -16,15 +16,14 @@ export default function Navbar() {
       name: 'Services',
       href: '/services',
       dropdown: [
-        { name: 'AI Advisory & Training', href: '/services/ai' },
-        { name: 'IT & Network Infrastructure', href: '/services/infrastructure' },
-        { name: 'Cybersecurity & Compliance', href: '/services/cybersecurity' },
-        { name: 'Managed Services & Process Improvement', href: '/services/managed' },
+        { name: 'AI Training & Advisory', href: '/services/ai-training-advisory' },
+        { name: 'IT Infrastructure', href: '/services/it-infrastructure' },
+        { name: 'IT Equipment & Rentals', href: '/services/it-equipment-rentals' },
+        { name: 'Copilot 365 Course', href: '/training/copilot-365' },
       ]
     },
-    { name: 'AI Advisory', href: '/advisory' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Case Studies', href: '/case-studies' },
-    { name: 'Resources', href: '/resources' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -56,11 +55,11 @@ export default function Navbar() {
           <div className="flex flex-wrap justify-end gap-4 md:gap-8 text-navy-900 text-sm md:text-right">
             <div className="flex items-center gap-2">
                <Phone size={18} className="text-navy-900/90" />
-               <a href="tel:+919971701239" className="hover:text-brand transition-colors">+91 9971701239</a>
+               <span className="text-navy-900">+91 9971701239</span>
             </div>
             <div className="flex items-center gap-2">
                <Phone size={18} className="text-navy-900/90" />
-               <a href="tel:+91987122319" className="hover:text-brand transition-colors">+91 9871222319</a>
+               <span className="text-navy-900">+91 9871253355</span>
             </div>
             <div className="flex items-center gap-2">
                <Mail size={18} className="text-navy-900/90" />
@@ -159,16 +158,6 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Quiz CTA */}
-            <div className="hidden md:block">
-              <Link
-                href="/ai-ready"
-                className="bg-brand hover:bg-brand/90 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-all whitespace-nowrap"
-              >
-                Take the AI Quiz →
-              </Link>
-            </div>
-
             <div className="md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -183,13 +172,6 @@ export default function Navbar() {
         {isOpen && (
           <div className="md:hidden bg-navy-900 border-b border-white/10 absolute w-full">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Link
-                href="/ai-ready"
-                className="block px-3 py-3 rounded-md bg-brand text-white font-bold text-sm text-center mb-2"
-                onClick={() => setIsOpen(false)}
-              >
-                Take the AI Readiness Quiz →
-              </Link>
               {navLinks.map((link) => (
                 <div key={link.name}>
                   {link.dropdown ? (

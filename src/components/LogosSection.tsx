@@ -4,14 +4,14 @@ import Link from 'next/link';
 import { Briefcase, GraduationCap } from 'lucide-react';
 
 export default function LogosSection() {
-  // CLIENT LOGOS - NO SCROLLING (FIX 5 & 6)
   const clients = [
+    { name: 'BIAL', logo: '/BIAL logo.webp' },
     { name: 'Hexaware', logo: '/hexaware.png' },
     { name: 'Infogain', logo: '/infogain.png' },
     { name: 'Kotak Mahindra Bank', logo: '/kotak.png' },
     { name: 'MSME India', logo: '/msme.png' },
     { name: 'upGrad', logo: '/Upgrad.png' },
-    { name: 'MSME PPDC', logo: '/MSME PPDC.png' },
+    { name: 'Arvind Fashions', logo: '/Arvind Fashions Logo.jpg' },
   ];
 
   // EXPERIENCE COMPANIES - NO SCROLLING (FIX 6)
@@ -23,27 +23,26 @@ export default function LogosSection() {
     { name: 'Nortel', logo: '/experience/nortel.png' },
   ];
 
-  // ✅ FIX 7: WORK EXPERTISE WITH CLICKABLE LINKS
   const workExpertise = [
-    { 
-      text: 'B2B Managed IT and Network Services', 
-      link: '/services/managed'
+    {
+      text: 'B2B Managed IT and Network Services',
+      link: '/services/it-infrastructure'
     },
-    { 
-      text: 'Aviation IT', 
-      link: '/services/managed'
+    {
+      text: 'Global Service Delivery & Field Engineering',
+      link: '/services/it-infrastructure'
     },
-    { 
-      text: 'Global Service Delivery', 
-      link: '/services/managed'
+    {
+      text: 'IT Infrastructure Design & Build',
+      link: '/services/it-infrastructure'
     },
-    { 
-      text: 'Process Improvement and Infrastructure Optimization', 
-      link: '/services/process'
+    {
+      text: 'IT Equipment Supply & Rentals',
+      link: '/services/it-equipment-rentals'
     },
-    { 
-      text: 'AI consulting, advisory and training', 
-      link: '/services/ai'
+    {
+      text: 'AI Training, Advisory & Governance',
+      link: '/services/ai-training-advisory'
     }
   ];
 
@@ -166,28 +165,6 @@ export default function LogosSection() {
                     />
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* ✅ FIX 7: AREAS OF EXPERTISE - LIGHT BLUE + CLICKABLE */}
-          <div className="mb-10">
-            <h3 className="text-xl font-semibold text-white text-center mb-6">
-              Areas of Expertise
-            </h3>
-            
-            <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-              {workExpertise.map((expertise, index) => (
-                <Link
-                  key={index}
-                  href={expertise.link}
-                  className="bg-cyan-500/20 backdrop-blur-sm border border-cyan-400/30 rounded-lg p-4 hover:bg-cyan-500/30 hover:border-cyan-400/50 transition-all cursor-pointer group"
-                >
-                  <div className="flex items-start gap-3">
-                    <div className="h-2 w-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0 group-hover:scale-150 transition-transform"></div>
-                    <p className="text-white/90 font-medium group-hover:text-white transition-colors">{expertise.text}</p>
-                  </div>
-                </Link>
               ))}
             </div>
           </div>
