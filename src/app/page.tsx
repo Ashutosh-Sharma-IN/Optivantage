@@ -119,6 +119,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Featured Ads Section - Prime Position */}
+      <AdsBanner />
+
       {/* Services Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-navy-800">
         <div className="max-w-7xl mx-auto">
@@ -267,7 +270,6 @@ export default function Home() {
       {/* NEW SECTIONS */}
       <LogosSection />
       <WhyOptivantage />
-      <AdsBanner />
 
       {/* Analytics Section (for development/testing) */}
       <section className="py-8 px-4 bg-gray-100">

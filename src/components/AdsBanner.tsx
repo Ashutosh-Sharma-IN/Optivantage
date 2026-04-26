@@ -73,30 +73,30 @@ export default function AdsBanner() {
   };
 
   return (
-    <section className="py-8 px-4 bg-red-100 border-4 border-red-500">
+    <section className="py-12 px-4 bg-gradient-to-br from-blue-50 to-indigo-50">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-6">
-          <h3 className="text-2xl font-bold text-red-800 mb-2">
-            🚨 ADS SECTION - TESTING VISIBILITY 🚨
+        <div className="text-center mb-8">
+          <h3 className="text-2xl font-bold text-gray-800 mb-2">
+            Transform Your Business with AI
           </h3>
-          <p className="text-lg text-red-600 font-semibold">
-            If you can see this bright red section, the ads are working!
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Join 1000+ professionals who've mastered AI through our certified training programs
           </p>
         </div>
 
-        <div className="relative rounded-xl overflow-hidden shadow-lg bg-white p-4 border-4 border-blue-500">
+        <div className="relative rounded-xl overflow-hidden shadow-xl bg-white p-6 border border-gray-200">
           <Image
             src={ads[currentAdIndex].src}
             alt={ads[currentAdIndex].alt}
             width={800}
             height={400}
-            className="w-full h-auto rounded-lg cursor-pointer border-2 border-green-500"
+            className="w-full h-auto rounded-lg cursor-pointer hover:opacity-95 transition-opacity"
             onClick={trackAdClick}
             priority
           />
 
           {/* Ad indicator dots */}
-          <div className="flex justify-center mt-4 space-x-2">
+          <div className="flex justify-center mt-6 space-x-2">
             {ads.map((_, index) => (
               <button
                 key={index}
@@ -104,8 +104,8 @@ export default function AdsBanner() {
                   setCurrentAdIndex(index);
                   trackAdImpression(index, sessionId);
                 }}
-                className={`w-4 h-4 rounded-full transition-colors border-2 border-black ${
-                  index === currentAdIndex ? 'bg-red-500' : 'bg-gray-300'
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  index === currentAdIndex ? 'bg-blue-600' : 'bg-gray-300'
                 }`}
                 aria-label={`View ad ${index + 1}`}
               />
@@ -113,20 +113,20 @@ export default function AdsBanner() {
           </div>
 
           {/* Call to action */}
-          <div className="text-center mt-4">
+          <div className="text-center mt-6">
             <a
               href="/contact"
               onClick={trackAdClick}
-              className="inline-block bg-red-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-red-600 transition-colors border-2 border-black"
+              className="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl"
             >
-              Get Started Today - TEST BUTTON
+              Start Your AI Journey Today
             </a>
           </div>
         </div>
 
-        {/* Analytics note for A/B testing */}
-        <p className="text-lg text-red-800 text-center mt-4 font-bold border-2 border-red-500 p-2 bg-yellow-200">
-          Currently showing: Ad Version {currentAdIndex + 1} | Session: {sessionId.slice(-8)}
+        {/* Subtle analytics note */}
+        <p className="text-xs text-gray-400 text-center mt-4">
+          Currently showing: Ad Version {currentAdIndex + 1}
         </p>
       </div>
     </section>
