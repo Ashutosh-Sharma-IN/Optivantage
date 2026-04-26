@@ -2,22 +2,25 @@
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import Navbar from '@/components/Navbar';
-import { 
-  ArrowLeft, 
-  CheckCircle2, 
-  AlertTriangle, 
-  ShieldCheck, 
-  Wrench, 
-  BrainCircuit, 
-  Server, 
-  BarChart3, 
-  Zap, 
-  Globe, 
+import {
+  ArrowLeft,
+  CheckCircle2,
+  AlertTriangle,
+  ShieldCheck,
+  Wrench,
+  BrainCircuit,
+  Server,
+  BarChart3,
+  Zap,
+  Globe,
   Lock,
   Users,
   GraduationCap,
   Award,
-  TrendingUp
+  TrendingUp,
+  Fingerprint,
+  Camera,
+  ScanFace
 } from 'lucide-react';
 
 // --- COMPREHENSIVE SERVICE DATA ---
@@ -120,7 +123,66 @@ const servicesData: any = {
           { title: "AMC & Repair Services", desc: "Preventive maintenance programs, Break-fix repair services, Hardware diagnostics and troubleshooting, Component replacement and upgrades.", icon: <Wrench className="text-brand"/> },
           { title: "Core Room Setup & Data Center", desc: "Physical infrastructure design, Power and cooling systems, Structured cabling, Rack and cabinet setup.", icon: <Server className="text-brand"/> },
           { title: "LAN/WAN/WiFi Architecture", desc: "Network topology design, LAN switching and routing, WAN connectivity (MPLS, SD-WAN), Wireless network design (WiFi 6/6E).", icon: <Globe className="text-brand"/> },
+          { title: "Physical Security Solutions", desc: "SITC of biometric access control, AI-powered facial recognition, and IP CCTV surveillance systems. Single-vendor delivery from design to commissioning.", icon: <Camera className="text-brand"/> },
         ]
+      },
+      {
+        title: "Physical Security & Surveillance",
+        subtitle: "End-to-end SITC — Supply, Installation, Testing & Commissioning",
+        type: "physical-security",
+        items: [
+          {
+            title: "Biometric Access Control",
+            icon: "fingerprint",
+            tagline: "Control who enters. Know exactly when.",
+            desc: "We supply and commission enterprise-grade biometric systems — fingerprint, palm vein, and multi-modal readers — integrated with your existing access control, HRMS, and payroll platforms.",
+            benefits: [
+              "Eliminates buddy-punching and time-theft in attendance",
+              "STQC-certified devices compliant with Indian government standards",
+              "Centrally managed across multiple office locations",
+              "Integrates with leading HRMS: SAP, Darwinbox, GreytHR",
+              "Offline fallback mode — works even during network outages"
+            ],
+            usecases: "Ideal for: Corporate offices, manufacturing plants, warehouse gates, data centres, co-working spaces"
+          },
+          {
+            title: "Facial Recognition Systems",
+            icon: "scanface",
+            tagline: "Contactless. Instant. Accurate.",
+            desc: "AI-powered facial recognition that works in real-world conditions — variable lighting, partial occlusion, and high foot-traffic. Deployed for access control, visitor management, and workforce attendance without physical contact.",
+            benefits: [
+              "Sub-second identification even in crowds",
+              "Liveness detection — prevents spoofing with photos or videos",
+              "Works with masks and in low-light environments",
+              "Visitor pre-registration and VIP alert workflows",
+              "Privacy-first deployment with on-premise data storage options"
+            ],
+            usecases: "Ideal for: Corporate lobbies, bank branches, hospitals, gated communities, event venues"
+          },
+          {
+            title: "CCTV & IP Surveillance",
+            icon: "camera",
+            tagline: "See everything. Miss nothing.",
+            desc: "Full-lifecycle CCTV implementation — site survey, camera selection, structured cabling, NVR/DVR configuration, remote monitoring setup, and ongoing AMC. We design systems that scale from a 4-camera office to a 500-camera campus.",
+            benefits: [
+              "HD and 4K IP cameras: dome, bullet, PTZ, fisheye",
+              "Centralised NVR/DVR with 30–90 day retention planning",
+              "Remote monitoring via mobile app and web dashboard",
+              "AI-based analytics: motion alerts, intrusion detection, crowd density",
+              "Integration with access control for unified security events"
+            ],
+            usecases: "Ideal for: Corporate campuses, warehouses, retail chains, hospitals, data centres, parking facilities"
+          }
+        ],
+        valueAdd: {
+          heading: "The Optivantage Advantage",
+          points: [
+            { title: "Converged delivery", desc: "We handle both IT network and physical security — one vendor, one point of accountability. No coordination gaps between your cabling contractor and your security vendor." },
+            { title: "End-to-end SITC", desc: "We don't just supply and walk away. Our teams handle installation, configuration, testing, commissioning, and user training on-site." },
+            { title: "Infrastructure-native integration", desc: "Physical security runs on your existing structured cabling and network. Our network expertise means cameras, readers, and servers are deployed optimally — not as an afterthought." },
+            { title: "Post-commissioning AMC", desc: "Annual Maintenance Contracts covering preventive servicing, firmware updates, remote diagnostics, and on-site break-fix response." }
+          ]
+        }
       },
       {
         title: "Network Optimization Expertise",
@@ -164,7 +226,10 @@ const servicesData: any = {
           "Aruba Networks (Enterprise WiFi, SD-WAN)",
           "Ekahau (Professional WiFi site survey)",
           "VMware SD-WAN (VeloCloud platform)",
-          "Dell EMC (Servers, storage, data center)"
+          "Dell EMC (Servers, storage, data center)",
+          "Hikvision / Dahua (IP CCTV & NVR systems)",
+          "ZKTeco / Suprema (Biometrics & access control)",
+          "Anviz / ESSL (Facial recognition & attendance)"
         ]
       }
     ]
@@ -373,6 +438,62 @@ const ProcessSteps = ({ items }: any) => (
   </div>
 );
 
+const PhysicalSecurity = ({ items, valueAdd }: any) => (
+  <div className="space-y-16">
+    <div className="grid md:grid-cols-3 gap-8">
+      {items.map((item: any, i: number) => (
+        <div key={i} className="bg-navy-900 rounded-xl border border-white/5 hover:border-brand/40 transition-all overflow-hidden flex flex-col">
+          <div className="p-8 border-b border-white/5">
+            <div className="mb-5 p-4 bg-navy-800 rounded-lg inline-block">
+              {item.icon === 'fingerprint' && <Fingerprint className="text-brand h-7 w-7" />}
+              {item.icon === 'scanface' && <ScanFace className="text-brand h-7 w-7" />}
+              {item.icon === 'camera' && <Camera className="text-brand h-7 w-7" />}
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-2">{item.title}</h3>
+            <p className="text-brand font-medium text-sm mb-4">{item.tagline}</p>
+            <p className="text-text-muted leading-relaxed">{item.desc}</p>
+          </div>
+          <div className="p-8 flex-grow">
+            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Key Benefits</h4>
+            <ul className="space-y-3">
+              {item.benefits.map((b: string, bi: number) => (
+                <li key={bi} className="flex gap-3 text-sm text-text-muted">
+                  <CheckCircle2 className="text-brand h-4 w-4 flex-shrink-0 mt-0.5" />
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="px-8 pb-8">
+            <div className="p-4 bg-brand/10 rounded-lg border border-brand/20">
+              <p className="text-xs text-brand font-medium">{item.usecases}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {valueAdd && (
+      <div className="bg-navy-900 rounded-xl border border-white/5 p-8">
+        <h3 className="text-2xl font-bold text-white mb-8">{valueAdd.heading}</h3>
+        <div className="grid md:grid-cols-2 gap-6">
+          {valueAdd.points.map((pt: any, i: number) => (
+            <div key={i} className="flex gap-4">
+              <div className="flex-shrink-0 w-8 h-8 bg-brand/20 rounded-lg flex items-center justify-center">
+                <span className="text-brand font-bold text-sm">{i + 1}</span>
+              </div>
+              <div>
+                <h4 className="text-white font-semibold mb-1">{pt.title}</h4>
+                <p className="text-text-muted text-sm leading-relaxed">{pt.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+);
+
 const PillarsGrid = ({ items }: any) => (
   <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
     {items.map((item: string, i: number) => (
@@ -499,6 +620,7 @@ export default function ServiceDetail() {
                      </div>
                 )}
                 
+                {section.type === 'physical-security' && <PhysicalSecurity items={section.items} valueAdd={section.valueAdd} />}
                 {section.type === 'pillars-grid' && <PillarsGrid items={section.items} />}
              </div>
           ))}

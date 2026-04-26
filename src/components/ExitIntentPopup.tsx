@@ -1,12 +1,15 @@
 "use client";
 import { useState, useEffect } from 'react';
-import { X, Download, FileText, Wifi, Brain, Shield, Zap } from 'lucide-react';
+import { X, Download, FileText, Wifi, Brain, Shield, Zap, Loader2 } from 'lucide-react';
 
 export default function ExitIntentPopup() {
   const [showPopup, setShowPopup] = useState(false);
   const [email, setEmail] = useState('');
+  const [firstName, setFirstName] = useState('');
   const [selectedDownload, setSelectedDownload] = useState('');
   const [hasShown, setHasShown] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const downloadOptions = [
     {
@@ -61,19 +64,33 @@ export default function ExitIntentPopup() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!selectedDownload) {
       alert('Please select a resource to download');
       return;
     }
 
-    // TODO: Integrate with Formspree
-    console.log('Email:', email, 'Selected:', selectedDownload);
-    
-    alert(`Thank you! We'll send "${downloadOptions.find(d => d.id === selectedDownload)?.title}" to your email shortly.`);
-    setShowPopup(false);
-    setEmail('');
-    setSelectedDownload('');
+    setSubmitting(true);
+    const selected = downloadOptions.find((d) => d.id === selectedDownload);
+
+    try {
+      await fetch('/api/contact-webhook', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: firstName || 'Friend',
+          email,
+          source: 'exit-popup',
+          resourceId: selectedDownload,
+          resourceTitle: selected?.title,
+        }),
+      });
+    } catch {
+      // fail silently — resource email will still send on next attempt
+    }
+
+    setSubmitting(false);
+    setSubmitted(true);
   };
 
   if (!showPopup) return null;
@@ -110,6 +127,23 @@ export default function ExitIntentPopup() {
             </p>
           </div>
 
+          {submitted ? (
+            <div className="text-center py-6">
+              <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Download className="text-green-600" size={28} />
+              </div>
+              <h4 className="text-navy-900 font-bold text-lg mb-2">On its way!</h4>
+              <p className="text-gray-500 text-sm">
+                Check your inbox — the download link will arrive within a few minutes.
+              </p>
+              <button
+                onClick={() => setShowPopup(false)}
+                className="mt-5 text-brand text-sm font-semibold hover:underline"
+              >
+                Close
+              </button>
+            </div>
+          ) : (
           <form className="space-y-6" onSubmit={handleSubmit}>
             {/* Download Options */}
             <div>
@@ -147,30 +181,49 @@ export default function ExitIntentPopup() {
               </div>
             </div>
 
-            {/* Email Input */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Work Email
-              </label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@company.com"
-                required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent"
-              />
+            {/* Name + Email */}
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  First Name
+                </label>
+                <input
+                  type="text"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  placeholder="Raj"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Work Email <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@company.com"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent text-sm"
+                />
+              </div>
             </div>
-            
+
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-brand hover:bg-brand/90 text-white font-bold py-3 rounded-lg transition-all flex items-center justify-center gap-2"
+              disabled={submitting}
+              className="w-full bg-brand hover:bg-brand/90 disabled:opacity-50 text-white font-bold py-3 rounded-lg transition-all flex items-center justify-center gap-2"
             >
-              <Download size={20} />
-              Send to My Email
+              {submitting ? (
+                <><Loader2 size={18} className="animate-spin" /> Sending…</>
+              ) : (
+                <><Download size={20} /> Send to My Email</>
+              )}
             </button>
           </form>
+          )}
 
           {/* Trust Signals */}
           <div className="mt-4 flex items-center justify-center gap-6 text-xs text-gray-500">

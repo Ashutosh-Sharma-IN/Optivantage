@@ -18,12 +18,21 @@ export default function Contact() {
     const formData = new FormData(form);
 
     try {
-      const response = await fetch('https://formspree.io/f/maqwnqnp', {
+      // Primary: our own webhook (HubSpot + Resend)
+      const json: Record<string, string> = {};
+      formData.forEach((val, key) => { json[key] = val.toString(); });
+
+      const response = await fetch('/api/contact-webhook', {
         method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: json.name,
+          email: json.email,
+          phone: json.phone,
+          service: json.service,
+          message: json.message,
+          source: 'contact-form',
+        }),
       });
 
       if (response.ok) {
