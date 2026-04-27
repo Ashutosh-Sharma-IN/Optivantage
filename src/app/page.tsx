@@ -10,8 +10,8 @@ import AdsBanner from '@/components/AdsBanner';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'AI Training & Consulting India | Microsoft Copilot, ChatGPT, ISO 42001 | Optivantage Delhi',
-  description: 'Leading AI training & consulting in India. Expert AI implementation, ISO 42001 governance, Microsoft Copilot 365, ChatGPT training. 25+ years telecom & aviation IT experience. Delhi-based, founder-led AI consulting firm.',
+  title: 'Optivantage | AI Training, IT Infrastructure & Equipment Rentals | India',
+  description: 'Optivantage Technologies — specialist AI training (Copilot 365, ChatGPT, ISO 42001), IT infrastructure (Cisco, Fortinet, Vertiv), and IT equipment rentals. Founder-led. 25 years enterprise IT expertise at BT, Telstra, and SITA. 1,000+ professionals trained. Pan-India and online.',
   keywords: [
     'AI training India',
     'AI consulting Delhi',
@@ -195,8 +195,7 @@ export default function Home() {
             Three things we do exceptionally well.
           </p>
           <p className="text-lg text-text-muted mb-10 leading-relaxed max-w-3xl mx-auto">
-            We help enterprises adopt AI safely, build resilient networks, and equip teams to deliver —
-            with 25 years of battle-tested expertise.
+            Optivantage Technologies is a specialist enterprise IT firm based in India, offering AI training and advisory, IT infrastructure design and build, and IT equipment supply and rentals. Founder-led by Ashutosh Sharma with 25 years of enterprise IT experience at BT, Telstra, and SITA — 1,000+ professionals trained, pan-India and online.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link href="/contact" className="px-8 py-4 bg-brand hover:bg-brand-hover text-white font-semibold rounded-lg transition-all flex items-center justify-center gap-2">

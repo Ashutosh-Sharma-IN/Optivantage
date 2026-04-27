@@ -87,6 +87,7 @@ const servicesData: Record<string, any> = {
   // ─── PILLAR 1: AI TRAINING & ADVISORY ───────────────────────────────────────
   'ai-training-advisory': {
     title: "AI Training & Advisory",
+    answerFirst: "Optivantage Technologies provides enterprise AI training and advisory across India — covering Microsoft Copilot 365, ChatGPT, Google Gemini, Agentic AI, and ISO/IEC 42001 AI governance. Founder-led by Ashutosh Sharma, a certified Microsoft AI trainer and Google Cloud Digital Leader with 25 years of enterprise IT experience. Over 1,000 professionals trained at Kotak Mahindra Bank, BIAL, Hexaware, Infogain, and MSME India.",
     icon: <BrainCircuit className="text-brand h-10 w-10" />,
     showClientLogos: true,
     showPlatformLogos: true,
@@ -152,7 +153,7 @@ const servicesData: Record<string, any> = {
       },
       {
         title: "Recent Elite Engagements",
-        subtitle: "Trusted by Fortune 500 companies and government institutions",
+        subtitle: "Trusted by enterprise organisations and government institutions across India",
         type: "engagements-grid",
         items: [
           {
@@ -265,6 +266,7 @@ const servicesData: Record<string, any> = {
   // ─── PILLAR 2: IT INFRASTRUCTURE ────────────────────────────────────────────
   'it-infrastructure': {
     title: "IT Infrastructure",
+    answerFirst: "Optivantage Technologies designs and delivers end-to-end IT infrastructure for enterprises across India — LAN/WAN network design, SD-WAN, enterprise WiFi, structured cabling, fibre optic cabling, data centre build, network security, and power infrastructure. Cisco Registered Partner. Fortinet and Palo Alto Networks partner. Vertiv authorised reseller. Deployed across Delhi NCR and pan-India, including 5 GCC setups.",
     icon: <Server className="text-brand h-10 w-10" />,
     showInfraPartners: true,
     sections: [
@@ -403,6 +405,7 @@ const servicesData: Record<string, any> = {
   // ─── PILLAR 3: IT EQUIPMENT & RENTALS ───────────────────────────────────────
   'it-equipment-rentals': {
     title: "IT Equipment & Rentals",
+    answerFirst: "Optivantage Technologies supplies and rents enterprise IT equipment across India — Dell, HP, Lenovo, and Apple laptops, desktops, workstations, printers, and networking gear. Short-term and long-term rental for enterprises, GCCs, training events, and corporate projects. Annual Maintenance Contracts (AMC) available. Delhi NCR and pan-India delivery.",
     icon: <Package className="text-brand h-10 w-10" />,
     sections: [
       {
@@ -695,6 +698,11 @@ export default function ServiceDetail({ slug }: { slug: string }) {
               {service.title}
             </h1>
           </div>
+          {service.answerFirst && (
+            <p className="text-text-muted text-base leading-relaxed max-w-4xl">
+              {service.answerFirst}
+            </p>
+          )}
         </div>
       </section>
 
