@@ -11,11 +11,11 @@ const BASE_URL = "https://www.optivantage.in";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Optivantage | AI Training, IT Infrastructure & Equipment Rentals | Delhi, India",
+    default: "Optivantage | AI Training, IT Infrastructure & Equipment Rentals | India & Online",
     template: "%s | Optivantage",
   },
   description:
-    "Optivantage Technologies — specialist AI training (Copilot 365, ChatGPT, ISO 42001), IT infrastructure (Cisco, Fortinet, Vertiv), and IT equipment rentals. Founder-led. 25 years expertise. 1,000+ professionals trained. Delhi, India.",
+    "Optivantage Technologies — specialist AI training (Copilot 365, ChatGPT, ISO 42001), IT infrastructure (Cisco, Fortinet, Vertiv), and IT equipment rentals. Founder-led. 25 years enterprise IT expertise. 1,000+ professionals trained. Pan-India and online.",
   keywords: [
     // AI Training
     "AI training India", "Gen AI training", "Generative AI training", "enterprise AI training",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     siteName: "Optivantage Technologies",
     title: "Optivantage | AI Training, IT Infrastructure & Equipment Rentals",
     description:
-      "Specialist enterprise IT services — AI training (Copilot 365, ChatGPT, ISO 42001 governance), IT infrastructure (Cisco, Fortinet, Vertiv), and IT equipment rentals. Founder-led. Delhi, India.",
+      "Specialist enterprise IT services — AI training (Copilot 365, ChatGPT, ISO 42001 governance), IT infrastructure (Cisco, Fortinet, Vertiv), and IT equipment rentals. Founder-led. Pan-India and online.",
     images: [
       {
         url: `${BASE_URL}/logo.png`,
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Optivantage | AI Training, IT Infrastructure & Equipment Rentals",
     description:
-      "Specialist AI training, IT infrastructure, and IT equipment rentals. Founder-led. 25 years expertise. Delhi, India.",
+      "Specialist AI training, IT infrastructure, and IT equipment rentals. Founder-led. 25 years enterprise IT expertise. Pan-India and online.",
     images: [`${BASE_URL}/logo.png`],
   },
   alternates: {
@@ -300,7 +300,7 @@ const globalSchema = {
       url: BASE_URL,
       name: "Optivantage Technologies",
       description:
-        "AI Training, IT Infrastructure & Equipment Rentals — Specialist enterprise IT services from Delhi, India.",
+        "AI Training, IT Infrastructure & Equipment Rentals — Specialist enterprise IT services. Pan-India and online.",
       publisher: { "@id": `${BASE_URL}/#organization` },
       inLanguage: "en-IN",
     },

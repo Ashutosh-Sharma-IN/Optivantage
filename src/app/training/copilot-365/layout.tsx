@@ -7,7 +7,7 @@ const PAGE_URL = `${BASE_URL}/training/copilot-365`;
 export const metadata: Metadata = {
   title: 'Microsoft Copilot 365 Training Course — 4 Weekends | Live Online',
   description:
-    'Master Microsoft Copilot 365 in 4 weekends — 20 hours live training, 22 modules. Learn the CRAFT prompting framework, build role-specific playbooks, and earn a certificate. Certified Microsoft AI trainer. Small cohorts. Delhi, India & online.',
+    'Master Microsoft Copilot 365 in 4 weekends — 20 hours live training, 22 modules. Learn the CRAFT prompting framework, build role-specific playbooks, and earn a certificate. Certified Microsoft AI trainer. Small cohorts. India & online.',
   keywords: [
     'Microsoft Copilot 365 training', 'Copilot 365 course India', 'Copilot training online',
     'Microsoft Copilot training for professionals', 'learn Microsoft Copilot',

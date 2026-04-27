@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'AI Training & Consulting India | Microsoft Copilot, ISO 42001 | Optivantage',
-    description: 'Expert AI training & consulting in India. Microsoft Copilot 365, ChatGPT, ISO 42001 governance. 25+ years enterprise IT experience. Delhi-based AI implementation specialists.',
+    description: 'Expert AI training & consulting in India. Microsoft Copilot 365, ChatGPT, ISO 42001 governance. 25+ years enterprise IT experience. Pan-India and online. International AI training engagements available.',
     url: 'https://www.optivantage.in',
     siteName: 'Optivantage',
     locale: 'en_IN',
@@ -109,10 +109,10 @@ const homepageFaqSchema = {
     },
     {
       "@type": "Question",
-      "name": "Can I rent laptops or workstations for a corporate project or GCC setup in Delhi NCR?",
+      "name": "Can I rent laptops or workstations for a corporate project or GCC setup?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Optivantage supplies and rents Dell, HP, and Lenovo laptops, desktops, workstations, printers, and networking gear for corporate projects, GCC setup, training events, and long-term deployments across Delhi NCR and pan-India. Annual Maintenance Contracts (AMC) are also available."
+        "text": "Yes. Optivantage supplies and rents Dell, HP, and Lenovo laptops, desktops, workstations, printers, and networking gear for corporate projects, GCC setup, training events, and long-term deployments pan-India. Annual Maintenance Contracts (AMC) are also available."
       }
     },
     {

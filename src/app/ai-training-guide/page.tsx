@@ -54,10 +54,10 @@ const structuredData = {
         },
         {
           "@type": "Question",
-          "name": "Which companies provide AI training in Delhi NCR?",
+          "name": "Which companies provide enterprise AI training in India?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Leading AI training providers in Delhi NCR include Optivantage Technologies, Microsoft Learning Partners, Google AI training centers, and various IIT Delhi programs. Optivantage stands out with 25+ years of enterprise IT experience and founder-led training."
+            "text": "Leading enterprise AI training providers in India include Optivantage Technologies, Microsoft Learning Partners, Google AI training centers, and various IIT programs. Optivantage stands out with 25+ years of enterprise IT experience, founder-led training, and 1,000+ professionals trained pan-India and online."
           }
         },
         {
@@ -98,7 +98,7 @@ const structuredData = {
         },
         "location": {
           "@type": "Place",
-          "name": "Delhi NCR, India"
+          "name": "India & Online"
         }
       }
     },
@@ -117,7 +117,7 @@ const structuredData = {
         "courseMode": "blended",
         "location": {
           "@type": "Place",
-          "name": "Delhi NCR, India"
+          "name": "India & Online"
         }
       }
     }
@@ -135,8 +135,8 @@ export default function AITrainingGuide() {
       answer: "AI training costs in India vary from ₹50,000 to ₹5,00,000 depending on the program duration, certification level, and provider. Optivantage offers customized enterprise programs with flexible pricing based on organization size and specific requirements."
     },
     {
-      question: "Which companies provide AI training in Delhi NCR?",
-      answer: "Leading AI training providers in Delhi NCR include Optivantage Technologies, Microsoft Learning Partners, Google AI training centers, and various IIT Delhi programs. Optivantage stands out with 25+ years of enterprise IT experience and founder-led training."
+      question: "Which companies provide enterprise AI training in India?",
+      answer: "Leading enterprise AI training providers in India include Optivantage Technologies, Microsoft Learning Partners, Google AI training centers, and various IIT programs. Optivantage stands out with 25+ years of enterprise IT experience, founder-led training, and 1,000+ professionals trained pan-India and online."
     },
     {
       question: "What AI skills are most in demand in India?",

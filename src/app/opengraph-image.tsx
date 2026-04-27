@@ -69,7 +69,7 @@ export default function OGImage() {
               textTransform: 'uppercase',
             }}
           >
-            Specialist Enterprise IT · Delhi, India
+            Specialist Enterprise IT · India & Online
           </div>
         </div>
 

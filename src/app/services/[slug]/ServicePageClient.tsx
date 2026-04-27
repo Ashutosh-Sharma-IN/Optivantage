@@ -266,7 +266,7 @@ const servicesData: Record<string, any> = {
   // ─── PILLAR 2: IT INFRASTRUCTURE ────────────────────────────────────────────
   'it-infrastructure': {
     title: "IT Infrastructure",
-    answerFirst: "Optivantage Technologies designs and delivers end-to-end IT infrastructure for enterprises across India — LAN/WAN network design, SD-WAN, enterprise WiFi, structured cabling, fibre optic cabling, data centre build, network security, and power infrastructure. Cisco Registered Partner. Fortinet and Palo Alto Networks partner. Vertiv authorised reseller. Deployed across Delhi NCR and pan-India, including 5 GCC setups.",
+    answerFirst: "Optivantage Technologies designs and delivers end-to-end IT infrastructure for enterprises across India — LAN/WAN network design, SD-WAN, enterprise WiFi, structured cabling, fibre optic cabling, data centre build, network security, and power infrastructure. Cisco Registered Partner. Fortinet and Palo Alto Networks partner. Vertiv authorised reseller. Pan-India delivery, including 5 GCC setups across Gurgaon, Bangalore, Pune, and Hyderabad.",
     icon: <Server className="text-brand h-10 w-10" />,
     showInfraPartners: true,
     sections: [
@@ -405,7 +405,7 @@ const servicesData: Record<string, any> = {
   // ─── PILLAR 3: IT EQUIPMENT & RENTALS ───────────────────────────────────────
   'it-equipment-rentals': {
     title: "IT Equipment & Rentals",
-    answerFirst: "Optivantage Technologies supplies and rents enterprise IT equipment across India — Dell, HP, Lenovo, and Apple laptops, desktops, workstations, printers, and networking gear. Short-term and long-term rental for enterprises, GCCs, training events, and corporate projects. Annual Maintenance Contracts (AMC) available. Delhi NCR and pan-India delivery.",
+    answerFirst: "Optivantage Technologies supplies and rents enterprise IT equipment across India — Dell, HP, Lenovo, and Apple laptops, desktops, workstations, printers, and networking gear. Short-term and long-term rental for enterprises, GCCs, training events, and corporate projects. Annual Maintenance Contracts (AMC) available. Pan-India delivery.",
     icon: <Package className="text-brand h-10 w-10" />,
     sections: [
       {

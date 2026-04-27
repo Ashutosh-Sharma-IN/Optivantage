@@ -6,7 +6,7 @@ import { CheckCircle, Brain, Users, Zap, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Microsoft Copilot 365 Training India | Enterprise Copilot Training | Optivantage',
-  description: 'Expert Microsoft Copilot 365 training for enterprise teams across India. In-person and online. Banking, aviation, telecom, MSME. 1,000+ professionals trained. Founder-led. Delhi NCR and pan-India.',
+  description: 'Expert Microsoft Copilot 365 training for enterprise teams across India. In-person and online. Banking, aviation, telecom, MSME. 1,000+ professionals trained. Founder-led. Pan-India and online.',
   keywords: [
     'Microsoft Copilot 365 training India',
     'Copilot training for enterprise India',

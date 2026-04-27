@@ -28,8 +28,8 @@ const structuredData = {
         "name": "Optivantage Technologies",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Delhi",
-          "addressRegion": "Delhi NCR",
+          "addressLocality": "New Delhi",
+          "addressRegion": "Delhi",
           "addressCountry": "IN"
         }
       },
@@ -53,7 +53,7 @@ const structuredData = {
         },
         "location": {
           "@type": "Place",
-          "name": "Delhi NCR, India"
+          "name": "India & Online"
         },
         "offers": {
           "@type": "Offer",

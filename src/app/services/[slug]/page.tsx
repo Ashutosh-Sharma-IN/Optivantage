@@ -72,7 +72,7 @@ const pageSchemas: Record<string, object[]> = {
       '@type': 'Service',
       '@id': `${BASE_URL}/services/it-infrastructure#service`,
       name: 'IT Infrastructure Services',
-      description: 'End-to-end IT infrastructure design and delivery — LAN/WAN, SD-WAN, enterprise WiFi, structured cabling, fibre optic, data centre build, network security (Fortinet, Palo Alto Networks), and power infrastructure (Vertiv). Cisco Registered Partner. Delhi NCR and pan-India.',
+      description: 'End-to-end IT infrastructure design and delivery — LAN/WAN, SD-WAN, enterprise WiFi, structured cabling, fibre optic, data centre build, network security (Fortinet, Palo Alto Networks), and power infrastructure (Vertiv). Cisco Registered Partner. Pan-India.',
       provider: { '@id': `${BASE_URL}/#organization` },
       serviceType: ['Network Infrastructure', 'IT Infrastructure Consulting', 'Structured Cabling', 'Network Security'],
       areaServed: [{ '@type': 'Country', name: 'India' }],
@@ -104,7 +104,7 @@ const pageSchemas: Record<string, object[]> = {
         {
           '@type': 'Question',
           name: 'What IT infrastructure services does Optivantage provide in India?',
-          acceptedAnswer: { '@type': 'Answer', text: 'Optivantage designs and delivers end-to-end IT infrastructure: LAN/WAN network design, SD-WAN, enterprise WiFi, structured cabling, fibre optic cabling, data centre build, network security (Fortinet, Palo Alto Networks), power infrastructure (Vertiv UPS), and physical security including CCTV and access control. Cisco Registered Partner. Delhi NCR and pan-India.' },
+          acceptedAnswer: { '@type': 'Answer', text: 'Optivantage designs and delivers end-to-end IT infrastructure: LAN/WAN network design, SD-WAN, enterprise WiFi, structured cabling, fibre optic cabling, data centre build, network security (Fortinet, Palo Alto Networks), power infrastructure (Vertiv UPS), and physical security including CCTV and access control. Cisco Registered Partner. Pan-India.' },
         },
         {
           '@type': 'Question',
@@ -126,7 +126,7 @@ const pageSchemas: Record<string, object[]> = {
       '@type': 'Service',
       '@id': `${BASE_URL}/services/it-equipment-rentals#service`,
       name: 'IT Equipment Supply & Rentals',
-      description: 'Enterprise IT equipment supply and rental — Dell, HP, Lenovo laptops, desktops, workstations, printers, and networking gear. Short-term and long-term rentals for enterprises, GCCs, training events, and projects. Annual Maintenance Contracts (AMC). Delhi NCR and pan-India.',
+      description: 'Enterprise IT equipment supply and rental — Dell, HP, Lenovo laptops, desktops, workstations, printers, and networking gear. Short-term and long-term rentals for enterprises, GCCs, training events, and projects. Annual Maintenance Contracts (AMC). Pan-India.',
       provider: { '@id': `${BASE_URL}/#organization` },
       serviceType: ['IT Equipment Rental', 'IT Equipment Supply', 'Annual Maintenance Contract'],
       areaServed: [{ '@type': 'Country', name: 'India' }],
@@ -158,7 +158,7 @@ const pageSchemas: Record<string, object[]> = {
         {
           '@type': 'Question',
           name: 'Can I rent laptops for a corporate training event or GCC setup in India?',
-          acceptedAnswer: { '@type': 'Answer', text: 'Yes. Optivantage rents Dell, HP, and Lenovo laptops, desktops, and workstations for corporate training events, GCC setups, short-term projects, and long-term deployments across Delhi NCR and pan-India. Bulk pricing and minimum rental periods available on request.' },
+          acceptedAnswer: { '@type': 'Answer', text: 'Yes. Optivantage rents Dell, HP, and Lenovo laptops, desktops, and workstations for corporate training events, GCC setups, short-term projects, and long-term deployments pan-India. Bulk pricing and minimum rental periods available on request.' },
         },
         {
           '@type': 'Question',
@@ -179,7 +179,7 @@ const pageMeta: Record<string, { title: string; description: string; keywords: s
   'ai-training-advisory': {
     title: 'AI Training & Advisory | Microsoft Copilot 365, ChatGPT, ISO 42001',
     description:
-      'Enterprise AI training for Microsoft Copilot 365, ChatGPT, Google Gemini & Agentic AI. ISO/IEC 42001 AI governance implementation. Certified Microsoft & Google AI trainer. 1,000+ professionals trained — BIAL, Kotak Mahindra, Hexaware. Delhi, India.',
+      'Enterprise AI training for Microsoft Copilot 365, ChatGPT, Google Gemini & Agentic AI. ISO/IEC 42001 AI governance implementation. Certified Microsoft & Google AI trainer. 1,000+ professionals trained — BIAL, Kotak Mahindra, Hexaware. Pan-India and online. International engagements available.',
     keywords: [
       'AI training India', 'Microsoft Copilot 365 training', 'Copilot training India',
       'Gen AI training', 'Generative AI training for business', 'ChatGPT training',
@@ -195,7 +195,7 @@ const pageMeta: Record<string, { title: string; description: string; keywords: s
   'it-infrastructure': {
     title: 'IT Infrastructure Services | Cisco Partner | Network Design, Cabling & Security',
     description:
-      'End-to-end IT infrastructure — LAN/WAN/SD-WAN network design, structured cabling, fibre optic cabling, data centre build, active networking (Cisco), network security (Fortinet, Palo Alto Networks), and power infrastructure (Vertiv). Cisco Registered Partner. Delhi NCR & pan-India.',
+      'End-to-end IT infrastructure — LAN/WAN/SD-WAN network design, structured cabling, fibre optic cabling, data centre build, active networking (Cisco), network security (Fortinet, Palo Alto Networks), and power infrastructure (Vertiv). Cisco Registered Partner. Pan-India.',
     keywords: [
       'IT infrastructure services India', 'network design India', 'LAN WAN design',
       'SD-WAN implementation India', 'WiFi network design', 'structured cabling India',
@@ -211,9 +211,9 @@ const pageMeta: Record<string, { title: string; description: string; keywords: s
     ],
   },
   'it-equipment-rentals': {
-    title: 'IT Equipment Rental & Supply | Laptops, Desktops, Workstations | Delhi, India',
+    title: 'IT Equipment Rental & Supply | Laptops, Desktops, Workstations | India',
     description:
-      'IT equipment supply and rental — laptops, desktops, workstations, printers (Dell, HP, Lenovo). Short-term and long-term equipment rentals for enterprises, GCCs, and events. Annual Maintenance Contracts (AMC). Delhi NCR & pan-India.',
+      'IT equipment supply and rental — laptops, desktops, workstations, printers (Dell, HP, Lenovo). Short-term and long-term equipment rentals for enterprises, GCCs, and events. Annual Maintenance Contracts (AMC). Pan-India.',
     keywords: [
       'IT equipment rental India', 'laptop rental Delhi', 'laptop rental India',
       'desktop rental India', 'workstation rental India', 'computer rental Delhi',
