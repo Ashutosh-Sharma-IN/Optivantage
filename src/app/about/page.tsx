@@ -1,7 +1,11 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import Navbar from '@/components/Navbar';
-import { Award, Briefcase, GraduationCap, Target } from 'lucide-react';
+import { Award, Briefcase, GraduationCap, Target, Users } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
+
+const BASE_URL = 'https://www.optivantage.in';
 
 export const metadata: Metadata = {
   title: 'About Optivantage | Founder Ashutosh Sharma | 25 Years Enterprise IT',
@@ -11,29 +15,122 @@ export const metadata: Metadata = {
     'Ashutosh Sharma AI trainer', 'Optivantage founder', 'enterprise IT consultant India',
     'BT Global India', 'Telstra India', 'ISO 42001 lead implementer India',
     'Microsoft certified AI trainer India', 'Google Cloud Digital Leader India',
-    'AI trainer Delhi', 'IT consultant India 25 years experience',
+    'AI trainer India', 'IT consultant India 25 years experience',
+    'ISO/IEC 42001 certified implementer India', 'Ekahau WiFi engineer India',
   ],
-  alternates: { canonical: 'https://www.optivantage.in/about' },
+  alternates: { canonical: `${BASE_URL}/about` },
   openGraph: {
     title: 'About Optivantage | Founder Ashutosh Sharma | 25 Years Enterprise IT',
     description:
-      'Founded by Ashutosh Sharma — ex-BT Global, Telstra, SITA. Microsoft & Google certified AI trainer. ISO/IEC 42001 Lead Implementer. 1,000+ trained.',
-    url: 'https://www.optivantage.in/about',
+      'Founded by Ashutosh Sharma — ex-BT Global, Telstra, SITA. Microsoft & Google certified AI trainer. ISO/IEC 42001 Lead Implementer. 1,000+ professionals trained pan-India.',
+    url: `${BASE_URL}/about`,
     type: 'profile',
   },
 };
 
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${BASE_URL}/about#ashutosh-sharma`,
+  name: 'Ashutosh Sharma',
+  givenName: 'Ashutosh',
+  familyName: 'Sharma',
+  jobTitle: 'Founder & Director',
+  worksFor: { '@id': `${BASE_URL}/#organization` },
+  url: `${BASE_URL}/about`,
+  image: `${BASE_URL}/founder.png`,
+  description:
+    '25 years in enterprise IT operations. Former Director of Service Operations at BT Global (£100M revenue, 1,000+ FTEs). Principal Service Delivery at Telstra. Microsoft and Google certified AI trainer. ISO/IEC 42001 Certified Lead Implementer. Ekahau Certified WiFi Engineer. 1,000+ professionals trained in AI across BIAL, Kotak Mahindra Bank, Hexaware, Infogain, and MSME India.',
+  sameAs: [
+    'https://www.linkedin.com/company/optivantage',
+  ],
+  knowsAbout: [
+    'Artificial Intelligence training',
+    'Generative AI',
+    'Microsoft Copilot 365',
+    'AI governance',
+    'ISO/IEC 42001',
+    'AI strategy',
+    'Agentic AI',
+    'Enterprise IT operations',
+    'Network infrastructure',
+    'IT service management',
+    'ITIL',
+    'Telecom IT operations',
+    'Aviation IT',
+    'Global Capability Centre setup',
+  ],
+  hasCredential: [
+    { '@type': 'EducationalOccupationalCredential', name: 'ISO/IEC 42001 Certified Lead Implementer' },
+    { '@type': 'EducationalOccupationalCredential', name: 'Microsoft Certified AI Trainer (Copilot & Azure AI)' },
+    { '@type': 'EducationalOccupationalCredential', name: 'Google Cloud Digital Leader' },
+    { '@type': 'EducationalOccupationalCredential', name: 'AI for Leaders — University of Texas, Austin' },
+    { '@type': 'EducationalOccupationalCredential', name: 'Executive Program in Leadership — IIM Kolkata' },
+    { '@type': 'EducationalOccupationalCredential', name: 'Ekahau Certified WiFi Engineer' },
+    { '@type': 'EducationalOccupationalCredential', name: 'ITIL V4 Professional' },
+    { '@type': 'EducationalOccupationalCredential', name: 'AWS Cloud Economics Business Partner' },
+    { '@type': 'EducationalOccupationalCredential', name: 'AI+ Chief AI Officer — AI Certs' },
+  ],
+  alumniOf: [
+    { '@type': 'Organization', name: 'British Telecom — BT Global' },
+    { '@type': 'Organization', name: 'Telstra Global' },
+    { '@type': 'Organization', name: 'SITA (aviation IT)' },
+    { '@type': 'Organization', name: 'Orange' },
+  ],
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
+    { '@type': 'ListItem', position: 2, name: 'About', item: `${BASE_URL}/about` },
+  ],
+};
+
+const certifications = [
+  { name: 'Microsoft AI Trainer', img: '/certifications/ai-trainer-certificate.png' },
+  { name: 'ISO/IEC 42001', img: '/certifications/iso42001.png' },
+  { name: 'Google Cloud', img: '/certifications/google.png' },
+  { name: 'UT Austin AI', img: '/certifications/Texas AI.png' },
+  { name: 'AI Certs', img: '/certifications/aicerts.png' },
+  { name: 'AI for Non-Techies', img: '/certifications/aifornontechies.png' },
+  { name: 'ITIL V4', img: '/certifications/itil.png' },
+  { name: 'AWS', img: '/certifications/aws.png' },
+];
+
+const clients = [
+  { name: 'Kotak Mahindra Bank', sector: 'BFSI' },
+  { name: 'BIAL (Bengaluru International Airport)', sector: 'Aviation' },
+  { name: 'Hexaware', sector: 'Technology' },
+  { name: 'Infogain', sector: 'Technology' },
+  { name: 'MSME India', sector: 'Government' },
+];
+
 export default function About() {
   return (
     <main>
+      <Script
+        id="schema-person"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        strategy="beforeInteractive"
+      />
+      <Script
+        id="schema-about-breadcrumb"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        strategy="beforeInteractive"
+      />
+
       <Navbar />
-      
+
       {/* Header */}
       <section className="pt-32 pb-16 px-4 bg-navy-900">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl font-bold text-white mb-6">The Optivantage Story</h1>
+          <h1 className="text-4xl font-bold text-white mb-6">About Optivantage</h1>
           <p className="text-lg text-text-muted leading-relaxed">
-            Founded to bridge the gap between legacy systems and AI-enabled futures.
+            Optivantage Technologies is a specialist enterprise IT firm — AI training and advisory, IT infrastructure, and IT equipment rentals. Founder-led by Ashutosh Sharma with 25 years of enterprise IT experience at BT, Telstra, SITA, and Orange.
           </p>
         </div>
       </section>
@@ -44,121 +141,183 @@ export default function About() {
           <h2 className="text-3xl font-bold text-white text-center mb-12">Mission & Vision</h2>
 
           <div className="grid md:grid-cols-2 gap-12">
-
-            {/* Mission */}
             <div className="bg-navy-900 p-8 rounded-xl border-l-4 border-brand">
               <div className="flex items-center gap-3 mb-6">
                 <Target className="text-brand w-8 h-8" />
                 <h3 className="text-2xl font-bold text-white">Mission</h3>
               </div>
               <p className="text-lg text-text-muted leading-relaxed">
-                To empower enterprises with specialized AI transformation, network infrastructure, and managed IT services—delivering founder-led expertise where deep specialization outperforms scale.
+                To empower enterprises with specialised AI transformation, network infrastructure, and IT services — delivering founder-led expertise where deep specialisation outperforms scale.
               </p>
             </div>
 
-            {/* Vision */}
             <div className="bg-navy-900 p-8 rounded-xl border-l-4 border-brand">
               <div className="flex items-center gap-3 mb-6">
                 <Award className="text-brand w-8 h-8" />
                 <h3 className="text-2xl font-bold text-white">Vision</h3>
               </div>
               <p className="text-lg text-text-muted leading-relaxed">
-                To be the trusted partner for enterprises modernizing and transforming operations with AI and Gen AI—where 50+ years of battle-tested infrastructure expertise meets cutting-edge innovation.
+                To be the trusted partner for enterprises modernising operations with AI and Gen AI — where 25 years of battle-tested infrastructure expertise meets cutting-edge innovation.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Founder Story */}
+      <section className="py-20 px-4 bg-navy-900">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+
+            <div className="space-y-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+                The Optivantage Story
+              </h2>
+
+              <p className="text-lg text-text-muted leading-relaxed">
+                After spending 25 years managing mission-critical IT infrastructure for global enterprises, I witnessed a fundamental gap in the market. Organisations were either stuck with legacy systems that couldn&apos;t scale, or rushing into AI adoption without the operational foundation to support it.
+              </p>
+
+              <p className="text-lg text-text-muted leading-relaxed">
+                The real breakthrough came while leading service operations at BT Global, where I managed £100M in revenue across 100 large customers and built five Global Capability Centres from the ground up across Gurgaon, Bangalore, Pune, and Hyderabad.
+              </p>
+
+              <div className="bg-navy-800 p-6 rounded-xl border-l-4 border-brand my-8">
+                <p className="text-xl text-white italic">
+                  &ldquo;Optivantage was born from this unique vantage point — combining deep, battle-tested infrastructure expertise with cutting-edge AI innovation.&rdquo;
+                </p>
+              </div>
+
+              <p className="text-lg text-text-muted leading-relaxed">
+                My journey from a customer support engineer at Delhi&apos;s busiest airport (BIAL&apos;s predecessor) to Director of Service Operations leading global professionals across four continents taught me that true digital transformation requires both technical excellence and human-centred change management.
+              </p>
+            </div>
+
+            <div className="relative order-first md:order-last">
+              <div className="sticky top-24">
+                <Image
+                  src="/founder.png"
+                  alt="Ashutosh Sharma — Founder, Optivantage Technologies"
+                  width={600}
+                  height={700}
+                  className="rounded-2xl shadow-2xl w-full h-auto object-cover border border-white/10"
+                  priority
+                />
+                <div className="mt-4 flex items-center gap-2">
+                  <div className="h-1 w-8 bg-brand rounded-full"></div>
+                  <p className="text-sm text-text-muted font-medium">Ashutosh Sharma — Founder & Director</p>
+                </div>
+              </div>
             </div>
 
           </div>
         </div>
       </section>
 
-  {/* Story Content with Photo */}
-<section className="py-20 px-4 bg-navy-900">
-  <div className="max-w-6xl mx-auto">
-    <div className="grid md:grid-cols-2 gap-16 items-start">
-      
-      {/* Left Column: The Story */}
-      <div className="space-y-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-          The Optivantage Story
-        </h1>
-        
-        <p className="text-lg text-text-muted leading-relaxed">
-          After spending 25 years managing mission-critical IT infrastructure for global enterprises, I witnessed a fundamental gap in the market. Organizations were either stuck with legacy systems that couldn't scale, or they were rushing into AI adoption without the operational foundation to support it. 
-        </p>
-        
-        <p className="text-lg text-text-muted leading-relaxed">
-          The real breakthrough came while leading service operations at BT Global, where I managed £100M in revenue across 100 large customers and built five Global Capability Centers from the ground up.
-        </p>
-
-        <div className="bg-navy-800 p-6 rounded-xl border-l-4 border-brand my-8">
-          <p className="text-xl text-white italic mb-0">
-            "Optivantage was born from this unique vantage point—combining deep, battle-tested infrastructure expertise with cutting-edge AI innovation."
-          </p>
-        </div>
-
-        <p className="text-lg text-text-muted leading-relaxed">
-          My journey from a customer support engineer at Delhi's busiest airport to Director of Service Operations leading 2,000 global professionals taught me that true digital transformation requires both technical excellence and human-centered change management.
-        </p>
-      </div>
-
-      {/* Right Column: Founder Photo */}
-      <div className="relative order-first md:order-last">
-        <div className="sticky top-24">
-          <Image 
-            src="/founder.png" 
-            alt="Ashutosh Sharma - Founder Optivantage"
-            width={600}
-            height={700}
-            className="rounded-2xl shadow-2xl w-full h-auto object-cover border border-white/10"
-            priority // Ensures image loads fast
-          />
-          
-          {/* Optional: Small text label below photo */}
-          <div className="mt-4 flex items-center gap-2">
-             <div className="h-1 w-8 bg-brand rounded-full"></div>
-             <p className="text-sm text-text-muted font-medium">Ashutosh Sharma</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-      {/* Credentials Grid */}
+      {/* Credentials */}
       <section className="py-16 px-4 bg-navy-800">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">Elite Credentials</h2>
-          
-          <div className="grid md:grid-cols-2 gap-8">
+          <h2 className="text-3xl font-bold text-white text-center mb-4">Credentials & Experience</h2>
+          <p className="text-center text-text-muted mb-12">Every claim on this site is backed by a verifiable credential or named enterprise engagement.</p>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
             {/* Certifications */}
             <div className="bg-navy-900 p-8 rounded-xl">
               <h3 className="text-xl font-semibold text-brand mb-6 flex items-center gap-2">
-                <GraduationCap /> Certifications
+                <GraduationCap className="w-5 h-5" /> Certifications
               </h3>
-              <ul className="space-y-4 text-text-muted">
-                <li className="flex gap-3"><span className="text-brand">•</span> PG Program in AI for Leaders — University of Texas, Austin</li>
-                <li className="flex gap-3"><span className="text-brand">•</span> Google Cloud Digital Leader</li>
-                <li className="flex gap-3"><span className="text-brand">•</span> AWS Partner Accreditations</li>
-                <li className="flex gap-3"><span className="text-brand">•</span> Executive Program in Leadership — IIM Kolkata</li>
-                <li className="flex gap-3"><span className="text-brand">•</span> Microsoft Copilot & Azure AI Certified Trainer</li>
+              <ul className="space-y-3 text-text-muted">
+                <li className="flex gap-3"><span className="text-brand mt-1">•</span> ISO/IEC 42001 Certified Lead Implementer</li>
+                <li className="flex gap-3"><span className="text-brand mt-1">•</span> Microsoft Copilot & Azure AI Certified Trainer</li>
+                <li className="flex gap-3"><span className="text-brand mt-1">•</span> Google Cloud Digital Leader</li>
+                <li className="flex gap-3"><span className="text-brand mt-1">•</span> AI for Leaders — University of Texas, Austin (PG Program)</li>
+                <li className="flex gap-3"><span className="text-brand mt-1">•</span> Executive Program in Leadership — IIM Kolkata</li>
+                <li className="flex gap-3"><span className="text-brand mt-1">•</span> Ekahau Certified WiFi Engineer (RF Design)</li>
+                <li className="flex gap-3"><span className="text-brand mt-1">•</span> ITIL V4 Professional</li>
+                <li className="flex gap-3"><span className="text-brand mt-1">•</span> AWS Partner Accreditations</li>
+                <li className="flex gap-3"><span className="text-brand mt-1">•</span> AI+ Chief AI Officer™ — AI Certs (Accredited Trainer)</li>
               </ul>
             </div>
 
             {/* Leadership */}
             <div className="bg-navy-900 p-8 rounded-xl">
               <h3 className="text-xl font-semibold text-brand mb-6 flex items-center gap-2">
-                <Briefcase /> Leadership Roles
+                <Briefcase className="w-5 h-5" /> Leadership Roles
               </h3>
-              <ul className="space-y-4 text-text-muted">
-                <li className="flex gap-3"><span className="text-brand">•</span> Director, Service Operations — BT Global (Led 2,000 FTEs, £100M Revenue)</li>
-                <li className="flex gap-3"><span className="text-brand">•</span> Principal Service Delivery — Telstra Global (Built 200-agent team in 3 months)</li>
-                <li className="flex gap-3"><span className="text-brand">•</span> Head of Service, Global Tech Management — BT (Managed 615 FTEs, $16M Budget)</li>
+              <ul className="space-y-3 text-text-muted">
+                <li className="flex gap-3"><span className="text-brand mt-1">•</span> Director, Service Operations — BT Global (£100M revenue, 1,000+ FTEs)</li>
+                <li className="flex gap-3"><span className="text-brand mt-1">•</span> Principal Service Delivery — Telstra Global (built 200-agent team in 3 months)</li>
+                <li className="flex gap-3"><span className="text-brand mt-1">•</span> Head of Service, Global Tech Management — BT AMEA (615 FTEs, $16M budget)</li>
+                <li className="flex gap-3"><span className="text-brand mt-1">•</span> Head of Global Field Operations — SITA (aviation IT, 20+ years sector knowledge)</li>
+                <li className="flex gap-3"><span className="text-brand mt-1">•</span> Built 5 Global Capability Centres — Gurgaon, Bangalore, Pune, Hyderabad</li>
               </ul>
+            </div>
+          </div>
+
+          {/* Certification badge strip */}
+          <div className="bg-navy-900 p-8 rounded-xl">
+            <h3 className="text-lg font-semibold text-white mb-6 text-center">Issuing Bodies & Accreditations</h3>
+            <div className="flex flex-wrap justify-center items-center gap-8">
+              {certifications.map((cert) => (
+                <div key={cert.name} className="flex flex-col items-center gap-2">
+                  <div className="w-16 h-16 relative flex items-center justify-center">
+                    <Image
+                      src={cert.img}
+                      alt={cert.name}
+                      width={64}
+                      height={64}
+                      className="object-contain w-full h-full"
+                    />
+                  </div>
+                  <span className="text-xs text-text-muted text-center max-w-[80px] leading-tight">{cert.name}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
+
+      {/* Client Proof */}
+      <section className="py-16 px-4 bg-navy-900">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-white text-center mb-4">
+            <Users className="inline-block w-8 h-8 text-brand mr-3 mb-1" />
+            Organisations Trained
+          </h2>
+          <p className="text-center text-text-muted mb-10">
+            Over 1,000 professionals trained across enterprise and government organisations in India — in AI literacy, Microsoft Copilot 365, ISO/IEC 42001 governance, and agentic AI.
+          </p>
+
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {clients.map((client) => (
+              <div key={client.name} className="bg-navy-800 border border-white/10 rounded-xl p-5 flex flex-col gap-1">
+                <p className="text-white font-semibold text-sm">{client.name}</p>
+                <p className="text-xs text-brand">{client.sector}</p>
+              </div>
+            ))}
+            <div className="bg-navy-800 border border-white/10 border-dashed rounded-xl p-5 flex items-center justify-center">
+              <p className="text-text-muted text-sm text-center">+ enterprise and MSME organisations across India</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 px-4 bg-navy-800">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-white mb-4">Work with Ashutosh directly</h2>
+          <p className="text-text-muted mb-8">
+            Every Optivantage engagement is founder-led. No account managers, no junior consultants. You work directly with someone who has done it at scale.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center px-8 py-4 bg-brand text-white rounded-lg font-semibold hover:bg-brand/90 transition-colors"
+          >
+            Start a Conversation
+          </Link>
+        </div>
+      </section>
+
     </main>
   );
 }
