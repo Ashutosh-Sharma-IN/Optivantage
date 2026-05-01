@@ -20,6 +20,7 @@ export default function Navbar() {
         { name: 'IT Infrastructure', href: '/services/it-infrastructure' },
         { name: 'IT Equipment & Rentals', href: '/services/it-equipment-rentals' },
         { name: 'Copilot 365 Course', href: '/training/copilot-365' },
+        { name: 'AI Automation Portfolio', href: '/ai-automation' },
       ]
     },
     { name: 'Blog', href: '/blog' },

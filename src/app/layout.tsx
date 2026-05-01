@@ -347,6 +347,7 @@ export default function RootLayout({
                   <li><Link href="/about" className="text-sm text-gray-400 hover:text-brand transition-colors">About Us</Link></li>
                   <li><Link href="/blog" className="text-sm text-gray-400 hover:text-brand transition-colors">Blog</Link></li>
                   <li><Link href="/training/copilot-365" className="text-sm text-gray-400 hover:text-brand transition-colors">Copilot 365 Course</Link></li>
+                  <li><Link href="/ai-automation" className="text-sm text-gray-400 hover:text-brand transition-colors">AI Automation Portfolio</Link></li>
                   <li><Link href="/case-studies" className="text-sm text-gray-400 hover:text-brand transition-colors">Case Studies</Link></li>
                   <li><Link href="/contact" className="text-sm text-gray-400 hover:text-brand transition-colors">Contact</Link></li>
                 </ul>

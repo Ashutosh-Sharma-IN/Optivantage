@@ -272,6 +272,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* AI Automation Portfolio Banner */}
+      <section className="py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 border-t-2 border-brand">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="text-center md:text-left">
+            <p className="text-brand font-mono text-xs tracking-widest uppercase mb-3">New · AI Automation & Agentic AI</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 leading-tight">
+              28+ Production Pipelines.<br className="hidden md:block" />
+              <span className="text-brand">Built. Delivered. Battle-tested.</span>
+            </h2>
+            <p className="text-gray-400 text-sm md:text-base max-w-xl leading-relaxed">
+              B2B sales intelligence, self-healing agents, agentic AI, voice AI, document processing — all on Make.com. See the full portfolio of production builds.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row md:flex-col gap-3 shrink-0">
+            <Link
+              href="/ai-automation"
+              className="px-8 py-4 bg-brand hover:bg-brand-hover text-white font-semibold rounded-lg transition-all flex items-center justify-center gap-2 whitespace-nowrap"
+            >
+              View AI Automation Portfolio <ArrowRight size={18} />
+            </Link>
+            <Link
+              href="/contact"
+              className="px-8 py-4 border border-white/20 hover:bg-white/5 text-white font-semibold rounded-lg transition-all text-center whitespace-nowrap"
+            >
+              Discuss Your Project
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* AI Training Spotlight */}
       <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="max-w-6xl mx-auto">
@@ -332,9 +362,9 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-8">
-            <Link href="/delhi-ncr-ai-training" className="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+            <Link href="/services/ai-training-advisory" className="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors">
               <Globe className="h-5 w-5 mr-2" />
-              AI Training in Delhi NCR
+              AI Training — India &amp; Online
             </Link>
           </div>
         </div>
