@@ -210,6 +210,23 @@ const globalSchema = {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
+              "@id": `${BASE_URL}/ai-automation#service`,
+              name: "AI Automation & Agentic AI",
+              url: `${BASE_URL}/ai-automation`,
+              description:
+                "Design and delivery of production-grade AI automation pipelines on Make.com — B2B sales intelligence, self-healing agents, agentic AI systems, document processing, support triage, voice AI, and self-evolving workflows. 28+ live scenarios delivered.",
+              provider: { "@id": `${BASE_URL}/#organization` },
+              areaServed: ["IN", "US", "GB", "AU", "SG", "AE"],
+              keywords: [
+                "AI automation", "Make.com", "agentic AI", "self-healing agents",
+                "B2B sales pipeline", "AI workflow automation", "enterprise AI",
+              ],
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
               "@id": `${BASE_URL}/services/it-infrastructure#service`,
               name: "IT Infrastructure",
               url: `${BASE_URL}/services/it-infrastructure`,
@@ -336,7 +353,7 @@ export default function RootLayout({
                   AI Training &amp; Advisory. IT Infrastructure. IT Equipment &amp; Rentals.
                 </p>
                 <p className="text-sm text-gray-400 mt-4">
-                  Three focused services. 25 years of battle-tested expertise. Cisco &amp; Vertiv authorised partner.
+                  Four focused services. 25 years of battle-tested expertise. Cisco &amp; Vertiv authorised partner.
                 </p>
               </div>
 
@@ -357,6 +374,7 @@ export default function RootLayout({
                 <h4 className="text-lg font-bold mb-4 text-white">Our Services</h4>
                 <ul className="space-y-3">
                   <li><Link href="/services/ai-training-advisory" className="text-sm text-gray-400 hover:text-brand transition-colors">AI Training &amp; Advisory</Link></li>
+                  <li><Link href="/ai-automation" className="text-sm text-gray-400 hover:text-brand transition-colors">AI Automation &amp; Agentic AI</Link></li>
                   <li><Link href="/services/it-infrastructure" className="text-sm text-gray-400 hover:text-brand transition-colors">IT Infrastructure</Link></li>
                   <li><Link href="/services/it-equipment-rentals" className="text-sm text-gray-400 hover:text-brand transition-colors">IT Equipment &amp; Rentals</Link></li>
                 </ul>

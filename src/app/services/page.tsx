@@ -3,18 +3,19 @@ import Navbar from '@/components/Navbar';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Our Services | AI Training, IT Infrastructure & Equipment Rentals',
+  title: 'Our Services | AI Training, AI Automation, IT Infrastructure & Equipment Rentals',
   description:
-    'Three specialist services — AI Training & Advisory (Copilot 365, ChatGPT, ISO 42001), IT Infrastructure (Cisco, Fortinet, Palo Alto, Vertiv, structured cabling, SD-WAN), and IT Equipment & Rentals (laptops, desktops, AMC). Founder-led. Pan-India and online.',
+    'Four specialist services — AI Training & Advisory (Copilot 365, ChatGPT, ISO 42001), AI Automation & Agentic AI (Make.com, 28+ scenarios), IT Infrastructure (Cisco, Fortinet, Palo Alto, Vertiv), and IT Equipment & Rentals. Founder-led. Pan-India and online.',
   keywords: [
-    'AI training IT infrastructure Delhi', 'IT services India specialist',
-    'Cisco Fortinet Vertiv partner India', 'enterprise IT services Delhi',
-    'AI training infrastructure equipment India',
+    'AI training IT infrastructure India', 'AI automation consultant India',
+    'Make.com expert India', 'Cisco Fortinet Vertiv partner India',
+    'enterprise IT services India', 'agentic AI consultant India',
+    'AI training automation infrastructure equipment India',
   ],
   alternates: { canonical: 'https://www.optivantage.in/services' },
   openGraph: {
-    title: 'Our Services | AI Training, IT Infrastructure & Equipment Rentals | Optivantage',
-    description: 'Three focused specialist services — AI Training, IT Infrastructure, and IT Equipment Rentals. Founder-led. Pan-India and online.',
+    title: 'Our Services | AI Training, AI Automation, IT Infrastructure & Equipment | Optivantage',
+    description: 'Four focused specialist services — AI Training, AI Automation & Agentic AI, IT Infrastructure, and IT Equipment Rentals. Founder-led. Pan-India and online.',
     url: 'https://www.optivantage.in/services',
     type: 'website',
   },
@@ -23,6 +24,7 @@ import {
   BrainCircuit,
   Server,
   Package,
+  Zap,
   ArrowRight,
   CheckCircle2
 } from 'lucide-react';
@@ -67,6 +69,19 @@ export default function Services() {
         "Short-term & Long-term Equipment Rentals",
         "Annual Maintenance Contracts (AMC) & Lifecycle Management"
       ]
+    },
+    {
+      title: "AI Automation & Agentic AI",
+      desc: "Production-grade Make.com pipelines — B2B sales intelligence, self-healing agents, document processing, support triage, voice AI, and agentic workflows delivered end-to-end.",
+      icon: <Zap className="text-brand h-8 w-8" />,
+      link: "/ai-automation",
+      details: [
+        "B2B Sales Intelligence & Outbound Pipeline Automation",
+        "Support Ticket Triage & Email Intelligence Agents",
+        "Self-Healing & Self-Evolving Agentic Architectures",
+        "Document Processing, HR Screening & Meeting Intelligence",
+        "28+ Live Make.com Scenarios Built & Delivered"
+      ]
     }
   ];
 
@@ -79,7 +94,7 @@ export default function Services() {
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Services</h1>
           <p className="text-xl text-text-muted">
-            Three focused areas. Deep expertise in each. No generalism.
+            Four focused areas. Deep expertise in each. No generalism.
           </p>
         </div>
       </section>
@@ -87,7 +102,7 @@ export default function Services() {
       {/* Services Grid */}
       <section className="py-20 px-4 bg-navy-800">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <div key={index} className="bg-navy-900 border border-white/5 hover:border-brand/50 rounded-xl p-8 transition-all group flex flex-col">
                 <div className="mb-6 p-4 bg-navy-800 rounded-lg inline-block group-hover:bg-brand/10 transition-colors">

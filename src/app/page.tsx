@@ -162,6 +162,18 @@ const services = [
       "Short-term & Long-term Equipment Rentals",
       "Annual Maintenance Contracts (AMC)"
     ]
+  },
+  {
+    icon: Zap,
+    title: "AI Automation & Agentic AI",
+    href: "/ai-automation",
+    description: "Production-grade Make.com pipelines — B2B sales intelligence, self-healing agents, document processing, support triage, voice AI, and agentic workflows delivered end-to-end.",
+    features: [
+      "B2B Sales Intelligence & Outbound Pipelines",
+      "Self-Healing & Self-Evolving Agentic Systems",
+      "Document Processing & HR Automation",
+      "28+ Live Make.com Scenarios Built & Delivered"
+    ]
   }
 ];
 
@@ -187,12 +199,12 @@ export default function Home() {
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-4">
-            AI. Infrastructure.{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-orange-400">Equipment.</span>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-4">
+            AI Training. Automation.{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-orange-400">Infrastructure. Equipment.</span>
           </h1>
           <p className="text-xl md:text-2xl text-brand font-semibold mb-4">
-            Three things we do exceptionally well.
+            Four things we do exceptionally well.
           </p>
           <p className="text-lg text-text-muted mb-10 leading-relaxed max-w-3xl mx-auto">
             Optivantage Technologies is a specialist enterprise IT firm based in India, offering AI training and advisory, IT infrastructure design and build, and IT equipment supply and rentals. Founder-led by Ashutosh Sharma with 25 years of enterprise IT experience at BT, Telstra, and SITA — 1,000+ professionals trained, pan-India and online.
@@ -235,13 +247,13 @@ export default function Home() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-navy-800">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Three Service Areas</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Four Service Areas</h2>
             <p className="text-text-muted max-w-2xl mx-auto">
               We made a deliberate choice to go deep, not wide. Every engagement is founder-led, not delegated to junior consultants.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-8">
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
@@ -268,36 +280,6 @@ export default function Home() {
                 </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* AI Automation Portfolio Banner */}
-      <section className="py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 border-t-2 border-brand">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="text-center md:text-left">
-            <p className="text-brand font-mono text-xs tracking-widest uppercase mb-3">New · AI Automation & Agentic AI</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 leading-tight">
-              28+ Production Pipelines.<br className="hidden md:block" />
-              <span className="text-brand">Built. Delivered. Battle-tested.</span>
-            </h2>
-            <p className="text-gray-400 text-sm md:text-base max-w-xl leading-relaxed">
-              B2B sales intelligence, self-healing agents, agentic AI, voice AI, document processing — all on Make.com. See the full portfolio of production builds.
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row md:flex-col gap-3 shrink-0">
-            <Link
-              href="/ai-automation"
-              className="px-8 py-4 bg-brand hover:bg-brand-hover text-white font-semibold rounded-lg transition-all flex items-center justify-center gap-2 whitespace-nowrap"
-            >
-              View AI Automation Portfolio <ArrowRight size={18} />
-            </Link>
-            <Link
-              href="/contact"
-              className="px-8 py-4 border border-white/20 hover:bg-white/5 text-white font-semibold rounded-lg transition-all text-center whitespace-nowrap"
-            >
-              Discuss Your Project
-            </Link>
           </div>
         </div>
       </section>
@@ -467,7 +449,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold text-white mb-3">Specialists. Not Generalists.</h3>
               <p className="text-text-muted">
-                Three focused services — not twenty. Every engagement is led by the founder, backed by 25 years of running enterprise IT for BT, Telstra, and SITA. You get the expert, not a junior.
+                Four focused services — not twenty. Every engagement is led by the founder, backed by 25 years of running enterprise IT for BT, Telstra, and SITA. You get the expert, not a junior.
               </p>
             </div>
           </div>
