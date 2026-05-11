@@ -275,7 +275,6 @@ body {
   border-right: 1px solid var(--rule);
   position: relative;
   z-index: 2;
-  animation: fadeUp 0.8s ease both;
 }
 
 .hero-right {
@@ -286,7 +285,6 @@ body {
   justify-content: center;
   position: relative;
   z-index: 2;
-  animation: fadeUp 0.8s 0.12s ease both;
 }
 
 @keyframes fadeUp {
@@ -443,8 +441,6 @@ body {
   gap: 14px;
   padding: 12px 18px;
   border-bottom: 1px solid #f0ece3;
-  opacity: 0;
-  animation: rowIn 0.4s ease forwards;
 }
 .pipe-row:nth-child(1) { animation-delay: 0.5s; }
 .pipe-row:nth-child(2) { animation-delay: 0.65s; }
@@ -1771,6 +1767,191 @@ details[open] .faq-plus { transform: rotate(45deg); color: var(--accent); }
   .footer { grid-template-columns: 1fr 1fr; }
   .clients { padding: 16px 24px; }
   .hero-left { padding: 90px 24px 56px; }
+  .metrics-strip { grid-template-columns: repeat(2, 1fr); }
+  .metric-col:nth-child(2) { border-right: none; }
+  .metric-col:nth-child(3),
+  .metric-col:nth-child(4) { border-top: 1px solid rgba(255,255,255,0.08); }
+  .method-wrap { padding: 60px 24px; }
+  .method-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ============================================================
+   CURRENTLY BUILDING TICKER — Task 1
+============================================================ */
+.ticker-wrap {
+  background: #0d1f3c;
+  overflow: hidden;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  cursor: default;
+}
+
+.ticker-inner {
+  display: flex;
+  width: max-content;
+  animation: tickerScroll 90s linear infinite;
+}
+
+.ticker-wrap:hover .ticker-inner { animation-play-state: paused; }
+
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 40px;
+  white-space: nowrap;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+.ticker-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 2px 8px;
+  border: 1px solid rgba(200,50,10,0.4);
+  background: rgba(200,50,10,0.08);
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   METRICS STRIP — Task 2
+============================================================ */
+.metrics-strip {
+  background: #0d1f3c;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 3px solid var(--accent);
+}
+
+.metric-col {
+  padding: 40px 32px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+.metric-col:last-child { border-right: none; }
+
+.metric-n {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 4vw, 58px);
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.metric-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ============================================================
+   HOW I BUILD METHODOLOGY — Task 3
+============================================================ */
+.method-wrap {
+  padding: 88px 64px;
+  border-bottom: 1px solid var(--rule);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin-top: 48px;
+}
+
+.method-card {
+  background: var(--card);
+  padding: 36px 28px;
+  position: relative;
+  transition: background 0.15s;
+  overflow: hidden;
+}
+
+.method-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+}
+
+.method-card:hover { background: #fdfaf5; }
+
+.method-step {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 18px;
+  display: block;
+}
+
+.method-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.method-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* ============================================================
+   PDF DOWNLOAD BUTTON — Task 5
+============================================================ */
+.btn-pdf {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(248,245,239,0.15);
+  color: rgba(248,245,239,0.5);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 17px 32px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.btn-pdf:hover { border-color: rgba(248,245,239,0.4); color: var(--paper); }
+
+/* ============================================================
+   HERO ENTRANCE ANIMATIONS — Task 4
+   Default: elements are visible (no animation).
+   prefers-reduced-motion: no-preference → staggered fadeUp plays.
+============================================================ */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-h1   { animation: fadeUp 0.6s ease-out both; }
+  .hero-deck { animation: fadeUp 0.6s 0.15s ease-out both; }
+  .hero-ctas { animation: fadeUp 0.6s 0.30s ease-out both; }
+  .hero-meta { animation: fadeUp 0.6s 0.45s ease-out both; }
+  .hero-right { animation: fadeUp 0.8s 0.20s ease both; }
+  .pipe-row  { opacity: 0; animation: rowIn 0.4s ease forwards; }
 }
 </style>
 </head>
@@ -1861,6 +2042,28 @@ details[open] .faq-plus { transform: rotate(45deg); color: var(--accent); }
     </div>
   </div>
 </section>
+
+<!-- ============================================================
+     METRICS STRIP — Task 2
+============================================================ -->
+<div class="metrics-strip">
+  <div class="metric-col">
+    <span class="metric-n" data-count="28" data-suffix="+">28+</span>
+    <span class="metric-label">Automations Built</span>
+  </div>
+  <div class="metric-col">
+    <span class="metric-n" data-count="9" data-suffix="+">9+</span>
+    <span class="metric-label">Enterprise Clients</span>
+  </div>
+  <div class="metric-col">
+    <span class="metric-n" data-count="4" data-suffix="">4</span>
+    <span class="metric-label">Continents Delivered</span>
+  </div>
+  <div class="metric-col">
+    <span class="metric-n" data-count="60" data-suffix="%">60%</span>
+    <span class="metric-label">Avg Process Time Saved</span>
+  </div>
+</div>
 
 <!-- CLIENTS LOGO BAR -->
 <div class="clients-logos">
@@ -2142,6 +2345,38 @@ details[open] .faq-plus { transform: rotate(45deg); color: var(--accent); }
       <div class="logo-skill-role">Custom Integrations</div>
     </div>
 
+  </div>
+</div>
+
+<!-- ============================================================
+     HOW I BUILD — METHODOLOGY — Task 3
+============================================================ -->
+<div class="method-wrap reveal" id="methodology">
+  <div class="sec-rule"><span class="sec-rule-text">01a · How I Build</span><div class="sec-rule-line"></div></div>
+  <h2 class="sec-h">How I <span class="red">Build.</span></h2>
+  <p class="sec-intro">A repeatable four-step process. Every engagement, every client.</p>
+
+  <div class="method-grid">
+    <div class="method-card">
+      <span class="method-step">01</span>
+      <div class="method-title">Discover</div>
+      <p class="method-desc">Map the process end-to-end, identify the highest-value automation point, and scope the build in plain language before a line of logic is written.</p>
+    </div>
+    <div class="method-card">
+      <span class="method-step">02</span>
+      <div class="method-title">Design</div>
+      <p class="method-desc">Architect the workflow in Make.com — modules, API chains, conditional routing, error handling and fallback logic — before building anything.</p>
+    </div>
+    <div class="method-card">
+      <span class="method-step">03</span>
+      <div class="method-title">Deploy</div>
+      <p class="method-desc">Build, test with real data, document every module, and hand over with a live walkthrough. You own it from day one.</p>
+    </div>
+    <div class="method-card">
+      <span class="method-step">04</span>
+      <div class="method-title">Optimise</div>
+      <p class="method-desc">Monitor execution logs, identify failure patterns, and improve the pipeline iteratively. Automation is never one-and-done.</p>
+    </div>
   </div>
 </div>
 
@@ -2465,6 +2700,29 @@ details[open] .faq-plus { transform: rotate(45deg); color: var(--accent); }
 </div>
 
 <!-- ============================================================
+     CURRENTLY BUILDING TICKER — Task 1
+============================================================ -->
+<div class="ticker-wrap" aria-label="Scenarios currently in development">
+  <div class="ticker-inner">
+    <div class="ticker-item"><span class="ticker-badge">⚙ Building</span>WhatsApp Lead Qualification Bot — Conversational AI qualifies inbound leads, scores them and auto-books discovery calls. Zero SDR involvement.</div>
+    <div class="ticker-item"><span class="ticker-badge">⚙ Building</span>AI Contract Redlining Agent — Upload any contract PDF, AI flags non-standard clauses and outputs a tracked-change Word doc in minutes.</div>
+    <div class="ticker-item"><span class="ticker-badge">⚙ Building</span>Automated Invoice &amp; AP Processing — Invoice arrives by email, data extracted, PO matched, exceptions flagged, approved invoices auto-posted to ERP.</div>
+    <div class="ticker-item"><span class="ticker-badge">⚙ Building</span>Executive Morning Intelligence Briefing — Overnight: pulls KPIs, competitor news, pipeline anomalies. Crisp 5-point brief lands in Teams/email by 7am.</div>
+    <div class="ticker-item"><span class="ticker-badge">⚙ Building</span>LinkedIn Social Selling Automation — Monitors target accounts for trigger events, drafts personalised outreach sequences, surfaces warm leads to sales.</div>
+    <div class="ticker-item"><span class="ticker-badge">⚙ Building</span>Multi-language Customer Support Agent — Handles tier-1 queries in 10+ languages, resolves instantly, escalates tier-2 with full translated context.</div>
+    <div class="ticker-item"><span class="ticker-badge">⚙ Building</span>Competitive Intelligence Monitor — Tracks competitor sites, pricing, job posts and reviews weekly. AI digest delivered to Slack every Monday morning.</div>
+    <!-- Duplicate set for seamless loop -->
+    <div class="ticker-item"><span class="ticker-badge">⚙ Building</span>WhatsApp Lead Qualification Bot — Conversational AI qualifies inbound leads, scores them and auto-books discovery calls. Zero SDR involvement.</div>
+    <div class="ticker-item"><span class="ticker-badge">⚙ Building</span>AI Contract Redlining Agent — Upload any contract PDF, AI flags non-standard clauses and outputs a tracked-change Word doc in minutes.</div>
+    <div class="ticker-item"><span class="ticker-badge">⚙ Building</span>Automated Invoice &amp; AP Processing — Invoice arrives by email, data extracted, PO matched, exceptions flagged, approved invoices auto-posted to ERP.</div>
+    <div class="ticker-item"><span class="ticker-badge">⚙ Building</span>Executive Morning Intelligence Briefing — Overnight: pulls KPIs, competitor news, pipeline anomalies. Crisp 5-point brief lands in Teams/email by 7am.</div>
+    <div class="ticker-item"><span class="ticker-badge">⚙ Building</span>LinkedIn Social Selling Automation — Monitors target accounts for trigger events, drafts personalised outreach sequences, surfaces warm leads to sales.</div>
+    <div class="ticker-item"><span class="ticker-badge">⚙ Building</span>Multi-language Customer Support Agent — Handles tier-1 queries in 10+ languages, resolves instantly, escalates tier-2 with full translated context.</div>
+    <div class="ticker-item"><span class="ticker-badge">⚙ Building</span>Competitive Intelligence Monitor — Tracks competitor sites, pricing, job posts and reviews weekly. AI digest delivered to Slack every Monday morning.</div>
+  </div>
+</div>
+
+<!-- ============================================================
      PROOF OF WORK
 ============================================================ -->
 <div class="section" id="proof">
@@ -2568,6 +2826,7 @@ details[open] .faq-plus { transform: rotate(45deg); color: var(--accent); }
     <a class="btn-book" href="https://calendly.com/ashutosh-ai-sharma/30min" target="_blank">📅 Book a 30-Min Call</a>
     <a class="btn-wa" href="https://wa.me/919971701239?text=Hi%20Ashutosh%2C%20I%20would%20like%20to%20discuss%20an%20AI%20automation%20project." target="_blank">💬 WhatsApp Me</a>
     <a class="btn-mail" href="mailto:ashutosh.ai.sharma@gmail.com">✉️ Email Instead</a>
+    <a class="btn-pdf" href="/Ashutosh_Sharma_AI_Profile_Flutter_v2.pdf" target="_blank" download>📄 Download AI Profile</a>
   </div>
 </div>
 
@@ -2595,14 +2854,15 @@ function showTab(id, btn) {
   btn.classList.add('on');
 }
 
-// Counter
+// Counter — supports data-suffix attribute (defaults to '+')
 function animateCount(el, target) {
+  const suffix = el.dataset.suffix !== undefined ? el.dataset.suffix : '+';
   let n = 0;
   const step = Math.ceil(target / 36);
   const t = setInterval(() => {
     n = Math.min(n + step, target);
-    el.textContent = n + '+';
-    if (n >= target) { el.textContent = target + '+'; clearInterval(t); }
+    el.textContent = n + suffix;
+    if (n >= target) { el.textContent = target + suffix; clearInterval(t); }
   }, 40);
 }
 
