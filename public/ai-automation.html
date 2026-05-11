@@ -115,8 +115,8 @@
   --warm: #f0ece3;
   --warmer: #e8e2d6;
   --rule: #d5cec2;
-  --muted: #7a7568;
-  --faint: #b8b0a4;
+  --muted: #2a2722;
+  --faint: #585249;
   --card: #ffffff;
 
   --accent: #c8320a;       /* red-orange */
@@ -1068,6 +1068,693 @@ details[open] .faq-plus { transform: rotate(45deg); color: var(--accent); }
 .reveal.vis { opacity: 1; transform: none; }
 
 /* ============================================================
+   ANTHROPIC ACADEMY CALLOUT
+============================================================ */
+.aa-callout {
+  background: var(--ink);
+  color: var(--paper);
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+}
+.aa-callout-stripe {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 25%, var(--accent2) 25%, var(--accent2) 50%, var(--accent3) 50%, var(--accent3) 75%, #d4a73a 75%, #d4a73a 100%);
+}
+.aa-callout-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 56px;
+  padding: 64px 56px;
+  align-items: start;
+}
+.aa-callout-logoframe {
+  width: 56px; height: 56px;
+  background: var(--paper);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 24px;
+}
+.aa-callout-logoframe img { width: 36px; height: 36px; }
+.aa-callout-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 22px;
+}
+.aa-callout-title {
+  font-family: 'Fraunces', serif;
+  font-size: 52px;
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.022em;
+  color: var(--paper);
+  margin-bottom: 26px;
+}
+.aa-callout-it { font-style: italic; font-weight: 400; color: rgba(248,245,239,0.7); }
+.aa-callout-accent { color: var(--accent); }
+.aa-callout-sub {
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(248,245,239,0.82);
+  max-width: 520px;
+  margin-bottom: 28px;
+}
+.aa-callout-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.aa-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  padding: 7px 12px 7px 11px;
+  border: 1px solid rgba(255,255,255,0.18);
+  color: var(--paper);
+  background: rgba(255,255,255,0.03);
+}
+.aa-pill-dot {
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+.aa-callout-right { display: grid; gap: 10px; align-self: center; }
+.aa-course-card {
+  display: grid;
+  grid-template-columns: 48px 1fr 28px;
+  align-items: center;
+  gap: 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  padding: 18px 22px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.aa-course-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.18); }
+.aa-course-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 22px;
+  font-weight: 400;
+  color: rgba(248,245,239,0.4);
+  letter-spacing: -0.02em;
+}
+.aa-course-name {
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--paper);
+  line-height: 1.25;
+  margin-bottom: 4px;
+  letter-spacing: -0.005em;
+}
+.aa-course-meta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: rgba(248,245,239,0.55);
+}
+.aa-course-meta a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted rgba(214,90,52,0.4); }
+.aa-course-meta a:hover { border-bottom-style: solid; }
+.aa-course-check { color: var(--accent); display: flex; align-items: center; justify-content: center; }
+.aa-course-check svg { width: 22px; height: 22px; }
+
+@media (max-width: 900px) {
+  .aa-callout-grid { grid-template-columns: 1fr; gap: 40px; padding: 48px 28px; }
+  .aa-callout-title { font-size: 38px; }
+}
+
+/* ============================================================
+   LOGO SKILLS GRID
+============================================================ */
+.logo-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.logo-skill-cell {
+  background: var(--card);
+  padding: 22px 18px 18px;
+  text-align: center;
+  transition: background 0.15s, transform 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-skill-cell:hover {
+  background: var(--warm);
+  transform: translateY(-2px);
+}
+
+.logo-skill-cell img,
+.logo-skill-cell svg {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  display: block;
+}
+
+.logo-skill-name {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+}
+
+.logo-skill-role {
+  font-size: 10px;
+  color: var(--faint);
+  margin-top: -4px;
+}
+
+/* ============================================================
+   TOOLS LOGO STRIP (scrolling marquee)
+============================================================ */
+.tools-strip-wrap {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: var(--warm);
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.tools-strip-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+  text-align: center;
+  padding: 14px 0 0;
+}
+
+.tools-strip {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 16px 0 20px;
+  animation: marquee 28s linear infinite;
+  width: max-content;
+}
+
+.tools-strip:hover { animation-play-state: paused; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.tool-logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 0 28px;
+  border-right: 1px solid var(--rule);
+  flex-shrink: 0;
+}
+
+.tool-logo-item:last-child { border-right: none; }
+
+.tool-logo-item img,
+.tool-logo-item svg {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.tool-logo-item:hover img,
+.tool-logo-item:hover svg { opacity: 1; }
+
+.tool-logo-name {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   CLIENT LOGOS STRIP (dark bar upgrade)
+============================================================ */
+.clients-logos {
+  background: var(--ink);
+  padding: 22px 64px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  border-bottom: 3px solid var(--accent);
+}
+
+.clients-logos-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  white-space: nowrap;
+  padding-right: 32px;
+  margin-right: 16px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  flex-shrink: 0;
+}
+
+.client-logo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 32px;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.client-logo-card:last-child { border-right: none; }
+.client-logo-card:hover { opacity: 1; }
+
+.client-logo-wordmark {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: white;
+  white-space: nowrap;
+}
+
+.client-logo-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   BIG METRICS STATEMENT
+============================================================ */
+.bigmetrics {
+  background: var(--paper);
+  padding: 96px 64px 110px;
+  position: relative;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.bigmetrics-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 22px;
+}
+.bigmetrics-head {
+  font-family: 'Fraunces', serif;
+  font-size: 46px;
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.022em;
+  color: var(--ink);
+  text-align: center;
+  margin-bottom: 64px;
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.bigmetrics-head .it { font-style: italic; font-weight: 400; color: var(--muted); }
+.bigmetrics-head .red { color: var(--accent); font-weight: 600; }
+.bigmetrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.bm-cell {
+  padding: 0 36px;
+  border-left: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.bm-cell:first-child { border-left: none; padding-left: 0; }
+.bm-cell:last-child { padding-right: 0; }
+.bm-n {
+  font-family: 'Fraunces', serif;
+  font-size: 92px;
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin-bottom: 22px;
+}
+.bm-n sup {
+  font-size: 28px;
+  color: var(--accent);
+  font-weight: 500;
+  vertical-align: super;
+  margin-left: 2px;
+  letter-spacing: -0.02em;
+}
+.bm-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.bm-d {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.bm-d strong { color: var(--ink); font-weight: 500; }
+@media (max-width: 900px) {
+  .bigmetrics { padding: 64px 24px; }
+  .bigmetrics-head { font-size: 32px; margin-bottom: 40px; }
+  .bigmetrics-grid { grid-template-columns: 1fr 1fr; gap: 40px 0; }
+  .bm-cell { padding: 0 18px; }
+  .bm-cell:nth-child(3) { border-left: none; padding-left: 0; }
+  .bm-n { font-size: 64px; }
+}
+
+/* ============================================================
+   METHODOLOGY 4-STEP
+============================================================ */
+.method {
+  margin-top: 64px;
+  padding-top: 56px;
+  border-top: 1px solid var(--rule);
+}
+.method-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.method-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.method-title {
+  font-family: 'Fraunces', serif;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  flex: 1;
+}
+.method-title .it { font-style: italic; font-weight: 400; color: var(--muted); }
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--ink);
+}
+.method-step {
+  padding: 28px 24px 30px 0;
+  border-right: 1px solid var(--rule);
+  position: relative;
+}
+.method-step:last-child { border-right: none; padding-right: 0; }
+.method-step:not(:first-child) { padding-left: 28px; }
+.method-step::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 24px;
+  height: 3px;
+  background: var(--accent);
+}
+.method-step:nth-child(2)::before { background: var(--accent2); }
+.method-step:nth-child(3)::before { background: var(--accent3); }
+.method-step:nth-child(4)::before { background: #d4a73a; }
+.method-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--faint);
+  margin-bottom: 16px;
+}
+.method-step-title {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+  line-height: 1.15;
+}
+.method-step-desc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.method-tb {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  padding: 4px 9px;
+  border: 1px solid var(--accent);
+  background: rgba(214,90,52,0.04);
+}
+.method-step:nth-child(2) .method-tb { color: var(--accent2); border-color: var(--accent2); background: rgba(31,138,91,0.04); }
+.method-step:nth-child(3) .method-tb { color: var(--accent3); border-color: var(--accent3); background: rgba(42,111,219,0.04); }
+.method-step:nth-child(4) .method-tb { color: #d4a73a; border-color: #d4a73a; background: rgba(212,167,58,0.05); }
+@media (max-width: 900px) {
+  .method-grid { grid-template-columns: 1fr; }
+  .method-step { border-right: none; border-bottom: 1px solid var(--rule); padding: 24px 0 26px; }
+  .method-step:not(:first-child) { padding-left: 0; }
+  .method-step:last-child { border-bottom: none; }
+}
+
+/* ============================================================
+   CASE STUDY DEEP DIVE
+============================================================ */
+.casestudy {
+  background: var(--warm);
+  padding: 80px 64px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.cs-head {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 48px;
+  margin-bottom: 56px;
+  align-items: end;
+}
+.cs-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 6px 11px;
+  border: 1px solid var(--accent);
+  background: rgba(214,90,52,0.06);
+  margin-bottom: 18px;
+}
+.cs-badge::before {
+  content: "●";
+  font-size: 9px;
+  animation: livedot 1.6s ease-in-out infinite;
+}
+@keyframes livedot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.cs-client {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.cs-title {
+  font-family: 'Fraunces', serif;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.022em;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+.cs-title .it { font-style: italic; font-weight: 400; color: var(--muted); }
+.cs-sub {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 640px;
+}
+.cs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+}
+.cs-block-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rule);
+}
+.cs-list { display: flex; flex-direction: column; gap: 12px; }
+.cs-li {
+  display: flex;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.cs-li-mark {
+  flex-shrink: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  margin-top: 4px;
+  letter-spacing: -0.02em;
+}
+.cs-li strong { color: var(--ink); font-weight: 500; }
+.cs-arch {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 28px 26px;
+  margin-top: 56px;
+  overflow-x: auto;
+}
+.cs-arch-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 22px;
+}
+.cs-flow {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  min-width: 800px;
+}
+.cs-node {
+  flex: 1;
+  padding: 14px 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  position: relative;
+}
+.cs-node + .cs-node { margin-left: -1px; }
+.cs-node-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.cs-node-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--paper);
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+.cs-node-tool {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: rgba(248,245,239,0.55);
+  letter-spacing: 0.04em;
+}
+.cs-arrow {
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  color: var(--accent);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  z-index: 1;
+}
+.cs-results {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 56px;
+  border-top: 1px solid var(--rule);
+}
+.cs-res {
+  padding: 28px 24px 0;
+  border-left: 1px solid var(--rule);
+}
+.cs-res:first-child { border-left: none; padding-left: 0; }
+.cs-res-n {
+  font-family: 'Fraunces', serif;
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.cs-res-n sup {
+  font-size: 18px;
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.cs-res-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.cs-res-d {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+@media (max-width: 900px) {
+  .casestudy { padding: 48px 24px; }
+  .cs-head { grid-template-columns: 1fr; gap: 16px; }
+  .cs-title { font-size: 32px; }
+  .cs-grid { grid-template-columns: 1fr; gap: 32px; }
+  .cs-results { grid-template-columns: 1fr 1fr; }
+  .cs-res:nth-child(3) { border-left: none; padding-left: 0; }
+}
+
+/* ============================================================
    RESPONSIVE
 ============================================================ */
 @media (max-width: 1024px) {
@@ -1175,14 +1862,72 @@ details[open] .faq-plus { transform: rotate(45deg); color: var(--accent); }
   </div>
 </section>
 
-<!-- CLIENTS -->
-<div class="clients">
-  <span class="clients-label">Delivered for</span>
-  <span class="client-name">Hexaware Technologies</span>
-  <span class="client-name">Kotak Mahindra Bank</span>
-  <span class="client-name">Arvind Group</span>
-  <span class="client-name">MSME — Govt of India</span>
-  <span class="client-name">iOPEX Technologies / BT</span>
+<!-- CLIENTS LOGO BAR -->
+<div class="clients-logos">
+  <span class="clients-logos-label">Delivered for</span>
+
+  <!-- Hexaware -->
+  <div class="client-logo-card">
+    <svg width="150" height="32" viewBox="0 0 150 32" xmlns="http://www.w3.org/2000/svg" aria-label="Hexaware">
+      <polygon points="14,2 25,8.5 25,21.5 14,28 3,21.5 3,8.5" fill="#FF6B00"/>
+      <polygon points="14,8 20,11.5 20,18.5 14,22 8,18.5 8,11.5" fill="#0f0e0c"/>
+      <text x="34" y="22" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff" letter-spacing="-0.3">Hexaware</text>
+    </svg>
+    <span class="client-logo-sub">IT Services · Agentic AI</span>
+  </div>
+
+  <!-- Kotak Mahindra Bank -->
+  <div class="client-logo-card">
+    <svg width="170" height="32" viewBox="0 0 170 32" xmlns="http://www.w3.org/2000/svg" aria-label="Kotak Mahindra Bank">
+      <rect x="0" y="4" width="6" height="24" fill="#ED1C24"/>
+      <rect x="9" y="4" width="6" height="24" fill="#003DA5"/>
+      <rect x="18" y="4" width="6" height="24" fill="#ED1C24"/>
+      <text x="32" y="22" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" letter-spacing="-0.2">Kotak Mahindra</text>
+    </svg>
+    <span class="client-logo-sub">Bank · Copilot · Voice AI</span>
+  </div>
+
+  <!-- Arvind Group -->
+  <div class="client-logo-card">
+    <svg width="130" height="32" viewBox="0 0 130 32" xmlns="http://www.w3.org/2000/svg" aria-label="Arvind Group">
+      <circle cx="14" cy="16" r="11" fill="none" stroke="#C8A84B" stroke-width="2.5"/>
+      <circle cx="14" cy="16" r="4.5" fill="#C8A84B"/>
+      <text x="32" y="22" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.5">ARVIND</text>
+    </svg>
+    <span class="client-logo-sub">Group · Finance AI · Prompt Eng</span>
+  </div>
+
+  <!-- MSME / Govt India -->
+  <div class="client-logo-card">
+    <svg width="160" height="32" viewBox="0 0 160 32" xmlns="http://www.w3.org/2000/svg" aria-label="MSME Government of India">
+      <rect x="0" y="3" width="28" height="8.5" fill="#FF9933"/>
+      <rect x="0" y="11.5" width="28" height="8.5" fill="#ffffff"/>
+      <rect x="0" y="20" width="28" height="8.5" fill="#138808"/>
+      <circle cx="14" cy="15.75" r="3" fill="none" stroke="#000088" stroke-width="0.8"/>
+      <text x="36" y="14" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#ffffff" letter-spacing="0.4">MINISTRY OF</text>
+      <text x="36" y="26" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#ffffff" letter-spacing="0.2">MSME · GOVT INDIA</text>
+    </svg>
+    <span class="client-logo-sub">National Upskilling · MSME</span>
+  </div>
+
+  <!-- iOPEX -->
+  <div class="client-logo-card">
+    <svg width="130" height="32" viewBox="0 0 130 32" xmlns="http://www.w3.org/2000/svg" aria-label="iOPEX Technologies">
+      <circle cx="14" cy="16" r="11" fill="#00A3E0"/>
+      <text x="10" y="22" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff">i</text>
+      <text x="32" y="22" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="0.6">iOPEX</text>
+    </svg>
+    <span class="client-logo-sub">Technologies · BT Partnership</span>
+  </div>
+
+  <!-- Infogain -->
+  <div class="client-logo-card">
+    <svg width="140" height="32" viewBox="0 0 140 32" xmlns="http://www.w3.org/2000/svg" aria-label="Infogain">
+      <path d="M3 5 L19 5 L19 12 L11 12 L11 27 L3 27 Z" fill="#E5097F"/>
+      <text x="26" y="22" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="-0.2">Infogain</text>
+    </svg>
+    <span class="client-logo-sub">AI for Leadership · Labs</span>
+  </div>
 </div>
 
 <!-- ============================================================
@@ -1214,25 +1959,327 @@ details[open] .faq-plus { transform: rotate(45deg); color: var(--accent); }
     </div>
   </div>
 
-  <!-- SKILLS -->
-  <div class="sec-rule reveal" style="margin-bottom:24px;"><span class="sec-rule-text">Platforms & Tools</span><div class="sec-rule-line"></div></div>
+  <!-- METHODOLOGY -->
+  <div class="method reveal">
+    <div class="method-head">
+      <div>
+        <div class="method-eyebrow">How I Work</div>
+        <div class="method-title">A <span class="it">four-step rhythm</span> from problem to production.</div>
+      </div>
+    </div>
+    <div class="method-grid">
+      <div class="method-step">
+        <div class="method-num">01 · DISCOVER</div>
+        <div class="method-step-title">Map the actual workflow.</div>
+        <div class="method-step-desc">Sit with the team. Trace every manual step, every system, every handoff. Identify what's broken vs what's just annoying. No assumptions — only observed reality.</div>
+        <span class="method-tb">1–2 weeks</span>
+      </div>
+      <div class="method-step">
+        <div class="method-num">02 · ARCHITECT</div>
+        <div class="method-step-title">Design the pipeline.</div>
+        <div class="method-step-desc">Signal → enrich → validate → decide → act → log. Pick the right model per step. Plan the failure modes upfront. Write the architecture down before writing a single module.</div>
+        <span class="method-tb">3–5 days</span>
+      </div>
+      <div class="method-step">
+        <div class="method-num">03 · BUILD</div>
+        <div class="method-step-title">Ship in weekly increments.</div>
+        <div class="method-step-desc">Working pipeline by week 1 — even if minimal. Layer on routing, retries, escalation. Demo every Friday. Real data from day one. Production-grade error handling, not happy-path demos.</div>
+        <span class="method-tb">2–6 weeks</span>
+      </div>
+      <div class="method-step">
+        <div class="method-num">04 · HANDOVER</div>
+        <div class="method-step-title">Make myself replaceable.</div>
+        <div class="method-step-desc">Runbook, architecture doc, prompt library, change log. Train your team on the platform — not just the build. Optional retainer for evolution. You own it; I just made it.</div>
+        <span class="method-tb">1 week</span>
+      </div>
+    </div>
+  </div>
 
-  <div class="skills-grid reveal">
-    <div class="skill-cell"><div class="skill-icon">⚙️</div><div class="skill-name">Make.com</div><div class="skill-role">Orchestration</div></div>
-    <div class="skill-cell"><div class="skill-icon">🧠</div><div class="skill-name">OpenAI / ChatGPT</div><div class="skill-role">AI Generation</div></div>
-    <div class="skill-cell"><div class="skill-icon">🤖</div><div class="skill-name">Anthropic Claude</div><div class="skill-role">AI Reasoning</div></div>
-    <div class="skill-cell"><div class="skill-icon">🎯</div><div class="skill-name">HubSpot</div><div class="skill-role">CRM Automation</div></div>
-    <div class="skill-cell"><div class="skill-icon">🔍</div><div class="skill-name">Clay / Apollo</div><div class="skill-role">Enrichment</div></div>
-    <div class="skill-cell"><div class="skill-icon">✅</div><div class="skill-name">ZeroBounce / NeverBounce</div><div class="skill-role">Email Validation</div></div>
-    <div class="skill-cell"><div class="skill-icon">📧</div><div class="skill-name">Instantly / Lemlist</div><div class="skill-role">Outreach Delivery</div></div>
-    <div class="skill-cell"><div class="skill-icon">🔔</div><div class="skill-name">Slack / Gmail / Outlook</div><div class="skill-role">Notifications</div></div>
-    <div class="skill-cell"><div class="skill-icon">📁</div><div class="skill-name">Google Drive / OneDrive</div><div class="skill-role">Document Processing</div></div>
-    <div class="skill-cell"><div class="skill-icon">🎙️</div><div class="skill-name">Bolna AI</div><div class="skill-role">Voice AI / KYC</div></div>
-    <div class="skill-cell"><div class="skill-icon">📊</div><div class="skill-name">Google Sheets / Excel</div><div class="skill-role">Data Layer</div></div>
-    <div class="skill-cell"><div class="skill-icon">🔗</div><div class="skill-name">HTTP / REST APIs</div><div class="skill-role">Custom Integrations</div></div>
-    <div class="skill-cell"><div class="skill-icon">🌐</div><div class="skill-name">Perplexity AI</div><div class="skill-role">Real-time Research</div></div>
-    <div class="skill-cell"><div class="skill-icon">🔎</div><div class="skill-name">Leadfeeder / RB2B</div><div class="skill-role">Visitor Intelligence</div></div>
-    <div class="skill-cell"><div class="skill-icon">📋</div><div class="skill-name">PDF.co</div><div class="skill-role">Document Extraction</div></div>
+  <!-- SKILLS -->
+  <div class="sec-rule reveal" style="margin-bottom:24px;margin-top:64px;"><span class="sec-rule-text">Platforms & Tools</span><div class="sec-rule-line"></div></div>
+
+  <div class="logo-skills-grid reveal">
+
+    <div class="logo-skill-cell">
+      <img src="/logos/make-com.svg" alt="Make.com" />
+      <div class="logo-skill-name">Make.com</div>
+      <div class="logo-skill-role">Orchestration</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <img src="/logos/openai-icon.svg" alt="OpenAI" />
+      <div class="logo-skill-name">OpenAI / ChatGPT</div>
+      <div class="logo-skill-role">AI Generation</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <img src="/logos/claude.svg" alt="Claude" />
+      <div class="logo-skill-name">Anthropic Claude</div>
+      <div class="logo-skill-role">AI Reasoning</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <img src="/logos/hubspot.svg" alt="HubSpot" style="width:52px;height:52px;" />
+      <div class="logo-skill-name">HubSpot</div>
+      <div class="logo-skill-role">CRM Automation</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <img src="/logos/clay.svg" alt="Clay" />
+      <div class="logo-skill-name">Clay</div>
+      <div class="logo-skill-role">Enrichment</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <img src="/logos/apollo-io.svg" alt="Apollo.io" />
+      <div class="logo-skill-name">Apollo.io</div>
+      <div class="logo-skill-role">Lead Intelligence</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <!-- ZeroBounce wordmark -->
+      <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" width="44" height="44">
+        <rect width="44" height="44" rx="8" fill="#1A56DB"/>
+        <text x="22" y="28" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">ZB</text>
+      </svg>
+      <div class="logo-skill-name">ZeroBounce</div>
+      <div class="logo-skill-role">Email Validation</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <img src="/logos/neverbounce.png" alt="NeverBounce" style="width:44px;height:44px;object-fit:contain;" />
+      <div class="logo-skill-name">NeverBounce</div>
+      <div class="logo-skill-role">Email Validation</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <img src="/logos/instantly.svg" alt="Instantly" />
+      <div class="logo-skill-name">Instantly</div>
+      <div class="logo-skill-role">Outreach Delivery</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <img src="/logos/lemlist.svg" alt="Lemlist" />
+      <div class="logo-skill-name">Lemlist</div>
+      <div class="logo-skill-role">Outreach Delivery</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <!-- Slack logo via simpleicons CDN -->
+      <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" width="44" height="44"><rect width="36" height="36" rx="8" fill="#4A154B"/><path d="M10 14.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1.5H14v4H10a2 2 0 1 1 0-4zm5.5-7.5a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm0 5.5v-4h4v4a2 2 0 1 1-4 0zm7.5 7.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm0-1.5H19v-4h4a2 2 0 1 1 0 4zm-5.5 7.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm0-5.5v4H13v-4a2 2 0 1 1 4 0z" fill="white"/></svg>
+      <div class="logo-skill-name">Slack</div>
+      <div class="logo-skill-role">Notifications</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <img src="/logos/gmail.svg" alt="Gmail" />
+      <div class="logo-skill-name">Gmail</div>
+      <div class="logo-skill-role">Email Automation</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <img src="/logos/outlook.svg" alt="Outlook" />
+      <div class="logo-skill-name">Outlook</div>
+      <div class="logo-skill-role">Email Automation</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <img src="/logos/google-drive.svg" alt="Google Drive" />
+      <div class="logo-skill-name">Google Drive</div>
+      <div class="logo-skill-role">Document Processing</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <img src="/logos/onedrive.svg" alt="OneDrive" />
+      <div class="logo-skill-name">OneDrive</div>
+      <div class="logo-skill-role">Document Processing</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <img src="/logos/bolna-ai.svg" alt="Bolna AI" />
+      <div class="logo-skill-name">Bolna AI</div>
+      <div class="logo-skill-role">Voice AI / KYC</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <img src="/logos/google-sheets.svg" alt="Google Sheets" />
+      <div class="logo-skill-name">Google Sheets</div>
+      <div class="logo-skill-role">Data Layer</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <img src="/logos/excel.svg" alt="Excel" />
+      <div class="logo-skill-name">Excel</div>
+      <div class="logo-skill-role">Data Layer</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <!-- Perplexity AI icon via simpleicons -->
+      <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" width="44" height="44"><rect width="36" height="36" rx="8" fill="#20808D"/><polygon points="18,6 28,12 28,24 18,30 8,24 8,12" fill="none" stroke="white" stroke-width="2"/><line x1="18" y1="6" x2="18" y2="30" stroke="white" stroke-width="1.5"/><line x1="8" y1="12" x2="28" y2="24" stroke="white" stroke-width="1.5"/><line x1="28" y1="12" x2="8" y2="24" stroke="white" stroke-width="1.5"/></svg>
+      <div class="logo-skill-name">Perplexity AI</div>
+      <div class="logo-skill-role">Real-time Research</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <img src="/logos/leadfeeder.svg" alt="Leadfeeder" />
+      <div class="logo-skill-name">Leadfeeder</div>
+      <div class="logo-skill-role">Visitor Intelligence</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <img src="/logos/pdf-co.svg" alt="PDF.co" />
+      <div class="logo-skill-name">PDF.co</div>
+      <div class="logo-skill-role">Document Extraction</div>
+    </div>
+
+    <div class="logo-skill-cell">
+      <!-- HTTP API icon -->
+      <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" width="44" height="44">
+        <rect width="44" height="44" rx="8" fill="#0f0e0c"/>
+        <text x="22" y="27" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="500" fill="#f8f5ef" text-anchor="middle">API</text>
+      </svg>
+      <div class="logo-skill-name">HTTP / REST APIs</div>
+      <div class="logo-skill-role">Custom Integrations</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SCROLLING TOOLS MARQUEE STRIP -->
+<div class="tools-strip-wrap">
+  <div class="tools-strip-label">Tools &amp; Platforms in Production</div>
+  <div style="overflow:hidden;">
+    <div class="tools-strip" id="toolsStrip">
+      <!-- set 1 -->
+      <div class="tool-logo-item"><img src="/logos/make-com.svg" alt="Make.com"/><span class="tool-logo-name">Make.com</span></div>
+      <div class="tool-logo-item"><img src="/logos/openai-icon.svg" alt="OpenAI"/><span class="tool-logo-name">OpenAI</span></div>
+      <div class="tool-logo-item"><img src="/logos/claude.svg" alt="Claude"/><span class="tool-logo-name">Claude</span></div>
+      <div class="tool-logo-item"><img src="/logos/hubspot.svg" alt="HubSpot" style="width:56px;height:36px;object-fit:contain;"/><span class="tool-logo-name">HubSpot</span></div>
+      <div class="tool-logo-item"><img src="/logos/apollo-io.svg" alt="Apollo.io"/><span class="tool-logo-name">Apollo.io</span></div>
+      <div class="tool-logo-item"><img src="/logos/clay.svg" alt="Clay"/><span class="tool-logo-name">Clay</span></div>
+      <div class="tool-logo-item"><img src="/logos/instantly.svg" alt="Instantly"/><span class="tool-logo-name">Instantly</span></div>
+      <div class="tool-logo-item"><img src="/logos/lemlist.svg" alt="Lemlist"/><span class="tool-logo-name">Lemlist</span></div>
+      <div class="tool-logo-item"><svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" width="36" height="36"><rect width="36" height="36" rx="8" fill="#4A154B"/><path d="M10 14.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1.5H14v4H10a2 2 0 1 1 0-4zm5.5-7.5a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm0 5.5v-4h4v4a2 2 0 1 1-4 0zm7.5 7.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm0-1.5H19v-4h4a2 2 0 1 1 0 4zm-5.5 7.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm0-5.5v4H13v-4a2 2 0 1 1 4 0z" fill="white"/></svg><span class="tool-logo-name">Slack</span></div>
+      <div class="tool-logo-item"><img src="/logos/gmail.svg" alt="Gmail"/><span class="tool-logo-name">Gmail</span></div>
+      <div class="tool-logo-item"><img src="/logos/outlook.svg" alt="Outlook"/><span class="tool-logo-name">Outlook</span></div>
+      <div class="tool-logo-item"><img src="/logos/google-drive.svg" alt="Google Drive"/><span class="tool-logo-name">Google Drive</span></div>
+      <div class="tool-logo-item"><img src="/logos/google-sheets.svg" alt="Google Sheets"/><span class="tool-logo-name">Sheets</span></div>
+      <div class="tool-logo-item"><img src="/logos/excel.svg" alt="Excel"/><span class="tool-logo-name">Excel</span></div>
+      <div class="tool-logo-item"><img src="/logos/onedrive.svg" alt="OneDrive"/><span class="tool-logo-name">OneDrive</span></div>
+      <div class="tool-logo-item"><img src="/logos/bolna-ai.svg" alt="Bolna AI"/><span class="tool-logo-name">Bolna AI</span></div>
+      <div class="tool-logo-item"><img src="/logos/leadfeeder.svg" alt="Leadfeeder"/><span class="tool-logo-name">Leadfeeder</span></div>
+      <div class="tool-logo-item"><img src="/logos/pdf-co.svg" alt="PDF.co"/><span class="tool-logo-name">PDF.co</span></div>
+      <div class="tool-logo-item"><svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" width="36" height="36"><rect width="36" height="36" rx="8" fill="#20808D"/><polygon points="18,6 28,12 28,24 18,30 8,24 8,12" fill="none" stroke="white" stroke-width="2"/><line x1="18" y1="6" x2="18" y2="30" stroke="white" stroke-width="1.5"/><line x1="8" y1="12" x2="28" y2="24" stroke="white" stroke-width="1.5"/><line x1="28" y1="12" x2="8" y2="24" stroke="white" stroke-width="1.5"/></svg><span class="tool-logo-name">Perplexity</span></div>
+      <div class="tool-logo-item"><img src="/logos/neverbounce.png" alt="NeverBounce" style="width:36px;height:36px;object-fit:contain;"/><span class="tool-logo-name">NeverBounce</span></div>
+      <!-- duplicate set for seamless loop -->
+      <div class="tool-logo-item"><img src="/logos/make-com.svg" alt="Make.com"/><span class="tool-logo-name">Make.com</span></div>
+      <div class="tool-logo-item"><img src="/logos/openai-icon.svg" alt="OpenAI"/><span class="tool-logo-name">OpenAI</span></div>
+      <div class="tool-logo-item"><img src="/logos/claude.svg" alt="Claude"/><span class="tool-logo-name">Claude</span></div>
+      <div class="tool-logo-item"><img src="/logos/hubspot.svg" alt="HubSpot" style="width:56px;height:36px;object-fit:contain;"/><span class="tool-logo-name">HubSpot</span></div>
+      <div class="tool-logo-item"><img src="/logos/apollo-io.svg" alt="Apollo.io"/><span class="tool-logo-name">Apollo.io</span></div>
+      <div class="tool-logo-item"><img src="/logos/clay.svg" alt="Clay"/><span class="tool-logo-name">Clay</span></div>
+      <div class="tool-logo-item"><img src="/logos/instantly.svg" alt="Instantly"/><span class="tool-logo-name">Instantly</span></div>
+      <div class="tool-logo-item"><img src="/logos/lemlist.svg" alt="Lemlist"/><span class="tool-logo-name">Lemlist</span></div>
+      <div class="tool-logo-item"><svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" width="36" height="36"><rect width="36" height="36" rx="8" fill="#4A154B"/><path d="M10 14.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1.5H14v4H10a2 2 0 1 1 0-4zm5.5-7.5a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm0 5.5v-4h4v4a2 2 0 1 1-4 0zm7.5 7.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm0-1.5H19v-4h4a2 2 0 1 1 0 4zm-5.5 7.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm0-5.5v4H13v-4a2 2 0 1 1 4 0z" fill="white"/></svg><span class="tool-logo-name">Slack</span></div>
+      <div class="tool-logo-item"><img src="/logos/gmail.svg" alt="Gmail"/><span class="tool-logo-name">Gmail</span></div>
+      <div class="tool-logo-item"><img src="/logos/outlook.svg" alt="Outlook"/><span class="tool-logo-name">Outlook</span></div>
+      <div class="tool-logo-item"><img src="/logos/google-drive.svg" alt="Google Drive"/><span class="tool-logo-name">Google Drive</span></div>
+      <div class="tool-logo-item"><img src="/logos/google-sheets.svg" alt="Google Sheets"/><span class="tool-logo-name">Sheets</span></div>
+      <div class="tool-logo-item"><img src="/logos/excel.svg" alt="Excel"/><span class="tool-logo-name">Excel</span></div>
+      <div class="tool-logo-item"><img src="/logos/onedrive.svg" alt="OneDrive"/><span class="tool-logo-name">OneDrive</span></div>
+      <div class="tool-logo-item"><img src="/logos/bolna-ai.svg" alt="Bolna AI"/><span class="tool-logo-name">Bolna AI</span></div>
+      <div class="tool-logo-item"><img src="/logos/leadfeeder.svg" alt="Leadfeeder"/><span class="tool-logo-name">Leadfeeder</span></div>
+      <div class="tool-logo-item"><img src="/logos/pdf-co.svg" alt="PDF.co"/><span class="tool-logo-name">PDF.co</span></div>
+      <div class="tool-logo-item"><svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" width="36" height="36"><rect width="36" height="36" rx="8" fill="#20808D"/><polygon points="18,6 28,12 28,24 18,30 8,24 8,12" fill="none" stroke="white" stroke-width="2"/><line x1="18" y1="6" x2="18" y2="30" stroke="white" stroke-width="1.5"/><line x1="8" y1="12" x2="28" y2="24" stroke="white" stroke-width="1.5"/><line x1="28" y1="12" x2="8" y2="24" stroke="white" stroke-width="1.5"/></svg><span class="tool-logo-name">Perplexity</span></div>
+      <div class="tool-logo-item"><img src="/logos/neverbounce.png" alt="NeverBounce" style="width:36px;height:36px;object-fit:contain;"/><span class="tool-logo-name">NeverBounce</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     ANTHROPIC ACADEMY CALLOUT
+============================================================ -->
+<div class="section" id="anthropic-academy">
+  <div class="aa-callout reveal">
+    <div class="aa-callout-stripe"></div>
+    <div class="aa-callout-grid">
+      <div class="aa-callout-left">
+        <div class="aa-callout-logoframe"><img src="/logos/claude.svg" alt="Claude" /></div>
+        <div class="aa-callout-eyebrow">Anthropic Academy · Verified</div>
+        <h2 class="aa-callout-title">Claude Partner<br/>Network <span class="aa-callout-it">learning path</span> <span class="aa-callout-accent">complete.</span></h2>
+        <p class="aa-callout-sub">All four required courses for Claude Partner Network enablement, completed and verifiable on Anthropic's training platform. Building, deploying, and training others on Claude — at the API, MCP, agent skills, and Claude Code layers.</p>
+        <div class="aa-callout-badges">
+          <span class="aa-pill"><span class="aa-pill-dot"></span>Claude API</span>
+          <span class="aa-pill"><span class="aa-pill-dot"></span>MCP</span>
+          <span class="aa-pill"><span class="aa-pill-dot"></span>Agent Skills</span>
+          <span class="aa-pill"><span class="aa-pill-dot"></span>Claude Code</span>
+        </div>
+      </div>
+      <div class="aa-callout-right">
+        <div class="aa-course-card">
+          <div class="aa-course-num">01</div>
+          <div class="aa-course-body">
+            <div class="aa-course-name">Introduction to Claude Agent Skills</div>
+            <div class="aa-course-meta">Anthropic Academy · <a href="https://verify.skilljar.com/c/7fsyot56tqvx" target="_blank" rel="noopener">verify ↗</a></div>
+          </div>
+          <div class="aa-course-check"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="currentColor"/><path d="M4.5 8L7 10.5L11.5 5.5" stroke="#0f0e0c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="aa-course-card">
+          <div class="aa-course-num">02</div>
+          <div class="aa-course-body">
+            <div class="aa-course-name">Claude with Anthropic API</div>
+            <div class="aa-course-meta">Anthropic Academy · <a href="https://verify.skilljar.com/c/drxwpx4h76o4" target="_blank" rel="noopener">verify ↗</a></div>
+          </div>
+          <div class="aa-course-check"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="currentColor"/><path d="M4.5 8L7 10.5L11.5 5.5" stroke="#0f0e0c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="aa-course-card">
+          <div class="aa-course-num">03</div>
+          <div class="aa-course-body">
+            <div class="aa-course-name">Introduction to Model Context Protocol</div>
+            <div class="aa-course-meta">Anthropic Academy · <a href="https://verify.skilljar.com/c/fofso7i75am9" target="_blank" rel="noopener">verify ↗</a></div>
+          </div>
+          <div class="aa-course-check"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="currentColor"/><path d="M4.5 8L7 10.5L11.5 5.5" stroke="#0f0e0c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="aa-course-card">
+          <div class="aa-course-num">04</div>
+          <div class="aa-course-body">
+            <div class="aa-course-name">Claude Code in Action</div>
+            <div class="aa-course-meta">Anthropic Academy · <a href="https://verify.skilljar.com/c/y5qhf6ddhp73" target="_blank" rel="noopener">verify ↗</a></div>
+          </div>
+          <div class="aa-course-check"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="currentColor"/><path d="M4.5 8L7 10.5L11.5 5.5" stroke="#0f0e0c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     BIG METRICS STATEMENT
+============================================================ -->
+<div class="bigmetrics reveal">
+  <div class="bigmetrics-eyebrow">Track Record · By the Numbers</div>
+  <h2 class="bigmetrics-head">Two decades of <span class="it">enterprise rigour.</span><br/>One year of <span class="red">applied AI shipping.</span></h2>
+  <div class="bigmetrics-grid">
+    <div class="bm-cell">
+      <div class="bm-n">28<sup>+</sup></div>
+      <div class="bm-label">Production Scenarios</div>
+      <div class="bm-d"><strong>Live agentic pipelines</strong> across B2B sales, support triage, document AI, voice AI, HR &amp; finance.</div>
+    </div>
+    <div class="bm-cell">
+      <div class="bm-n">4</div>
+      <div class="bm-label">Continents</div>
+      <div class="bm-d">Training delivered across <strong>APAC, EMEA, Americas &amp; India</strong> — in-person and remote, executive to engineer.</div>
+    </div>
+    <div class="bm-cell">
+      <div class="bm-n">25<sup>+</sup></div>
+      <div class="bm-label">Years In Ops</div>
+      <div class="bm-d">BT, Telstra, SITA, Nortel, Mphasis, Hexaware. The <strong>scar tissue</strong> behind every architecture decision.</div>
+    </div>
+    <div class="bm-cell">
+      <div class="bm-n">12<sup>+</sup></div>
+      <div class="bm-label">Active Certifications</div>
+      <div class="bm-d">Anthropic Academy ×4, ISO/IEC 42001, AICERTs ×4, Microsoft Copilot, Google Cloud, IIM Kolkata.</div>
+    </div>
   </div>
 </div>
 
@@ -1280,6 +2327,101 @@ details[open] .faq-plus { transform: rotate(45deg); color: var(--accent); }
       <div class="ucc ftr"><div class="ucc-top"><span class="ucc-ico">🔄</span><span class="ucc-badge b-future">◎ Positioning Now</span></div><div class="ucc-title">Autonomous Revenue Operations</div><p class="ucc-desc">CRM stays clean without human effort. Deals auto-progress on signal triggers. Pipeline gaps flagged proactively. Forecast anomalies raised before the board meeting. RevOps teams shrink while output grows — the full automation of the GTM function.</p><div class="ucc-tags"><span class="utag">CRM Automation</span><span class="utag">HubSpot</span><span class="utag">Pipeline AI</span><span class="utag">Signal Triggers</span></div><div class="ucc-proof">→ Direct extension of sales pipeline + SDR automation in portfolio.</div></div>
       <div class="ucc ftr"><div class="ucc-top"><span class="ucc-ico">🌐</span><span class="ucc-badge b-future">◎ Positioning Now</span></div><div class="ucc-title">Omnichannel Journey Orchestration</div><p class="ucc-desc">A single signal — visit, email open, support ticket, or social mention — triggers a coordinated response across email, WhatsApp, and Slack. The experience feels personal and timely. Every touchpoint logged, measurable, and optimised continuously.</p><div class="ucc-tags"><span class="utag">Multi-channel</span><span class="utag">WhatsApp API</span><span class="utag">Email Sequences</span><span class="utag">CRM Sync</span></div><div class="ucc-proof">→ Extension of signal pipeline + email automation patterns proven in portfolio.</div></div>
       <div class="ucc ftr"><div class="ucc-top"><span class="ucc-ico">🔧</span><span class="ucc-badge b-future">◎ Positioning Now</span></div><div class="ucc-title">AI Procurement Intelligence</div><p class="ucc-desc">Monitor supplier signals, price changes, and availability automatically. AI generates RFQs, evaluates responses, flags anomalies. Connects to ERP via API. Reduces procurement cycle time significantly — directly relevant to distribution and manufacturing verticals.</p><div class="ucc-tags"><span class="utag">Supply Chain AI</span><span class="utag">API Integration</span><span class="utag">Supplier Monitor</span><span class="utag">ERP Connectors</span></div><div class="ucc-proof">→ Background in B2B distribution (Vishal Enterprises) and electronics procurement.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     CASE STUDY — HEXAWARE
+============================================================ -->
+<div class="casestudy reveal">
+  <div class="cs-head">
+    <div>
+      <span class="cs-badge">Live in Production</span>
+    </div>
+    <div>
+      <div class="cs-client">Featured Case Study · Hexaware Technologies</div>
+      <h2 class="cs-title">From <span class="it">ticket backlog</span> to <span style="color:var(--accent)">AI-routed in 4 seconds.</span></h2>
+      <p class="cs-sub">A live, in-production agentic pipeline for IT &amp; support ticket triage. The same architectural pattern adapts to any helpdesk, claim-handling, or escalation workflow — wherever a human is currently reading, classifying, and routing requests by hand.</p>
+    </div>
+  </div>
+
+  <div class="cs-grid">
+    <div class="cs-block">
+      <div class="cs-block-eyebrow">The Problem</div>
+      <div class="cs-list">
+        <div class="cs-li"><span class="cs-li-mark">→</span><div>Inbound support tickets arriving via multiple channels, all read manually by L1 staff before being routed to the right queue.</div></div>
+        <div class="cs-li"><span class="cs-li-mark">→</span><div><strong>Slow first-response times</strong>. Critical incidents missed in noise. Senior engineers pulled into triage instead of resolution.</div></div>
+        <div class="cs-li"><span class="cs-li-mark">→</span><div>Existing rule-based routing too brittle — kept misclassifying anything written in non-standard language or with mixed intent.</div></div>
+        <div class="cs-li"><span class="cs-li-mark">→</span><div>Standard ITSM vendor add-ons priced per-seat; bill scaled with headcount, not value delivered.</div></div>
+      </div>
+    </div>
+    <div class="cs-block">
+      <div class="cs-block-eyebrow">The Solution</div>
+      <div class="cs-list">
+        <div class="cs-li"><span class="cs-li-mark">→</span><div>Webhook-triggered Make.com scenario receives every ticket the moment it lands.</div></div>
+        <div class="cs-li"><span class="cs-li-mark">→</span><div><strong>OpenAI classification layer</strong> reads the ticket, infers type, priority, and SLA risk — handles natural language and mixed intent gracefully.</div></div>
+        <div class="cs-li"><span class="cs-li-mark">→</span><div>Conditional routing pushes the ticket directly into the right Slack channel with full context, owner suggestion, and SLA clock.</div></div>
+        <div class="cs-li"><span class="cs-li-mark">→</span><div>Critical &amp; P1 tickets auto-escalate with paging logic. Everything logged for audit, MTTR analysis, and prompt-version A/B testing.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-arch">
+    <div class="cs-arch-eyebrow">// Pipeline Architecture</div>
+    <div class="cs-flow">
+      <div class="cs-node">
+        <div class="cs-node-label">01 · TRIGGER</div>
+        <div class="cs-node-name">Ticket Webhook</div>
+        <div class="cs-node-tool">ITSM / Email / Form</div>
+      </div>
+      <div class="cs-arrow">▸</div>
+      <div class="cs-node">
+        <div class="cs-node-label">02 · CLASSIFY</div>
+        <div class="cs-node-name">AI Type + Priority</div>
+        <div class="cs-node-tool">OpenAI · Versioned Prompt</div>
+      </div>
+      <div class="cs-arrow">▸</div>
+      <div class="cs-node">
+        <div class="cs-node-label">03 · ROUTE</div>
+        <div class="cs-node-name">Conditional Logic</div>
+        <div class="cs-node-tool">Make.com Router</div>
+      </div>
+      <div class="cs-arrow">▸</div>
+      <div class="cs-node">
+        <div class="cs-node-label">04 · NOTIFY</div>
+        <div class="cs-node-name">Slack + Owner Tag</div>
+        <div class="cs-node-tool">Slack API + SLA Clock</div>
+      </div>
+      <div class="cs-arrow">▸</div>
+      <div class="cs-node">
+        <div class="cs-node-label">05 · LOG</div>
+        <div class="cs-node-name">Audit + A/B Store</div>
+        <div class="cs-node-tool">Google Sheets · Versioned</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-results">
+    <div class="cs-res">
+      <div class="cs-res-n">~4<sup>s</sup></div>
+      <div class="cs-res-label">Median Triage Time</div>
+      <div class="cs-res-d">From inbound to correctly-routed Slack notification — fully automated, no human read.</div>
+    </div>
+    <div class="cs-res">
+      <div class="cs-res-n">0</div>
+      <div class="cs-res-label">L1 Read Required</div>
+      <div class="cs-res-d">Senior engineers see only escalations. Triage now a logged background process, not a job role.</div>
+    </div>
+    <div class="cs-res">
+      <div class="cs-res-n">9</div>
+      <div class="cs-res-label">Live Executions</div>
+      <div class="cs-res-d">Production runs confirmed at handover. Scenario remains live and is the template for two more deployments in flight.</div>
+    </div>
+    <div class="cs-res">
+      <div class="cs-res-n">100<sup>%</sup></div>
+      <div class="cs-res-label">Prompt Versioned</div>
+      <div class="cs-res-d">Every classification call A/B tested. Marketing &amp; Ops can update routing logic without touching the build.</div>
     </div>
   </div>
 </div>
