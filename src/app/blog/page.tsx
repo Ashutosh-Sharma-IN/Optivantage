@@ -27,6 +27,7 @@ const categoryColors: Record<BlogCategory, string> = {
   'AI Training & Advisory': 'bg-purple-500/20 text-purple-300 border-purple-500/30',
   'IT Infrastructure': 'bg-blue-500/20 text-blue-300 border-blue-500/30',
   'IT Equipment & Rentals': 'bg-green-500/20 text-green-300 border-green-500/30',
+  'AI Automation & Agentic AI': 'bg-orange-500/20 text-orange-300 border-orange-500/30',
   'General': 'bg-gray-500/20 text-gray-300 border-gray-500/30',
 };
 
