@@ -11,7 +11,7 @@ const BASE_URL = "https://www.optivantage.in";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Optivantage | AI Training, IT Infrastructure & Equipment Rentals | India & Online",
+    default: "Optivantage | AI Training, Automation, IT Infrastructure & Equipment | India & Online",
     template: "%s | Optivantage",
   },
   description:
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: BASE_URL,
     siteName: "Optivantage Technologies",
-    title: "Optivantage | AI Training, IT Infrastructure & Equipment Rentals",
+    title: "Optivantage | AI Training, Automation, IT Infrastructure & Equipment",
     description:
-      "Specialist enterprise IT services — AI training (Copilot 365, ChatGPT, ISO 42001 governance), IT infrastructure (Cisco, Fortinet, Vertiv), and IT equipment rentals. Founder-led. Pan-India and online.",
+      "Specialist enterprise IT services — AI training (Copilot 365, ChatGPT, ISO 42001), AI automation (Make.com, agentic AI), IT infrastructure (Cisco, Fortinet, Vertiv), and IT equipment supply & rentals. Founder-led. Pan-India and online.",
     images: [
       {
         url: `${BASE_URL}/logo.png`,
@@ -64,9 +64,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Optivantage | AI Training, IT Infrastructure & Equipment Rentals",
+    title: "Optivantage | AI Training, Automation, IT Infrastructure & Equipment",
     description:
-      "Specialist AI training, IT infrastructure, and IT equipment rentals. Founder-led. 25 years enterprise IT expertise. Pan-India and online.",
+      "Specialist AI training, AI automation, IT infrastructure, and IT equipment supply & rentals. Founder-led. 25 years enterprise IT expertise at BT, Telstra, SITA. Pan-India and online.",
     images: [`${BASE_URL}/logo.png`],
   },
   alternates: {
@@ -317,7 +317,7 @@ const globalSchema = {
       url: BASE_URL,
       name: "Optivantage Technologies",
       description:
-        "AI Training, IT Infrastructure & Equipment Rentals — Specialist enterprise IT services. Pan-India and online.",
+        "AI Training, AI Automation, IT Infrastructure & IT Equipment — Specialist enterprise IT services. Founder-led. Pan-India and online.",
       publisher: { "@id": `${BASE_URL}/#organization` },
       inLanguage: "en-IN",
     },
@@ -350,7 +350,7 @@ export default function RootLayout({
               <div>
                 <h4 className="text-lg font-bold mb-4 text-white">Optivantage</h4>
                 <p className="text-sm text-gray-400 leading-relaxed">
-                  AI Training &amp; Advisory. IT Infrastructure. IT Equipment &amp; Rentals.
+                  AI Training &amp; Advisory. AI Automation. IT Infrastructure. IT Equipment &amp; Rentals.
                 </p>
                 <p className="text-sm text-gray-400 mt-4">
                   Four focused services. 25 years of battle-tested expertise. Cisco &amp; Vertiv authorised partner.

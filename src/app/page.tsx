@@ -10,8 +10,8 @@ import AdsBanner from '@/components/AdsBanner';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'Optivantage | AI Training, IT Infrastructure & Equipment Rentals | India',
-  description: 'Optivantage Technologies — specialist AI training (Copilot 365, ChatGPT, ISO 42001), IT infrastructure (Cisco, Fortinet, Vertiv), and IT equipment rentals. Founder-led. 25 years enterprise IT expertise at BT, Telstra, and SITA. 1,000+ professionals trained. Pan-India and online.',
+  title: 'Optivantage | AI Training, Automation, IT Infrastructure & Equipment | India',
+  description: 'Optivantage Technologies — founder-led specialist in AI training (Copilot 365, ChatGPT, ISO 42001), AI automation (Make.com, agentic AI), IT infrastructure (Cisco, Fortinet, Vertiv), and IT equipment supply & rentals. 25 years enterprise IT expertise at BT, Telstra, SITA. 1,000+ professionals trained. Pan-India and online.',
   keywords: [
     'AI training India',
     'AI consulting Delhi',
@@ -207,11 +207,11 @@ export default function Home() {
             Four things we do exceptionally well.
           </p>
           <p className="text-lg text-text-muted mb-10 leading-relaxed max-w-3xl mx-auto">
-            Optivantage Technologies is a specialist enterprise IT firm based in India, offering AI training and advisory, IT infrastructure design and build, and IT equipment supply and rentals. Founder-led by Ashutosh Sharma with 25 years of enterprise IT experience at BT, Telstra, and SITA — 1,000+ professionals trained, pan-India and online.
+            Optivantage is a founder-led specialist for Indian enterprises that need practical AI — not slide decks. We train your teams on Copilot, ChatGPT, and ISO 42001 governance. We build production automation with Make.com and agentic AI. We design and deliver IT infrastructure. We supply and rent enterprise hardware. Ashutosh Sharma leads every engagement personally — 25 years at BT, Telstra, and SITA, 1,000+ professionals trained.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link href="/contact" className="px-8 py-4 bg-brand hover:bg-brand-hover text-white font-semibold rounded-lg transition-all flex items-center justify-center gap-2">
-              Start a Conversation <ArrowRight size={20} />
+              Book a 30-Minute Discovery Call <ArrowRight size={20} />
             </Link>
             <Link href="/services" className="px-8 py-4 border border-white/20 hover:bg-white/5 text-white font-semibold rounded-lg transition-all">
               Our Services
@@ -234,7 +234,7 @@ export default function Home() {
             <div className="text-sm text-text-muted mt-1">Enterprise Clients</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-white">3</div>
+            <div className="text-4xl font-bold text-white">4</div>
             <div className="text-sm text-text-muted mt-1">Focused Areas. Zero Generalism.</div>
           </div>
         </div>
