@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Script from 'next/script';
 import { blogPosts, getPostBySlug } from '@/lib/blog-data';
 import BlogPost from './BlogPostClient';
 
@@ -47,5 +48,48 @@ export default async function BlogPostPage(
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) notFound();
-  return <BlogPost slug={slug} />;
+
+  const url = `${BASE_URL}/blog/${slug}`;
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt,
+    url,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      '@type': 'Person',
+      name: 'Ashutosh Sharma',
+      url: `${BASE_URL}/about`,
+      jobTitle: 'Founder & Managing Director',
+      worksFor: {
+        '@type': 'Organization',
+        name: 'Optivantage Technologies',
+        url: BASE_URL,
+      },
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Optivantage Technologies',
+      url: BASE_URL,
+      logo: { '@type': 'ImageObject', url: `${BASE_URL}/logo.png` },
+    },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    image: `${BASE_URL}/logo.png`,
+    inLanguage: 'en-IN',
+    keywords: post.category,
+  };
+
+  return (
+    <>
+      <Script
+        id={`article-schema-${slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        strategy="beforeInteractive"
+      />
+      <BlogPost slug={slug} />
+    </>
+  );
 }

@@ -95,3 +95,13 @@ Production-grade AI automation — no-code/low-code workflows, agentic systems, 
 - Case Studies: https://www.optivantage.in/case-studies
 - AI Automation & Agentic AI: https://www.optivantage.in/ai-automation
 - Contact: https://www.optivantage.in/contact
+
+## Blog & Insights
+Authored by Ashutosh Sharma. Practical articles on AI adoption, Copilot, ISO 42001, IT infrastructure, and automation — written from 25 years of enterprise IT delivery experience.
+
+- Why AI Training in India Fails to Close the Skills Gap: https://www.optivantage.in/blog/why-ai-training-india-fails-skills-gap
+- Your Copilot Licence Is Collecting Dust. Here's Why.: https://www.optivantage.in/blog/copilot-licence-unused-why
+- CRAFT: The Prompting Framework That Changes What Copilot Returns: https://www.optivantage.in/blog/craft-prompting-framework-copilot
+- ISO 42001: What Indian Enterprises Are Missing Beyond the Badge: https://www.optivantage.in/blog/iso-42001-indian-enterprises-beyond-the-badge
+- GCC Expansion in India: Why Your Network Matters More Than Your AI Licence: https://www.optivantage.in/blog/gcc-expansion-india-network-ai-readiness
+- Why AI Governance Is the Missing Piece in Your Enterprise AI Strategy: https://www.optivantage.in/blog/why-ai-governance-matters-iso-42001
