@@ -66,6 +66,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.85,
     },
+    // hiring-signal-sample is excluded from sitemap — it is a request gate, not a content page
     {
       url: `${BASE_URL}/blog`,
       lastModified: new Date(),

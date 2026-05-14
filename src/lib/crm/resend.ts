@@ -178,6 +178,86 @@ export async function sendContactConfirmation(params: {
 }
 
 // ─────────────────────────────────────────────
+// Internal notification: Hiring Signal Sample Report request
+// Sends to contact@optivantage.in with all form fields
+// ─────────────────────────────────────────────
+export async function sendHiringSignalNotification(params: {
+  name: string;
+  email: string;
+  phone?: string;
+  company: string;
+  website?: string;
+  serviceYouSell: string;
+  targetGeography: string;
+  targetCustomerType: string;
+  message?: string;
+}): Promise<{ ok: boolean; error?: string }> {
+  const resend = getResend();
+  if (!resend) return { ok: true }; // silently skip if not configured
+
+  const rows = [
+    ['Name',                 params.name],
+    ['Email',                params.email],
+    ['Phone',                params.phone || '—'],
+    ['Company',              params.company],
+    ['Company website',      params.website || '—'],
+    ['Service they sell',    params.serviceYouSell],
+    ['Target geography',     params.targetGeography],
+    ['Target customer type', params.targetCustomerType],
+    ['Message',              params.message || '—'],
+  ];
+
+  const tableRows = rows
+    .map(
+      ([label, value]) => `
+        <tr>
+          <td style="padding:10px 14px;font-size:13px;color:#64748B;font-weight:600;width:180px;vertical-align:top;">${label}</td>
+          <td style="padding:10px 14px;font-size:14px;color:#0B1120;vertical-align:top;">${value}</td>
+        </tr>`
+    )
+    .join('');
+
+  const html = `
+<!DOCTYPE html>
+<html>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; margin: 0; padding: 20px;">
+  <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+    <div style="background: #0B1120; padding: 24px 32px;">
+      <p style="color: #FF4D00; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; margin: 0 0 6px 0;">OPTIVANTAGE AI LAB</p>
+      <h2 style="color: #ffffff; font-size: 18px; margin: 0;">New request: Hiring Signal Sample Report</h2>
+    </div>
+    <div style="padding: 28px 32px;">
+      <p style="color: #475569; font-size: 14px; margin: 0 0 20px 0;">
+        A new sample report request has been submitted via <strong>optivantage.in/ai-lab/hiring-signal-sample</strong>.
+        Review the details below and send the sample report manually.
+      </p>
+      <table style="width:100%;border-collapse:collapse;background:#f8fafc;border-radius:8px;overflow:hidden;">
+        ${tableRows}
+      </table>
+      <p style="color: #94A3B8; font-size: 12px; margin: 24px 0 0 0;">
+        Submitted at ${new Date().toUTCString()}
+      </p>
+    </div>
+  </div>
+</body>
+</html>`;
+
+  try {
+    const { error } = await resend.emails.send({
+      from: `Optivantage AI Lab <${FROM}>`,
+      to: 'contact@optivantage.in',
+      replyTo: params.email,
+      subject: 'New request: Hiring Signal Sample Report',
+      html,
+    });
+    if (error) return { ok: false, error: error.message };
+    return { ok: true };
+  } catch (err) {
+    return { ok: false, error: String(err) };
+  }
+}
+
+// ─────────────────────────────────────────────
 // Resource download email (gated download)
 // ─────────────────────────────────────────────
 export async function sendResourceEmail(params: {
