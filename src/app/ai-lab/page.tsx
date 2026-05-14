@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
+import SampleReportForm from '@/components/SampleReportForm';
 import {
   FlaskConical,
   Target,
@@ -354,13 +355,14 @@ export default function AILabPage() {
             </p>
           </div>
 
-          <div className="text-center">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-brand hover:bg-brand-hover text-white font-semibold rounded-lg transition-all"
-            >
-              Request a Sample Report <ArrowRight size={16} />
-            </Link>
+          {/* Inline form — collects sales context before we build the report */}
+          <div className="bg-navy-800 border border-white/5 rounded-2xl p-8 md:p-10">
+            <h3 className="text-white font-bold text-xl mb-2">Request a Sample Report</h3>
+            <p className="text-text-muted text-sm mb-8">
+              Tell us a little about your business and what you sell. We will put together a sample pack
+              tailored to your market and send it within 2 business days.
+            </p>
+            <SampleReportForm />
           </div>
         </div>
       </section>
