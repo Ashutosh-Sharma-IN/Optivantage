@@ -23,19 +23,21 @@ export default function HiringSignalRequestForm() {
     const get = (k: string) => (d.get(k) as string) ?? '';
 
     try {
-      const res = await fetch('/api/hiring-signal-request', {
+      const res = await fetch('https://formspree.io/f/maqwnqnp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name:               get('name'),
-          email:              get('email'),
-          phone:              get('phone'),
-          company:            get('company'),
-          website:            get('website'),
-          serviceYouSell:     get('service_you_sell'),
-          targetGeography:    get('target_geography'),
-          targetCustomerType: get('target_customer_type'),
-          message:            get('message'),
+          _subject:              'New request: Hiring Signal Sample Report',
+          name:                  get('name'),
+          email:                 get('email'),
+          phone:                 get('phone') || '—',
+          company:               get('company'),
+          website:               get('website') || '—',
+          'service they sell':   get('service_you_sell'),
+          'target geography':    get('target_geography'),
+          'target customer type': get('target_customer_type'),
+          message:               get('message') || '—',
+          source:                'AI Lab — Hiring Signal Sample Request',
         }),
       });
 
