@@ -23,7 +23,7 @@ export default function HiringSignalRequestForm() {
     const get = (k: string) => (d.get(k) as string) ?? '';
 
     try {
-      const res = await fetch('https://formspree.io/f/maqwnqnp', {
+      const res = await fetch('https://formspree.io/f/xqenogbw', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
