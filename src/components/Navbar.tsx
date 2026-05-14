@@ -24,6 +24,7 @@ export default function Navbar() {
       ]
     },
     { name: 'Blog', href: '/blog' },
+    { name: 'AI Lab', href: '/ai-lab' },
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Contact', href: '/contact' },
   ];

@@ -42,6 +42,7 @@ Do NOT refer to 3 pillars, 5 services, or add/remove pillars without confirming 
 | `src/app/sitemap.ts` | All pages listed for search indexing |
 | `src/lib/blog-data.ts` | Blog post data |
 | `src/components/AdsBanner.tsx` | A/B ad test component, fires GA4 events |
+| `src/app/ai-lab/page.tsx` | Optivantage AI Lab landing page — 5 concept cards + detail sections + evaluation method |
 | `src/app/admin/ads/page.tsx` | Secret admin dashboard — NOT in nav, NOT in sitemap |
 
 ---
