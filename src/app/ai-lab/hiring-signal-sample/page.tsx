@@ -207,8 +207,7 @@ export default function HiringSignalSamplePage() {
         <p className="text-white font-semibold mb-1">Ready to see it?</p>
         <p className="text-text-muted text-sm mb-6">Fill the form above — we will email the sample to you shortly.</p>
         <a
-          href="#top"
-          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+          href="#"
           className="inline-flex items-center gap-2 px-6 py-3 bg-brand hover:bg-brand-hover text-white font-semibold rounded-lg transition-all text-sm"
         >
           Request the Sample Report ↑
