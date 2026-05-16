@@ -16,6 +16,33 @@ Last updated: May 2026 (session 2).
 
 ---
 
+## AEO Audit — Live Product (added May 16 2026)
+
+A self-serve AI visibility scoring tool. Users enter their brand, get a free teaser score, pay ₹3,499 for a full report emailed to them.
+
+| Item | Detail |
+|------|--------|
+| **Page** | `src/app/aeo-audit/page.tsx` |
+| **Live URL** | https://www.optivantage.in/aeo-audit |
+| **Nav placement** | Services dropdown → last item: "AEO Audit — AI Visibility Score" |
+| **Backend** | https://aeo-visibility-tracker.onrender.com (Flask on Render.com) |
+| **Backend repo** | https://github.com/Ashutosh-Sharma-IN/aeo-visibility-tracker |
+| **Payment** | Razorpay live keys — account under review for optivantage.in (approved ~May 18) |
+| **Email delivery** | Resend from `reports@optivantage.in` — DNS propagating |
+
+### Env vars needed in Vercel for this page to work
+- `NEXT_PUBLIC_BACKEND_URL=https://aeo-visibility-tracker.onrender.com`
+- `NEXT_PUBLIC_RAZORPAY_KEY_ID=rzp_live_...` (the public key ID, NOT the secret)
+
+### How the page works
+Five states: `form → analyzing → result → paying → done`. The teaser calls `/api/teaser` (synchronous, ~15–18s). Payment calls `/api/create-order` then `/api/purchase`. On successful payment, the backend runs the full analysis in a background thread and emails the report. The page never waits for the report — it shows "check your email" immediately after payment.
+
+### Pending before first real paid transaction
+- Razorpay account approval for optivantage.in domain (submitted May 16, 24–48 hours)
+- Resend domain verification for `optivantage.in` (DNS records added May 16, propagating)
+
+---
+
 ## Current Service Structure — FOUR PILLARS (as of May 2026)
 
 This is the agreed taxonomy. Use it everywhere — pages, footer, llms.txt, schema, copy.
@@ -168,12 +195,15 @@ Never use: delve, harness, leverage, synergies, robust, holistic, seamless, tran
 
 ---
 
-## Outstanding Issues (as of May 2026)
+## Outstanding Issues (as of May 16 2026)
 
 1. **Apex domain redirect** — `optivantage.in` shows GoDaddy "Launching Soon" page. Must be fixed in GoDaddy domain panel (URL forwarding to `https://www.optivantage.in`). Cannot be fixed in code.
 2. **Ad images need retake** — v3 clipping, v1/v2/v3/v4/v5 location text needs updating
-3. **Resend + HubSpot not configured** — placeholder keys in `.env.local`. Formspree is handling all email delivery for now.
-4. **SampleReportForm.tsx** — this component still exists in `src/components/` but is no longer used anywhere. Safe to delete in a future cleanup session.
+3. **Resend configured for AEO Audit** — `RESEND_API_KEY` is active in Render (for AEO report delivery). The optivantage.in site itself (`src/lib/crm/resend.ts`) still has a placeholder key in `.env.local` — Formspree handles contact form delivery.
+4. **HubSpot not configured** — placeholder key in `.env.local`. Not blocking anything.
+5. **SampleReportForm.tsx** — unused component, safe to delete in a future cleanup session.
+6. **Razorpay approval pending** — optivantage.in submitted for domain approval May 16. Until approved, the AEO Audit payment flow will reject transactions. Expected ~May 18.
+7. **Last updated**: `CLAUDE.md` — May 16 2026
 
 ---
 
