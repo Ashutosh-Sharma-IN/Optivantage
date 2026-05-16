@@ -68,7 +68,7 @@ export default function AeoAuditPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ brand: form.brand, description: form.description }),
-        signal: AbortSignal.timeout(45_000),
+        signal: AbortSignal.timeout(90_000),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Analysis failed. Please try again.");
@@ -139,6 +139,7 @@ export default function AeoAuditPage() {
   const inputStyle: React.CSSProperties = {
     width: "100%", padding: "10px 14px", border: `1px solid ${BORDER}`,
     borderRadius: 8, fontSize: 14, fontFamily: FONT, boxSizing: "border-box",
+    color: "#0f172a", background: "#ffffff",
   };
 
   const labelStyle: React.CSSProperties = {
