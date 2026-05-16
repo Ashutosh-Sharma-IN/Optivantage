@@ -256,12 +256,28 @@ export default function AeoAuditPage() {
       <div style={{ background: "#fff7ed", border: "1px solid #fed7aa", borderRadius: 16,
                     padding: "28px 32px" }}>
         <div style={{ fontSize: 16, fontWeight: 700, color: NAVY, marginBottom: 8 }}>
-          Get the full 25-query report
+          {result.indicative_score >= 60
+            ? `You scored well on direct queries. Here's what the full picture looks like.`
+            : result.indicative_score >= 35
+            ? `You're appearing in some searches — but missing others.`
+            : `AI engines have almost no signal about ${result.brand} yet.`}
         </div>
         <div style={{ fontSize: 14, color: MUTED, lineHeight: 1.7, marginBottom: 20 }}>
-          The full report runs all 25 queries — including 20 category-level questions your
-          potential customers are actually asking AI engines. You&apos;ll see exactly where
-          your brand shows up (and where it doesn&apos;t), with a score breakdown by query.
+          {result.band_label === "Dominant" && (
+            <>You&apos;re in strong shape. The full 25-query report confirms which category queries are driving that score and flags any emerging competitors who are starting to appear alongside <strong>{result.brand}</strong>. Worth knowing before they close the gap.</>
+          )}
+          {result.band_label === "Strong presence" && (
+            <>Strong direct scores often mask gaps in category searches — the queries that happen before anyone knows your name. The full report runs 20 category questions your potential customers are actually asking. Most &ldquo;strong&rdquo; brands drop 15–25 points there. Find out exactly where <strong>{result.brand}</strong> stands, and what it takes to get to 90+.</>
+          )}
+          {result.band_label === "Visible" && (
+            <>You&apos;re appearing in some category searches. The full report shows which 20 queries are working, which aren&apos;t, and what&apos;s separating <strong>{result.brand}</strong> from brands scoring 80+. Most companies at this level have 2–3 fixable gaps.</>
+          )}
+          {result.band_label === "Emerging" && (
+            <><strong>{result.brand}</strong> shows up when asked directly, but AI doesn&apos;t volunteer you in category searches yet. The full report runs the 20 questions your potential customers actually ask — you&apos;ll see exactly where competitors are showing up instead of you.</>
+          )}
+          {result.band_label === "Not yet findable" && (
+            <>A score this low means AI engines have almost no signal about <strong>{result.brand}</strong>. The full 25-query report shows exactly what&apos;s missing — which categories you&apos;re invisible in, who AI is recommending instead, and what content you need to create to start appearing.</>
+          )}
         </div>
         <div style={{ marginBottom: 20 }}>
           <label style={labelStyle}>Confirm your email</label>
