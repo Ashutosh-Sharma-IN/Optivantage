@@ -59,10 +59,9 @@ export default async function BlogPostPage(
     datePublished: post.date,
     dateModified: post.date,
     author: {
-      '@type': 'Person',
-      name: 'Ashutosh Sharma',
-      url: `${BASE_URL}/about`,
-      jobTitle: 'Founder & Managing Director',
+      '@type': 'Organization',
+      name: 'Optivantage Technologies',
+      url: BASE_URL,
       worksFor: {
         '@type': 'Organization',
         name: 'Optivantage Technologies',

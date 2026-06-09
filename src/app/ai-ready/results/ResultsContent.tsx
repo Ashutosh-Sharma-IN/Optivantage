@@ -1,52 +1,48 @@
 "use client";
-import { useSearchParams } from 'next/navigation';
-import Link from 'next/link';
-import ScoreDial from '@/components/quiz/ScoreDial';
-import CalendlyEmbed from '@/components/quiz/CalendlyEmbed';
-import { CheckCircle, ArrowRight, RotateCcw } from 'lucide-react';
+import { useSearchParams } from "next/navigation";
+import Link from "next/link";
+import ScoreDial from "@/components/quiz/ScoreDial";
+import CalendlyEmbed from "@/components/quiz/CalendlyEmbed";
+import { CheckCircle, ArrowRight, RotateCcw } from "lucide-react";
 
 const TIER_HEADLINES: Record<string, string> = {
-  '1': 'You\'re in the AI Awareness Stage',
-  '2': 'You\'re at the AI Adopter Stage',
-  '3': 'You\'re an AI Leader',
+  "1": "You're in the AI Awareness Stage",
+  "2": "You're at the AI Adopter Stage",
+  "3": "You're an AI Leader",
 };
 
 const TIER_DESCRIPTIONS: Record<string, string> = {
-  '1':
-    'Your organisation has the curiosity but needs a structured starting point. The most valuable next step is a guided AI Readiness Snapshot — a 4-week engagement that gives you a clear picture of where you stand and what to do first.',
-  '2':
-    'You have solid foundations. What you need now is a clear, phased AI Adoption Roadmap — an 8–12 week engagement that translates your existing work into a vendor-evaluated, implementation-ready strategy.',
-  '3':
-    'Your organisation is ahead of the curve. What accelerates results at this stage is an experienced advisory partner to navigate complex decisions, manage vendor relationships, and sustain momentum quarter over quarter.',
+  "1": "Your organisation has the curiosity but needs a structured starting point. The most valuable next step is a guided AI Readiness Snapshot — a 4-week engagement that gives you a clear picture of where you stand and what to do first.",
+  "2": "You have solid foundations. What you need now is a clear, phased AI Adoption Roadmap — an 8–12 week engagement that translates your existing work into a vendor-evaluated, implementation-ready strategy.",
+  "3": "Your organisation is ahead of the curve. What accelerates results at this stage is an experienced advisory partner to navigate complex decisions, manage vendor relationships, and sustain momentum quarter over quarter.",
 };
 
 const TIER_CTA: Record<string, string> = {
-  '1': 'Book a Free 30-Min AI Readiness Chat',
-  '2': 'Book a Free 45-Min AI Strategy Call',
-  '3': 'Talk to Ashutosh About Advisory',
+  "1": "Book a Free 30-Min AI Readiness Chat",
+  "2": "Book a Free 45-Min AI Strategy Call",
+  "3": "Talk to Our Team About Advisory",
 };
 
 const TIER_COLORS: Record<string, string> = {
-  '1': 'text-amber-400',
-  '2': 'text-blue-400',
-  '3': 'text-emerald-400',
+  "1": "text-amber-400",
+  "2": "text-blue-400",
+  "3": "text-emerald-400",
 };
 
 export default function ResultsContent() {
   const params = useSearchParams();
 
-  const score = parseInt(params.get('score') ?? '50', 10);
-  const tier = (params.get('tier') ?? '1') as '1' | '2' | '3';
-  const name = decodeURIComponent(params.get('name') ?? 'there');
-  const bulletsRaw = params.get('bullets') ?? '[]';
+  const score = parseInt(params.get("score") ?? "50", 10);
+  const tier = (params.get("tier") ?? "1") as "1" | "2" | "3";
+  const name = decodeURIComponent(params.get("name") ?? "there");
+  const bulletsRaw = params.get("bullets") ?? "[]";
   const bullets: string[] = JSON.parse(decodeURIComponent(bulletsRaw));
   const calendlyUrl =
-    process.env.NEXT_PUBLIC_CALENDLY_URL ?? 'https://calendly.com/optivantage';
+    process.env.NEXT_PUBLIC_CALENDLY_URL ?? "https://calendly.com/optivantage";
 
   return (
     <section className="py-12 px-4">
       <div className="max-w-3xl mx-auto">
-
         {/* Header */}
         <div className="text-center mb-10">
           <p className="text-brand font-semibold text-sm uppercase tracking-widest mb-2">
@@ -104,9 +100,10 @@ export default function ResultsContent() {
             {TIER_CTA[tier]}
           </h3>
           <p className="text-text-muted text-sm mb-5">
-            30–45 minutes with Ashutosh Sharma — 25 years in telecom and IT ops,
-            AI certified, ISO 42001. No sales pitch. Just an honest conversation
-            about where your organisation is and what would actually move the needle.
+            30–45 minutes with our founding team — 25 years in telecom and IT
+            ops, AI certified, ISO 42001. No sales pitch. Just an honest
+            conversation about where your organisation is and what would
+            actually move the needle.
           </p>
           <div className="flex items-center gap-3">
             <a

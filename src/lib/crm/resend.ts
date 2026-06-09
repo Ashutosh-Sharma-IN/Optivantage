@@ -2,16 +2,16 @@
 // OptiVantage CRM — Resend Email Wrapper
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { Resend } from 'resend';
+import { Resend } from "resend";
 
 function getResend(): Resend | null {
   const key = process.env.RESEND_API_KEY;
-  if (!key || key === 'your_resend_api_key_here') return null;
+  if (!key || key === "your_resend_api_key_here") return null;
   return new Resend(key);
 }
 
-const FROM = process.env.RESEND_FROM_EMAIL ?? 'contact@optivantage.in';
-const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://optivantage.in';
+const FROM = process.env.RESEND_FROM_EMAIL ?? "contact@optivantage.in";
+const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://optivantage.in";
 
 // ─────────────────────────────────────────────
 // Quiz results email
@@ -28,15 +28,15 @@ export async function sendQuizResultsEmail(params: {
   if (!resend) return { ok: true }; // silently skip if not configured
 
   const tierLabels: Record<1 | 2 | 3, string> = {
-    1: 'AI Awareness Stage',
-    2: 'AI Adopter Stage',
-    3: 'AI Leader Stage',
+    1: "AI Awareness Stage",
+    2: "AI Adopter Stage",
+    3: "AI Leader Stage",
   };
 
   const tierNextStep: Record<1 | 2 | 3, string> = {
-    1: 'An AI Readiness Snapshot (4-week engagement) will give you a clear picture of where you stand and exactly what to do first.',
-    2: 'An AI Adoption Roadmap (8–12 weeks) will translate your foundations into a phased strategy with vendor evaluation and quick wins.',
-    3: 'An ongoing Advisory Retainer will keep your AI programme on track with quarterly reviews and direct strategic support.',
+    1: "An AI Readiness Snapshot (4-week engagement) will give you a clear picture of where you stand and exactly what to do first.",
+    2: "An AI Adoption Roadmap (8–12 weeks) will translate your foundations into a phased strategy with vendor evaluation and quick wins.",
+    3: "An ongoing Advisory Retainer will keep your AI programme on track with quarterly reviews and direct strategic support.",
   };
 
   const html = `
@@ -72,9 +72,9 @@ export async function sendQuizResultsEmail(params: {
           (b) => `
         <div style="background: #f8fafc; border-left: 4px solid #FF4D00; padding: 16px; border-radius: 4px; margin-bottom: 12px;">
           <p style="color: #0B1120; font-size: 14px; line-height: 1.6; margin: 0;">${b}</p>
-        </div>`
+        </div>`,
         )
-        .join('')}
+        .join("")}
 
       <!-- Recommended Next Step -->
       <div style="background: #0B1120; border-radius: 12px; padding: 24px; margin: 24px 0;">
@@ -87,17 +87,17 @@ export async function sendQuizResultsEmail(params: {
       </div>
 
       <p style="color: #94A3B8; font-size: 13px; line-height: 1.6; margin: 0;">
-        I personally review every call request. If you have questions before booking, just reply to this email.<br><br>
-        — Ashutosh Sharma<br>
-        Founder, OptiVantage Technologies<br>
-        <a href="tel:+919971701239" style="color: #FF4D00;">+91 99717 01239</a>
+        We personally review every call request. If you have questions before booking, just reply to this email.<br><br>
+        — The Optivantage Team<br>
+        OptiVantage Technologies<br>
+        <a href="tel:+919540007159" style="color: #FF4D00;">+91 95400 07159</a>
       </p>
     </div>
 
     <!-- Footer -->
     <div style="background: #f1f5f9; padding: 20px 32px; text-align: center;">
       <p style="color: #94A3B8; font-size: 12px; margin: 0;">
-        © 2026 OptiVantage Technologies Pvt Ltd · Dwarka, New Delhi<br>
+        © 2026 OptiVantage Technologies Pvt Ltd · New Delhi, Delhi<br>
         <a href="${SITE}/unsubscribe?email=${params.to}" style="color: #94A3B8;">Unsubscribe</a>
       </p>
     </div>
@@ -143,19 +143,19 @@ export async function sendContactConfirmation(params: {
     <div style="padding: 32px;">
       <p style="color: #0B1120; font-size: 16px;">Hi ${params.firstName},</p>
       <p style="color: #475569; font-size: 15px; line-height: 1.7;">
-        Thank you for reaching out${params.service ? ` about <strong>${params.service}</strong>` : ''}.
+        Thank you for reaching out${params.service ? ` about <strong>${params.service}</strong>` : ""}.
         Ashutosh will personally review your message and get back to you within 24 hours.
       </p>
       <p style="color: #475569; font-size: 15px; line-height: 1.7;">
         If you'd prefer to book a time directly, you can use the link below:
       </p>
-      <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL ?? 'https://calendly.com/optivantage'}"
+      <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL ?? "https://calendly.com/optivantage"}"
          style="display: inline-block; background: #FF4D00; color: #ffffff; font-weight: 700; font-size: 14px; padding: 12px 24px; border-radius: 8px; text-decoration: none; margin: 8px 0 20px 0;">
         Schedule a Call
       </a>
       <p style="color: #94A3B8; font-size: 13px; margin: 0;">
-        — Ashutosh Sharma · OptiVantage Technologies<br>
-        <a href="tel:+919971701239" style="color: #FF4D00;">+91 99717 01239</a> ·
+        — The Optivantage Team · OptiVantage Technologies<br>
+        <a href="tel:+919540007159" style="color: #FF4D00;">+91 95400 07159</a> ·
         <a href="mailto:contact@optivantage.in" style="color: #FF4D00;">contact@optivantage.in</a>
       </p>
     </div>
@@ -167,7 +167,7 @@ export async function sendContactConfirmation(params: {
     const { error } = await resend.emails.send({
       from: `Ashutosh at OptiVantage <${FROM}>`,
       to: params.to,
-      subject: 'We received your message — OptiVantage Technologies',
+      subject: "We received your message — OptiVantage Technologies",
       html,
     });
     if (error) return { ok: false, error: error.message };
@@ -196,15 +196,15 @@ export async function sendHiringSignalNotification(params: {
   if (!resend) return { ok: true }; // silently skip if not configured
 
   const rows = [
-    ['Name',                 params.name],
-    ['Email',                params.email],
-    ['Phone',                params.phone || '—'],
-    ['Company',              params.company],
-    ['Company website',      params.website || '—'],
-    ['Service they sell',    params.serviceYouSell],
-    ['Target geography',     params.targetGeography],
-    ['Target customer type', params.targetCustomerType],
-    ['Message',              params.message || '—'],
+    ["Name", params.name],
+    ["Email", params.email],
+    ["Phone", params.phone || "—"],
+    ["Company", params.company],
+    ["Company website", params.website || "—"],
+    ["Service they sell", params.serviceYouSell],
+    ["Target geography", params.targetGeography],
+    ["Target customer type", params.targetCustomerType],
+    ["Message", params.message || "—"],
   ];
 
   const tableRows = rows
@@ -213,9 +213,9 @@ export async function sendHiringSignalNotification(params: {
         <tr>
           <td style="padding:10px 14px;font-size:13px;color:#64748B;font-weight:600;width:180px;vertical-align:top;">${label}</td>
           <td style="padding:10px 14px;font-size:14px;color:#0B1120;vertical-align:top;">${value}</td>
-        </tr>`
+        </tr>`,
     )
-    .join('');
+    .join("");
 
   const html = `
 <!DOCTYPE html>
@@ -245,9 +245,9 @@ export async function sendHiringSignalNotification(params: {
   try {
     const { error } = await resend.emails.send({
       from: `Optivantage AI Lab <${FROM}>`,
-      to: 'contact@optivantage.in',
+      to: "contact@optivantage.in",
       replyTo: params.email,
-      subject: 'New request: Hiring Signal Sample Report',
+      subject: "New request: Hiring Signal Sample Report",
       html,
     });
     if (error) return { ok: false, error: error.message };
@@ -288,11 +288,11 @@ export async function sendResourceEmail(params: {
       </a>
       <p style="color: #475569; font-size: 14px; line-height: 1.7;">
         If you have questions or want to discuss how this applies to your organisation,
-        <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL ?? 'https://calendly.com/optivantage'}" style="color: #FF4D00;">book a quick call</a> —
+        <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL ?? "https://calendly.com/optivantage"}" style="color: #FF4D00;">book a quick call</a> —
         no sales pitch, just a practical conversation.
       </p>
       <p style="color: #94A3B8; font-size: 13px; margin: 0;">
-        — Ashutosh Sharma · OptiVantage Technologies
+        — The Optivantage Team · OptiVantage Technologies
       </p>
     </div>
   </div>

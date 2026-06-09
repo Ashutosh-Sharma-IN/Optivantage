@@ -87,7 +87,7 @@ const servicesData: Record<string, any> = {
   // ─── PILLAR 1: AI TRAINING & ADVISORY ───────────────────────────────────────
   'ai-training-advisory': {
     title: "AI Training & Advisory",
-    answerFirst: "Optivantage Technologies provides enterprise AI training and advisory across India — covering Microsoft Copilot 365, ChatGPT, Google Gemini, Agentic AI, and ISO/IEC 42001 AI governance. Founder-led by Ashutosh Sharma, a certified Microsoft AI trainer and Google Cloud Digital Leader with 25 years of enterprise IT experience. Over 1,000 professionals trained at Kotak Mahindra Bank, BIAL, Hexaware, Infogain, and MSME India.",
+    answerFirst: "Optivantage Technologies provides enterprise AI training and advisory across India — covering Microsoft Copilot 365, ChatGPT, Google Gemini, Agentic AI, and ISO/IEC 42001 AI governance. Founder-led, with certified Microsoft AI trainers and Google Cloud Digital Leaders bringing 25 years of enterprise IT experience. Over 1,000 professionals trained at Kotak Mahindra Bank, BIAL, Hexaware, Infogain, and MSME India.",
     icon: <BrainCircuit className="text-brand h-10 w-10" />,
     showClientLogos: true,
     showPlatformLogos: true,
@@ -136,7 +136,7 @@ const servicesData: Record<string, any> = {
           },
           {
             title: "AI Security & Governance — ISO/IEC 42001",
-            desc: "Implementation of the ISO/IEC 42001 AI Management System standard. Risk assessment, bias mitigation, audit readiness, and responsible AI controls. Ashutosh Sharma is a certified ISO 42001 Lead Implementer — one of the very few in India.",
+            desc: "Implementation of the ISO/IEC 42001 AI Management System standard. Risk assessment, bias mitigation, audit readiness, and responsible AI controls. Optivantage holds ISO 42001 Lead Implementer credentials — one of the very few firms in India.",
             icon: <ShieldCheck className="text-brand" />
           },
           {
@@ -828,7 +828,7 @@ export default function ServiceDetail({ slug }: { slug: string }) {
             <div className="bg-navy-800 p-6 rounded-xl border border-white/10 inline-block">
               <img
                 src="/certifications/ai-trainer-certificate.png"
-                alt="Become AI Trainer Certificate — Ashutosh Sharma"
+                alt="Become AI Trainer Certificate — Optivantage Technologies"
                 className="max-h-80 w-auto rounded-lg shadow-lg"
                 loading="lazy"
               />

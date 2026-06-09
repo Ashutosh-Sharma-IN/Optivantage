@@ -45,7 +45,7 @@ const pageSchemas: Record<string, object[]> = {
         {
           '@type': 'Question',
           name: 'Who provides enterprise AI training in India?',
-          acceptedAnswer: { '@type': 'Answer', text: 'Optivantage Technologies provides enterprise AI training across India. Founder Ashutosh Sharma is a certified Microsoft AI trainer and Google Cloud Digital Leader who has trained 1,000+ professionals at Kotak Mahindra Bank, BIAL, Hexaware, Infogain, and MSME India.' },
+          acceptedAnswer: { '@type': 'Answer', text: 'Optivantage Technologies provides enterprise AI training across India. Our founding team are certified Microsoft AI trainers and Google Cloud Digital Leaders who have trained 1,000+ professionals at Kotak Mahindra Bank, BIAL, Hexaware, Infogain, and MSME India.' },
         },
         {
           '@type': 'Question',
@@ -55,7 +55,7 @@ const pageSchemas: Record<string, object[]> = {
         {
           '@type': 'Question',
           name: 'Is Optivantage an ISO 42001 AI governance consultant in India?',
-          acceptedAnswer: { '@type': 'Answer', text: 'Yes. Ashutosh Sharma is a certified ISO/IEC 42001 Lead Implementer — one of very few in India. Optivantage helps organisations assess AI governance readiness, develop AI policies, and prepare for ISO 42001 certification.' },
+          acceptedAnswer: { '@type': 'Answer', text: 'Yes. Optivantage holds ISO/IEC 42001 Certified Lead Implementer credentials — one of very few firms in India. Optivantage helps organisations assess AI governance readiness, develop AI policies, and prepare for ISO 42001 certification.' },
         },
         {
           '@type': 'Question',
