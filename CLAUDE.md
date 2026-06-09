@@ -230,14 +230,28 @@ git push origin main --force
 - Street address (Dwarka, Sector 9, Pocket 1) → replaced with "New Delhi, Delhi"
 - Person JSON-LD schema → removed from layout.tsx and about/page.tsx
 - Blog post author field → changed to "Optivantage Team"
+- `public/ai-automation.html` (the `/ai-automation` page — a static HTML file served via Next.js rewrite) — all name references removed June 9 2026 (commit `c72cf40c`)
 
 **What was NOT changed:**
 
 - `privacy/page.tsx` — registered office address retained (legal requirement)
 - The site still credits "25 years enterprise IT at BT, Telstra, SITA" — just without a name attached
+- `/Ashutosh_Sharma_AI_Profile_Flutter_v2.pdf` — PDF filename retained in the download href (not user-visible on page); button text says "Download AI Profile"
 
-**Commit before change:** `a1bec855`
-**Commit of change:** `960c5b4c`
+**Commits:**
+| What | Commit |
+|---|---|
+| Before de-personalisation | `a1bec855` |
+| Main de-personalisation (20 files) | `960c5b4c` |
+| CLAUDE.md rollback note added | `fe5abced` |
+| ai-automation.html name removal | `c72cf40c` |
+
+**Full rollback** (restores all named/personal content):
+
+```
+git reset --hard a1bec855
+git push origin main --force
+```
 
 ---
 
