@@ -589,15 +589,7 @@ export default function MicrosoftCopilotPage() {
                 key={line}
                 className="bg-navy-800 border border-white/10 rounded-xl p-6 flex items-center gap-4"
               >
-                <div className="bg-white rounded-lg p-2 flex-shrink-0">
-                  <Image
-                    src="/platforms/Microsoft Logo.jpg"
-                    alt=""
-                    width={60}
-                    height={24}
-                    className="object-contain h-6 w-auto"
-                  />
-                </div>
+                <ShieldCheck className="text-brand h-6 w-6 flex-shrink-0" />
                 <p className="text-white font-semibold text-sm">{line}</p>
               </div>
             ))}

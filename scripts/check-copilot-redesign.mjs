@@ -95,6 +95,36 @@ for (const text of required) {
     fail(`new page: required text missing: "${text}"`);
 }
 
+// 3b. Form result messages must be announced and placed next to the submit button.
+const formFile = join(
+  ROOT,
+  "src",
+  "app",
+  "microsoft-copilot",
+  "CopilotEnquiryForm.tsx",
+);
+if (existsSync(formFile)) {
+  const form = read(formFile);
+  if ((form.match(/role="alert"/g) || []).length < 2) {
+    fail('enquiry form: success and error messages need role="alert"');
+  }
+  if (form.indexOf('type="submit"') > form.indexOf('status === "success"')) {
+    fail(
+      "enquiry form: result messages must come after the submit button, where the visitor is looking",
+    );
+  }
+}
+
+// 3c. No Microsoft logo beside partner-status claims (spec 4.6): only the hero lockup may use it.
+const pagePath = join(ROOT, "src", "app", "microsoft-copilot", "page.tsx");
+if (existsSync(pagePath)) {
+  const logoUses = (read(pagePath).match(/Microsoft Logo\.jpg/g) || []).length;
+  if (logoUses > 1)
+    fail(
+      `new page: Microsoft logo used ${logoUses} times; only the hero may use it`,
+    );
+}
+
 // 4. Live checks against a running site.
 const urlFlag = process.argv.indexOf("--base-url");
 if (urlFlag !== -1) {

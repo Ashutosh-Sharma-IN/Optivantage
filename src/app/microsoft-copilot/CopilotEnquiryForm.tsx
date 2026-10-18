@@ -58,38 +58,6 @@ export default function CopilotEnquiryForm() {
 
   return (
     <div>
-      {status === "success" && (
-        <div className="mb-8 p-6 bg-green-500/10 border border-green-500/30 rounded-xl flex items-start gap-4">
-          <CheckCircle2 className="text-green-500 h-6 w-6 flex-shrink-0 mt-1" />
-          <div>
-            <h3 className="text-green-400 font-bold text-lg mb-1">
-              Thank you, we've received it.
-            </h3>
-            <p className="text-green-200 text-sm">
-              Our team will be in touch shortly.
-            </p>
-          </div>
-        </div>
-      )}
-
-      {status === "error" && (
-        <div className="mb-8 p-6 bg-red-500/10 border border-red-500/30 rounded-xl flex items-start gap-4">
-          <AlertCircle className="text-red-500 h-6 w-6 flex-shrink-0 mt-1" />
-          <div>
-            <h3 className="text-red-400 font-bold text-lg mb-1">
-              That didn't send.
-            </h3>
-            <p className="text-red-200 text-sm">
-              Something went wrong. Please email{" "}
-              <a href="mailto:contact@optivantage.in" className="underline">
-                contact@optivantage.in
-              </a>
-              . Your details are still in the form below.
-            </p>
-          </div>
-        </div>
-      )}
-
       <form
         onSubmit={handleSubmit}
         className="bg-navy-800 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-5"
@@ -242,6 +210,45 @@ export default function CopilotEnquiryForm() {
             </>
           )}
         </button>
+
+        {/* Shown right under the button, where the visitor is looking after they tap it. */}
+        {status === "success" && (
+          <div
+            role="alert"
+            className="p-6 bg-green-500/10 border border-green-500/30 rounded-xl flex items-start gap-4"
+          >
+            <CheckCircle2 className="text-green-500 h-6 w-6 flex-shrink-0 mt-1" />
+            <div>
+              <h3 className="text-green-400 font-bold text-lg mb-1">
+                Thank you, we&apos;ve received it.
+              </h3>
+              <p className="text-green-200 text-sm">
+                Our team will be in touch shortly.
+              </p>
+            </div>
+          </div>
+        )}
+
+        {status === "error" && (
+          <div
+            role="alert"
+            className="p-6 bg-red-500/10 border border-red-500/30 rounded-xl flex items-start gap-4"
+          >
+            <AlertCircle className="text-red-500 h-6 w-6 flex-shrink-0 mt-1" />
+            <div>
+              <h3 className="text-red-400 font-bold text-lg mb-1">
+                That didn&apos;t send.
+              </h3>
+              <p className="text-red-200 text-sm">
+                Something went wrong. Please email{" "}
+                <a href="mailto:contact@optivantage.in" className="underline">
+                  contact@optivantage.in
+                </a>
+                . Your details are still in the form above.
+              </p>
+            </div>
+          </div>
+        )}
       </form>
     </div>
   );
