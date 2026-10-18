@@ -144,10 +144,10 @@ export default function AITrainingTelecomIndia() {
               Request a Programme <ArrowRight size={18} />
             </Link>
             <Link
-              href="/training/copilot-365"
+              href="/microsoft-copilot"
               className="px-8 py-4 border border-white/20 hover:bg-white/5 text-white font-semibold rounded-lg transition-all"
             >
-              Copilot 365 Details
+              Microsoft Copilot for Enterprises
             </Link>
           </div>
         </div>

@@ -741,23 +741,23 @@ export default function ServiceDetail({ slug }: { slug: string }) {
         </section>
       )}
 
-      {/* COPILOT 365 COURSE BANNER — AI page only */}
+      {/* MICROSOFT COPILOT FOR ENTERPRISES BANNER — AI page only */}
       {service.showPlatformLogos && (
         <section className="py-10 px-4 bg-navy-900">
           <div className="max-w-4xl mx-auto">
             <div className="bg-gradient-to-r from-brand/10 to-orange-400/10 border border-brand/30 rounded-2xl p-8 flex flex-col md:flex-row items-center gap-6">
               <div className="flex-1">
-                <p className="text-xs font-bold text-brand uppercase tracking-widest mb-2">Featured Course</p>
-                <h3 className="text-2xl font-bold text-white mb-2">Master Microsoft Copilot 365 — In 4 Weekends</h3>
+                <p className="text-xs font-bold text-brand uppercase tracking-widest mb-2">Featured: Microsoft Copilot for Enterprises</p>
+                <h3 className="text-2xl font-bold text-white mb-2">Get real value from your Copilot licences</h3>
                 <p className="text-text-muted text-sm leading-relaxed">
-                  A live, practitioner-led course for working professionals. 20 hours · 22 modules · Small cohorts · Certificate included.
+                  Assess, train, build and measure: readiness checks, leadership and team programmes, agents for your processes, and adoption numbers for HR and L&amp;D.
                 </p>
               </div>
               <Link
-                href="/training/copilot-365"
+                href="/microsoft-copilot"
                 className="flex-shrink-0 px-6 py-3 bg-brand hover:bg-brand-hover text-white font-semibold rounded-lg transition-all flex items-center gap-2 text-sm whitespace-nowrap"
               >
-                See Course Details <ArrowLeft size={16} className="rotate-180" />
+                See how we work <ArrowLeft size={16} className="rotate-180" />
               </Link>
             </div>
           </div>
