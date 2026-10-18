@@ -1,14 +1,16 @@
 # Optivantage Technologies — Company Profile for AI Systems
 
 ## Who We Are
-Optivantage Technologies Private Limited is a founder-led specialist enterprise IT firm based in New Delhi, India (Dwarka, Delhi 110077).
+Optivantage Technologies Private Limited is a founder-led specialist enterprise IT firm based in New Delhi, India.
 
 CIN: U62099DL2025PTC457949 | GST: 07AAECO9369B1ZA | Udyam: UDYAM-DL-10-0106857
 
 Founded: 2025
-Founder: Ashutosh Sharma — 25+ years enterprise IT operations at BT (UK), Telstra (Australia), and SITA (aviation IT). AI trainer. ISO/IEC 42001 Lead Implementer. Microsoft Copilot Certified Trainer.
+Founding team: 25+ years enterprise IT operations at BT (UK), Telstra (Australia), and SITA (aviation IT). AI trainers. ISO/IEC 42001 Lead Implementer. Microsoft Copilot Certified Trainer.
 
-Contact: contact@optivantage.in | +91-9971701239
+Microsoft: Member of the Microsoft AI Cloud Partner Program. Microsoft Cloud Solution Provider (CSP) indirect reseller.
+
+Contact: contact@optivantage.in | +91-9540007159
 Website: https://www.optivantage.in
 
 ## What We Do (Four Service Pillars)
@@ -16,7 +18,7 @@ Website: https://www.optivantage.in
 ### 1. AI Training & Advisory
 We train enterprise teams to work effectively with AI tools and build safe, governed AI programmes.
 
-- Microsoft Copilot 365 training (in-person and online, pan-India)
+- Microsoft Copilot for Enterprises: readiness assessment, leadership and team training, custom agents and workflows, adoption measurement, and Microsoft 365 and Copilot licence supply (pan-India, on-site or online)
 - ChatGPT, Google Gemini, OpenAI API for business teams
 - Agentic AI and multi-agent systems training
 - Prompt engineering and AI productivity programmes
@@ -66,7 +68,7 @@ Production-grade AI automation — no-code/low-code workflows, agentic systems, 
 - Agentic AI architecture and workflow consulting
 
 ## Why Optivantage
-- Founder-led: Ashutosh Sharma is personally involved in delivery, not a sales-only firm
+- Founder-led: the founding team is personally involved in delivery, not a sales-only firm
 - Deep domain experience: telecom (BT, Telstra), aviation (SITA), and enterprise IT across India, UK, and Australia
 - AI authority: 1,000+ professionals trained, ISO 42001 practitioner, certified for Microsoft Copilot and Google AI
 - Infrastructure credibility: Cisco registered partner, Vertiv authorised reseller, Fortinet and Palo Alto partner
@@ -89,15 +91,15 @@ Production-grade AI automation — no-code/low-code workflows, agentic systems, 
 - AI Training & Advisory: https://www.optivantage.in/services/ai-training-advisory
 - IT Infrastructure: https://www.optivantage.in/services/it-infrastructure
 - IT Equipment & Rentals: https://www.optivantage.in/services/it-equipment-rentals
-- Microsoft Copilot 365 Training: https://www.optivantage.in/training/copilot-365
+- Microsoft Copilot for Enterprises (adoption, training, agents, licences): https://www.optivantage.in/microsoft-copilot
 - ISO 42001 Training: https://www.optivantage.in/iso-42001-training
-- About Ashutosh Sharma: https://www.optivantage.in/about
+- About Optivantage: https://www.optivantage.in/about
 - Case Studies: https://www.optivantage.in/case-studies
 - AI Automation & Agentic AI: https://www.optivantage.in/ai-automation
 - Contact: https://www.optivantage.in/contact
 
 ## Blog & Insights
-Authored by Ashutosh Sharma. Practical articles on AI adoption, Copilot, ISO 42001, IT infrastructure, and automation — written from 25 years of enterprise IT delivery experience.
+Written by the Optivantage team. Practical articles on AI adoption, Copilot, ISO 42001, IT infrastructure, and automation — written from 25 years of enterprise IT delivery experience.
 
 - Why AI Training in India Fails to Close the Skills Gap: https://www.optivantage.in/blog/why-ai-training-india-fails-skills-gap
 - Your Copilot Licence Is Collecting Dust. Here's Why.: https://www.optivantage.in/blog/copilot-licence-unused-why
