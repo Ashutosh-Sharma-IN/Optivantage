@@ -190,7 +190,7 @@ export const proofItems: ProofItem[] = [
   {
     label: "PwC India",
     detail:
-      "Firm-wide programme for 1,000+ people across two masterclasses: leadership using AI, a Copilot masterclass, and building confidence in using AI.",
+      "Firm-wide programme for 1,000+ people across three masterclasses: leadership using AI, a Copilot masterclass, and building confidence in using AI.",
     status: "Delivered",
   },
   {
