@@ -25,7 +25,10 @@ export default function Navbar() {
           name: "IT Equipment & Rentals",
           href: "/services/it-equipment-rentals",
         },
-        { name: "Copilot 365 Course", href: "/training/copilot-365" },
+        {
+          name: "Microsoft Copilot for Enterprises",
+          href: "/microsoft-copilot",
+        },
         { name: "AI Automation & Agentic AI", href: "/ai-automation" },
         { name: "AEO Audit — AI Visibility Score", href: "/aeo-audit" },
       ],

@@ -117,7 +117,7 @@ From proposals: participant prompt library, use-case starter packs, workflow tem
 
 ### 4.5 Proof
 
-- **PwC India**: named, as delivered work. Firm-wide, 1,000+ people across 2 masterclasses (leadership using AI; Copilot masterclass; confidence in using AI).
+- **PwC India**: named, as delivered work. Firm-wide, 1,000+ people across 3 masterclasses (leadership using AI; Copilot masterclass; confidence in using AI).
 - **OSBI** — named as a current engagement: "AI Practitioner programme, starting November 2026." No outcome claims.
 - **"Designed for a global BPO's senior leadership"** and **"designed for an MNC chemical company"** — described as programme designs, not delivered results. Can show the shape (e.g. the BPO's 7 use cases: call transcript → case summary, QA scorecard → coaching dashboard, etc.), which demonstrates depth without naming.
 - Existing client logo strip (BIAL, Kotak Mahindra Bank, Hexaware, Infogain, MSME India, upGrad, Arvind Fashions) stays, plus PwC.
@@ -259,7 +259,7 @@ On the preview link, before merge:
 Answered by the owner, 18 Oct 2026:
 
 1. **Prompting framework:** **CRAFT** is the public name. Used consistently on the site.
-2. **PwC India:** firm-wide audience, **1,000+ people across 2 masterclasses**: leadership using AI; a Copilot masterclass; building confidence in using AI. Shown as delivered work.
+2. **PwC India:** firm-wide audience, **1,000+ people across 3 masterclasses**: leadership using AI; a Copilot masterclass; building confidence in using AI. Shown as delivered work.
 3. **Usage claim** ("daily Copilot use rose from under 20% to 60–70%") comes from **Hexaware**. Usable as proof.
 4. **Licence supply:** confirmed. Site says Optivantage supplies Microsoft 365 and Copilot licences as a CSP indirect reseller. Distributor not named.
 

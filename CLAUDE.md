@@ -1,7 +1,7 @@
 # CLAUDE.md — Optivantage Technologies Website
 
 Context file for Claude Code sessions (CLI and Desktop app both read this at startup).
-Last updated: May 2026 (session 2).
+Last updated: 18 October 2026 (enterprise Copilot page).
 
 ---
 
@@ -43,6 +43,30 @@ Five states: `form → analyzing → result → paying → done`. The teaser cal
 
 - Razorpay account approval for optivantage.in domain (submitted May 16, 24–48 hours)
 - Resend domain verification for `optivantage.in` (DNS records added May 16, propagating)
+
+---
+
+## Microsoft Copilot for Enterprises — added Oct 2026
+
+The weekend Copilot course for individuals is gone. Copilot is now sold to enterprises only (HR, L&D, function heads).
+
+| Item                     | Detail                                                                                                                                     |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Page**                 | `src/app/microsoft-copilot/page.tsx` → https://www.optivantage.in/microsoft-copilot                                                        |
+| **Nav / footer label**   | "Microsoft Copilot for Enterprises" (Services dropdown)                                                                                    |
+| **Offer content**        | `src/lib/copilot-offer.ts` (journey, 3 formats, principles, proof, FAQs)                                                                   |
+| **Copilot feature list** | `src/lib/copilot-updates.ts`, the ONLY place to update Copilot features. Change `COPILOT_LAST_REVIEWED` when you do.                       |
+| **Redirects**            | `next.config.ts`: `/training/copilot-365`, `/microsoft-copilot-training`, `/microsoft-copilot-training-india` → `/microsoft-copilot` (308) |
+| **Enquiry form**         | Formspree `maqwnqnp`, subject "New enquiry: Microsoft Copilot for Enterprises"                                                             |
+| **Checks**               | `node scripts/check-copilot-redesign.mjs` (add `--base-url <url>` for live redirect checks)                                                |
+| **Design / plan**        | `docs/superpowers/specs/2026-10-18-copilot-enterprise-design.md`, `docs/superpowers/plans/2026-10-18-copilot-enterprise-page.md`           |
+
+Copy rules for this page:
+
+- Prompting framework is **CRAFT** only.
+- Partner wording, exact: "Member of the Microsoft AI Cloud Partner Program" and "Microsoft Cloud Solution Provider (CSP) indirect reseller". Never "Solutions Partner", "Certified Partner" or "Gold Partner".
+- Named proof: PwC India (delivered), OSBI (current engagement, no outcome claims until done). The global BPO and MNC chemical company are "programme designs", never named.
+- No prices.
 
 ---
 
@@ -239,12 +263,13 @@ git push origin main --force
 - `/Ashutosh_Sharma_AI_Profile_Flutter_v2.pdf` — PDF filename retained in the download href (not user-visible on page); button text says "Download AI Profile"
 
 **Commits:**
-| What | Commit |
-|---|---|
-| Before de-personalisation | `a1bec855` |
+
+| What                               | Commit     |
+| ---------------------------------- | ---------- |
+| Before de-personalisation          | `a1bec855` |
 | Main de-personalisation (20 files) | `960c5b4c` |
-| CLAUDE.md rollback note added | `fe5abced` |
-| ai-automation.html name removal | `c72cf40c` |
+| CLAUDE.md rollback note added      | `fe5abced` |
+| ai-automation.html name removal    | `c72cf40c` |
 
 **Full rollback** (restores all named/personal content):
 

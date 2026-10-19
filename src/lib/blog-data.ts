@@ -100,7 +100,7 @@ export const blogPosts: BlogPost[] = [
 
       <p>In Indian GCC and enterprise environments there is an added layer. Many employees still use WhatsApp as their primary work communication tool. Copilot lives inside Outlook, Teams, and Word. The behaviour shift required is larger than in a Microsoft-native organisation. Your training has to account for that, not assume it away.</p>
 
-      <p>If your organisation has Copilot licences and flat adoption, the training design is almost certainly the issue — not the tool. <a href="/training/copilot-365">Our 20-hour Copilot 365 programme</a> is built specifically for enterprise teams in India. Or <a href="/contact">book a 30-minute call</a> and we can look at your specific situation together.</p>
+      <p>If your organisation has Copilot licences and flat adoption, the training design is almost certainly the issue — not the tool. <a href="/microsoft-copilot">Our enterprise Copilot programmes</a> are built specifically for enterprise teams in India. Or <a href="/contact">book a 30-minute call</a> and we can look at your specific situation together.</p>
     `,
   },
   {
@@ -151,7 +151,7 @@ export const blogPosts: BlogPost[] = [
 
       <p>The people who get the best results from Copilot are not the most technical people in the room. They are the ones who have learned to give clear instructions. CRAFT is a repeatable structure for exactly that.</p>
 
-      <p>CRAFT is one of the core frameworks in our <a href="/training/copilot-365">Copilot 365 training programme</a>. If you want your team to get real value from the licences already in place, <a href="/contact">a 30-minute conversation</a> is a good place to start.</p>
+      <p>CRAFT is one of the core frameworks in our <a href="/microsoft-copilot">enterprise Copilot programmes</a>. If you want your team to get real value from the licences already in place, <a href="/contact">a 30-minute conversation</a> is a good place to start.</p>
     `,
   },
   {

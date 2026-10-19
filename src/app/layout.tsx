@@ -419,10 +419,10 @@ export default function RootLayout({
                   </li>
                   <li>
                     <Link
-                      href="/training/copilot-365"
+                      href="/microsoft-copilot"
                       className="text-sm text-gray-400 hover:text-brand transition-colors"
                     >
-                      Copilot 365 Course
+                      Microsoft Copilot for Enterprises
                     </Link>
                   </li>
                   <li>

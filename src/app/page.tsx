@@ -390,21 +390,21 @@ export default function Home() {
               </div>
             </Link>
 
-            <Link href="/microsoft-copilot-training" className="group">
+            <Link href="/microsoft-copilot" className="group">
               <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all hover:-translate-y-1">
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-200 transition-colors">
                   <Zap className="h-6 w-6 text-purple-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  Microsoft Copilot 365 Training
+                  Microsoft Copilot for Enterprises
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Master AI-powered productivity tools. Learn Copilot
-                  integration across Microsoft 365 for enhanced workflow
-                  automation.
+                  Turn Copilot licences into daily use: readiness checks,
+                  training built on your teams&apos; work, agents and adoption
+                  measurement.
                 </p>
                 <div className="text-purple-600 font-medium group-hover:text-purple-700">
-                  Start Learning Copilot →
+                  See how we work →
                 </div>
               </div>
             </Link>
@@ -470,23 +470,23 @@ export default function Home() {
               <div className="flex-1 text-center md:text-left">
                 <div className="inline-flex items-center gap-2 bg-brand/10 border border-brand/30 rounded-full px-3 py-1 mb-3">
                   <span className="text-brand text-xs font-semibold">
-                    New · Live Course
+                    For enterprises
                   </span>
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  Master Microsoft Copilot 365 — In 4 Weekends
+                  Get real value from your Copilot licences
                 </h3>
                 <p className="text-text-muted text-sm">
-                  20 hours · 22 modules · Small cohorts · Role playbooks ·
-                  Certificate. Taught by an accredited Microsoft & Google AI
-                  trainer.
+                  Assess · Train · Build · Measure. Readiness checks, training
+                  built on your own work, agents for your processes, and numbers
+                  you can show leadership.
                 </p>
               </div>
               <Link
-                href="/training/copilot-365"
+                href="/microsoft-copilot"
                 className="flex-shrink-0 px-6 py-3 bg-[#0078D4] hover:bg-[#006CBE] text-white font-semibold rounded-lg transition-all flex items-center gap-2 text-sm whitespace-nowrap"
               >
-                See Course Details <ArrowRight size={16} />
+                See how we work <ArrowRight size={16} />
               </Link>
             </div>
           </div>
